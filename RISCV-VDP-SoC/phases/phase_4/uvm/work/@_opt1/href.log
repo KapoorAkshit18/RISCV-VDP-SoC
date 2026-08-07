@@ -1,0 +1,9 @@
+BEGIN 3:soc_native_if:fast__2:work
+    m_strb :  1:tb_soc_uvm:fast:work
+    m_rdata :  1:tb_soc_uvm:fast:work
+    m_write :  1:tb_soc_uvm:fast:work
+    m_wdata :  1:tb_soc_uvm:fast:work
+    m_ready :  1:tb_soc_uvm:fast:work
+    m_valid :  1:tb_soc_uvm:fast:work
+    m_addr :  1:tb_soc_uvm:fast:work
+END 

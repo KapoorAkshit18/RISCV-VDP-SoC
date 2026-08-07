@@ -1,0 +1,91 @@
+m255
+K4
+z2
+!s12c _opt1
+Z0 !s99 nomlopt
+!s12c _opt
+R0
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/hdl_interconnect
+T_opt
+!s110 1785592602
+V>lz7Mn^jZ@ZI_^c6G[bJW1
+Z2 04 23 4 work tb_soc_mem_interconnect fast 0
+=1-48e7dad10595-6a6dfb17-3c1-7a70
+R0
+Z3 !s12f OEM100
+Z4 !s12b OEM100
+Z5 !s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z6 tCvgOpt 0
+n@_opt
+Z7 OL;O;2024.1;79
+R1
+T_opt1
+!s110 1785989113
+VfAm`fKH^RBHz0Ue@2m<[Z2
+R2
+=1-48e7dad10595-6a7407f8-2f1-1098
+R0
+R3
+R4
+R5
+o-quiet -auto_acc_if_foreign -work work +acc
+R6
+n@_opt1
+R7
+R1
+vsoc_mem_interconnect
+Z8 2soc_mem_interconnect.v|tb_soc_mem_interconnect.sv
+Z9 !s110 1786001344
+!i10b 1
+!s100 K5I`F7g]TQBIlk6zW0:P?3
+IfznoPa4aPegGR94;FQBzh1
+R1
+w1785979285
+8soc_mem_interconnect.v
+Fsoc_mem_interconnect.v
+!i122 4
+L0 46 359
+Z10 VDg1SIo80bB@j0V0VzS_@n1
+Z11 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z12 !s108 1786001344.000000
+!s107 tb_soc_mem_interconnect.sv|soc_mem_interconnect.v|
+Z13 !s90 soc_mem_interconnect.v|tb_soc_mem_interconnect.sv|
+!i113 0
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R6
+vtb_soc_mem_interconnect
+R8
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R9
+!i10b 1
+!s100 `5HdJn:46>hffFLjCKYLz2
+IkK0co^>9zZ]MIgX4AJ54E3
+S1
+R1
+w1785977915
+8tb_soc_mem_interconnect.sv
+Ftb_soc_mem_interconnect.sv
+!i122 4
+L0 29 588
+R10
+R11
+r1
+!s85 0
+31
+R12
+Z15 !s107 tb_soc_mem_interconnect.sv|soc_mem_interconnect.v|
+R13
+!i113 0
+R14
+R6

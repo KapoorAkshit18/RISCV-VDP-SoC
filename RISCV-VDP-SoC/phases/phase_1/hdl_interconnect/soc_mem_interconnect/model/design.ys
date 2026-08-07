@@ -1,0 +1,9 @@
+# running in soc_mem_interconnect/src/
+read_verilog -formal soc_mem_interconnect.v
+read_verilog -formal soc_mem_interconnect_formal.sv
+prep -top soc_mem_interconnect_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

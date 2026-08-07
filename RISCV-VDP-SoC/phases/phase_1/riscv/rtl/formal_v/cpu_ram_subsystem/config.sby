@@ -1,0 +1,27 @@
+[options]
+mode prove
+depth 10
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal riscv.v
+read_verilog -formal tb_riscv_wrapper.sv
+read_verilog -formal cpu_bus_adapter.v
+read_verilog -formal soc_mem_interconnect.v
+read_verilog -formal soc_ram.v
+read_verilog -formal cpu_ram_subsystem.v
+read_verilog -formal cpu_ram_subsystem_formal.v
+prep -top cpu_ram_subsystem_formal
+prep -top cpu_ram_subsystem_formal
+
+[files]
+
+riscv.v
+tb_riscv_wrapper.sv
+cpu_bus_adapter.v
+soc_mem_interconnect.v
+soc_ram.v
+cpu_ram_subsystem.v
+cpu_ram_subsystem_formal.v

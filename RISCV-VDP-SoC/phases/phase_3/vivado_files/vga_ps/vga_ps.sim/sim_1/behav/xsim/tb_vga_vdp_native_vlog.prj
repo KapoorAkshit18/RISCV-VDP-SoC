@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../vga.srcs/sources_1/imports/files/vdp_axi_slave.v" \
+"../../../../vga.srcs/sources_1/imports/files/vga_timing_gen.v" \
+"../../../../vga.srcs/sim_1/imports/files/tb_vga_vdp.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

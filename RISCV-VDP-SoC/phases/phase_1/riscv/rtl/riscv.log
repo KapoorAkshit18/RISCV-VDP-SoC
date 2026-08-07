@@ -1,0 +1,35 @@
+# [TEST START] RV32I Full Instruction Verification Running...
+# [75] [FETCH] PC=0x00000000 | Instruction=0x123450b7
+# [115] [FETCH] PC=0x00000004 | Instruction=0x00000117
+# [155] [FETCH] PC=0x00000008 | Instruction=0x01300193
+# [195] [FETCH] PC=0x0000000c | Instruction=0xfff02213
+# [235] [FETCH] PC=0x00000010 | Instruction=0x00103293
+# [275] [FETCH] PC=0x00000014 | Instruction=0x00f1c313
+# [315] [FETCH] PC=0x00000018 | Instruction=0x0f036393
+# [355] [FETCH] PC=0x0000001c | Instruction=0x00f3f413
+# [395] [FETCH] PC=0x00000020 | Instruction=0x00241493
+# [435] [FETCH] PC=0x00000024 | Instruction=0x0014d513
+# [475] [FETCH] PC=0x00000028 | Instruction=0x4014d593
+# [515] [FETCH] PC=0x0000002c | Instruction=0x00a18633
+# [555] [FETCH] PC=0x00000030 | Instruction=0x40a186b3
+# [605] [FETCH] PC=0x00000034 | Instruction=0x00849733
+# [655] [FETCH] PC=0x00000038 | Instruction=0x00a6a7b3
+# [705] [FETCH] PC=0x0000003c | Instruction=0x00a6b833
+# [755] [FETCH] PC=0x00000040 | Instruction=0x00a6c8b3
+# [805] [FETCH] PC=0x00000044 | Instruction=0x00875933
+# [855] [FETCH] PC=0x00000048 | Instruction=0x408759b3
+# [905] [FETCH] PC=0x0000004c | Instruction=0x00a6ea33
+# [955] [FETCH] PC=0x00000050 | Instruction=0x00a6fab3
+# [1005] [FETCH] PC=0x00000054 | Instruction=0x07402023
+# [1055] [FETCH] PC=0x00000058 | Instruction=0x06002b03
+# [1085] [WRITE] Addr=0x00000060 | Data=0xxxxxxxxx | Strobe=1111
+# [1125] [FETCH] PC=0x0000005c | Instruction=0x07101223
+# [1155] [READ]  Addr=0x00000060 | Data=0xxxxxxxxx
+# [1195] [FETCH] PC=0x00000060 | Instruction=0xxxxxxxxx
+# [1225] [WRITE] Addr=0x00000064 | Data=0xffe3ffe3 | Strobe=0011
+# [1315] [FETCH] PC=0x00000064 | Instruction=0x0640ffe3
+# [1355] [FETCH] PC=0x00000068 | Instruction=0x07500323
+# [1395] [FETCH] PC=0x000008e0 | Instruction=0xxxxxxxxx
+# [1405] [TRAP ASSERTED] Core execution halted at PC=0x000008e2.
+# ** Note: $finish    : C:/Users/akshi/OneDrive/Desktop1/Final_Project/tools/questa_sim/tb_riscv.sv(134)
+#    Time: 1405 ns  Iteration: 2  Instance: /tb_ptb_rv32i_full

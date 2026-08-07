@@ -1,0 +1,402 @@
+m255
+K4
+z2
+!s12c _opt1
+Z0 !s99 nomlopt
+Z1 !s12c _opt
+R0
+R1
+R0
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_4/uvm
+T_opt
+Z3 !s11d soc_uvm_pkg C:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_4/uvm/work 1 soc_native_if 1 C:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_4/uvm/work 
+Z4 !s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 soc_native_if 1 C:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_4/uvm/work 
+!s110 1786081041
+VD_]f2kV;^7F<o7R?bhCDe2
+Z5 04 10 4 work tb_soc_uvm fast 0
+=1-48e7dad10595-6a756f10-326-68f8
+R0
+Z6 !s12f OEM100
+Z7 !s12b OEM100
+Z8 !s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2024.1;79
+R2
+T_opt1
+R3
+R4
+!s110 1786081943
+V630Cc<`aS_;?Sf5To<9Mo1
+R5
+=1-48e7dad10595-6a757295-132-5738
+R0
+R6
+R7
+R8
+o-quiet -auto_acc_if_foreign -work work
+R9
+n@_opt1
+R10
+vgpio_native_slave
+Z11 2rtl/soc_mem_interconnect.v|rtl/soc_ram.v|rtl/gpio_native_slave.v|rtl/rf_telemetry_native.v|rtl/sensor_status_native.v|rtl/vga_timing_gen.v|rtl/vdp_native_slave.v|rtl/soc_uvm_dut.sv|tb/soc_native_if/soc_native_if.sv|tb/soc_pkg/soc_uvm_pkg.sv|tb_soc_uvm.sv
+Z12 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z13 !s110 1786081927
+!i10b 1
+!s100 i3Mbl9H=:UV383HI[lmdT2
+I=[B9CU=To;b3]c5e?Wh_@3
+S1
+R2
+w1786045581
+8rtl/gpio_native_slave.v
+Frtl/gpio_native_slave.v
+!i122 3
+L0 38 96
+Z14 VDg1SIo80bB@j0V0VzS_@n1
+Z15 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z16 !s108 1786081927.000000
+Z17 !s107 tb/soc_base_test/soc_smoke_sequence.sv|tb/soc_base_test/soc_base_sequence.sv|tb/soc_env/soc_env.sv|tb/soc_agent/soc_agent.sv|tb/soc_monitor/soc_monitor.sv|tb/soc_driver/soc_driver.sv|tb/soc_agent/soc_sequencer/soc_sequencer.sv|tb/soc_agent/soc_sequence_item/soc_sequence_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|tb_soc_uvm.sv|tb/soc_pkg/soc_uvm_pkg.sv|tb/soc_native_if/soc_native_if.sv|rtl/soc_uvm_dut.sv|rtl/vdp_native_slave.v|rtl/vga_timing_gen.v|rtl/sensor_status_native.v|rtl/rf_telemetry_native.v|rtl/gpio_native_slave.v|rtl/soc_ram.v|rtl/soc_mem_interconnect.v|
+Z18 !s90 -sv|+acc|-f|filelist.f|
+!i113 0
+Z19 o-sv +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z20 !s92 -sv +acc +incdir+tb +incdir+tb/soc_pkg +incdir+tb/soc_env +incdir+tb/soc_native_if +incdir+tb +incdir+tb/soc_agent +incdir+tb/soc_agent/soc_sequence_item +incdir+tb/soc_sequencer +incdir+tb/soc_driver +incdir+tb/soc_monitor +incdir+tb/soc_env +incdir+tb/soc_base_test +incdir+tb/soc_native_if -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
+vrf_telemetry_native_slave
+R11
+R12
+R13
+!i10b 1
+!s100 0OK<^Q6G211TXf9^UMnC;3
+IZhbX?HiA46z[83VY?3I<21
+S1
+R2
+w1785936182
+8rtl/rf_telemetry_native.v
+Frtl/rf_telemetry_native.v
+!i122 3
+L0 31 241
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+vsensor_status_native_slave
+R11
+R12
+R13
+!i10b 1
+!s100 khS@E9z=I6RLzSf<EYhG>3
+IK<eOA`94A8FPUWb:@ZQTO1
+S1
+R2
+w1785950505
+8rtl/sensor_status_native.v
+Frtl/sensor_status_native.v
+!i122 3
+L0 40 198
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+vsoc_mem_interconnect
+R11
+R12
+R13
+!i10b 1
+!s100 CM@6KWg1[ORckEcmCknea3
+IK6zEH?T><>lhci@=d7HE`2
+S1
+R2
+w1786012232
+8rtl/soc_mem_interconnect.v
+Frtl/soc_mem_interconnect.v
+!i122 3
+L0 46 359
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+Ysoc_native_if
+R11
+R12
+R13
+!i10b 1
+!s100 lT4ES_naNHf4m6iA^fVhG0
+IXbfTQ6aAUoIj6jRSQ`@Bd2
+S1
+R2
+w1786053946
+8tb/soc_native_if/soc_native_if.sv
+Ftb/soc_native_if/soc_native_if.sv
+!i122 3
+L0 3 0
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+vsoc_ram
+R11
+R12
+R13
+!i10b 1
+!s100 g4b?8h];NhA9Fo`GTd`Zf0
+IM609C^n5E>1GZ]HbaO_fK0
+S1
+R2
+w1785847180
+8rtl/soc_ram.v
+Frtl/soc_ram.v
+!i122 3
+L0 4 64
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+vsoc_uvm_dut
+R11
+R12
+R13
+!i10b 1
+!s100 JCT9`?7CHhkifeQf8oPld3
+IlNKB5_FiQ^l[PT]>Tg?[81
+S1
+R2
+w1786069876
+8rtl/soc_uvm_dut.sv
+Frtl/soc_uvm_dut.sv
+!i122 3
+L0 32 365
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+Xsoc_uvm_pkg
+!i114 1
+R11
+!s115 soc_native_if
+R12
+Z21 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
+Z22 !s110 1786081928
+!i10b 1
+!s100 :9IRMo_:4P4WnVfHGAN?U3
+IGO60ml374<kGzY:0N=IXl1
+S1
+R2
+w1786076167
+8tb/soc_pkg/soc_uvm_pkg.sv
+Ftb/soc_pkg/soc_uvm_pkg.sv
+Z23 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z24 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z25 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z26 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z27 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z28 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z29 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z30 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z31 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z32 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z33 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z34 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+Ftb/soc_agent/soc_sequence_item/soc_sequence_item.sv
+Ftb/soc_agent/soc_sequencer/soc_sequencer.sv
+Ftb/soc_driver/soc_driver.sv
+Ftb/soc_monitor/soc_monitor.sv
+Ftb/soc_agent/soc_agent.sv
+Ftb/soc_env/soc_env.sv
+Ftb/soc_base_test/soc_base_sequence.sv
+Ftb/soc_base_test/soc_smoke_sequence.sv
+!i122 3
+Z35 L0 6 0
+VGO60ml374<kGzY:0N=IXl1
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+vtb_soc_uvm
+R11
+R12
+R21
+Z36 DXx4 work 11 soc_uvm_pkg 0 22 GO60ml374<kGzY:0N=IXl1
+DXx4 work 18 tb_soc_uvm_sv_unit 0 22 0L28<3BS1TQo[KI`gVHjR0
+R22
+R14
+r1
+!s85 0
+!i10b 1
+!s100 LeTQjF_EJ_^a9HC1e__U91
+IhkF]?U7SOD^BB]Yn[9j;<3
+!s105 tb_soc_uvm_sv_unit
+S1
+R2
+Z37 w1786081034
+Z38 8tb_soc_uvm.sv
+Z39 Ftb_soc_uvm.sv
+!i122 3
+L0 11 233
+R15
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+Xtb_soc_uvm_sv_unit
+R11
+R12
+R21
+R36
+R22
+V0L28<3BS1TQo[KI`gVHjR0
+r1
+!s85 0
+!i10b 1
+!s100 @Tak=6j5^SZGKC<hVED0g3
+I0L28<3BS1TQo[KI`gVHjR0
+!i103 1
+S1
+R2
+R37
+R38
+R39
+R23
+R24
+R25
+R26
+R27
+R28
+R29
+R30
+R31
+R32
+R33
+R34
+!i122 3
+R35
+R15
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+vvdp_native_slave
+R11
+R12
+R13
+!i10b 1
+!s100 Y;KgMNcNfZe``5B>E9D6R2
+I=AHgUb;ANj0iaflBkRz2g0
+S1
+R2
+w1785944738
+8rtl/vdp_native_slave.v
+Frtl/vdp_native_slave.v
+!i122 3
+L0 61 712
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9
+vvga_timing_gen
+R11
+R12
+R13
+!i10b 1
+!s100 TGjmDf_j3i;UGG:T>]05D3
+In<;l0:bQlGICS4S;QYH>F1
+S1
+R2
+w1785948994
+8rtl/vga_timing_gen.v
+Frtl/vga_timing_gen.v
+!i122 3
+L0 16 91
+R14
+R15
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 0
+R19
+R20
+R9

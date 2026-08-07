@@ -1,0 +1,281 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \cpu_ram_subsystem_formal
+Used module:     $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem
+Used module:         $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram
+Used module:         $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect
+Used module:         \ptb
+Used module:             \picorv32a
+Used module:                 \picorv32_pcpi_fast_mul
+Used module:         $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter
+
+2.2. Analyzing design hierarchy..
+Top module:  \cpu_ram_subsystem_formal
+Used module:     $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem
+Used module:         $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram
+Used module:         $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect
+Used module:         \ptb
+Used module:             \picorv32a
+Used module:                 \picorv32_pcpi_fast_mul
+Used module:         $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter
+Removed 0 unused modules.
+Module ptb directly or indirectly contains formal properties -> setting "keep" attribute.
+Module picorv32a directly or indirectly contains formal properties -> setting "keep" attribute.
+Module cpu_ram_subsystem_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== ptb ===
+
+   Number of wires:                 26
+   Number of wire bits:            373
+   Number of public wires:          25
+   Number of public wire bits:     372
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $assume                         1
+     $not                            1
+     picorv32a                       1
+
+=== picorv32a ===
+
+   Number of wires:               1123
+   Number of wire bits:          11770
+   Number of public wires:         205
+   Number of public wire bits:    2259
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1135
+     $add                            8
+     $and                            4
+     $anyinit                      163
+     $anyseq                        78
+     $assert                        23
+     $assume                         3
+     $eq                            53
+     $ff                            14
+     $ge                             1
+     $initstate                      1
+     $logic_and                    103
+     $logic_not                     40
+     $logic_or                      35
+     $lt                             2
+     $mem_v2                         1
+     $mux                          505
+     $ne                             1
+     $not                            3
+     $or                             3
+     $pmux                          48
+     $reduce_and                     1
+     $reduce_bool                    5
+     $reduce_or                     30
+     $shl                            2
+     $sshr                           1
+     $sub                            5
+     $xor                            1
+     picorv32_pcpi_fast_mul          1
+
+=== picorv32_pcpi_fast_mul ===
+
+   Number of wires:                 46
+   Number of wire bits:            490
+   Number of public wires:          24
+   Number of public wire bits:     276
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 38
+     $anyinit                        5
+     $assume                         1
+     $eq                             5
+     $logic_and                      4
+     $logic_not                      2
+     $mul                            1
+     $mux                           16
+     $not                            1
+     $reduce_or                      3
+
+=== cpu_ram_subsystem_formal ===
+
+   Number of wires:                 36
+   Number of wire bits:             36
+   Number of public wires:          22
+   Number of public wire bits:      22
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 47
+     $anyinit                        1
+     $anyseq                        19
+     $assert                        11
+     $assume                         1
+     $eq                             7
+     $ff                             1
+     $logic_or                       1
+     $mux                            2
+     $not                            3
+     $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem      1
+
+=== $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem ===
+
+   Number of wires:                 32
+   Number of wire bits:            416
+   Number of public wires:          31
+   Number of public wire bits:     415
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  5
+     $not                            1
+     $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram      1
+     $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter      1
+     $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect      1
+     ptb                             1
+
+=== $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect ===
+
+   Number of wires:                 32
+   Number of wire bits:            416
+   Number of public wires:          23
+   Number of public wire bits:     311
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 23
+     $eq                             1
+     $logic_and                      2
+     $logic_not                      1
+     $mux                           19
+
+=== $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter ===
+
+   Number of wires:                 14
+   Number of wire bits:            206
+   Number of public wires:          14
+   Number of public wire bits:     206
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $reduce_or                      1
+
+=== $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram ===
+
+   Number of wires:                100
+   Number of wire bits:           1892
+   Number of public wires:          10
+   Number of public wire bits:     113
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 93
+     $anyinit                        2
+     $anyseq                        35
+     $assume                         1
+     $mem_v2                         1
+     $mux                           53
+     $not                            1
+
+=== design hierarchy ===
+
+   cpu_ram_subsystem_formal          1
+     $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem      1
+       $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram      1
+       $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter      1
+       $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect      1
+       ptb                           1
+         picorv32a                   1
+           picorv32_pcpi_fast_mul      1
+
+   Number of wires:               1409
+   Number of wire bits:          15599
+   Number of public wires:         354
+   Number of public wire bits:    3974
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1338
+     $add                            8
+     $and                            4
+     $anyinit                      171
+     $anyseq                       132
+     $assert                        34
+     $assume                         7
+     $eq                            66
+     $ff                            15
+     $ge                             1
+     $initstate                      1
+     $logic_and                    109
+     $logic_not                     43
+     $logic_or                      36
+     $lt                             2
+     $mem_v2                         2
+     $mul                            1
+     $mux                          595
+     $ne                             1
+     $not                           10
+     $or                             3
+     $pmux                          48
+     $reduce_and                     1
+     $reduce_bool                    5
+     $reduce_or                     34
+     $shl                            2
+     $sshr                           1
+     $sub                            5
+     $xor                            1
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram.
+Creating SMT-LIBv2 representation of module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter.
+Creating SMT-LIBv2 representation of module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect.
+Creating SMT-LIBv2 representation of module picorv32_pcpi_fast_mul.
+Creating SMT-LIBv2 representation of module picorv32a.
+Creating SMT-LIBv2 representation of module ptb.
+Creating SMT-LIBv2 representation of module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem.
+Creating SMT-LIBv2 representation of module cpu_ram_subsystem_formal.
+
+End of script. Logfile hash: 4cd2c10942, CPU: user 0.25s system 0.06s, MEM: 17.81 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 68% 2x write_smt2 (0 sec), 25% 2x read_rtlil (0 sec), ...

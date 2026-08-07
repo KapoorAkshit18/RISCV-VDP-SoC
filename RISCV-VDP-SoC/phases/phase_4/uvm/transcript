@@ -1,0 +1,193 @@
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim tb_soc_uvm "+UVM_TESTNAME=soc_smoke_test" "+UVM_VERBOSITY=UVM_HIGH" 
+# Start time: 11:22:20 on Aug 07,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.soc_native_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.soc_uvm_pkg(fast)
+# Loading work.tb_soc_uvm_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.tb_soc_uvm(fast)
+# Loading work.soc_native_if(fast__2)
+# Loading work.soc_uvm_dut(fast)
+# Loading work.soc_mem_interconnect(fast)
+# Loading work.soc_ram(fast)
+# Loading work.gpio_native_slave(fast)
+# Loading work.rf_telemetry_native_slave(fast)
+# Loading work.sensor_status_native_slave(fast)
+# Loading work.vdp_native_slave(fast)
+# Loading work.vga_timing_gen(fast)
+# Loading C:/questasim64_2024.1/uvm-1.1d\win64\uvm_dpi.dll
+add dataflow  \
+sim:/tb_soc_uvm/dut/clk \
+sim:/tb_soc_uvm/dut/resetn \
+sim:/tb_soc_uvm/dut/m_valid \
+sim:/tb_soc_uvm/dut/m_write \
+sim:/tb_soc_uvm/dut/m_addr \
+sim:/tb_soc_uvm/dut/m_wdata \
+sim:/tb_soc_uvm/dut/m_strb \
+sim:/tb_soc_uvm/dut/m_ready \
+sim:/tb_soc_uvm/dut/m_rdata \
+sim:/tb_soc_uvm/dut/gpio_in \
+sim:/tb_soc_uvm/dut/gpio_out \
+sim:/tb_soc_uvm/dut/gpio_oe \
+sim:/tb_soc_uvm/dut/battery_percent_i \
+sim:/tb_soc_uvm/dut/battery_voltage_mv_i \
+sim:/tb_soc_uvm/dut/temperature_tenthsC_i \
+sim:/tb_soc_uvm/dut/sensor_valid_i \
+sim:/tb_soc_uvm/dut/rssi_dbm_i \
+sim:/tb_soc_uvm/dut/link_up_i \
+sim:/tb_soc_uvm/dut/link_error_i \
+sim:/tb_soc_uvm/dut/carrier_detect_i \
+sim:/tb_soc_uvm/dut/rf_enable_o \
+sim:/tb_soc_uvm/dut/pixel_clk \
+sim:/tb_soc_uvm/dut/hsync_o \
+sim:/tb_soc_uvm/dut/vsync_o \
+sim:/tb_soc_uvm/dut/pixel_x_o \
+sim:/tb_soc_uvm/dut/pixel_y_o \
+sim:/tb_soc_uvm/dut/rgb_r_o \
+sim:/tb_soc_uvm/dut/rgb_g_o \
+sim:/tb_soc_uvm/dut/rgb_b_o \
+sim:/tb_soc_uvm/dut/ram_valid \
+sim:/tb_soc_uvm/dut/ram_write \
+sim:/tb_soc_uvm/dut/ram_addr \
+sim:/tb_soc_uvm/dut/ram_wdata \
+sim:/tb_soc_uvm/dut/ram_strb \
+sim:/tb_soc_uvm/dut/ram_ready \
+sim:/tb_soc_uvm/dut/ram_rdata \
+sim:/tb_soc_uvm/dut/gpio_valid \
+sim:/tb_soc_uvm/dut/gpio_write \
+sim:/tb_soc_uvm/dut/gpio_addr \
+sim:/tb_soc_uvm/dut/gpio_wdata \
+sim:/tb_soc_uvm/dut/gpio_strb \
+sim:/tb_soc_uvm/dut/gpio_ready \
+sim:/tb_soc_uvm/dut/gpio_rdata \
+sim:/tb_soc_uvm/dut/rf_valid \
+sim:/tb_soc_uvm/dut/rf_write \
+sim:/tb_soc_uvm/dut/rf_addr \
+sim:/tb_soc_uvm/dut/rf_wdata \
+sim:/tb_soc_uvm/dut/rf_strb \
+sim:/tb_soc_uvm/dut/rf_ready \
+sim:/tb_soc_uvm/dut/rf_rdata \
+sim:/tb_soc_uvm/dut/sensor_valid \
+sim:/tb_soc_uvm/dut/sensor_write \
+sim:/tb_soc_uvm/dut/sensor_addr \
+sim:/tb_soc_uvm/dut/sensor_wdata \
+sim:/tb_soc_uvm/dut/sensor_strb \
+sim:/tb_soc_uvm/dut/sensor_ready \
+sim:/tb_soc_uvm/dut/sensor_rdata \
+sim:/tb_soc_uvm/dut/vdp_valid \
+sim:/tb_soc_uvm/dut/vdp_write \
+sim:/tb_soc_uvm/dut/vdp_addr \
+sim:/tb_soc_uvm/dut/vdp_wdata \
+sim:/tb_soc_uvm/dut/vdp_strb \
+sim:/tb_soc_uvm/dut/vdp_ready \
+sim:/tb_soc_uvm/dut/vdp_rdata
+add wave  \
+sim:/tb_soc_uvm/dut/clk \
+sim:/tb_soc_uvm/dut/resetn \
+sim:/tb_soc_uvm/dut/m_valid \
+sim:/tb_soc_uvm/dut/m_write \
+sim:/tb_soc_uvm/dut/m_addr \
+sim:/tb_soc_uvm/dut/m_wdata \
+sim:/tb_soc_uvm/dut/m_strb \
+sim:/tb_soc_uvm/dut/m_ready \
+sim:/tb_soc_uvm/dut/m_rdata \
+sim:/tb_soc_uvm/dut/gpio_in \
+sim:/tb_soc_uvm/dut/gpio_out \
+sim:/tb_soc_uvm/dut/gpio_oe \
+sim:/tb_soc_uvm/dut/battery_percent_i \
+sim:/tb_soc_uvm/dut/battery_voltage_mv_i \
+sim:/tb_soc_uvm/dut/temperature_tenthsC_i \
+sim:/tb_soc_uvm/dut/sensor_valid_i \
+sim:/tb_soc_uvm/dut/rssi_dbm_i \
+sim:/tb_soc_uvm/dut/link_up_i \
+sim:/tb_soc_uvm/dut/link_error_i \
+sim:/tb_soc_uvm/dut/carrier_detect_i \
+sim:/tb_soc_uvm/dut/rf_enable_o \
+sim:/tb_soc_uvm/dut/pixel_clk \
+sim:/tb_soc_uvm/dut/hsync_o \
+sim:/tb_soc_uvm/dut/vsync_o \
+sim:/tb_soc_uvm/dut/pixel_x_o \
+sim:/tb_soc_uvm/dut/pixel_y_o \
+sim:/tb_soc_uvm/dut/rgb_r_o \
+sim:/tb_soc_uvm/dut/rgb_g_o \
+sim:/tb_soc_uvm/dut/rgb_b_o \
+sim:/tb_soc_uvm/dut/ram_valid \
+sim:/tb_soc_uvm/dut/ram_write \
+sim:/tb_soc_uvm/dut/ram_addr \
+sim:/tb_soc_uvm/dut/ram_wdata \
+sim:/tb_soc_uvm/dut/ram_strb \
+sim:/tb_soc_uvm/dut/ram_ready \
+sim:/tb_soc_uvm/dut/ram_rdata \
+sim:/tb_soc_uvm/dut/gpio_valid \
+sim:/tb_soc_uvm/dut/gpio_write \
+sim:/tb_soc_uvm/dut/gpio_addr \
+sim:/tb_soc_uvm/dut/gpio_wdata \
+sim:/tb_soc_uvm/dut/gpio_strb \
+sim:/tb_soc_uvm/dut/gpio_ready \
+sim:/tb_soc_uvm/dut/gpio_rdata \
+sim:/tb_soc_uvm/dut/rf_valid \
+sim:/tb_soc_uvm/dut/rf_write \
+sim:/tb_soc_uvm/dut/rf_addr \
+sim:/tb_soc_uvm/dut/rf_wdata \
+sim:/tb_soc_uvm/dut/rf_strb \
+sim:/tb_soc_uvm/dut/rf_ready \
+sim:/tb_soc_uvm/dut/rf_rdata \
+sim:/tb_soc_uvm/dut/sensor_valid \
+sim:/tb_soc_uvm/dut/sensor_write \
+sim:/tb_soc_uvm/dut/sensor_addr \
+sim:/tb_soc_uvm/dut/sensor_wdata \
+sim:/tb_soc_uvm/dut/sensor_strb \
+sim:/tb_soc_uvm/dut/sensor_ready \
+sim:/tb_soc_uvm/dut/sensor_rdata \
+sim:/tb_soc_uvm/dut/vdp_valid \
+sim:/tb_soc_uvm/dut/vdp_write \
+sim:/tb_soc_uvm/dut/vdp_addr \
+sim:/tb_soc_uvm/dut/vdp_wdata \
+sim:/tb_soc_uvm/dut/vdp_strb \
+sim:/tb_soc_uvm/dut/vdp_ready \
+sim:/tb_soc_uvm/dut/vdp_rdata
+run 5000us
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO tb_soc_uvm.sv(120) @ 45000: reporter [TB] System reset released
+# Printing 1 page to 'Microsoft Print to PDF'

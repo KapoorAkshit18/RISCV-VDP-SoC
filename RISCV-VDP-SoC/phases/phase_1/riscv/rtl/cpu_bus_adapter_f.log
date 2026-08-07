@@ -1,0 +1,364 @@
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_wdata [0] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [11] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [10] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [9] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [8] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [7] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [6] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [5] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [4] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [3] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [2] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [1] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [0] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_write is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [15] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [14] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [13] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [12] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [31] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [30] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [29] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [28] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [27] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [26] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [25] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [24] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [23] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [22] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [21] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [20] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [19] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [18] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [17] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: Warning: Wire soc_mem_interconnect_formal.\m_addr [16] is used but has no driver.
+SBY  6:11:30 [soc_mem_interconnect] prep: finished (returncode=0)
+SBY  6:11:30 [soc_mem_interconnect] smt2: starting process "cd soc_mem_interconnect/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:11:30 [soc_mem_interconnect] smt2: finished (returncode=0)
+SBY  6:11:30 [soc_mem_interconnect] engine_0.basecase: starting process "cd soc_mem_interconnect; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:11:30 [soc_mem_interconnect] engine_0.induction: starting process "cd soc_mem_interconnect; yosys-smtbmc -s z3 --presat -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  6:11:31 [soc_mem_interconnect] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  6:11:31 [soc_mem_interconnect] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  6:11:31 [soc_mem_interconnect] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY  6:11:31 [soc_mem_interconnect] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 0..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.induction: ##   0:00:01  Temporal induction successful.
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 1..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 1..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 2..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 2..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 3..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 3..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 4..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 4..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 5..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 5..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 6..
+SBY  6:11:32 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 6..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 7..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 7..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 8..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 8..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assumptions in step 9..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:01  Checking assertions in step 9..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assumptions in step 10..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assertions in step 10..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assumptions in step 11..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assertions in step 11..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assumptions in step 12..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assertions in step 12..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assumptions in step 13..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assertions in step 13..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assumptions in step 14..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assertions in step 14..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assumptions in step 15..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assertions in step 15..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.induction: ##   0:00:01  Status: passed
+SBY  6:11:33 [soc_mem_interconnect] engine_0.induction: finished (returncode=0)
+SBY  6:11:33 [soc_mem_interconnect] engine_0.induction: Status returned by engine for induction: pass
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assumptions in step 16..
+SBY  6:11:33 [soc_mem_interconnect] engine_0.basecase: ##   0:00:02  Checking assertions in step 16..
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: ##   0:00:03  Checking assumptions in step 17..
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: ##   0:00:03  Checking assertions in step 17..
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: ##   0:00:03  Checking assumptions in step 18..
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: ##   0:00:03  Checking assertions in step 18..
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: ##   0:00:03  Checking assumptions in step 19..
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: ##   0:00:03  Checking assertions in step 19..
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: ##   0:00:03  Status: passed
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: finished (returncode=0)
+SBY  6:11:34 [soc_mem_interconnect] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  6:11:35 [soc_mem_interconnect] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:05 (5)
+SBY  6:11:35 [soc_mem_interconnect] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:05 (5)
+SBY  6:11:35 [soc_mem_interconnect] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  6:11:35 [soc_mem_interconnect] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  6:11:35 [soc_mem_interconnect] summary: engine_0 did not produce any traces
+SBY  6:11:35 [soc_mem_interconnect] summary: successful proof by k-induction.
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/hdl_interconnect$ ls
+soc_mem_interconnect
+soc_mem_interconnect.sby
+soc_mem_interconnect.v
+soc_mem_interconnect_formal.sv
+tb_ram_interconnect.sv
+tb_soc_mem_interconnect.sv
+transcript
+work
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/hdl_interconnect$ cd ..
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1$ ls
+Makefile               little_notes.xopp
+RAM                    riscv
+cpu_ram_subsystem.vcd  run.do
+filelist.f             transcript
+hdl_interconnect       work
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1$ cd riscv
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv$ ls
+rtl  tb
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv$ ls
+rtl  tb
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv$ cd rtl
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl$ 
+l    s
+cpu_bus_adapter.sby       cpu_soc_ram_top.v
+cpu_bus_adapter.v         riscv.log
+cpu_bus_adapter_formal.v  riscv.v
+cpu_ram_subsystem.v
+akshit_251205072_@Envy:/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl$ 
+sby -f cpu_bus_adapter.sby
+SBY  4:17:35 [cpu_bus_adapter] Removing directory '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_bus_adapter'.
+SBY  4:17:35 [cpu_bus_adapter] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_bus_adapter.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_bus_adapter/src/cpu_bus_adapter.v'.
+SBY  4:17:35 [cpu_bus_adapter] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_bus_adapter_formal.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_bus_adapter/src/cpu_bus_adapter_formal.v'.
+SBY  4:17:35 [cpu_bus_adapter] engine_0: smtbmc z3
+SBY  4:17:35 [cpu_bus_adapter] base: starting process "cd cpu_bus_adapter/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_instr is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [31] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [30] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [29] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [28] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [27] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [26] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [25] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [24] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [23] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [22] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [21] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [20] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [19] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [18] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [17] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [16] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [15] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [14] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [13] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [12] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [11] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [10] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [9] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [8] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [7] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [6] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [5] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [4] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [3] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [2] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [1] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_rdata [0] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\m_ready is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [3] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [2] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [1] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [0] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [31] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [30] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [29] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [28] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [27] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [26] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [25] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [24] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [23] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [22] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [21] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [20] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [19] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [18] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [17] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [16] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [15] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [14] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [13] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [12] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [11] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [10] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [9] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [8] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [7] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [6] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [5] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [4] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [3] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [2] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [1] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [0] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [31] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [30] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [29] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [28] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [27] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [26] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [25] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [24] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [23] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [22] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [21] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [20] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [19] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [18] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [17] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [16] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [15] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [14] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [13] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [12] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [11] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [10] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [9] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [8] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [7] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [6] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [5] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [4] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [3] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [2] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [1] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_addr [0] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: Warning: Wire cpu_bus_adapter_formal.\mem_valid is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] base: finished (returncode=0)
+SBY  4:17:36 [cpu_bus_adapter] prep: starting process "cd cpu_bus_adapter/model; yosys -ql design_prep.log design_prep.ys"
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_instr is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [31] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [30] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [29] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [28] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [27] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [26] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [25] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [24] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [23] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [22] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [21] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [20] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [19] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [18] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [17] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [16] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [15] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [14] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [13] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [12] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [11] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [10] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [9] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [8] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [7] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [6] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [5] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [4] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [3] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [2] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [1] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_rdata [0] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\m_ready is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [3] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [2] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [1] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wstrb [0] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [31] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [30] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [29] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [28] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [27] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [26] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [25] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [24] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [23] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [22] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [21] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [20] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [19] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [18] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [17] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [16] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [15] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [14] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [13] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [12] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [11] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [10] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [9] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [8] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [7] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [6] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [5] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [4] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [3] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [2] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [1] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_wdata [0] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [31] is used but has no driver.
+SBY  4:17:36 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [30] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [29] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [28] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [27] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [26] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [25] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [24] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [23] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [22] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [21] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [20] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [19] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [18] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [17] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [16] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [15] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [14] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [13] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [12] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [11] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [10] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [9] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [8] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [7] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [6] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [5] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [4] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [3] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [2] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [1] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_addr [0] is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: Warning: Wire cpu_bus_adapter_formal.\mem_valid is used but has no driver.
+SBY  4:17:37 [cpu_bus_adapter] prep: finished (returncode=0)
+SBY  4:17:37 [cpu_bus_adapter] smt2: starting process "cd cpu_bus_adapter/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  4:17:37 [cpu_bus_adapter] smt2: finished (returncode=0)
+SBY  4:17:37 [cpu_bus_adapter] engine_0.basecase: starting process "cd cpu_bus_adapter; yosys-smtbmc -s z3 --presat --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  4:17:37 [cpu_bus_adapter] engine_0.induction: starting process "cd cpu_bus_adapter; yosys-smtbmc -s z3 --presat -i --noprogress -t 1  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  4:17:37 [cpu_bus_adapter] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  4:17:37 [cpu_bus_adapter] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  4:17:37 [cpu_bus_adapter] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  4:17:37 [cpu_bus_adapter] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY  4:17:37 [cpu_bus_adapter] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  4:17:37 [cpu_bus_adapter] engine_0.induction: ##   0:00:00  Temporal induction successful.
+SBY  4:17:37 [cpu_bus_adapter] engine_0.induction: ##   0:00:00  Status: passed
+SBY  4:17:37 [cpu_bus_adapter] engine_0.basecase: ##   0:00:00  Status: passed
+SBY  4:17:37 [cpu_bus_adapter] engine_0.induction: finished (returncode=0)
+SBY  4:17:37 [cpu_bus_adapter] engine_0.induction: Status returned by engine for induction: pass
+SBY  4:17:37 [cpu_bus_adapter] engine_0.basecase: finished (returncode=0)
+SBY  4:17:37 [cpu_bus_adapter] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  4:17:37 [cpu_bus_adapter] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  4:17:37 [cpu_bus_adapter] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  4:17:37 [cpu_bus_adapter] summary: engine_0 (smtbmc z3) returned pass for basecase
+SBY  4:17:37 [cpu_bus_adapter] summary: engine_0 (smtbmc z3) returned pass for induction
+SBY  4:17:37 [cpu_bus_adapter] summary: engine_0 did not produce any traces
+SBY  4:17:37 [cpu_bus_adapter] summary: successful proof by k-induction.
+SBY  4:17:37 [cpu_bus_adapter] DONE (PASS, rc=0)

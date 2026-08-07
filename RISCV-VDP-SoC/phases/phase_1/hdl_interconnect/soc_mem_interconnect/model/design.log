@@ -1,0 +1,684 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: soc_mem_interconnect.v
+Parsing formal Verilog input from `soc_mem_interconnect.v' to AST representation.
+Generating RTLIL representation for module `\soc_mem_interconnect'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: soc_mem_interconnect_formal.sv
+Parsing formal Verilog input from `soc_mem_interconnect_formal.sv' to AST representation.
+Generating RTLIL representation for module `\soc_mem_interconnect_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \soc_mem_interconnect_formal
+Used module:     \soc_mem_interconnect
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \soc_mem_interconnect_formal
+Used module:     \soc_mem_interconnect
+Removed 0 unused modules.
+Module soc_mem_interconnect_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:67$24'.
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$soc_mem_interconnect.v:49$5 in module soc_mem_interconnect.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 14 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~9 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+     1/8: $0$formal$soc_mem_interconnect_formal.sv:159$16_EN[0:0]$71
+     2/8: $0$formal$soc_mem_interconnect_formal.sv:159$16_CHECK[0:0]$70
+     3/8: $0$formal$soc_mem_interconnect_formal.sv:161$17_EN[0:0]$73
+     4/8: $0$formal$soc_mem_interconnect_formal.sv:161$17_CHECK[0:0]$72
+     5/8: $0$formal$soc_mem_interconnect_formal.sv:162$18_EN[0:0]$75
+     6/8: $0$formal$soc_mem_interconnect_formal.sv:162$18_CHECK[0:0]$74
+     7/8: $0$formal$soc_mem_interconnect_formal.sv:163$19_EN[0:0]$77
+     8/8: $0$formal$soc_mem_interconnect_formal.sv:163$19_CHECK[0:0]$76
+Creating decoders for process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+     1/8: $0$formal$soc_mem_interconnect_formal.sv:140$12_EN[0:0]$58
+     2/8: $0$formal$soc_mem_interconnect_formal.sv:140$12_CHECK[0:0]$57
+     3/8: $0$formal$soc_mem_interconnect_formal.sv:142$13_EN[0:0]$60
+     4/8: $0$formal$soc_mem_interconnect_formal.sv:142$13_CHECK[0:0]$59
+     5/8: $0$formal$soc_mem_interconnect_formal.sv:143$14_EN[0:0]$62
+     6/8: $0$formal$soc_mem_interconnect_formal.sv:143$14_CHECK[0:0]$61
+     7/8: $0$formal$soc_mem_interconnect_formal.sv:144$15_EN[0:0]$64
+     8/8: $0$formal$soc_mem_interconnect_formal.sv:144$15_CHECK[0:0]$63
+Creating decoders for process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:122$42'.
+     1/2: $0$formal$soc_mem_interconnect_formal.sv:126$11_EN[0:0]$44
+     2/2: $0$formal$soc_mem_interconnect_formal.sv:126$11_CHECK[0:0]$43
+Creating decoders for process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:110$37'.
+Creating decoders for process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:95$31'.
+     1/2: $0$formal$soc_mem_interconnect_formal.sv:98$9_EN[0:0]$33
+     2/2: $0$formal$soc_mem_interconnect_formal.sv:98$9_CHECK[0:0]$32
+Creating decoders for process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:80$25'.
+     1/2: $0$formal$soc_mem_interconnect_formal.sv:83$8_EN[0:0]$27
+     2/2: $0$formal$soc_mem_interconnect_formal.sv:83$8_CHECK[0:0]$26
+Creating decoders for process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+     1/8: $0$formal$soc_mem_interconnect_formal.sv:178$20_EN[0:0]$84
+     2/8: $0$formal$soc_mem_interconnect_formal.sv:178$20_CHECK[0:0]$83
+     3/8: $0$formal$soc_mem_interconnect_formal.sv:180$21_EN[0:0]$86
+     4/8: $0$formal$soc_mem_interconnect_formal.sv:180$21_CHECK[0:0]$85
+     5/8: $0$formal$soc_mem_interconnect_formal.sv:185$22_EN[0:0]$88
+     6/8: $0$formal$soc_mem_interconnect_formal.sv:185$22_CHECK[0:0]$87
+     7/8: $0$formal$soc_mem_interconnect_formal.sv:187$23_EN[0:0]$90
+     8/8: $0$formal$soc_mem_interconnect_formal.sv:187$23_CHECK[0:0]$89
+Creating decoders for process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+     1/19: $2\m_rdata[31:0]
+     2/19: $2\m_ready[0:0]
+     3/19: $2\gpio_strb[3:0]
+     4/19: $2\gpio_wdata[31:0]
+     5/19: $2\gpio_addr[31:0]
+     6/19: $2\gpio_write[0:0]
+     7/19: $2\gpio_valid[0:0]
+     8/19: $1\m_rdata[31:0]
+     9/19: $1\m_ready[0:0]
+    10/19: $1\ram_strb[3:0]
+    11/19: $1\ram_wdata[31:0]
+    12/19: $1\ram_addr[31:0]
+    13/19: $1\ram_write[0:0]
+    14/19: $1\ram_valid[0:0]
+    15/19: $1\gpio_strb[3:0]
+    16/19: $1\gpio_wdata[31:0]
+    17/19: $1\gpio_addr[31:0]
+    18/19: $1\gpio_write[0:0]
+    19/19: $1\gpio_valid[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:159$16_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:159$16_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:161$17_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:161$17_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:162$18_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:162$18_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:163$19_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:163$19_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:140$12_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:140$12_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:142$13_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:142$13_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:143$14_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:143$14_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:144$15_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:144$15_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:126$11_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:122$42'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:126$11_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:122$42'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:110$10_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:110$37'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:110$10_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:110$37'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:98$9_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:95$31'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:98$9_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:95$31'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:83$8_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:80$25'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:83$8_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:80$25'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:178$20_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:178$20_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:180$21_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:180$21_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:185$22_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:185$22_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:187$23_CHECK' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect_formal.$formal$soc_mem_interconnect_formal.sv:187$23_EN' from process `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+No latch inferred for signal `\soc_mem_interconnect.\m_ready' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\m_rdata' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\ram_valid' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\ram_write' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\ram_addr' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\ram_wdata' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\ram_strb' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\gpio_valid' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\gpio_write' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\gpio_addr' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\gpio_wdata' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+No latch inferred for signal `\soc_mem_interconnect.\gpio_strb' from process `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:157$69'.
+Found and cleaned up 1 empty switch in `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:138$56'.
+Found and cleaned up 1 empty switch in `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:122$42'.
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:122$42'.
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:110$37'.
+Found and cleaned up 1 empty switch in `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:95$31'.
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:95$31'.
+Found and cleaned up 1 empty switch in `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:80$25'.
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:80$25'.
+Found and cleaned up 2 empty switches in `\soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+Removing empty process `soc_mem_interconnect_formal.$proc$soc_mem_interconnect_formal.sv:176$82'.
+Found and cleaned up 2 empty switches in `\soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+Removing empty process `soc_mem_interconnect.$proc$soc_mem_interconnect.v:49$5'.
+Cleaned up 9 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_mem_interconnect_formal.
+<suppressed ~6 debug messages>
+Optimizing module soc_mem_interconnect.
+<suppressed ~3 debug messages>
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_mem_interconnect_formal.
+Optimizing module soc_mem_interconnect.
+
+3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+Finding unused cells or wires in module \soc_mem_interconnect..
+Removed 0 unused cells and 171 unused wires.
+<suppressed ~2 debug messages>
+
+3.5. Executing CHECK pass (checking for obvious problems).
+Checking module soc_mem_interconnect...
+Checking module soc_mem_interconnect_formal...
+Warning: Wire soc_mem_interconnect_formal.\m_valid is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_ready is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_ready is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_write is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [16] is used but has no driver.
+Found and reported 136 problems.
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_mem_interconnect.
+Optimizing module soc_mem_interconnect_formal.
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_mem_interconnect'.
+Finding identical cells in module `\soc_mem_interconnect_formal'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_mem_interconnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$175.
+    dead port 1/2 on $mux $procmux$181.
+    dead port 1/2 on $mux $procmux$187.
+    dead port 1/2 on $mux $procmux$193.
+    dead port 1/2 on $mux $procmux$199.
+    dead port 1/2 on $mux $procmux$205.
+    dead port 1/2 on $mux $procmux$211.
+Running muxtree optimizer on module \soc_mem_interconnect_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 7 multiplexer ports.
+<suppressed ~42 debug messages>
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_mem_interconnect.
+  Optimizing cells in module \soc_mem_interconnect_formal.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_mem_interconnect'.
+Finding identical cells in module `\soc_mem_interconnect_formal'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+3.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect..
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+Removed 0 unused cells and 19 unused wires.
+<suppressed ~2 debug messages>
+
+3.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_mem_interconnect.
+Optimizing module soc_mem_interconnect_formal.
+
+3.6.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.6.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \soc_mem_interconnect..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \soc_mem_interconnect_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+3.6.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \soc_mem_interconnect.
+  Optimizing cells in module \soc_mem_interconnect_formal.
+Performed a total of 0 changes.
+
+3.6.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_mem_interconnect'.
+Finding identical cells in module `\soc_mem_interconnect_formal'.
+Removed a total of 0 cells.
+
+3.6.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect..
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+
+3.6.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_mem_interconnect.
+Optimizing module soc_mem_interconnect_formal.
+
+3.6.14. Finished OPT passes. (There is nothing left to do.)
+
+3.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 20) from port B of cell soc_mem_interconnect.$eq$soc_mem_interconnect.v:47$4 ($eq).
+Removed top 1 bits (of 20) from port B of cell soc_mem_interconnect_formal.$eq$soc_mem_interconnect_formal.sv:126$50 ($eq).
+
+3.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect..
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+
+3.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.10. Executing OPT pass (performing simple optimizations).
+
+3.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_mem_interconnect.
+Optimizing module soc_mem_interconnect_formal.
+
+3.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_mem_interconnect'.
+Finding identical cells in module `\soc_mem_interconnect_formal'.
+Removed a total of 0 cells.
+
+3.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect..
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+
+3.10.4. Finished fast OPT passes.
+
+3.11. Printing statistics.
+
+=== soc_mem_interconnect ===
+
+   Number of wires:                 32
+   Number of wire bits:            416
+   Number of public wires:          23
+   Number of public wire bits:     311
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 23
+     $eq                             1
+     $logic_and                      2
+     $logic_not                      1
+     $mux                           19
+
+=== soc_mem_interconnect_formal ===
+
+   Number of wires:                 66
+   Number of wire bits:            354
+   Number of public wires:          21
+   Number of public wire bits:     309
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 62
+     $assert                        16
+     $eq                            13
+     $logic_and                      6
+     $logic_not                      6
+     $mux                           20
+     soc_mem_interconnect            1
+
+=== design hierarchy ===
+
+   soc_mem_interconnect_formal       1
+     soc_mem_interconnect            1
+
+   Number of wires:                 98
+   Number of wire bits:            770
+   Number of public wires:          44
+   Number of public wire bits:     620
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 84
+     $assert                        16
+     $eq                            14
+     $logic_and                      8
+     $logic_not                      7
+     $mux                           39
+
+3.12. Executing CHECK pass (checking for obvious problems).
+Checking module soc_mem_interconnect...
+Checking module soc_mem_interconnect_formal...
+Warning: Wire soc_mem_interconnect_formal.\m_valid is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_ready is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_ready is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_write is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [16] is used but has no driver.
+Found and reported 136 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \soc_mem_interconnect_formal
+Used module:     \soc_mem_interconnect
+
+4.2. Analyzing design hierarchy..
+Top module:  \soc_mem_interconnect_formal
+Used module:     \soc_mem_interconnect
+Removed 0 unused modules.
+Module soc_mem_interconnect_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 136 unique messages, 272 total
+End of script. Logfile hash: 4601d58ff5, CPU: user 0.24s system 0.07s, MEM: 16.88 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 21% 2x check (0 sec), 19% 6x opt_expr (0 sec), ...

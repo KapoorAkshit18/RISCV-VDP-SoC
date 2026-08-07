@@ -1,0 +1,15 @@
+[options]
+mode prove
+depth 1
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal cpu_bus_adapter.v
+read_verilog -formal cpu_bus_adapter_formal.v
+prep -top cpu_bus_adapter_formal
+
+[files]
+cpu_bus_adapter.v
+cpu_bus_adapter_formal.v

@@ -1,0 +1,227 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module soc_mem_interconnect_formal.
+Found 0 SCCs in module soc_mem_interconnect.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+Finding unused cells or wires in module \soc_mem_interconnect..
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect..
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module soc_mem_interconnect...
+Checking module soc_mem_interconnect_formal...
+Warning: Wire soc_mem_interconnect_formal.\m_valid is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_rdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\gpio_ready is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_rdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\ram_ready is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_strb [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [16] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_wdata [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [11] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [10] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [9] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [8] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [7] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [6] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [5] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [4] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [3] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [2] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [1] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [0] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_write is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [15] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [14] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [13] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [12] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [31] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [30] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [29] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [28] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [27] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [26] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [25] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [24] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [23] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [22] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [21] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [20] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [19] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [18] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [17] is used but has no driver.
+Warning: Wire soc_mem_interconnect_formal.\m_addr [16] is used but has no driver.
+Found and reported 136 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module soc_mem_interconnect.
+Optimizing module soc_mem_interconnect_formal.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\soc_mem_interconnect'.
+Finding identical cells in module `\soc_mem_interconnect_formal'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect..
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+Removed 0 unused cells and 85 unused wires.
+<suppressed ~1 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \soc_mem_interconnect..
+Finding unused cells or wires in module \soc_mem_interconnect_formal..
+Removed 0 unused cells and 15 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+Warnings: 136 unique messages, 136 total
+End of script. Logfile hash: d6093f35ad, CPU: user 0.10s system 0.06s, MEM: 16.89 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 25% 4x opt_clean (0 sec), 23% 1x check (0 sec), ...

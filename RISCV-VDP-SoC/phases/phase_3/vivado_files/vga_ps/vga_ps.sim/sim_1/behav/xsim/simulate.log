@@ -1,0 +1,22 @@
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+
+============================================================
+ VDP NATIVE-BUS TEST
+============================================================
+
+TEST 1: VDP_COLOR write
+TEST 2: VDP_COLOR readback
+PASS: VDP_COLOR readback = 00a5b6c7
+TEST 3: Enable VDP display
+TEST 4: VDP_CTRL readback
+PASS: VDP_CTRL = 00000001 (display enabled)
+TEST 5: Wait for active video
+PASS: video_active asserted at X=9 Y=0
+TEST 6: RGB444 output
+PASS: RGB444 = (a,b,c)
+TEST 7: HCOUNT
+PASS: VDP_HCOUNT = 9
+TEST 8: VCOUNT
+PASS: VDP_VCOUNT = 0
+TEST 9: HSYNC timing

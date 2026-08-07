@@ -1,0 +1,160 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module ptb.
+Found 0 SCCs in module picorv32a.
+Found 0 SCCs in module picorv32_pcpi_fast_mul.
+Found 0 SCCs in module cpu_ram_subsystem_formal.
+Found 0 SCCs in module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem.
+Found 0 SCCs in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect.
+Found 0 SCCs in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter.
+Found 0 SCCs in module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ptb..
+Finding unused cells or wires in module \picorv32a..
+Finding unused cells or wires in module \picorv32_pcpi_fast_mul..
+Finding unused cells or wires in module \cpu_ram_subsystem_formal..
+Finding unused cells or wires in module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter..
+Finding unused cells or wires in module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram..
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect..
+Finding unused cells or wires in module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem..
+Finding unused cells or wires in module \cpu_ram_subsystem_formal..
+Finding unused cells or wires in module \picorv32_pcpi_fast_mul..
+Finding unused cells or wires in module \picorv32a..
+Finding unused cells or wires in module \ptb..
+Removed 4 unused cells and 4 unused wires.
+<suppressed ~8 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram...
+Checking module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter...
+Checking module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect...
+Checking module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem...
+Checking module cpu_ram_subsystem_formal...
+Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.u_ram.reset is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_rdata is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_ready is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.m_rdata is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.mem_rdata is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.m_ready is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.mem_ready is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.m_strb is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wdata is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.m_wdata is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.mem_addr is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.m_addr is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wstrb is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.m_write is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.mem_valid is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.m_valid is used but has no driver.
+Warning: Wire cpu_ram_subsystem_formal.\dut.ram_valid is used but has no driver.
+Checking module picorv32_pcpi_fast_mul...
+Checking module picorv32a...
+Checking module ptb...
+Found and reported 18 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram.
+Optimizing module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter.
+Optimizing module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect.
+Optimizing module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem.
+Optimizing module cpu_ram_subsystem_formal.
+Optimizing module picorv32_pcpi_fast_mul.
+Optimizing module picorv32a.
+<suppressed ~1 debug messages>
+Optimizing module ptb.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram'.
+Finding identical cells in module `$paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter'.
+Finding identical cells in module `$paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect'.
+Finding identical cells in module `$paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem'.
+Finding identical cells in module `\cpu_ram_subsystem_formal'.
+Finding identical cells in module `\picorv32_pcpi_fast_mul'.
+Finding identical cells in module `\picorv32a'.
+Finding identical cells in module `\ptb'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect..
+Finding unused cells or wires in module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem..
+Finding unused cells or wires in module \cpu_ram_subsystem_formal..
+Finding unused cells or wires in module \picorv32_pcpi_fast_mul..
+Finding unused cells or wires in module \picorv32a..
+Finding unused cells or wires in module \ptb..
+Removed 1 unused cells and 21 unused wires.
+<suppressed ~5 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd\soc_ram..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\cpu_bus_adapter..
+Finding unused cells or wires in module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417\soc_mem_interconnect..
+Finding unused cells or wires in module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem..
+Finding unused cells or wires in module \cpu_ram_subsystem_formal..
+Finding unused cells or wires in module \picorv32_pcpi_fast_mul..
+Finding unused cells or wires in module \picorv32a..
+Finding unused cells or wires in module \ptb..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+Warnings: 18 unique messages, 18 total
+End of script. Logfile hash: 38e767eed7, CPU: user 1.47s system 0.10s, MEM: 26.94 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 33% 4x opt_clean (0 sec), 20% 1x opt_expr (0 sec), ...

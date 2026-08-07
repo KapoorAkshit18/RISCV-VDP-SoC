@@ -1,0 +1,79 @@
+SBY  5:49:42 [cpu_ram_subsystem] Removing directory '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem'.
+SBY  5:49:42 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/riscv.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/riscv.v'.
+SBY  5:49:42 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/tb_riscv_wrapper.sv' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/tb_riscv_wrapper.sv'.
+SBY  5:49:42 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_bus_adapter.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/cpu_bus_adapter.v'.
+SBY  5:49:42 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/soc_mem_interconnect.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/soc_mem_interconnect.v'.
+SBY  5:49:42 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/soc_ram.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/soc_ram.v'.
+SBY  5:49:42 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/cpu_ram_subsystem.v'.
+SBY  5:49:42 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem_formal.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/cpu_ram_subsystem_formal.v'.
+SBY  5:49:42 [cpu_ram_subsystem] engine_0: smtbmc z3
+SBY  5:49:42 [cpu_ram_subsystem] base: starting process "cd cpu_ram_subsystem/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  5:49:43 [cpu_ram_subsystem] base: Warning: reg '\pcpi_wr' is assigned in a continuous assignment at tb_riscv_wrapper.sv:74.9-74.24.
+SBY  5:49:43 [cpu_ram_subsystem] base: Warning: reg '\pcpi_rd' is assigned in a continuous assignment at tb_riscv_wrapper.sv:75.9-75.24.
+SBY  5:49:43 [cpu_ram_subsystem] base: Warning: reg '\pcpi_wait' is assigned in a continuous assignment at tb_riscv_wrapper.sv:76.9-76.24.
+SBY  5:49:43 [cpu_ram_subsystem] base: Warning: reg '\pcpi_ready' is assigned in a continuous assignment at tb_riscv_wrapper.sv:77.9-77.24.
+SBY  5:49:43 [cpu_ram_subsystem] base: Warning: reg '\irq' is assigned in a continuous assignment at tb_riscv_wrapper.sv:78.9-78.24.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:36: Warning: Identifier `\dut.ram_valid' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:37: Warning: Identifier `\dut.u_ram.reset' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:49: Warning: Identifier `\dut.m_valid' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:49: Warning: Identifier `\dut.mem_valid' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:51: Warning: Identifier `\dut.m_write' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:51: Warning: Identifier `\dut.mem_wstrb' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:53: Warning: Identifier `\dut.m_addr' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:53: Warning: Identifier `\dut.mem_addr' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:55: Warning: Identifier `\dut.m_wdata' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:55: Warning: Identifier `\dut.mem_wdata' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:57: Warning: Identifier `\dut.m_strb' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:59: Warning: Identifier `\dut.mem_ready' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:59: Warning: Identifier `\dut.m_ready' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:61: Warning: Identifier `\dut.mem_rdata' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:61: Warning: Identifier `\dut.m_rdata' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:83: Warning: Identifier `\dut.gpio_ready' is implicitly declared.
+SBY  5:49:43 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:84: Warning: Identifier `\dut.gpio_rdata' is implicitly declared.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.u_ram.reset is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_rdata is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_ready is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_rdata is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_rdata is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_ready is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_ready is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_strb is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wdata is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_wdata is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_addr is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_addr is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wstrb is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_write is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_valid is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_valid is used but has no driver.
+SBY  5:49:44 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.ram_valid is used but has no driver.
+SBY  5:49:48 [cpu_ram_subsystem] base: finished (returncode=0)
+SBY  5:49:48 [cpu_ram_subsystem] prep: starting process "cd cpu_ram_subsystem/model; yosys -ql design_prep.log design_prep.ys"
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.u_ram.reset is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_rdata is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_ready is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_rdata is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_rdata is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_ready is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_ready is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_strb is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wdata is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_wdata is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_addr is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_addr is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wstrb is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_write is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_valid is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_valid is used but has no driver.
+SBY  5:49:49 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.ram_valid is used but has no driver.
+SBY  5:49:50 [cpu_ram_subsystem] prep: finished (returncode=0)
+SBY  5:49:50 [cpu_ram_subsystem] smt2: starting process "cd cpu_ram_subsystem/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  5:49:50 [cpu_ram_subsystem] smt2: finished (returncode=0)
+SBY  5:49:50 [cpu_ram_subsystem] engine_0.basecase: starting process "cd cpu_ram_subsystem; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  5:49:50 [cpu_ram_subsystem] engine_0.induction: starting process "cd cpu_ram_subsystem; yosys-smtbmc -s z3 --presat -i --noprogress -t 10  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  5:49:51 [cpu_ram_subsystem] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  5:49:51 [cpu_ram_subsystem] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  5:51:03 [cpu_ram_subsystem] engine_0.basecase: terminating process
+SBY  5:51:03 [cpu_ram_subsystem] engine_0.induction: terminating process

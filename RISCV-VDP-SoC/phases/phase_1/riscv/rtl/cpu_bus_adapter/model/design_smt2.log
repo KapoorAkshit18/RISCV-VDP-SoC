@@ -1,0 +1,104 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2020  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.33 (git sha1 2584903a060)
+
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \cpu_bus_adapter_formal
+Used module:     \cpu_bus_adapter
+
+2.2. Analyzing design hierarchy..
+Top module:  \cpu_bus_adapter_formal
+Used module:     \cpu_bus_adapter
+Removed 0 unused modules.
+Module cpu_bus_adapter_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== cpu_bus_adapter_formal ===
+
+   Number of wires:                 22
+   Number of wire bits:            214
+   Number of public wires:          14
+   Number of public wire bits:     206
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     $anyseq                        48
+     $assert                         7
+     $eq                             7
+     $reduce_or                      1
+     cpu_bus_adapter                 1
+
+=== cpu_bus_adapter ===
+
+   Number of wires:                 14
+   Number of wire bits:            206
+   Number of public wires:          14
+   Number of public wire bits:     206
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $reduce_or                      1
+
+=== design hierarchy ===
+
+   cpu_bus_adapter_formal            1
+     cpu_bus_adapter                 1
+
+   Number of wires:                 36
+   Number of wire bits:            420
+   Number of public wires:          28
+   Number of public wire bits:     412
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     $anyseq                        48
+     $assert                         7
+     $eq                             7
+     $reduce_or                      2
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module cpu_bus_adapter.
+Creating SMT-LIBv2 representation of module cpu_bus_adapter_formal.
+
+End of script. Logfile hash: 54f3a621aa, CPU: user 0.02s system 0.03s, MEM: 16.80 MB peak
+Yosys 0.33 (git sha1 2584903a060)
+Time spent: 68% 2x write_smt2 (0 sec), 19% 2x read_rtlil (0 sec), ...

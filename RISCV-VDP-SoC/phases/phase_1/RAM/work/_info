@@ -1,0 +1,77 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/RAM
+T_opt
+!s110 1785760771
+VicIE5jD:PY9N5P>N9VQ<G2
+04 10 4 work tb_soc_ram fast 0
+=1-48e7dad10595-6a708c02-246-18d0
+R1
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z3 tCvgOpt 0
+n@_opt
+OL;O;2024.1;79
+R2
+vsoc_ram
+2soc_ram.v
+Z4 !s110 1785764876
+!i10b 1
+!s100 5Njnz=TL;?TR4GEcoEEd]3
+I46n0YlFdDYD`:<MUgJdj10
+R2
+w1785760597
+8soc_ram.v
+Fsoc_ram.v
+!i122 5
+L0 1 63
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2024.1;79
+r1
+!s85 0
+31
+!s108 1785764875.000000
+!s107 soc_ram.v|
+!s90 -reportprogress|300|soc_ram.v|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R3
+vtb_soc_ram
+2tb_soc_ram.sv
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R4
+!i10b 1
+!s100 N1Vm4>O1?:2YRQEj7To?Q1
+IZDA6h[6Wo=87]fN_7iUHJ1
+S1
+R2
+w1785760606
+8tb_soc_ram.sv
+Ftb_soc_ram.sv
+!i122 6
+L0 3 175
+R5
+R6
+r1
+!s85 0
+31
+!s108 1785764876.000000
+!s107 tb_soc_ram.sv|
+!s90 -reportprogress|300|tb_soc_ram.sv|
+!i113 0
+R7
+R3

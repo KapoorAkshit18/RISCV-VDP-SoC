@@ -1,0 +1,15 @@
+[options]
+mode prove
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal soc_mem_interconnect.v
+read_verilog -formal soc_mem_interconnect_formal.sv
+prep -top soc_mem_interconnect_formal
+
+[files]
+soc_mem_interconnect.v
+soc_mem_interconnect_formal.sv

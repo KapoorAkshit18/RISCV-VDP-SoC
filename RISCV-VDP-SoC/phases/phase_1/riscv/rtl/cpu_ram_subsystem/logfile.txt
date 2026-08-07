@@ -1,0 +1,3 @@
+SBY  5:14:13 [cpu_ram_subsystem] Removing directory '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_ram_subsystem'.
+SBY  5:14:13 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/riscv.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_ram_subsystem/src/riscv.v'.
+SBY  5:14:13 [cpu_ram_subsystem] Copy '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/tb_riscv_wrapper.v' to '/mnt/c/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1/riscv/rtl/cpu_ram_subsystem/src/tb_riscv_wrapper.v'.

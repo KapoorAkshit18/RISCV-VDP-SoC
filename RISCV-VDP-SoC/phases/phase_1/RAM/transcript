@@ -1,0 +1,107 @@
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim tb_soc_ram 
+# Start time: 19:08:02 on Aug 03,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.tb_soc_ram(fast)
+add wave sim:/tb_soc_ram/dut/*
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_soc_ram/dut/*'.
+add wave sim:/tb_soc_ram/dut/*
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_soc_ram/dut/*'.
+vlog soc_ram.v
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:09:52 on Aug 03,2026
+# vlog -reportprogress 300 soc_ram.v 
+# -- Compiling module soc_ram
+# 
+# Top level modules:
+# 	soc_ram
+# End time: 19:09:52 on Aug 03,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog tb_soc_ram.sv
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:10:01 on Aug 03,2026
+# vlog -reportprogress 300 tb_soc_ram.sv 
+# -- Compiling module tb_soc_ram
+# 
+# Top level modules:
+# 	tb_soc_ram
+# End time: 19:10:01 on Aug 03,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+add wave sim:/tb_soc_ram/dut/*
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_soc_ram/dut/*'.
+vsim work.tb_soc_ram
+# End time: 19:11:33 on Aug 03,2026, Elapsed time: 0:03:31
+# Errors: 0, Warnings: 0
+# vsim work.tb_soc_ram 
+# Start time: 19:11:33 on Aug 03,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.tb_soc_ram(fast)
+show sim:/tb_soc_ram/*
+# ** UI-Msg (Error) (suppressible): (vish-4008) Object 'sim:/tb_soc_ram/*' not found.
+# 
+show sim:/tb_soc_ram/*
+# ** UI-Msg (Error) (suppressible): (vish-4008) Object 'sim:/tb_soc_ram/*' not found.
+# 
+
+vdir
+# Library vendor : Model Technology
+# Maximum unnamed designs : 3
+# OPTIMIZED DESIGN _opt
+# MODULE soc_ram
+# MODULE tb_soc_ram
+add wave sim:/tb_soc_ram/*
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_soc_ram/*'.
+add wave sim:/tb_soc_ram/dut/*
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_soc_ram/dut/*'.
+ls
+# report.txt         soc_ram.v      transcript  work  
+# run_tb_soc_ram.do  tb_soc_ram.sv  vsim.wlf          
+do run_tb_soc_ram.do
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:17:55 on Aug 03,2026
+# vlog -reportprogress 300 soc_ram.v 
+# -- Compiling module soc_ram
+# 
+# Top level modules:
+# 	soc_ram
+# End time: 19:17:56 on Aug 03,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 19:17:56 on Aug 03,2026
+# vlog -reportprogress 300 tb_soc_ram.sv 
+# -- Compiling module tb_soc_ram
+# 
+# Top level modules:
+# 	tb_soc_ram
+# End time: 19:17:56 on Aug 03,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 19:18:02 on Aug 03,2026, Elapsed time: 0:06:29
+# Errors: 0, Warnings: 0
+# vsim work.tb_soc_ram 
+# Start time: 19:18:02 on Aug 03,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.tb_soc_ram(fast)
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_soc_ram/*'.
+# Error in macro ./run_tb_soc_ram.do line 9
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_soc_ram/*'.
+#     while executing
+# "add wave sim:/tb_soc_ram/*"
+
+# End time: 07:06:52 on Aug 04,2026, Elapsed time: 11:48:50
+# Errors: 0, Warnings: 0

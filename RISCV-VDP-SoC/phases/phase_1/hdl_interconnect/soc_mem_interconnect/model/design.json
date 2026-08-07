@@ -1,0 +1,1220 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "soc_mem_interconnect",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [32, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$172",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:84.18-84.37|soc_mem_interconnect.v:84.14-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$178",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:84.18-84.37|soc_mem_interconnect.v:84.14-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$184",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:84.18-84.37|soc_mem_interconnect.v:84.14-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$190",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:84.18-84.37|soc_mem_interconnect.v:84.14-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$196",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:84.18-84.37|soc_mem_interconnect.v:84.14-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$202",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:84.18-84.37|soc_mem_interconnect.v:84.14-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$208",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:84.18-84.37|soc_mem_interconnect.v:84.14-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$214",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$217",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$220",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$223",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$226",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$229",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$232",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$235",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$238",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$241",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$244",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$247",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect.v:71.13-71.31|soc_mem_interconnect.v:71.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$soc_mem_interconnect.v:71$6",
+                  "attributes": {
+                    "src": "soc_mem_interconnect.v:71.13-71.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$soc_mem_interconnect.v:84$7",
+                  "attributes": {
+                    "src": "soc_mem_interconnect.v:84.18-84.37"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [19, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$soc_mem_interconnect.v:47$4",
+                  "attributes": {
+                    "src": "soc_mem_interconnect.v:47.24-47.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$soc_mem_interconnect.v:46$2",
+                  "attributes": {
+                    "src": "soc_mem_interconnect.v:46.24-46.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "dynports": "00000000000000000000000000000001",
+            "src": "soc_mem_interconnect.v:1.1-98.10"
+        }
+      },
+      {
+        "name": "soc_mem_interconnect_formal",
+        "cell_sorts": [
+          {
+            "type": "soc_mem_interconnect",
+            "ports": [
+                {
+                  "name": "gpio_addr",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "gpio_rdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "gpio_ready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "gpio_strb",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "gpio_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "gpio_wdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "gpio_write",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_addr",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_rdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_ready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_strb",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "m_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_wdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_write",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ram_addr",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "ram_rdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "ram_ready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ram_strb",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "ram_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ram_wdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "ram_write",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "dut",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "soc_mem_interconnect_formal.sv:32.26-60.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$111",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:159.13-159.23|soc_mem_interconnect_formal.sv:159.9-166.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$113",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:159.13-159.23|soc_mem_interconnect_formal.sv:159.9-166.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$117",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:159.13-159.23|soc_mem_interconnect_formal.sv:159.9-166.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$121",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:159.13-159.23|soc_mem_interconnect_formal.sv:159.9-166.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$125",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:159.13-159.23|soc_mem_interconnect_formal.sv:159.9-166.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$127",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:140.13-140.22|soc_mem_interconnect_formal.sv:140.9-147.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$129",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:140.13-140.22|soc_mem_interconnect_formal.sv:140.9-147.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$133",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:140.13-140.22|soc_mem_interconnect_formal.sv:140.9-147.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$137",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:140.13-140.22|soc_mem_interconnect_formal.sv:140.9-147.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$141",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:140.13-140.22|soc_mem_interconnect_formal.sv:140.9-147.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$143",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:124.13-126.59|soc_mem_interconnect_formal.sv:124.9-128.47"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$145",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:124.13-126.59|soc_mem_interconnect_formal.sv:124.9-128.47"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$147",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:97.13-98.56|soc_mem_interconnect_formal.sv:97.9-100.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$149",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:97.13-98.56|soc_mem_interconnect_formal.sv:97.9-100.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$151",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:82.13-83.56|soc_mem_interconnect_formal.sv:82.9-85.31"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$153",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:82.13-83.56|soc_mem_interconnect_formal.sv:82.9-85.31"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$157",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:178.13-178.22|soc_mem_interconnect_formal.sv:178.9-183.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$161",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:178.13-178.22|soc_mem_interconnect_formal.sv:178.9-183.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$165",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:185.13-185.23|soc_mem_interconnect_formal.sv:185.9-190.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$169",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:185.13-185.23|soc_mem_interconnect_formal.sv:185.9-190.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$soc_mem_interconnect_formal.sv:112$40",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:112.18-112.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$soc_mem_interconnect_formal.sv:124$48",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:124.13-125.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$soc_mem_interconnect_formal.sv:124$52",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:124.13-126.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$soc_mem_interconnect_formal.sv:128$55",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:128.20-128.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$soc_mem_interconnect_formal.sv:82$30",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:82.13-83.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$soc_mem_interconnect_formal.sv:97$36",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:97.13-98.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:125$46",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:125.16-125.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$soc_mem_interconnect_formal.sv:112$41",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:112.16-112.42"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$soc_mem_interconnect_formal.sv:125$47",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:125.13-125.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$soc_mem_interconnect_formal.sv:126$51",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:126.13-126.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$soc_mem_interconnect_formal.sv:128$53",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:128.20-128.30"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$soc_mem_interconnect_formal.sv:128$54",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:128.34-128.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [19, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:126$50",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:126.16-126.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:142$65",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:142.20-142.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:143$66",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:143.20-143.39"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:144$67",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:144.20-144.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:145$68",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:145.20-145.39"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:161$78",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:161.20-161.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:162$79",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:162.20-162.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:163$80",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:163.20-163.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:164$81",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:164.20-164.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:180$91",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:180.20-180.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:181$92",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:181.20-181.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:187$93",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:187.20-187.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$soc_mem_interconnect_formal.sv:188$94",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:188.20-188.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assert",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:110$97",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:110.22-112.43"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:126$98",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:126.60-128.46"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:140$99",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:140.29-142.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:142$100",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:142.42-143.40"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:143$101",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:143.41-144.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:144$102",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:144.42-145.40"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:159$103",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:159.30-161.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:161$104",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:161.43-162.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:162$105",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:162.42-163.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:163$106",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:163.43-164.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:178$107",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:178.29-180.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:180$108",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:180.42-181.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:185$109",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:185.30-187.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:187$110",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:187.43-188.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:83$95",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:83.57-85.30"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$soc_mem_interconnect_formal.sv:98$96",
+                  "attributes": {
+                    "src": "soc_mem_interconnect_formal.sv:98.57-100.31"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "soc_mem_interconnect_formal.sv:1.1-194.10"
+        }
+      }
+  ]
+}

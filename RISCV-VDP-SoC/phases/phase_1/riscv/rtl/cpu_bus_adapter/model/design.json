@@ -1,0 +1,364 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "cpu_bus_adapter",
+        "cell_sorts": [
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$reduce_or$cpu_bus_adapter.v:37$1",
+                  "attributes": {
+                    "src": "cpu_bus_adapter.v:37.22-37.32"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "dynports": "00000000000000000000000000000001",
+            "src": "cpu_bus_adapter.v:4.1-50.10"
+        }
+      },
+      {
+        "name": "cpu_bus_adapter_formal",
+        "cell_sorts": [
+          {
+            "type": "cpu_bus_adapter",
+            "ports": [
+                {
+                  "name": "m_addr",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_rdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_ready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_strb",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "m_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_wdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_write",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_addr",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "mem_instr",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_rdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "mem_ready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_wdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "mem_wstrb",
+                  "direction": "io",
+                  "range": [4, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "dut",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "cpu_bus_adapter_formal.v:24.21-42.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$reduce_or$cpu_bus_adapter_formal.v:52$25",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:52.28-52.38"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$cpu_bus_adapter_formal.v:50$24",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:50.16-50.36"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$cpu_bus_adapter_formal.v:52$26",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:52.16-52.39"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$cpu_bus_adapter_formal.v:54$27",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:54.16-54.34"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$cpu_bus_adapter_formal.v:56$28",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:56.16-56.36"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$cpu_bus_adapter_formal.v:58$29",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:58.16-58.35"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$cpu_bus_adapter_formal.v:60$30",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:60.16-60.36"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$cpu_bus_adapter_formal.v:62$31",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:62.16-62.36"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assert",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assert$cpu_bus_adapter_formal.v:48$32",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:48.22-50.37"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$cpu_bus_adapter_formal.v:50$33",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:50.38-52.40"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$cpu_bus_adapter_formal.v:52$34",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:52.41-54.35"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$cpu_bus_adapter_formal.v:54$35",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:54.36-56.37"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$cpu_bus_adapter_formal.v:56$36",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:56.38-58.36"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$cpu_bus_adapter_formal.v:58$37",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:58.37-60.37"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$cpu_bus_adapter_formal.v:60$38",
+                  "attributes": {
+                    "src": "cpu_bus_adapter_formal.v:60.38-62.37"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "cpu_bus_adapter_formal.v:4.1-66.10"
+        }
+      }
+  ]
+}

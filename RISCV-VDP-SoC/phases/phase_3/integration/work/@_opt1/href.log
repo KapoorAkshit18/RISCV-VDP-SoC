@@ -1,0 +1,7 @@
+BEGIN 1:cpu_soc_ram_top:fast:work
+    m_addr :  1:tb_soc_ram_top:fast:work
+    m_write :  1:tb_soc_ram_top:fast:work
+    m_valid :  1:tb_soc_ram_top:fast:work
+    m_rdata :  1:tb_soc_ram_top:fast:work
+    m_ready :  1:tb_soc_ram_top:fast:work
+END 

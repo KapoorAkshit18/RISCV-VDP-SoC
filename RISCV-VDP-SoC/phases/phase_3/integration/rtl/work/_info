@@ -1,0 +1,566 @@
+m255
+K4
+z2
+Z0 !s12c _opt1
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+Z2 !s12c _opt
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dC:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_3/integration/rtl
+T_opt
+!s110 1786014847
+VEdhWA0RMK>CKkV_zbP8V@0
+Z4 04 18 4 work tb_cpu_soc_ram_top fast 0
+=1-48e7dad10595-6a746c7f-f8-8678
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z8 tCvgOpt 0
+n@_opt
+Z9 OL;O;2024.1;79
+R3
+T_opt1
+!s110 1786018638
+VjGe83RaS?AZ1D=;3QCn:12
+R4
+=1-48e7dad10595-6a747b4e-c8-9950
+R1
+R5
+R6
+R7
+o-quiet -auto_acc_if_foreign -work work +acc
+R8
+n@_opt1
+R9
+vcdc_reset_sync
+Z10 2cdc_reset_sync.v|control_status_native.v|cpu_bus_adapter.v|cpu_ram_subsystem.v|cpu_soc_ram_top.v|cpu_soc_ram_top_smoke .v|gpio_native_slave.v|rf_telemetry_native.v|riscv.v|sensor_status_native.v|soc_mem_interconnect.v|soc_ram.v|vdp_native_slave.v|vga_timing_gen.v
+Z11 !s110 1786017191
+!i10b 1
+!s100 z4lnb4eQfKiiPPo7bE^7Q0
+IcLoczKF1:To5a5lP:c0gU0
+R3
+w1785909429
+8cdc_reset_sync.v
+Fcdc_reset_sync.v
+!i122 29
+L0 12 21
+Z12 VDg1SIo80bB@j0V0VzS_@n1
+Z13 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z14 !s108 1786017191.000000
+Z15 !s107 vga_timing_gen.v|vdp_native_slave.v|soc_ram.v|soc_mem_interconnect.v|sensor_status_native.v|riscv.v|rf_telemetry_native.v|gpio_native_slave.v|cpu_soc_ram_top_smoke .v|cpu_soc_ram_top.v|cpu_ram_subsystem.v|cpu_bus_adapter.v|control_status_native.v|cdc_reset_sync.v|
+Z16 !s90 cdc_reset_sync.v|control_status_native.v|cpu_bus_adapter.v|cpu_ram_subsystem.v|cpu_soc_ram_top.v|cpu_soc_ram_top_smoke .v|gpio_native_slave.v|rf_telemetry_native.v|riscv.v|sensor_status_native.v|soc_mem_interconnect.v|soc_ram.v|vdp_native_slave.v|vga_timing_gen.v|
+!i113 0
+Z17 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+vcontrol_status_native_slave
+R10
+R11
+!i10b 1
+!s100 ]oBFbJcWmfL@?TBZTklEk3
+I5bfQRIUeI33f8EHK1F@R<3
+R3
+w1785937473
+8control_status_native.v
+Fcontrol_status_native.v
+!i122 29
+L0 21 169
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vcpu_bus_adapter
+R10
+R11
+!i10b 1
+!s100 ]SISgTl73R<[N5KFOQdFT2
+I=RV7<QK]BGAE[KHOITHJ42
+R3
+w1785880707
+8cpu_bus_adapter.v
+Fcpu_bus_adapter.v
+!i122 29
+L0 4 47
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vcpu_ram_subsystem
+R10
+R11
+!i10b 1
+!s100 GIN8jg<98Q>nEMOPlZKjc0
+IC^8V9BBNiHjRo`fiOZV^`3
+R3
+w1785882819
+8cpu_ram_subsystem.v
+Fcpu_ram_subsystem.v
+!i122 29
+L0 4 169
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vcpu_soc_ram_top
+R10
+R11
+!i10b 1
+!s100 olWhl2nX3Y;ai:lhOWC7U0
+I0h^6jDD29lAzDEFza1]i;1
+R3
+w1786015641
+8cpu_soc_ram_top.v
+Fcpu_soc_ram_top.v
+!i122 29
+L0 35 453
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vgpio_native_slave
+R10
+R11
+!i10b 1
+!s100 adbV0b=4J8iMA=SNZj_6c1
+I>kd_WX0`NgDMSNcmdnUCK0
+R3
+w1785916834
+8gpio_native_slave.v
+Fgpio_native_slave.v
+!i122 29
+L0 38 96
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32_axi
+R10
+R11
+!i10b 1
+!s100 YO5=HI?@C^?>YX5Kl8kU?3
+IY3;:`F=8;a<aJKPg>c0b[2
+R3
+Z18 w1785881789
+Z19 8riscv.v
+Z20 Friscv.v
+!i122 29
+L0 2445 208
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32_axi_adapter
+R10
+R11
+!i10b 1
+!s100 IH7RAe[[2<2F]lm3knU;=2
+Id<PHiSkR6G5Qe`2]maZIL2
+R3
+R18
+R19
+R20
+!i122 29
+L0 2659 78
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32_pcpi_div
+R10
+R11
+!i10b 1
+!s100 1O9^4X;8l]hj01aL]AWTB2
+I=SBzibCFD^AAloj[<<Y:P1
+R3
+R18
+R19
+R20
+!i122 29
+L0 2348 91
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32_pcpi_fast_mul
+R10
+R11
+!i10b 1
+!s100 deUU@;JXLOYhf?=E6ij?k0
+INHJP<>U=^`_NY0O]Q]HiZ3
+R3
+R18
+R19
+R20
+!i122 29
+L0 2246 96
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32_pcpi_mul
+R10
+R11
+!i10b 1
+!s100 <_F>3FMMMdZTI^]:JW>o82
+Inl6z[80P@VTBCL<IaFb_G2
+R3
+R18
+R19
+R20
+!i122 29
+L0 2125 120
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32_regs
+R10
+R11
+!i10b 1
+!s100 5^I=73E5S;Q:ZIlIfi@C]3
+I@7n[S6lCf;7SQ=aLc21S]3
+R3
+R18
+R19
+R20
+!i122 29
+L0 2102 17
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32_wb
+R10
+R11
+!i10b 1
+!s100 eFd@TbBoLV;5KA`gT:Y]a0
+IESTaohROji=0LbcSBA3UP3
+R3
+R18
+R19
+R20
+!i122 29
+L0 2743 235
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vpicorv32a
+R10
+R11
+!i10b 1
+!s100 G6R2<Mlm@<QFLcg>`[YKn1
+I4YAN=O[4zL6eY=1JT0GGL3
+R3
+R18
+R19
+R20
+!i122 29
+L0 57 2039
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vptb
+2tb_riscv_wrapper.sv|tb_soc_ram_top.sv
+Z21 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1786013008
+!i10b 1
+!s100 TmZCzaE?O9L5bCofK[YHT3
+IEFJ5l`9`g1WIzQFK^7kkE1
+S1
+R3
+w1785829665
+8tb_riscv_wrapper.sv
+Ftb_riscv_wrapper.sv
+!i122 17
+L0 2 80
+R12
+R13
+r1
+!s85 0
+31
+!s108 1786013008.000000
+!s107 tb_soc_ram_top.sv|tb_riscv_wrapper.sv|
+!s90 tb_riscv_wrapper.sv|tb_soc_ram_top.sv|
+!i113 0
+R17
+R8
+vrf_telemetry_native_slave
+R10
+R11
+!i10b 1
+!s100 05MFDK^li2@5g<aPR72<n3
+IL2mda@>35gZO=oiTVlDHP0
+R3
+w1785936182
+8rf_telemetry_native.v
+Frf_telemetry_native.v
+!i122 29
+L0 31 241
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vsensor_status_native_slave
+R10
+R11
+!i10b 1
+!s100 4bHIC9oa7`FGUfAdN7d0=0
+IIZ6<f1UzG1JOQ5eT:IV;K2
+R3
+w1785950505
+8sensor_status_native.v
+Fsensor_status_native.v
+!i122 29
+L0 40 198
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vsoc_mem_interconnect
+R10
+R11
+!i10b 1
+!s100 K5I`F7g]TQBIlk6zW0:P?3
+IfznoPa4aPegGR94;FQBzh1
+R3
+Z22 w1786012232
+Z23 8soc_mem_interconnect.v
+Z24 Fsoc_mem_interconnect.v
+!i122 29
+L0 46 359
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vsoc_ram
+R10
+R11
+!i10b 1
+!s100 5IaV0Qkh<H`QBFSzWQ6]10
+I6<X;N5d@Nh7=0Dm9m]nW23
+R3
+R22
+8soc_ram.v
+Fsoc_ram.v
+R23
+R24
+!i122 29
+L0 4 64
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vtb_cpu_soc_ram_top
+2../tb/tb_soc_ram_top.sv
+R21
+!s110 1786018613
+!i10b 1
+!s100 `6m2i11HjIBa2C?fZmeMm2
+IbCz04[63z<JjaaneARRZ03
+S1
+R3
+w1786018604
+8../tb/tb_soc_ram_top.sv
+F../tb/tb_soc_ram_top.sv
+!i122 31
+L0 30 428
+R12
+R13
+r1
+!s85 0
+31
+!s108 1786018613.000000
+!s107 ../tb/tb_soc_ram_top.sv|
+!s90 ../tb/tb_soc_ram_top.sv|
+!i113 0
+R17
+R8
+vvdp_native_slave
+R10
+R11
+!i10b 1
+!s100 ?i:_BEgT;<eo7DT@aOIPI3
+IEgg;S6B2@cAd_XQ<P<jPf2
+R3
+w1785944738
+Z25 8vdp_native_slave.v
+Z26 Fvdp_native_slave.v
+!i122 29
+L0 61 712
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8
+vvga_timing_gen
+R10
+R11
+!i10b 1
+!s100 7bb^ILg7gCE;DAlW2<84j0
+I]kLIl`IfgEVgFoPITg?ki2
+R3
+w1785948994
+8vga_timing_gen.v
+Fvga_timing_gen.v
+R25
+R26
+!i122 29
+L0 16 91
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R8

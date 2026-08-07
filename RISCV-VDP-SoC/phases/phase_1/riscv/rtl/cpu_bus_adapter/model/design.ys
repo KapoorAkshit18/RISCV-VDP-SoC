@@ -1,0 +1,9 @@
+# running in cpu_bus_adapter/src/
+read_verilog -formal cpu_bus_adapter.v
+read_verilog -formal cpu_bus_adapter_formal.v
+prep -top cpu_bus_adapter_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

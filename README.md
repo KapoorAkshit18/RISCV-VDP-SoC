@@ -774,7 +774,7 @@ PASS / FAIL
 
 The smoke test should validate the complete UVM infrastructure before constrained-random testing is introduced.
 
-Do not claim a UVM smoke-test pass unless actual simulation evidence exists.
+
 
 ---
 
@@ -900,7 +900,7 @@ Assertions can also verify:
 
 # 24. Formal Verification
 
-Formal verification can complement simulation.
+Formal verification can complement simulation. Though z3 doesnt performs well for the complex codes.
 
 Useful properties include:
 

@@ -133,6 +133,8 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
         // ------------------------------------------------------------
         // Drive request
         // ------------------------------------------------------------
+        int timeout_count = 0;
+        const int MAX_TIMEOUT = 500; // Adjust based on your CDC latency
 
         @(vif.driver_cb);
 
@@ -149,13 +151,18 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
         // m_valid remains asserted until m_ready.
         // ------------------------------------------------------------
 
+// ------------------------------------------------------------
+        // Wait for slave/interconnect response with WATCHDOG
+        // ------------------------------------------------------------
+      
         do begin
-
             @(vif.driver_cb);
-
+            timeout_count++;
+            if (timeout_count > MAX_TIMEOUT) begin
+                `uvm_fatal("TIMEOUT", $sformatf("Slave failed to assert m_ready for address 0x%08h after %0d cycles", tr.addr, MAX_TIMEOUT))
+            end
         end while (!vif.driver_cb.m_ready);
-
-
+        
         // ------------------------------------------------------------
         // Capture response
         // ------------------------------------------------------------

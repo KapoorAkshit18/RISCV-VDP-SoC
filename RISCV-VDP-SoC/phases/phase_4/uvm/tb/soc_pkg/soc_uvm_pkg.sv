@@ -43,7 +43,7 @@ package soc_uvm_pkg;
     // ------------------------------------------------------------
     `include "soc_base_test/soc_base_sequence.sv"
     `include "soc_base_test/soc_smoke_sequence.sv"
-
+    `include "soc_base_test/soc_smoke_test.sv"
 endpackage
 
 `endif

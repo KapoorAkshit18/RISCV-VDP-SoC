@@ -38,7 +38,7 @@ interface soc_native_if #(
 
     clocking driver_cb @(posedge clk);
 
-        default input #1step output #1step;
+        default input #1step output #1;
 
         output m_valid;
         output m_write;

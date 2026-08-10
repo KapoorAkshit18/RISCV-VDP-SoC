@@ -19,7 +19,7 @@ module soc_ram #(
     output reg  [DATA_WIDTH-1:0]    rdata
 );
 
-    localparam WORD_ADDR_WIDTH = $clog2(DEPTH);
+    localparam WORD_ADDR_WIDTH = $clog2(DEPTH); // locally it will find the 8 bits 
 
     reg [DATA_WIDTH-1:0] mem [0:DEPTH-1];
 

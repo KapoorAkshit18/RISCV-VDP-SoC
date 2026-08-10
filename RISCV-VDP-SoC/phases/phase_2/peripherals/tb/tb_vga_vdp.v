@@ -440,8 +440,7 @@ module tb_vga_vdp_native;
 
         // =====================================================================
         // TEST 5
-        // WAIT FOR VIDEO ACTIVE
-        // =====================================================================
+        // WAIT FOR VIDEO AC // =====================================================================
         //
         // We don't assume a fixed number of cycles.
         // Wait until the actual timing generator enters the active display area.
@@ -495,7 +494,8 @@ module tb_vga_vdp_native;
         end
         else begin
 
-            $display(
+            $display(TIVE
+       
                 "FAIL: RGB444 = (%h,%h,%h), expected (A,B,C)",
                 rgb_r_o,
                 rgb_g_o,

@@ -162,6 +162,15 @@ module vdp_native_slave (
     //
     // Three-stage synchronizers are used for robustness.
     // -------------------------------------------------------------------------
+    wire pixel_reset_n;
+
+cdc_reset_sync u_pixel_reset_sync (
+    .dest_clk   (pixel_clk),
+    .async_rst_n(resetn),
+    .sync_rst_n (pixel_reset_n)
+);
+
+
 
     reg [2:0] hsync_sync_ff;
     reg [2:0] vsync_sync_ff;
@@ -547,8 +556,8 @@ module vdp_native_slave (
     vga_timing_gen u_vga_timing (
 
         .pixel_clk    (pixel_clk),
-        .rst_n        (resetn),
-
+       // .rst_n        (resetn),
+        .rst_n(pixel_reset_n),
         .enable       (display_enable_pclk),
 
         .hcount       (hcount),

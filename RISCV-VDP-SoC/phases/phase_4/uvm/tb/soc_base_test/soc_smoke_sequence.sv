@@ -156,6 +156,27 @@ class soc_smoke_sequence extends soc_base_sequence;
             UVM_LOW
         )
 
+        // =====================================================================
+        // RF TELEMETRY READ (0x0001_1000)
+        // =====================================================================
+        `uvm_info("SMOKE_SEQ", "RF READ: address=0x00011000", UVM_MEDIUM)
+        do_read(32'h0001_1000, read_data);
+        `uvm_info("SMOKE_SEQ", $sformatf("RF READ returned 0x%08h", read_data), UVM_MEDIUM);
+
+        // =====================================================================
+        // SENSOR READ (0x0001_2000)
+        // =====================================================================
+        `uvm_info("SMOKE_SEQ", "SENSOR READ: address=0x00012000", UVM_MEDIUM)
+        do_read(32'h0001_2000, read_data);
+        `uvm_info("SMOKE_SEQ", $sformatf("SENSOR READ returned 0x%08h", read_data), UVM_MEDIUM);
+
+        // =====================================================================
+        // VDP CONFIG WRITE/READ (0x0001_3000)
+        // =====================================================================
+        `uvm_info("SMOKE_SEQ", "VDP WRITE: address=0x00013000 data=0x00000001", UVM_MEDIUM)
+        do_write(32'h0001_3000, 32'h0000_0001, 4'b1111);
+        do_read(32'h0001_3000, read_data);
+        `uvm_info("SMOKE_SEQ", $sformatf("VDP READ returned 0x%08h", read_data), UVM_MEDIUM);
     endtask
 
 endclass

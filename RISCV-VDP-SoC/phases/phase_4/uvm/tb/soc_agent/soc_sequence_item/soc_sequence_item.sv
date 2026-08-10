@@ -143,6 +143,11 @@ class soc_sequence_item extends uvm_sequence_item;
         else
 
             target = "UNMAPPED";
+        //     // =====================================================================
+        // // UNMAPPED ADDRESS ACCESS (Expected to return default/error state)
+        // // =====================================================================
+        // `uvm_info("SMOKE_SEQ", "UNMAPPED READ: address=0x00020000", UVM_MEDIUM)
+        // do_read(32'h0002_0000, read_data);
 
     endfunction
 

@@ -222,11 +222,11 @@ module tb_soc_uvm;
     // Start UVM
     // =========================================================================
 
-    // initial begin
+    initial begin
 
-    //     run_test("soc_smoke_test");
+        run_test("soc_smoke_test");
 
-    // end
+    end
 
 
     // =========================================================================

@@ -26,6 +26,7 @@ rtl/soc_uvm_dut.sv
 +incdir+tb/soc_base_test
 +incdir+tb/soc_native_if
 +incdir+tb/soc_ral
++incdir+tb/soc_coverage
 
 tb/soc_native_if/soc_native_if.sv
 tb/soc_pkg/soc_uvm_pkg.sv

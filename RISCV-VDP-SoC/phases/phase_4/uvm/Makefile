@@ -8,6 +8,45 @@ FILELIST = filelist.f
 VLOG     = vlog
 VSIM     = vsim
 
+COV_DB = soc_coverage.ucdb
+COV_RPT= coverage_report.txt
+
+#==============================================
+# Functional Coverage
+#==============================================
+
+coverage: compile
+	$(VSIM) -c \
+		$(TOP) \
+		+UVM_TESTNAME=soc_coverage_test \
+		+UVM_VERBOSITY=UVM_MEDIUM \
+		-coverage \
+		-do "coverage save -onexit $(COV_DB); run -all; quit -f"
+
+# ============================================================
+# Coverage Report
+# ============================================================
+
+coverage_report: coverage
+	vcover report $(COV_DB) \
+		-details \
+		-output $(COV_RPT)
+
+# ============================================================
+# Coverage Summary
+# ============================================================
+
+coverage_summary: coverage
+	vcover report $(COV_DB)
+
+
+
+
+
+
+
+
+
 VLOG_OPTS = -sv +acc
 
 VSIM_OPTS = -c \

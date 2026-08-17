@@ -43,6 +43,13 @@ package soc_uvm_pkg;
       `include "soc_ral/soc_reg_block.sv"
       `include "soc_ral/soc_reg_adapter.sv" 
       `include "soc_ral/soc_reg_predictor.sv"
+
+// ---------------------------------------------------
+// Coverage
+// ---------------------------------------------------
+      `include "soc_coverage/soc_coverage.sv"
+           
+ 
     // ------------------------------------------------------------
     // Environment
     // ------------------------------------------------------------
@@ -55,7 +62,9 @@ package soc_uvm_pkg;
     `include "soc_base_test/soc_ral_sequence.sv"
     `include "soc_base_test/soc_smoke_sequence.sv"
     `include "soc_base_test/soc_smoke_test.sv"
+    `include "soc_base_test/soc_coverage_sequence.sv"
     `include "soc_base_test/soc_ral_test.sv"    
+    `include "soc_base_test/soc_coverage_test.sv"
 
 endpackage
 

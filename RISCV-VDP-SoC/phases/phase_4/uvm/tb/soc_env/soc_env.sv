@@ -75,7 +75,7 @@ class soc_env extends uvm_env;
     // =========================================================================
 
     soc_agent native_agent;
-
+    soc_coverage coverage;
 
     // =========================================================================
     // RAL
@@ -124,6 +124,11 @@ class soc_env extends uvm_env;
         // ---------------------------------------------------------------------
 
         native_agent.is_active = UVM_ACTIVE;
+
+        // Coverage
+
+        coverage = soc_coverage::type_id::create("coverage",this);
+
 
 
         // =====================================================================
@@ -216,6 +221,13 @@ class soc_env extends uvm_env;
         ral_predictor.bus_in
     );
 
+    // Coverage
+
+    native_agent.monitor.analysis_port.connect(
+    coverage.analysis_export
+);
+
+
 
     `uvm_info(
         "RAL_CONNECT",
@@ -229,6 +241,12 @@ class soc_env extends uvm_env;
         "Monitor connected to RAL predictor",
         UVM_LOW
     )
+
+    `uvm_info(
+    "COV_CONNECT",
+    "Monitor connected to functional coverage",
+    UVM_LOW
+)
 
 endfunction
 

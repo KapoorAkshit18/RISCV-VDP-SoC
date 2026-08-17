@@ -67,7 +67,7 @@ class soc_coverage extends uvm_subscriber #(soc_sequence_item);
             bins SENSOR   = {3};
             bins VDP      = {4};
             bins UNMAPPED = {5};
-            bins UNKNOWN  = {6};
+          //  bins UNKNOWN  = {6};
 
         }
 
@@ -179,9 +179,43 @@ class soc_coverage extends uvm_subscriber #(soc_sequence_item);
             cross cp_write, cp_target;
 
 
-        // // Write × Strobe
-        cross_write_strb:
-            cross cp_write, cp_strb;  
+        // // // Write × Strobe
+        // cross_write_strb:
+        //     cross cp_write, cp_strb;  
+            cross_write_strb: cross cp_write, cp_strb {
+
+    ignore_bins read_byte0 =
+        binsof(cp_write.READ) &&
+        binsof(cp_strb.BYTE0);
+
+    ignore_bins read_byte1 =
+        binsof(cp_write.READ) &&
+        binsof(cp_strb.BYTE1);
+
+    ignore_bins read_byte2 =
+        binsof(cp_write.READ) &&
+        binsof(cp_strb.BYTE2);
+
+    ignore_bins read_byte3 =
+        binsof(cp_write.READ) &&
+        binsof(cp_strb.BYTE3);
+
+    ignore_bins read_halfword_low =
+        binsof(cp_write.READ) &&
+        binsof(cp_strb.HALFWORD_LOW);
+
+    ignore_bins read_halfword_high =
+        binsof(cp_write.READ) &&
+        binsof(cp_strb.HALFWORD_HIGH);
+
+    ignore_bins read_full_word =
+        binsof(cp_write.READ) &&
+        binsof(cp_strb.FULL_WORD);
+
+    ignore_bins write_read_strb =
+        binsof(cp_write.WRITE) &&
+        binsof(cp_strb.READ_STRB);
+}
 
 
         // // Write × Target × Strobe

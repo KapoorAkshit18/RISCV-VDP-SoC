@@ -1,0 +1,421 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_4/uvm
+T_opt
+!s11d soc_uvm_pkg C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_4/uvm/work 1 soc_native_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_4/uvm/work 
+!s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 1 soc_native_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_4/uvm/work 
+!s110 1786953248
+VzjLL;zYhf:7F:8Me5o`2C3
+04 10 4 work tb_soc_uvm fast 0
+=1-48e7dad10595-6a82be1d-8-8578
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2024.1;79
+R1
+vcdc_reset_sync
+Z3 2rtl/soc_mem_interconnect.v|rtl/soc_ram.v|rtl/gpio_native_slave.v|rtl/rf_telemetry_native.v|rtl/sensor_status_native.v|rtl/cdc_reset_sync.v|rtl/vga_timing_gen.v|rtl/vdp_native_slave.v|rtl/soc_uvm_dut.sv|tb/soc_native_if/soc_native_if.sv|tb/soc_pkg/soc_uvm_pkg.sv|tb_soc_uvm.sv
+Z4 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z5 !s110 1786953321
+!i10b 1
+!s100 lSToRGeC_T=V94RLQ5INV1
+I<>YT53mWgM?JFMRHo=>go2
+S1
+R1
+w1786352030
+8rtl/cdc_reset_sync.v
+Frtl/cdc_reset_sync.v
+!i122 3
+L0 20 21
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z8 !s108 1786953321.000000
+!s107 tb/soc_base_test/soc_coverage_test.sv|tb/soc_base_test/soc_ral_test.sv|tb/soc_base_test/soc_coverage_sequence.sv|tb/soc_base_test/soc_smoke_test.sv|tb/soc_base_test/soc_smoke_sequence.sv|tb/soc_base_test/soc_ral_sequence.sv|tb/soc_base_test/soc_base_sequence.sv|tb/soc_env/soc_env.sv|tb/soc_coverage/soc_coverage.sv|tb/soc_ral/soc_reg_predictor.sv|tb/soc_ral/soc_reg_adapter.sv|tb/soc_ral/soc_reg_block.sv|tb/soc_ral/vdp_reg_block.sv|tb/soc_ral/sensor_reg_block.sv|tb/soc_ral/rf_reg_block.sv|tb/soc_ral/gpio_reg_block.sv|tb/soc_agent/soc_agent.sv|tb/soc_monitor/soc_monitor.sv|tb/soc_driver/soc_driver.sv|tb/soc_agent/soc_sequencer/soc_sequencer.sv|tb/soc_agent/soc_sequence_item/soc_sequence_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|tb_soc_uvm.sv|tb/soc_pkg/soc_uvm_pkg.sv|tb/soc_native_if/soc_native_if.sv|rtl/soc_uvm_dut.sv|rtl/vdp_native_slave.v|rtl/vga_timing_gen.v|rtl/cdc_reset_sync.v|rtl/sensor_status_native.v|rtl/rf_telemetry_native.v|rtl/gpio_native_slave.v|rtl/soc_ram.v|rtl/soc_mem_interconnect.v|
+Z9 !s90 -sv|+acc|-f|filelist.f|
+!i113 0
+Z10 o-sv +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 !s92 -sv +acc +incdir+tb +incdir+tb/soc_pkg +incdir+tb/soc_env +incdir+tb/soc_native_if +incdir+tb +incdir+tb/soc_agent +incdir+tb/soc_agent/soc_sequence_item +incdir+tb/soc_sequencer +incdir+tb/soc_driver +incdir+tb/soc_monitor +incdir+tb/soc_env +incdir+tb/soc_base_test +incdir+tb/soc_native_if +incdir+tb/soc_ral +incdir+tb/soc_coverage -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vgpio_native_slave
+R3
+R4
+R5
+!i10b 1
+!s100 i3Mbl9H=:UV383HI[lmdT2
+I0`Tfef7mo7=2R2e4`6nB02
+S1
+R1
+w1786045581
+8rtl/gpio_native_slave.v
+Frtl/gpio_native_slave.v
+!i122 3
+L0 38 96
+R6
+R7
+r1
+!s85 0
+31
+R8
+Z12 !s107 tb/soc_base_test/soc_coverage_test.sv|tb/soc_base_test/soc_ral_test.sv|tb/soc_base_test/soc_coverage_sequence.sv|tb/soc_base_test/soc_smoke_test.sv|tb/soc_base_test/soc_smoke_sequence.sv|tb/soc_base_test/soc_ral_sequence.sv|tb/soc_base_test/soc_base_sequence.sv|tb/soc_env/soc_env.sv|tb/soc_coverage/soc_coverage.sv|tb/soc_ral/soc_reg_predictor.sv|tb/soc_ral/soc_reg_adapter.sv|tb/soc_ral/soc_reg_block.sv|tb/soc_ral/vdp_reg_block.sv|tb/soc_ral/sensor_reg_block.sv|tb/soc_ral/rf_reg_block.sv|tb/soc_ral/gpio_reg_block.sv|tb/soc_agent/soc_agent.sv|tb/soc_monitor/soc_monitor.sv|tb/soc_driver/soc_driver.sv|tb/soc_agent/soc_sequencer/soc_sequencer.sv|tb/soc_agent/soc_sequence_item/soc_sequence_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|tb_soc_uvm.sv|tb/soc_pkg/soc_uvm_pkg.sv|tb/soc_native_if/soc_native_if.sv|rtl/soc_uvm_dut.sv|rtl/vdp_native_slave.v|rtl/vga_timing_gen.v|rtl/cdc_reset_sync.v|rtl/sensor_status_native.v|rtl/rf_telemetry_native.v|rtl/gpio_native_slave.v|rtl/soc_ram.v|rtl/soc_mem_interconnect.v|
+R9
+!i113 0
+R10
+R11
+R2
+vrf_telemetry_native_slave
+R3
+R4
+R5
+!i10b 1
+!s100 0OK<^Q6G211TXf9^UMnC;3
+IQ494a153U^=GmBGEa`h>61
+S1
+R1
+w1785936182
+8rtl/rf_telemetry_native.v
+Frtl/rf_telemetry_native.v
+!i122 3
+L0 31 241
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+vsensor_status_native_slave
+R3
+R4
+R5
+!i10b 1
+!s100 khS@E9z=I6RLzSf<EYhG>3
+IWXDKc0MOhnIZHLHbo1[ZI1
+S1
+R1
+w1785950505
+8rtl/sensor_status_native.v
+Frtl/sensor_status_native.v
+!i122 3
+L0 40 198
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+vsoc_mem_interconnect
+R3
+R4
+R5
+!i10b 1
+!s100 CM@6KWg1[ORckEcmCknea3
+I>:SdenDZg:0WQiAP4MOen0
+S1
+R1
+w1786012232
+8rtl/soc_mem_interconnect.v
+Frtl/soc_mem_interconnect.v
+!i122 3
+L0 46 359
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+Ysoc_native_if
+R3
+R4
+R5
+!i10b 1
+!s100 ^UfRKAkVhVko7F^F>]1KC3
+IjYU?NN58YF_Co6^kL@>IP2
+S1
+R1
+w1786329091
+8tb/soc_native_if/soc_native_if.sv
+Ftb/soc_native_if/soc_native_if.sv
+!i122 3
+L0 3 0
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+vsoc_ram
+R3
+R4
+R5
+!i10b 1
+!s100 g4b?8h];NhA9Fo`GTd`Zf0
+I:TU67]C6_]SZ0E^jZ@kIW2
+S1
+R1
+w1785847180
+8rtl/soc_ram.v
+Frtl/soc_ram.v
+!i122 3
+L0 4 64
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+vsoc_uvm_dut
+R3
+R4
+R5
+!i10b 1
+!s100 JCT9`?7CHhkifeQf8oPld3
+IW<G<XEV:[<kJ;jd[h;zT=1
+S1
+R1
+w1786069876
+8rtl/soc_uvm_dut.sv
+Frtl/soc_uvm_dut.sv
+!i122 3
+L0 32 365
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+Xsoc_uvm_pkg
+R3
+!s115 soc_native_if
+R4
+Z13 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
+Z14 !s110 1786953322
+!i10b 1
+!s100 36S]8MomBe]U;l^?I1jCB2
+IU?<@=]N3529nDb1i8G>lX3
+S1
+R1
+w1786953230
+8tb/soc_pkg/soc_uvm_pkg.sv
+Ftb/soc_pkg/soc_uvm_pkg.sv
+Z15 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z16 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z17 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z18 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z19 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z20 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z21 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z22 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z23 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z24 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z25 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z26 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+Ftb/soc_agent/soc_sequence_item/soc_sequence_item.sv
+Ftb/soc_agent/soc_sequencer/soc_sequencer.sv
+Ftb/soc_driver/soc_driver.sv
+Ftb/soc_monitor/soc_monitor.sv
+Ftb/soc_agent/soc_agent.sv
+Ftb/soc_ral/gpio_reg_block.sv
+Ftb/soc_ral/rf_reg_block.sv
+Ftb/soc_ral/sensor_reg_block.sv
+Ftb/soc_ral/vdp_reg_block.sv
+Ftb/soc_ral/soc_reg_block.sv
+Ftb/soc_ral/soc_reg_adapter.sv
+Ftb/soc_ral/soc_reg_predictor.sv
+Ftb/soc_coverage/soc_coverage.sv
+Ftb/soc_env/soc_env.sv
+Ftb/soc_base_test/soc_base_sequence.sv
+Ftb/soc_base_test/soc_ral_sequence.sv
+Ftb/soc_base_test/soc_smoke_sequence.sv
+Ftb/soc_base_test/soc_smoke_test.sv
+Ftb/soc_base_test/soc_coverage_sequence.sv
+Ftb/soc_base_test/soc_ral_test.sv
+Ftb/soc_base_test/soc_coverage_test.sv
+!i122 3
+Z27 L0 6 0
+VU?<@=]N3529nDb1i8G>lX3
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+vtb_soc_uvm
+R3
+R4
+R13
+Z28 DXx4 work 11 soc_uvm_pkg 0 22 U?<@=]N3529nDb1i8G>lX3
+DXx4 work 18 tb_soc_uvm_sv_unit 0 22 ^`PQ?i<zZGNR_8[F4A=H[1
+R14
+R6
+r1
+!s85 0
+!i10b 1
+!s100 OG[AgQLh5]d=LmSKifDZH1
+IAh1Z5;MOiXFA=7N:YI8ee2
+!s105 tb_soc_uvm_sv_unit
+S1
+R1
+Z29 w1786330212
+Z30 8tb_soc_uvm.sv
+Z31 Ftb_soc_uvm.sv
+!i122 3
+L0 11 233
+R7
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+Xtb_soc_uvm_sv_unit
+R3
+R4
+R13
+R28
+R14
+V^`PQ?i<zZGNR_8[F4A=H[1
+r1
+!s85 0
+!i10b 1
+!s100 @Tak=6j5^SZGKC<hVED0g3
+I^`PQ?i<zZGNR_8[F4A=H[1
+!i103 1
+S1
+R1
+R29
+R30
+R31
+R15
+R16
+R17
+R18
+R19
+R20
+R21
+R22
+R23
+R24
+R25
+R26
+!i122 3
+R27
+R7
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+vvdp_native_slave
+R3
+R4
+R5
+!i10b 1
+!s100 MVYPNH9g^^Lm>34J7L3@^2
+IBi_<IiacFAGHG_`EFOma]3
+S1
+R1
+w1786352253
+8rtl/vdp_native_slave.v
+Frtl/vdp_native_slave.v
+!i122 3
+L0 61 721
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2
+vvga_timing_gen
+R3
+R4
+R5
+!i10b 1
+!s100 TGjmDf_j3i;UGG:T>]05D3
+I:VG?Dg^A4Mi9Lmh;Z1SM[2
+S1
+R1
+w1785948994
+8rtl/vga_timing_gen.v
+Frtl/vga_timing_gen.v
+!i122 3
+L0 16 91
+R6
+R7
+r1
+!s85 0
+31
+R8
+R12
+R9
+!i113 0
+R10
+R11
+R2

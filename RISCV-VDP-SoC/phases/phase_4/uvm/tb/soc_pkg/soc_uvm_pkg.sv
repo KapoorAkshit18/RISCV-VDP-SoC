@@ -33,17 +33,30 @@ package soc_uvm_pkg;
     // ------------------------------------------------------------
     `include "soc_agent/soc_agent.sv"
 
+// ------------------------------------------------------------
+// RAL
+// ------------------------------------------------------------
+      `include "soc_ral/gpio_reg_block.sv"
+      `include "soc_ral/rf_reg_block.sv"
+      `include "soc_ral/sensor_reg_block.sv"
+      `include "soc_ral/vdp_reg_block.sv"
+      `include "soc_ral/soc_reg_block.sv"
+      `include "soc_ral/soc_reg_adapter.sv" 
+      `include "soc_ral/soc_reg_predictor.sv"
     // ------------------------------------------------------------
     // Environment
     // ------------------------------------------------------------
     `include "soc_env/soc_env.sv"
-
+   
     // ------------------------------------------------------------
     // Sequences
     // ------------------------------------------------------------
     `include "soc_base_test/soc_base_sequence.sv"
+    `include "soc_base_test/soc_ral_sequence.sv"
     `include "soc_base_test/soc_smoke_sequence.sv"
     `include "soc_base_test/soc_smoke_test.sv"
+    `include "soc_base_test/soc_ral_test.sv"    
+
 endpackage
 
 `endif

@@ -140,7 +140,7 @@ class soc_agent extends uvm_agent;
     // End-of-elaboration information
     // =========================================================================
 
-    virtual function void end_of_elaboration_phase(
+       virtual function void end_of_elaboration_phase(
         uvm_phase phase
     );
 

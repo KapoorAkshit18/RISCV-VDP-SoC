@@ -10,36 +10,59 @@ import uvm_pkg::*;
 // =============================================================================
 // RISCV-VDP-SoC
 // UVM Environment
-// =============================================================================
 //
-// Current architecture:
+// Architecture:
 //
 //                         soc_env
 //                            |
-//                     +------+-------+
-//                     |              |
-//                     v              v
-//                native_agent    analysis path
-//                     |
-//              +------+------+
-//              |             |
-//          sequencer       monitor
-//              |
-//            driver
-//              |
-//             DUT
+//                +-----------+-----------+
+//                |                       |
+//                v                       v
+//          native_agent              RAL layer
+//                |                       |
+//         +------+------+          +-----+------+
+//         |             |          |            |
+//    sequencer       monitor     reg_block    predictor
+//         |             |                       ^
+//       driver          |                       |
+//         |              +-----------------------+
+//         |                 analysis_port
+//         v
+//        DUT
 //
-// Later:
+// RAL frontdoor:
 //
-//        monitor
-//           |
-//           +----> predictor/reference model
-//           |
-//           +----> scoreboard/checker
-//           |
-//           +----> functional coverage
+//     RAL sequence
+//          |
+//          v
+//     soc_reg_block
+//          |
+//          v
+//     soc_reg_adapter
+//          |
+//          v
+//     native sequencer
+//          |
+//          v
+//        driver
+//          |
+//          v
+//         DUT
 //
-// RAL will be added as a separate layer on top of the native bus.
+// RAL prediction:
+//
+//        DUT
+//          |
+//       monitor
+//          |
+//   analysis_port
+//          |
+//          v
+//      predictor
+//          |
+//          v
+//     RAL mirror
+//
 // =============================================================================
 
 class soc_env extends uvm_env;
@@ -52,6 +75,15 @@ class soc_env extends uvm_env;
     // =========================================================================
 
     soc_agent native_agent;
+
+
+    // =========================================================================
+    // RAL
+    // =========================================================================
+
+    soc_reg_block     ral_model;
+    soc_reg_adapter   ral_adapter;
+    soc_reg_predictor ral_predictor;
 
 
     // =========================================================================
@@ -77,9 +109,9 @@ class soc_env extends uvm_env;
         super.build_phase(phase);
 
 
-        // ------------------------------------------------------------
-        // Create native bus agent through factory.
-        // ------------------------------------------------------------
+        // =====================================================================
+        // Native bus agent
+        // =====================================================================
 
         native_agent = soc_agent::type_id::create(
             "native_agent",
@@ -87,13 +119,61 @@ class soc_env extends uvm_env;
         );
 
 
-        // ------------------------------------------------------------
-        // The current environment actively drives the DUT.
-        //
-        // Later tests can override this to UVM_PASSIVE if required.
-        // ------------------------------------------------------------
+        // ---------------------------------------------------------------------
+        // Current environment actively drives the DUT.
+        // ---------------------------------------------------------------------
 
         native_agent.is_active = UVM_ACTIVE;
+
+
+        // =====================================================================
+        // RAL MODEL
+        // =====================================================================
+
+        ral_model = soc_reg_block::type_id::create(
+            "ral_model",
+            this
+        );
+
+        ral_model.build();
+
+
+        // ---------------------------------------------------------------------
+        // Disable automatic RAL prediction.
+        //
+        // The monitor/predictor path will update the mirror based on the
+        // transaction actually observed on the native bus.
+        // ---------------------------------------------------------------------
+
+        ral_model.default_map.set_auto_predict(0);
+
+
+        // =====================================================================
+        // RAL ADAPTER
+        // =====================================================================
+
+        ral_adapter = soc_reg_adapter::type_id::create(
+            "ral_adapter"
+        );
+
+
+        // =====================================================================
+        // RAL PREDICTOR
+        // =====================================================================
+
+        ral_predictor = soc_reg_predictor::type_id::create(
+            "ral_predictor",
+            this
+        );
+
+
+        // ---------------------------------------------------------------------
+        // Tell predictor which RAL map and adapter to use.
+        // ---------------------------------------------------------------------
+
+        ral_predictor.map = ral_model.default_map;
+
+        ral_predictor.adapter = ral_adapter;
 
     endfunction
 
@@ -102,14 +182,55 @@ class soc_env extends uvm_env;
     // Connect phase
     // =========================================================================
 
-    virtual function void connect_phase(uvm_phase phase);
+   virtual function void connect_phase(uvm_phase phase);
 
-        super.connect_phase(phase);
+    super.connect_phase(phase);
 
-        // Analysis connections will be added here when the predictor,
-        // scoreboard and coverage components are instantiated.
 
-    endfunction
+    // =========================================================================
+    // RAL FRONTDOOR CONNECTION
+    //
+    // RAL register accesses are converted by soc_reg_adapter and then sent
+    // through the existing native-bus sequencer.
+    //
+    // RAL
+    //  |
+    //  +--> soc_reg_adapter
+    //  |
+    //  +--> native_agent.sequencer
+    // =========================================================================
+
+    ral_model.default_map.set_sequencer(
+        native_agent.sequencer,
+        ral_adapter
+    );
+
+
+    // =========================================================================
+    // RAL PREDICTOR CONNECTION
+    //
+    // Actual bus transactions observed by the monitor update the RAL mirror.
+    // =========================================================================
+
+    native_agent.monitor.analysis_port.connect(
+        ral_predictor.bus_in
+    );
+
+
+    `uvm_info(
+        "RAL_CONNECT",
+        "RAL default_map connected to native sequencer",
+        UVM_LOW
+    )
+
+
+    `uvm_info(
+        "RAL_CONNECT",
+        "Monitor connected to RAL predictor",
+        UVM_LOW
+    )
+
+endfunction
 
 
     // =========================================================================
@@ -122,15 +243,31 @@ class soc_env extends uvm_env;
 
         super.end_of_elaboration_phase(phase);
 
+
         `uvm_info(
             "ENV",
             "RISCV-VDP-SoC UVM environment constructed",
             UVM_LOW
         )
 
+
         `uvm_info(
             "ENV",
             "Native bus agent is ACTIVE",
+            UVM_LOW
+        )
+
+
+        `uvm_info(
+            "ENV",
+            "SoC RAL model constructed",
+            UVM_LOW
+        )
+
+
+        `uvm_info(
+            "ENV",
+            "SoC RAL predictor connected to native monitor",
             UVM_LOW
         )
 

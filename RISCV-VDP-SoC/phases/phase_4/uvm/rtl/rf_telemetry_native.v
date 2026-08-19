@@ -13,6 +13,11 @@
 //                                      bit2=carrier_detect
 //   0x08  RF_CONTROL    R/W  [0]     rf_enable
 //   0x0C  RF_ID         RO   [31:0]  32'h52465430 ("RFT0")
+//   0x10  RF_BAND       RO   [31:0]  Band ID (set via BAND_ID parameter)
+//                                      0 = 2.4 GHz
+//                                      1 = 5   GHz
+//                                      2 = 900 MHz
+//                                      3 = Sub-1GHz
 //
 // Native PicoRV32 bus:
 //   mem_wstrb == 4'b0000 : READ
@@ -30,7 +35,8 @@
 
 module rf_telemetry_native_slave #(
     parameter ADDR_WIDTH = 12,
-    parameter DATA_WIDTH = 32
+    parameter DATA_WIDTH = 32,
+    // parameter [31:0] BAND_ID = 32'd0   // 0=2.4GHz 1=5GHz 2=900MHz 3=Sub-1GHz
 )(
     input  wire                     clk,
     input  wire                     resetn,
@@ -81,6 +87,9 @@ module rf_telemetry_native_slave #(
 
     localparam [ADDR_WIDTH-1:0] ADDR_ID =
         12'h00C;
+
+    // localparam [ADDR_WIDTH-1:0] ADDR_BAND =
+    //     12'h010;
 
     localparam [31:0] RF_ID_VALUE =
         32'h5246_5430;       // "RFT0"
@@ -226,6 +235,10 @@ module rf_telemetry_native_slave #(
                         ADDR_ID: begin
                             mem_rdata <= RF_ID_VALUE;
                         end
+
+                        // ADDR_BAND: begin
+                        //     mem_rdata <= BAND_ID;
+                        // end
 
                         default: begin
                             mem_rdata <= 32'h0000_0000;

@@ -23,7 +23,6 @@
 ./rtl/gpio_native_slave.v
 ./rtl/sensor_status_native.v
 ./rtl/rf_telemetry_native.v
-./rtl/control_status_native.v
 
 // ------------------------------------------------------------
 // VDP / VGA

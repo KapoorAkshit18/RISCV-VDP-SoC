@@ -2,11 +2,11 @@
 
 ## RISCV-VDP-SoC — RISC-V Video Display Processor System-on-Chip
 
-[![Language](https://img.shields.io/badge/HDL-SystemVerilog%2FVerilog-blue)]
-[![Verification](https://img.shields.io/badge/Verification-UVM-orange)]
-[![Simulator](https://img.shields.io/badge/Simulator-QuestaSim-red)]
-[![Coverage](https://img.shields.io/badge/Functional%20Coverage-100%25-success)]
-[![Architecture](https://img.shields.io/badge/Architecture-RISC--V%20SoC-purple)]
+![Language](https://img.shields.io/badge/HDL-SystemVerilog%2FVerilog-blue)
+![Verification](https://img.shields.io/badge/Verification-UVM-orange)
+![Simulator](https://img.shields.io/badge/Simulator-QuestaSim-red)
+![Coverage](https://img.shields.io/badge/Functional%20Coverage-100%25-success)
+![Architecture](https://img.shields.io/badge/Architecture-RISC--V%20SoC-purple)
 
 > **Design Verification focused RISC-V SoC project demonstrating SystemVerilog,
 > UVM, transaction-level verification, UVM RAL, functional coverage,

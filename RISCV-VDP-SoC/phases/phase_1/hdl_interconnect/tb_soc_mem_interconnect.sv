@@ -3,21 +3,47 @@
 // =============================================================================
 // tb_soc_mem_interconnect.v
 //
-// Self-checking testbench for soc_mem_interconnect.
+// Self-checking simulation testbench for soc_mem_interconnect.
+//
+// IMPORTANT:
+// GPIO and RF telemetry do NOT have physical RTL slave modules in this
+// simulation. Their bus interfaces are modeled here as simple dummy slave
+// responses so that the memory interconnect's address decoding and routing
+// logic can still be verified.
+//
+// Simulation-only slave models:
+//   - GPIO
+//   - RF Telemetry
+//   - Sensor
+//   - VDP
+//
+// The purpose of this testbench is to verify:
+//
+//   1. Address decoding
+//   2. Slave selection
+//   3. Local-address generation
+//   4. Write/read propagation
+//   5. Write data propagation
+//   6. Byte-strobe propagation
+//   7. Ready propagation
+//   8. Read-data return path
+//   9. Unmapped-address handling
+//  10. No overlapping slave selection
 //
 // Address map:
 //
 //   0x0000_0000 - 0x0000_FFFF : RAM
-//   0x0001_0000 - 0x0001_0FFF : GPIO
-//   0x0001_1000 - 0x0001_1FFF : RF
-//   0x0001_2000 - 0x0001_2FFF : Sensor
-//   0x0001_3000 - 0x0001_3FFF : VDP
+//   0x0001_0000 - 0x0001_0FFF : GPIO (simulation model)
+//   0x0001_1000 - 0x0001_1FFF : RF   (simulation model)
+//   0x0001_2000 - 0x0001_2FFF : Sensor (simulation model)
+//   0x0001_3000 - 0x0001_3FFF : VDP    (simulation model)
 //
 // Peripheral local addresses are 12 bits.
 //
 // Native bus:
+//
 //   m_valid = request
-//   m_write = write/read indication
+//   m_write = 1 for write, 0 for read
 //   m_addr  = 32-bit system address
 //   m_wdata = write data
 //   m_strb  = byte strobes
@@ -29,7 +55,7 @@
 module tb_soc_mem_interconnect;
 
     // =========================================================================
-    // Clock
+    // CLOCK
     // =========================================================================
 
     reg clk;
@@ -38,7 +64,7 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // Master signals
+    // MASTER / CPU-SIDE INTERFACE
     // =========================================================================
 
     reg         m_valid;
@@ -52,7 +78,7 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // RAM
+    // RAM INTERFACE
     // =========================================================================
 
     wire        ram_valid;
@@ -66,7 +92,10 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // GPIO
+    // GPIO INTERFACE
+    //
+    // No GPIO slave RTL is instantiated.
+    // These signals represent a SIMULATION-ONLY GPIO slave interface.
     // =========================================================================
 
     wire        gpio_valid;
@@ -80,7 +109,10 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // RF
+    // RF TELEMETRY INTERFACE
+    //
+    // No RF telemetry slave RTL is instantiated.
+    // These signals represent a SIMULATION-ONLY RF slave interface.
     // =========================================================================
 
     wire        rf_valid;
@@ -94,7 +126,9 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // Sensor
+    // SENSOR INTERFACE
+    //
+    // Simulation response is provided directly by the testbench.
     // =========================================================================
 
     wire        sensor_valid;
@@ -108,7 +142,9 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // VDP
+    // VDP INTERFACE
+    //
+    // Simulation response is provided directly by the testbench.
     // =========================================================================
 
     wire        vdp_valid;
@@ -122,14 +158,14 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // Error counter
+    // ERROR COUNTER
     // =========================================================================
 
     integer errors;
 
 
     // =========================================================================
-    // DUT
+    // DUT : SOC MEMORY INTERCONNECT
     // =========================================================================
 
     soc_mem_interconnect #(
@@ -137,7 +173,10 @@ module tb_soc_mem_interconnect;
         .DATA_WIDTH(32)
     ) dut (
 
-        // Master
+        // ---------------------------------------------------------------------
+        // Master / CPU-side interface
+        // ---------------------------------------------------------------------
+
         .m_valid(m_valid),
         .m_write(m_write),
         .m_addr(m_addr),
@@ -146,7 +185,10 @@ module tb_soc_mem_interconnect;
         .m_ready(m_ready),
         .m_rdata(m_rdata),
 
+        // ---------------------------------------------------------------------
         // RAM
+        // ---------------------------------------------------------------------
+
         .ram_valid(ram_valid),
         .ram_write(ram_write),
         .ram_addr(ram_addr),
@@ -155,7 +197,10 @@ module tb_soc_mem_interconnect;
         .ram_ready(ram_ready),
         .ram_rdata(ram_rdata),
 
-        // GPIO
+        // ---------------------------------------------------------------------
+        // GPIO simulation interface
+        // ---------------------------------------------------------------------
+
         .gpio_valid(gpio_valid),
         .gpio_write(gpio_write),
         .gpio_addr(gpio_addr),
@@ -164,7 +209,10 @@ module tb_soc_mem_interconnect;
         .gpio_ready(gpio_ready),
         .gpio_rdata(gpio_rdata),
 
-        // RF
+        // ---------------------------------------------------------------------
+        // RF telemetry simulation interface
+        // ---------------------------------------------------------------------
+
         .rf_valid(rf_valid),
         .rf_write(rf_write),
         .rf_addr(rf_addr),
@@ -173,7 +221,10 @@ module tb_soc_mem_interconnect;
         .rf_ready(rf_ready),
         .rf_rdata(rf_rdata),
 
-        // Sensor
+        // ---------------------------------------------------------------------
+        // Sensor simulation interface
+        // ---------------------------------------------------------------------
+
         .sensor_valid(sensor_valid),
         .sensor_write(sensor_write),
         .sensor_addr(sensor_addr),
@@ -182,7 +233,10 @@ module tb_soc_mem_interconnect;
         .sensor_ready(sensor_ready),
         .sensor_rdata(sensor_rdata),
 
-        // VDP
+        // ---------------------------------------------------------------------
+        // VDP simulation interface
+        // ---------------------------------------------------------------------
+
         .vdp_valid(vdp_valid),
         .vdp_write(vdp_write),
         .vdp_addr(vdp_addr),
@@ -194,37 +248,45 @@ module tb_soc_mem_interconnect;
 
 
     // =========================================================================
-    // Task: clear all inputs
+    // TASK: CLEAR ALL INPUTS
     // =========================================================================
 
     task clear_inputs;
         begin
+
+            // Master
             m_valid = 1'b0;
             m_write = 1'b0;
-            m_addr  = 32'h0;
-            m_wdata = 32'h0;
+            m_addr  = 32'h0000_0000;
+            m_wdata = 32'h0000_0000;
             m_strb  = 4'h0;
 
-            ram_ready    = 1'b0;
-            ram_rdata    = 32'h0;
+            // RAM simulation response
+            ram_ready = 1'b0;
+            ram_rdata = 32'h0000_0000;
 
-            gpio_ready   = 1'b0;
-            gpio_rdata   = 32'h0;
+            // GPIO simulation response
+            gpio_ready = 1'b0;
+            gpio_rdata = 32'h0000_0000;
 
-            rf_ready     = 1'b0;
-            rf_rdata     = 32'h0;
+            // RF simulation response
+            rf_ready = 1'b0;
+            rf_rdata = 32'h0000_0000;
 
+            // Sensor simulation response
             sensor_ready = 1'b0;
-            sensor_rdata = 32'h0;
+            sensor_rdata = 32'h0000_0000;
 
-            vdp_ready    = 1'b0;
-            vdp_rdata    = 32'h0;
+            // VDP simulation response
+            vdp_ready = 1'b0;
+            vdp_rdata = 32'h0000_0000;
+
         end
     endtask
 
 
     // =========================================================================
-    // Main test
+    // MAIN TEST SEQUENCE
     // =========================================================================
 
     initial begin
@@ -238,17 +300,21 @@ module tb_soc_mem_interconnect;
 
 
         // =====================================================================
-        // TEST 1: RAM routing
+        // TEST 1 : RAM ROUTING
         // =====================================================================
 
-        m_valid    = 1'b1;
-        m_write    = 1'b0;
-        m_addr     = 32'h0000_0040;
-        m_wdata    = 32'h1234_5678;
-        m_strb     = 4'h0;
+        $display("");
+        $display("TEST 1 : RAM ROUTING");
 
-        ram_ready  = 1'b1;
-        ram_rdata  = 32'hA5A5_5A5A;
+        m_valid = 1'b1;
+        m_write = 1'b0;
+        m_addr  = 32'h0000_0040;
+        m_wdata = 32'h1234_5678;
+        m_strb  = 4'h0;
+
+        // Simulated RAM response
+        ram_ready = 1'b1;
+        ram_rdata = 32'hA5A5_5A5A;
 
         #1;
 
@@ -257,43 +323,55 @@ module tb_soc_mem_interconnect;
             !rf_valid &&
             !sensor_valid &&
             !vdp_valid)
+
             $display("PASS: RAM address routed only to RAM");
+
         else begin
             $display("FAIL: RAM routing incorrect");
             errors = errors + 1;
         end
 
+
         if (ram_addr === 32'h0000_0040)
-            $display("PASS: RAM receives full system address = %08h",
+
+            $display("PASS: RAM receives address = %08h",
                      ram_addr);
+
         else begin
-            $display("FAIL: RAM address = %08h", ram_addr);
+            $display("FAIL: RAM address = %08h",
+                     ram_addr);
             errors = errors + 1;
         end
 
+
         if (m_ready === 1'b1 &&
             m_rdata === 32'hA5A5_5A5A)
+
             $display("PASS: RAM ready/data returned to master");
+
         else begin
             $display("FAIL: RAM response incorrect");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 2: GPIO local address translation
-        // System: 0x0001_000C
-        // Local : 0x00C
+        // TEST 2 : GPIO SIMULATION SLAVE
         // =====================================================================
 
-        m_valid   = 1'b1;
-        m_write   = 1'b0;
-        m_addr    = 32'h0001_000C;
-        m_strb    = 4'h0;
+        $display("");
+        $display("TEST 2 : GPIO SIMULATION SLAVE");
 
+        m_valid = 1'b1;
+        m_write = 1'b0;
+        m_addr  = 32'h0001_000C;
+        m_strb  = 4'h0;
+
+        // Dummy GPIO slave response
         gpio_ready = 1'b1;
         gpio_rdata = 32'h1122_3344;
 
@@ -304,44 +382,57 @@ module tb_soc_mem_interconnect;
             !rf_valid &&
             !sensor_valid &&
             !vdp_valid)
-            $display("PASS: GPIO address routed only to GPIO");
+
+            $display("PASS: GPIO address routed only to GPIO model");
+
         else begin
             $display("FAIL: GPIO routing incorrect");
             errors = errors + 1;
         end
 
+
         if (gpio_addr === 12'h00C)
-            $display("PASS: GPIO local address = %03h", gpio_addr);
+
+            $display("PASS: GPIO local address = %03h",
+                     gpio_addr);
+
         else begin
-            $display("FAIL: GPIO local address = %03h (expected 00C)",
+            $display("FAIL: GPIO local address = %03h",
                      gpio_addr);
             errors = errors + 1;
         end
 
-        if (m_ready && m_rdata === 32'h1122_3344)
-            $display("PASS: GPIO response returned to master");
+
+        if (m_ready &&
+            m_rdata === 32'h1122_3344)
+
+            $display("PASS: GPIO model response returned to master");
+
         else begin
             $display("FAIL: GPIO response incorrect");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 3: RF local address translation
-        // System: 0x0001_1008
-        // Local : 0x008
+        // TEST 3 : RF TELEMETRY SIMULATION SLAVE
         // =====================================================================
 
-        m_valid   = 1'b1;
-        m_write   = 1'b0;
-        m_addr    = 32'h0001_1008;
-        m_strb    = 4'h0;
+        $display("");
+        $display("TEST 3 : RF TELEMETRY SIMULATION SLAVE");
 
-        rf_ready  = 1'b1;
-        rf_rdata  = 32'h5246_5430;
+        m_valid = 1'b1;
+        m_write = 1'b0;
+        m_addr  = 32'h0001_1008;
+        m_strb  = 4'h0;
+
+        // Dummy RF telemetry slave response
+        rf_ready = 1'b1;
+        rf_rdata = 32'h5246_5430;
 
         #1;
 
@@ -350,41 +441,53 @@ module tb_soc_mem_interconnect;
             !gpio_valid &&
             !sensor_valid &&
             !vdp_valid)
-            $display("PASS: RF address routed only to RF");
+
+            $display("PASS: RF address routed only to RF model");
+
         else begin
             $display("FAIL: RF routing incorrect");
             errors = errors + 1;
         end
 
+
         if (rf_addr === 12'h008)
-            $display("PASS: RF local address = %03h", rf_addr);
+
+            $display("PASS: RF local address = %03h",
+                     rf_addr);
+
         else begin
-            $display("FAIL: RF local address = %03h (expected 008)",
+            $display("FAIL: RF local address = %03h",
                      rf_addr);
             errors = errors + 1;
         end
 
-        if (m_ready && m_rdata === 32'h5246_5430)
-            $display("PASS: RF response returned to master");
+
+        if (m_ready &&
+            m_rdata === 32'h5246_5430)
+
+            $display("PASS: RF model response returned to master");
+
         else begin
             $display("FAIL: RF response incorrect");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 4: Sensor local address translation
-        // System: 0x0001_200C
-        // Local : 0x00C
+        // TEST 4 : SENSOR SIMULATION SLAVE
         // =====================================================================
 
-        m_valid   = 1'b1;
-        m_write   = 1'b0;
-        m_addr    = 32'h0001_200C;
-        m_strb    = 4'h0;
+        $display("");
+        $display("TEST 4 : SENSOR SIMULATION SLAVE");
+
+        m_valid = 1'b1;
+        m_write = 1'b0;
+        m_addr  = 32'h0001_200C;
+        m_strb  = 4'h0;
 
         sensor_ready = 1'b1;
         sensor_rdata = 32'h0000_0001;
@@ -396,41 +499,53 @@ module tb_soc_mem_interconnect;
             !gpio_valid &&
             !rf_valid &&
             !vdp_valid)
-            $display("PASS: Sensor address routed only to Sensor");
+
+            $display("PASS: Sensor address routed only to Sensor model");
+
         else begin
             $display("FAIL: Sensor routing incorrect");
             errors = errors + 1;
         end
 
+
         if (sensor_addr === 12'h00C)
-            $display("PASS: Sensor local address = %03h", sensor_addr);
+
+            $display("PASS: Sensor local address = %03h",
+                     sensor_addr);
+
         else begin
-            $display("FAIL: Sensor local address = %03h (expected 00C)",
+            $display("FAIL: Sensor local address = %03h",
                      sensor_addr);
             errors = errors + 1;
         end
 
-        if (m_ready && m_rdata === 32'h0000_0001)
+
+        if (m_ready &&
+            m_rdata === 32'h0000_0001)
+
             $display("PASS: Sensor response returned to master");
+
         else begin
             $display("FAIL: Sensor response incorrect");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 5: VDP local address translation
-        // System: 0x0001_3010
-        // Local : 0x010
+        // TEST 5 : VDP SIMULATION SLAVE
         // =====================================================================
 
-        m_valid   = 1'b1;
-        m_write   = 1'b0;
-        m_addr    = 32'h0001_3010;
-        m_strb    = 4'h0;
+        $display("");
+        $display("TEST 5 : VDP SIMULATION SLAVE");
+
+        m_valid = 1'b1;
+        m_write = 1'b0;
+        m_addr  = 32'h0001_3010;
+        m_strb  = 4'h0;
 
         vdp_ready = 1'b1;
         vdp_rdata = 32'h00FF_1234;
@@ -442,34 +557,48 @@ module tb_soc_mem_interconnect;
             !gpio_valid &&
             !rf_valid &&
             !sensor_valid)
-            $display("PASS: VDP address routed only to VDP");
+
+            $display("PASS: VDP address routed only to VDP model");
+
         else begin
             $display("FAIL: VDP routing incorrect");
             errors = errors + 1;
         end
 
+
         if (vdp_addr === 12'h010)
-            $display("PASS: VDP local address = %03h", vdp_addr);
+
+            $display("PASS: VDP local address = %03h",
+                     vdp_addr);
+
         else begin
-            $display("FAIL: VDP local address = %03h (expected 010)",
+            $display("FAIL: VDP local address = %03h",
                      vdp_addr);
             errors = errors + 1;
         end
 
-        if (m_ready && m_rdata === 32'h00FF_1234)
+
+        if (m_ready &&
+            m_rdata === 32'h00FF_1234)
+
             $display("PASS: VDP response returned to master");
+
         else begin
             $display("FAIL: VDP response incorrect");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 6: Write routing and byte strobes
+        // TEST 6 : WRITE ROUTING + BYTE STROBES
         // =====================================================================
+
+        $display("");
+        $display("TEST 6 : WRITE ROUTING + BYTE STROBES");
 
         m_valid = 1'b1;
         m_write = 1'b1;
@@ -486,19 +615,25 @@ module tb_soc_mem_interconnect;
             gpio_addr === 12'h000 &&
             gpio_wdata === 32'hDEAD_BEEF &&
             gpio_strb === 4'b0100)
-            $display("PASS: GPIO write and WSTRB routed correctly");
+
+            $display("PASS: GPIO write/strobe routed correctly");
+
         else begin
             $display("FAIL: GPIO write routing incorrect");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 7: Unmapped read
+        // TEST 7 : UNMAPPED READ
         // =====================================================================
+
+        $display("");
+        $display("TEST 7 : UNMAPPED READ");
 
         m_valid = 1'b1;
         m_write = 1'b0;
@@ -512,29 +647,36 @@ module tb_soc_mem_interconnect;
             !rf_valid &&
             !sensor_valid &&
             !vdp_valid)
-            $display("PASS: Unmapped access selects no slave");
+
+            $display("PASS: Unmapped read selects no slave");
+
         else begin
-            $display("FAIL: Unmapped access selected a slave");
+            $display("FAIL: Unmapped read selected a slave");
             errors = errors + 1;
         end
 
+
         if (m_ready === 1'b1 &&
             m_rdata === 32'h0000_0000)
+
             $display("PASS: Unmapped read completes with zero");
+
         else begin
-            $display("FAIL: Unmapped read response incorrect:ready=%b data=%08h",m_ready, m_rdata);
-                
-                errors = errors + 1;
-        
-            end
+            $display("FAIL: Unmapped read response incorrect");
+            errors = errors + 1;
+        end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 8: Unmapped write
+        // TEST 8 : UNMAPPED WRITE
         // =====================================================================
+
+        $display("");
+        $display("TEST 8 : UNMAPPED WRITE");
 
         m_valid = 1'b1;
         m_write = 1'b1;
@@ -549,26 +691,35 @@ module tb_soc_mem_interconnect;
             !rf_valid &&
             !sensor_valid &&
             !vdp_valid)
+
             $display("PASS: Unmapped write selects no slave");
+
         else begin
             $display("FAIL: Unmapped write selected a slave");
             errors = errors + 1;
         end
 
+
         if (m_ready === 1'b1)
+
             $display("PASS: Unmapped write completes");
+
         else begin
             $display("FAIL: Unmapped write did not complete");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST 9: No overlapping decode
+        // TEST 9 : NO OVERLAPPING DECODE
         // =====================================================================
+
+        $display("");
+        $display("TEST 9 : NO OVERLAPPING DECODE");
 
         m_valid = 1'b1;
         m_addr  = 32'h0001_0000;
@@ -580,37 +731,39 @@ module tb_soc_mem_interconnect;
              rf_valid +
              sensor_valid +
              vdp_valid) == 1)
-            $display("PASS: Exactly one slave selected for GPIO address");
+
+            $display("PASS: Exactly one slave selected");
+
         else begin
             $display("FAIL: Decode overlap detected");
             errors = errors + 1;
         end
+
 
         clear_inputs();
         #10;
 
 
         // =====================================================================
-        // TEST SUMMARY
+        // FINAL TEST SUMMARY
         // =====================================================================
 
- // =====================================================================
-// TEST SUMMARY
-// =====================================================================
+        $display("");
+        $display("==============================================");
 
-if (errors == 0) begin
-    $display("==============================================");
-    $display("TB_SOC_MEM_INTERCONNECT: ALL TESTS PASSED");
-    $display("==============================================");
-end
-else begin
-    $display("==============================================");
-    $display("TB_SOC_MEM_INTERCONNECT: %0d TEST(S) FAILED",   errors);
-    $display("==============================================");
-end
+        if (errors == 0) begin
+            $display("TB_SOC_MEM_INTERCONNECT");
+            $display("ALL TESTS PASSED");
+        end
+        else begin
+            $display("TB_SOC_MEM_INTERCONNECT");
+            $display("%0d TEST(S) FAILED", errors);
+        end
 
-$finish;
+        $display("==============================================");
 
-end
+        $finish;
+
+    end
 
 endmodule

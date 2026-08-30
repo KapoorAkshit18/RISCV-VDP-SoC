@@ -1,13 +1,51 @@
-# vsim -c -voptargs="+acc" work.tb_cpu_ram_subsystem -do "run.do" 
-# Start time: 16:18:14 on Aug 29,2026
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
-# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
-# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
-# ** Error: ./riscv/rtl/cpu_ram_subsystem.v(123): Module 'soc_mem_interconnect' is not defined.
-#  For instance 'u_interconnect' at path 'tb_cpu_ram_subsystem.dut'
-# Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
-# Error loading design
-# End time: 16:18:16 on Aug 29,2026, Elapsed time: 0:00:02
-# Errors: 1, Warnings: 1
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim -voptargs="+acc" work.tb_soc_mem_interconnect -do "run.do" 
+# Start time: 16:49:52 on Aug 30,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.tb_soc_mem_interconnect(fast)
+# Loading work.soc_mem_interconnect(fast)
+# do run.do
+# PASS: RAM address routed only to RAM
+# PASS: RAM receives full system address = 00000040
+# PASS: RAM ready/data returned to master
+# PASS: GPIO address routed only to GPIO
+# PASS: GPIO local address = 00c
+# PASS: GPIO response returned to master
+# PASS: RF address routed only to RF
+# PASS: RF local address = 008
+# PASS: RF response returned to master
+# PASS: Sensor address routed only to Sensor
+# PASS: Sensor local address = 00c
+# PASS: Sensor response returned to master
+# PASS: VDP address routed only to VDP
+# PASS: VDP local address = 010
+# PASS: VDP response returned to master
+# PASS: GPIO write and WSTRB routed correctly
+# PASS: Unmapped access selects no slave
+# PASS: Unmapped read completes with zero
+# PASS: Unmapped write selects no slave
+# PASS: Unmapped write completes
+# PASS: Exactly one slave selected for GPIO address
+# ==============================================
+# TB_SOC_MEM_INTERCONNECT: ALL TESTS PASSED
+# ==============================================
+# ** Note: $finish    : ./hdl_interconnect/tb_soc_mem_interconnect.sv(612)
+#    Time: 119 ns  Iteration: 0  Instance: /tb_soc_mem_interconnect
+# 1
+# Break in Module tb_soc_mem_interconnect at ./hdl_interconnect/tb_soc_mem_interconnect.sv line 612
+# End time: 16:53:12 on Aug 30,2026, Elapsed time: 0:03:20
+# Errors: 0, Warnings: 0

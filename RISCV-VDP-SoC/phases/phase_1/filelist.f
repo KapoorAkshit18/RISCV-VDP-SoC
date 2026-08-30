@@ -30,4 +30,4 @@
 # ------------------------------------------------------------
 # Testbench
 # ------------------------------------------------------------
-./riscv/tb/directed/tb_top.sv
+./hdl_interconnect/tb_soc_mem_interconnect.sv

@@ -29,7 +29,13 @@ module tb_cpu_soc_ram_top;
         .resetn   (resetn),
         .cpu_trap (cpu_trap)
     );
-
+    // ============================================================
+    // Loading the Hex file generate from the riscv gnu toolchain
+    // ============================================================
+    initial begin
+    $readmemh("firmware/firmware.hex", dut.u_ram.mem);
+        end
+    
     // ============================================================
     // Clock generation
     // 100 MHz clock = 10 ns period

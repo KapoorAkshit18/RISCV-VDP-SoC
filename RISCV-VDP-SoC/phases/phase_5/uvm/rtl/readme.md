@@ -1,1 +1,0 @@
-soc_uvm_dut.sv file : it refers to the the top level file mainly for testbenches, having no purpose for the actual synthesis

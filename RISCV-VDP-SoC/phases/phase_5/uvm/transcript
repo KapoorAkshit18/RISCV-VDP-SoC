@@ -1,0 +1,158 @@
+# vsim -c tb_soc_uvm "+UVM_TESTNAME=soc_coverage_test" "+UVM_VERBOSITY=UVM_MEDIUM" -coverage -do "coverage save -onexit soc_coverage.ucdb; run -all; quit -f" 
+# Start time: 13:25:25 on Aug 17,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.soc_native_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.soc_uvm_pkg(fast)
+# Loading work.tb_soc_uvm_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.tb_soc_uvm(fast)
+# Loading work.soc_native_if(fast__2)
+# Loading work.soc_uvm_dut(fast)
+# Loading work.soc_mem_interconnect(fast)
+# Loading work.soc_ram(fast)
+# Loading work.gpio_native_slave(fast)
+# Loading work.rf_telemetry_native_slave(fast)
+# Loading work.sensor_status_native_slave(fast)
+# Loading work.vdp_native_slave(fast)
+# Loading work.cdc_reset_sync(fast)
+# Loading work.vga_timing_gen(fast)
+# Loading C:/questasim64_2024.1/uvm-1.1d\win64\uvm_dpi.dll
+# ** Warning: (vsim-8634) Code was not compiled with coverage options.
+# coverage save -onexit soc_coverage.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test soc_coverage_test...
+# UVM_INFO tb/soc_env/soc_env.sv(232) @ 0: uvm_test_top.env [RAL_CONNECT] RAL default_map connected to native sequencer
+# UVM_INFO tb/soc_env/soc_env.sv(239) @ 0: uvm_test_top.env [RAL_CONNECT] Monitor connected to RAL predictor
+# UVM_INFO tb/soc_env/soc_env.sv(245) @ 0: uvm_test_top.env [COV_CONNECT] Monitor connected to functional coverage
+# UVM_INFO tb/soc_agent/soc_agent.sv(149) @ 0: uvm_test_top.env.native_agent [AGENT] Native bus agent configured as  ACTIVE
+# UVM_INFO tb/soc_env/soc_env.sv(265) @ 0: uvm_test_top.env [ENV] RISCV-VDP-SoC UVM environment constructed
+# UVM_INFO tb/soc_env/soc_env.sv(272) @ 0: uvm_test_top.env [ENV] Native bus agent is ACTIVE
+# UVM_INFO tb/soc_env/soc_env.sv(279) @ 0: uvm_test_top.env [ENV] SoC RAL model constructed
+# UVM_INFO tb/soc_env/soc_env.sv(286) @ 0: uvm_test_top.env [ENV] SoC RAL predictor connected to native monitor
+# UVM_INFO tb/soc_base_test/soc_coverage_test.sv(78) @ 0: uvm_test_top [COV_TEST] Starting SoC functional coverage test
+# UVM_INFO tb/soc_base_test/soc_coverage_sequence.sv(84) @ 0: uvm_test_top.env.native_agent.sequencer@@cov_seq [COV_SEQ] Starting functional coverage closure sequence
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 0: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=0 addr=0x00000000 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# UVM_INFO tb_soc_uvm.sv(120) @ 45000: reporter [TB] System reset released
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 65000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=0 addr=0x00000000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 65000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=0 addr=0x00000000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 65000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00000004 wdata=0x00000000 strb=0x1 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 95000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00000004 wdata=0x00000000 strb=0x1 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 95000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=1 addr=0x00000004 wdata=0x00000000 strb=0x1 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 95000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00000008 wdata=0xffffffff strb=0x2 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 125000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00000008 wdata=0xffffffff strb=0x2 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 125000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=1 addr=0x00000008 wdata=0xffffffff strb=0x2 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 125000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x0000000c wdata=0xaaaaaaaa strb=0x4 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 155000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x0000000c wdata=0xaaaaaaaa strb=0x4 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 155000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=1 addr=0x0000000c wdata=0xaaaaaaaa strb=0x4 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 155000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00000010 wdata=0x55555555 strb=0x8 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 185000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00000010 wdata=0x55555555 strb=0x8 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 185000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=1 addr=0x00000010 wdata=0x55555555 strb=0x8 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 185000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00000014 wdata=0xaaaaaaaa strb=0x3 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 215000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00000014 wdata=0xaaaaaaaa strb=0x3 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 215000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=1 addr=0x00000014 wdata=0xaaaaaaaa strb=0x3 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 215000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00000018 wdata=0x55555555 strb=0xc ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 245000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00000018 wdata=0x55555555 strb=0xc ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 245000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=1 addr=0x00000018 wdata=0x55555555 strb=0xc ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 245000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x0000001c wdata=0xffffffff strb=0xf ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 275000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x0000001c wdata=0xffffffff strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 275000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RAM write=1 addr=0x0000001c wdata=0xffffffff strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 275000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=0 addr=0x00010000 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 305000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=0 addr=0x00010000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 305000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=GPIO write=0 addr=0x00010000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 305000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00010000 wdata=0x00000000 strb=0xf ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 335000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00010000 wdata=0x00000000 strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 335000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=GPIO write=1 addr=0x00010000 wdata=0x00000000 strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 335000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=0 addr=0x00011000 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 365000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=0 addr=0x00011000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x000000d8
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 365000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RF write=0 addr=0x00011000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x000000d8
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 365000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00011000 wdata=0xffffffff strb=0xf ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 395000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00011000 wdata=0xffffffff strb=0xf ready=1 rdata=0x000000d8
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 395000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=RF write=1 addr=0x00011000 wdata=0xffffffff strb=0xf ready=1 rdata=0x000000d8
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 395000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=0 addr=0x00012000 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 435000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=0 addr=0x00012000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000055
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 435000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=SENSOR write=0 addr=0x00012000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000055
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 435000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00012000 wdata=0xaaaaaaaa strb=0xf ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 455000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00012000 wdata=0xaaaaaaaa strb=0xf ready=1 rdata=0x00000055
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 455000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=SENSOR write=1 addr=0x00012000 wdata=0xaaaaaaaa strb=0xf ready=1 rdata=0x00000055
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 455000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=0 addr=0x00013000 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 485000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=0 addr=0x00013000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 485000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=VDP write=0 addr=0x00013000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 485000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00013000 wdata=0x55555555 strb=0xf ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 515000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00013000 wdata=0x55555555 strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 515000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=VDP write=1 addr=0x00013000 wdata=0x55555555 strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 515000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=0 addr=0x00020000 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 535000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=0 addr=0x00020000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 535000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=UNMAPPED write=0 addr=0x00020000 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(109) @ 535000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=UNKNOWN write=1 addr=0x00020000 wdata=0xffffffff strb=0xf ready=0 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(185) @ 555000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=UNKNOWN write=1 addr=0x00020000 wdata=0xffffffff strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 555000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=UNMAPPED write=1 addr=0x00020000 wdata=0xffffffff strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_base_test/soc_coverage_sequence.sv(265) @ 555000: uvm_test_top.env.native_agent.sequencer@@cov_seq [COV_SEQ] Functional coverage closure sequence completed
+# UVM_INFO tb/soc_base_test/soc_coverage_test.sv(98) @ 555000: uvm_test_top [COV_TEST] SoC functional coverage sequence completed
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 555000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO tb/soc_coverage/soc_coverage.sv(319) @ 555000: uvm_test_top.env.coverage [FUNCTIONAL_COVERAGE] SoC Functional Coverage = 100.00%
+# UVM_INFO tb/soc_base_test/soc_coverage_test.sv(118) @ 555000: uvm_test_top [COV_TEST] SoC functional coverage test completed
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   73
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [AGENT]     1
+# [COV_CONNECT]     1
+# [COV_SEQ]     2
+# [COV_TEST]     3
+# [DRIVER]    36
+# [ENV]     4
+# [FUNCTIONAL_COVERAGE]     1
+# [MONITOR]    18
+# [Questa UVM]     2
+# [RAL_CONNECT]     2
+# [RNTST]     1
+# [TB]     1
+# [TEST_DONE]     1
+# ** Note: $finish    : C:/questasim64_2024.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 555 ns  Iteration: 63  Instance: /tb_soc_uvm
+# Saving coverage database on exit...
+# End time: 13:25:28 on Aug 17,2026, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 1

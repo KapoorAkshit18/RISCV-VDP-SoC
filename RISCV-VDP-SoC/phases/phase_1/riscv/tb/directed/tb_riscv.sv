@@ -44,7 +44,7 @@ module tb_ptb();
 
   initial begin
     $dumpfile("waveform.vcd");
-    $dumpvars(0,tb_ptb_rv32i_full);
+    $dumpvars(0,tb_ptb);
    
     
   end

@@ -24,11 +24,10 @@
 # ------------------------------------------------------------
 ./riscv/rtl/riscv.v
 ./riscv/rtl/cpu_bus_adapter.v
-./riscv/rtl/cpu_ram_subsystem.v
 ./riscv/rtl/cpu_soc_ram_top.v
-./riscv/tb/directed/tb_riscv_wrapper.sv
+./riscv/rtl/riscv_wrapper.sv
 
 # ------------------------------------------------------------
 # Testbench
 # ------------------------------------------------------------
-./riscv/tb/directed/tb_cpu_ram_subsystem.sv
+./riscv/tb/directed/tb_top.sv

@@ -1,401 +1,351 @@
 m255
 K4
 z2
-Z0 !s12c _opt
-Z1 !s99 nomlopt
-R0
-R1
-R0
-R1
-R0
-R1
-R0
-R1
-R0
-R1
-!s11f MIXED_VERSIONS
+!s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-Z2 dC:/Users/akshi/OneDrive/Desktop1/Final_Project/phases/phase_1
-T_opt
-!s110 1785882835
-VT4gac7gB8Iddh@BY]EERk0
-04 20 4 work tb_cpu_ram_subsystem fast 0
-=1-48e7dad10595-6a7268d2-27c-6a08
-R1
-!s12f OEM100
-!s12b OEM100
-!s124 OEM100
-o-quiet -auto_acc_if_foreign -work work
-Z3 tCvgOpt 0
-n@_opt
-OL;O;2024.1;79
-R2
+Z0 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1
 vcpu_bus_adapter
-Z4 2./hdl_interconnect/soc_mem_interconnect.v|./RAM/soc_ram.v|./riscv/rtl/riscv.v|./riscv/rtl/cpu_bus_adapter.v|./riscv/rtl/cpu_ram_subsystem.v|./riscv/rtl/cpu_soc_ram_top.v|./riscv/tb/directed/tb_riscv_wrapper.sv|./riscv/tb/directed/tb_cpu_ram_subsystem.sv
-Z5 !s110 1786273134
+Z1 2./hdl_interconnect/soc_mem_interconnect.v|./RAM/soc_ram.v|./riscv/rtl/riscv.v|./riscv/rtl/cpu_bus_adapter.v|./riscv/rtl/cpu_ram_subsystem.v|./riscv/rtl/cpu_soc_ram_top.v|./riscv/tb/directed/tb_riscv_wrapper.sv|./riscv/tb/directed/tb_cpu_ram_subsystem.sv
+Z2 !s110 1788000492
 !i10b 1
 !s100 ]SISgTl73R<[N5KFOQdFT2
 ITMzVU@BQ`VNzN2<S@]7]`0
-Z6 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1
+R0
 w1785880707
 8./riscv/rtl/cpu_bus_adapter.v
 F./riscv/rtl/cpu_bus_adapter.v
-!i122 10
+!i122 0
 L0 4 47
-Z7 VDg1SIo80bB@j0V0VzS_@n1
-Z8 OL;L;2024.1;79
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z9 !s108 1786273133.000000
-Z10 !s107 ./riscv/tb/directed/tb_cpu_ram_subsystem.sv|./riscv/tb/directed/tb_riscv_wrapper.sv|./riscv/rtl/cpu_soc_ram_top.v|./riscv/rtl/cpu_ram_subsystem.v|./riscv/rtl/cpu_bus_adapter.v|./riscv/rtl/riscv.v|./RAM/soc_ram.v|./hdl_interconnect/soc_mem_interconnect.v|
-Z11 !s90 -f|filelist.f|
+Z5 !s108 1788000492.000000
+!s107 ./riscv/tb/directed/tb_cpu_ram_subsystem.sv|./riscv/tb/directed/tb_riscv_wrapper.sv|./riscv/rtl/cpu_soc_ram_top.v|./riscv/rtl/cpu_ram_subsystem.v|./riscv/rtl/cpu_bus_adapter.v|./riscv/rtl/riscv.v|./RAM/soc_ram.v|./hdl_interconnect/soc_mem_interconnect.v|
+Z6 !s90 -f|filelist.f|
 !i113 0
-Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z13 !s92 +incdir+./hdl_interconnect +incdir+./RAM +incdir+./riscv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R3
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 !s92 +incdir+./hdl_interconnect +incdir+./RAM +incdir+./riscv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 tCvgOpt 0
 vcpu_ram_subsystem
-R4
-R5
+R1
+R2
 !i10b 1
 !s100 GIN8jg<98Q>nEMOPlZKjc0
 I0kbVB8:`8;IYnBI?X46YF0
-R6
+R0
 w1785882819
 8./riscv/rtl/cpu_ram_subsystem.v
 F./riscv/rtl/cpu_ram_subsystem.v
-!i122 10
+!i122 0
 L0 4 169
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
+R5
+Z10 !s107 ./riscv/tb/directed/tb_cpu_ram_subsystem.sv|./riscv/tb/directed/tb_riscv_wrapper.sv|./riscv/rtl/cpu_soc_ram_top.v|./riscv/rtl/cpu_ram_subsystem.v|./riscv/rtl/cpu_bus_adapter.v|./riscv/rtl/riscv.v|./RAM/soc_ram.v|./hdl_interconnect/soc_mem_interconnect.v|
+R6
 !i113 0
-R12
-R13
-R3
+R7
+R8
+R9
 vcpu_soc_ram_top
-R4
-Z14 !s110 1786273133
+R1
+R2
 !i10b 1
 !s100 ^b_]A[SXVBl9S^]CWSDYk1
 I7Wm9U;Wj3bX42LS6DHoW81
-R6
+R0
 w1786002352
-Z15 8./hdl_interconnect/soc_mem_interconnect.v
-Z16 F./hdl_interconnect/soc_mem_interconnect.v
-!i122 10
+8./hdl_interconnect/soc_mem_interconnect.v
+F./hdl_interconnect/soc_mem_interconnect.v
+!i122 0
 L0 4 303
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32_axi
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32_axi
+R1
+R2
 !i10b 1
 !s100 YO5=HI?@C^?>YX5Kl8kU?3
 I^@Ro[9LY5O@9?BC[R;65M0
-R6
-Z17 w1785881789
-Z18 8./riscv/rtl/riscv.v
-Z19 F./riscv/rtl/riscv.v
-!i122 10
+R0
+Z11 w1785881789
+Z12 8./riscv/rtl/riscv.v
+Z13 F./riscv/rtl/riscv.v
+!i122 0
 L0 2445 208
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32_axi_adapter
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32_axi_adapter
+R1
+R2
 !i10b 1
 !s100 IH7RAe[[2<2F]lm3knU;=2
 I_OmMzGez4`=8SHo;IRl0j1
-R6
-R17
-R18
-R19
-!i122 10
+R0
+R11
+R12
+R13
+!i122 0
 L0 2659 78
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32_pcpi_div
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32_pcpi_div
+R1
+R2
 !i10b 1
 !s100 1O9^4X;8l]hj01aL]AWTB2
 I[^0eN]>h=8X>Q<o@afMeg1
-R6
-R17
-R18
-R19
-!i122 10
+R0
+R11
+R12
+R13
+!i122 0
 L0 2348 91
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32_pcpi_fast_mul
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32_pcpi_fast_mul
+R1
+R2
 !i10b 1
 !s100 deUU@;JXLOYhf?=E6ij?k0
 I?fL^:NOb[Q80CCAf?LL1_3
-R6
-R17
-R18
-R19
-!i122 10
+R0
+R11
+R12
+R13
+!i122 0
 L0 2246 96
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32_pcpi_mul
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32_pcpi_mul
+R1
+R2
 !i10b 1
 !s100 <_F>3FMMMdZTI^]:JW>o82
 IZXn8A27`RE6eok`mZPgSd1
-R6
-R17
-R18
-R19
-!i122 10
+R0
+R11
+R12
+R13
+!i122 0
 L0 2125 120
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32_regs
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32_regs
+R1
+R2
 !i10b 1
 !s100 5^I=73E5S;Q:ZIlIfi@C]3
 Ia;Ii:a4i[A4<NNLF7[]h=1
-R6
-R17
-R18
-R19
-!i122 10
+R0
+R11
+R12
+R13
+!i122 0
 L0 2102 17
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32_wb
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32_wb
+R1
+R2
 !i10b 1
 !s100 eFd@TbBoLV;5KA`gT:Y]a0
 I^_@9cPeLn4Y<U;F^_][nZ0
-R6
-R17
-R18
-R19
-!i122 10
+R0
+R11
+R12
+R13
+!i122 0
 L0 2743 235
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vpicorv32a
-R4
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vpicorv32a
+R1
+R2
 !i10b 1
 !s100 G6R2<Mlm@<QFLcg>`[YKn1
 I:JbX`cj[IKUJ`RQNz<_?F1
-R6
-R17
-R18
-R19
-!i122 10
+R0
+R11
+R12
+R13
+!i122 0
 L0 57 2039
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vptb
-R4
-Z20 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vptb
+R1
+Z14 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+R2
 !i10b 1
 !s100 TmZCzaE?O9L5bCofK[YHT3
 IFHUT>MN@f1Wj21M9[41=:1
 S1
-R6
+R0
 w1785829665
 8./riscv/tb/directed/tb_riscv_wrapper.sv
 F./riscv/tb/directed/tb_riscv_wrapper.sv
-!i122 10
+!i122 0
 L0 2 80
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
+R5
+R10
+R6
+!i113 0
+R7
+R8
 R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vsoc_mem_interconnect
-R4
-!s110 1785882830
-!i10b 1
-!s100 UX7`1PKD>9amN:OJL^0h22
-I1W`WN>QkISQ<:WF[CZ`bU3
-R2
-w1785592098
-R15
-R16
-!i122 9
-L0 1 98
-R7
-R8
-r1
-!s85 0
-31
-!s108 1785882830.000000
-R10
-R11
-!i113 0
-R12
-R13
-R3
 vsoc_ram
-R4
-R14
+R1
+R2
 !i10b 1
 !s100 zM?DJkN]WW^Lb]>AGa=Dn2
 IKH[glK[BAf0l>EIMF@d1M2
-R6
-w1785847180
+R0
+w1786273336
 8./RAM/soc_ram.v
 F./RAM/soc_ram.v
-!i122 10
+!i122 0
 L0 4 64
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
-R10
-R11
-!i113 0
-R12
-R13
-R3
-vtb_cpu_ram_subsystem
-R4
-R20
 R5
+R10
+R6
+!i113 0
+R7
+R8
+R9
+vtb_cpu_ram_subsystem
+R1
+R14
+R2
 !i10b 1
 !s100 5a4JH4zALOiZUM;4_7n>]2
 IWLb[515AD7hJjWFR9ZF6k0
 S1
-R6
+R0
 w1785882619
 8./riscv/tb/directed/tb_cpu_ram_subsystem.sv
 F./riscv/tb/directed/tb_cpu_ram_subsystem.sv
-!i122 10
+!i122 0
 L0 6 248
-R7
-R8
+R3
+R4
 r1
 !s85 0
 31
-R9
+R5
 R10
-R11
+R6
 !i113 0
-R12
-R13
-R3
+R7
+R8
+R9

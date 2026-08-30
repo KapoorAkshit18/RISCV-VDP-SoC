@@ -1,80 +1,32 @@
-`ifndef CPU_SOC_RAM_TOP_V
-`define CPU_SOC_RAM_TOP_V
+`ifndef CPU_SOC_RAM_TOP
+`define CPU_SOC_RAM_TOP
 
 module cpu_soc_ram_top #(
-    parameter ADDR_WIDTH     = 32,
-    parameter DATA_WIDTH     = 32,
-
-    // 4 KB RAM = 1024 x 32-bit words
-    parameter RAM_ADDR_WIDTH = 12,
-    parameter RAM_DEPTH      = 1024
+    parameter ADDR_WIDTH = 32,
+    parameter DATA_WIDTH = 32,
+    parameter RAM_DEPTH  = 256
 )(
-    input wire clk,
-    input wire resetn,
+    input  wire clk,
+    input  wire resetn,
 
-    // ================================================================
-    // GPIO
-    // ================================================================
-    input  wire [31:0] gpio_in,
-    output wire [31:0] gpio_out,
-    output wire [31:0] gpio_oe,
-
-    // ================================================================
-    // RF telemetry
-    // ================================================================
-    input  wire [7:0] rf_rssi_dbm_i,
-    input  wire       rf_link_up_i,
-    input  wire       rf_link_error_i,
-    input  wire       rf_carrier_detect_i,
-
-    output wire       rf_enable_o,
-
-    // ================================================================
-    // Sensor
-    // ================================================================
-    input wire [7:0]  battery_percent_i,
-    input wire [15:0] battery_voltage_mv_i,
-    input wire [15:0] temperature_tenthsC_i,
-    input wire        sensor_valid_i,
-
-    // ================================================================
-    // VDP / VGA
-    // ================================================================
-    input wire pixel_clk,
-
-    output wire       hsync_o,
-    output wire       vsync_o,
-
-    output wire [11:0] pixel_x_o,
-    output wire [11:0] pixel_y_o,
-
-    output wire [3:0] rgb_r_o,
-    output wire [3:0] rgb_g_o,
-    output wire [3:0] rgb_b_o,
-
-    // ================================================================
-    // CPU trap
-    // ================================================================
-    output wire trap
+    output wire cpu_trap
 );
 
-    // =================================================================
-    // PicoRV32 memory interface
-    // =================================================================
+    // ============================================================
+    // PicoRV32 / PTB memory interface
+    // ============================================================
 
     wire                     mem_valid;
     wire                     mem_instr;
+    wire                     mem_ready;
     wire [ADDR_WIDTH-1:0]    mem_addr;
     wire [DATA_WIDTH-1:0]    mem_wdata;
     wire [DATA_WIDTH/8-1:0]  mem_wstrb;
-
-    wire                     mem_ready;
     wire [DATA_WIDTH-1:0]    mem_rdata;
 
-
-    // =================================================================
-    // CPU bus adapter
-    // =================================================================
+    // ============================================================
+    // CPU adapter -> interconnect
+    // ============================================================
 
     wire                     m_valid;
     wire                     m_write;
@@ -85,10 +37,9 @@ module cpu_soc_ram_top #(
     wire                     m_ready;
     wire [DATA_WIDTH-1:0]    m_rdata;
 
-
-    // =================================================================
+    // ============================================================
     // RAM interface
-    // =================================================================
+    // ============================================================
 
     wire                     ram_valid;
     wire                     ram_write;
@@ -99,75 +50,85 @@ module cpu_soc_ram_top #(
     wire                     ram_ready;
     wire [DATA_WIDTH-1:0]    ram_rdata;
 
-
-    // =================================================================
+    // ============================================================
     // GPIO interface
-    // =================================================================
+    // ============================================================
 
     wire                     gpio_valid;
     wire                     gpio_write;
-    wire [ADDR_WIDTH-1:0]    gpio_addr;
+    wire [11:0]              gpio_addr;
     wire [DATA_WIDTH-1:0]    gpio_wdata;
     wire [DATA_WIDTH/8-1:0]  gpio_strb;
 
     wire                     gpio_ready;
     wire [DATA_WIDTH-1:0]    gpio_rdata;
 
+    assign gpio_ready = 1'b0;
+    assign gpio_rdata = {DATA_WIDTH{1'b0}};
 
-    // =================================================================
+    // ============================================================
     // RF interface
-    // =================================================================
+    // ============================================================
 
     wire                     rf_valid;
     wire                     rf_write;
-    wire [ADDR_WIDTH-1:0]    rf_addr;
+    wire [11:0]              rf_addr;
     wire [DATA_WIDTH-1:0]    rf_wdata;
     wire [DATA_WIDTH/8-1:0]  rf_strb;
 
     wire                     rf_ready;
     wire [DATA_WIDTH-1:0]    rf_rdata;
 
+    // Placeholder until RF slave is connected
+    assign rf_ready = 1'b0;
+    assign rf_rdata = {DATA_WIDTH{1'b0}};
 
-    // =================================================================
-    // SENSOR interface
-    // =================================================================
+    // ============================================================
+    // Sensor interface
+    // ============================================================
 
     wire                     sensor_valid;
     wire                     sensor_write;
-    wire [ADDR_WIDTH-1:0]    sensor_addr;
+    wire [11:0]              sensor_addr;
     wire [DATA_WIDTH-1:0]    sensor_wdata;
     wire [DATA_WIDTH/8-1:0]  sensor_strb;
 
     wire                     sensor_ready;
     wire [DATA_WIDTH-1:0]    sensor_rdata;
 
+    // Placeholder until Sensor slave is connected
+    assign sensor_ready = 1'b0;
+    assign sensor_rdata = {DATA_WIDTH{1'b0}};
 
-    // =================================================================
+    // ============================================================
     // VDP interface
-    // =================================================================
+    // ============================================================
 
     wire                     vdp_valid;
     wire                     vdp_write;
-    wire [ADDR_WIDTH-1:0]    vdp_addr;
+    wire [11:0]              vdp_addr;
     wire [DATA_WIDTH-1:0]    vdp_wdata;
     wire [DATA_WIDTH/8-1:0]  vdp_strb;
 
     wire                     vdp_ready;
     wire [DATA_WIDTH-1:0]    vdp_rdata;
 
+    // Placeholder until VDP slave is connected
+    assign vdp_ready = 1'b0;
+    assign vdp_rdata = {DATA_WIDTH{1'b0}};
 
-    // =================================================================
-    // PicoRV32
-    // =================================================================
+    // ============================================================
+    // Verified PicoRV32 wrapper
+    // ============================================================
 
-    ptb cpu (
+    ptb u_cpu (
         .clk        (clk),
         .resetn     (resetn),
 
         .mem_ready  (mem_ready),
         .mem_rdata  (mem_rdata),
 
-        .trap       (trap),
+        .trap       (cpu_trap),
 
         .mem_valid  (mem_valid),
         .mem_instr  (mem_instr),
@@ -176,15 +137,14 @@ module cpu_soc_ram_top #(
         .mem_wstrb  (mem_wstrb)
     );
 
-
-    // =================================================================
-    // CPU -> native bus adapter
-    // =================================================================
+    // ============================================================
+    // CPU Bus Adapter
+    // ============================================================
 
     cpu_bus_adapter #(
-        .ADDR_WIDTH (ADDR_WIDTH),
-        .DATA_WIDTH (DATA_WIDTH)
-    ) adapter (
+        .ADDR_WIDTH(ADDR_WIDTH),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) u_adapter (
         .mem_valid  (mem_valid),
         .mem_instr  (mem_instr),
         .mem_addr   (mem_addr),
@@ -204,17 +164,17 @@ module cpu_soc_ram_top #(
         .m_rdata    (m_rdata)
     );
 
-
-    // =================================================================
-    // SoC memory interconnect
-    // =================================================================
+    // ============================================================
+    // SoC Memory Interconnect
+    // ============================================================
 
     soc_mem_interconnect #(
-        .ADDR_WIDTH (ADDR_WIDTH),
-        .DATA_WIDTH (DATA_WIDTH)
-    ) interconnect (
-
+        .ADDR_WIDTH(ADDR_WIDTH),
+        .DATA_WIDTH(DATA_WIDTH)
+    ) u_interconnect (
+        // --------------------------------------------------------
         // Master
+        // --------------------------------------------------------
         .m_valid    (m_valid),
         .m_write    (m_write),
         .m_addr     (m_addr),
@@ -224,9 +184,9 @@ module cpu_soc_ram_top #(
         .m_ready    (m_ready),
         .m_rdata    (m_rdata),
 
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         // RAM
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         .ram_valid  (ram_valid),
         .ram_write  (ram_write),
         .ram_addr   (ram_addr),
@@ -236,9 +196,9 @@ module cpu_soc_ram_top #(
         .ram_ready  (ram_ready),
         .ram_rdata  (ram_rdata),
 
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         // GPIO
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         .gpio_valid (gpio_valid),
         .gpio_write (gpio_write),
         .gpio_addr  (gpio_addr),
@@ -248,9 +208,9 @@ module cpu_soc_ram_top #(
         .gpio_ready  (gpio_ready),
         .gpio_rdata  (gpio_rdata),
 
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         // RF
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         .rf_valid   (rf_valid),
         .rf_write   (rf_write),
         .rf_addr    (rf_addr),
@@ -260,9 +220,9 @@ module cpu_soc_ram_top #(
         .rf_ready   (rf_ready),
         .rf_rdata   (rf_rdata),
 
-        // -------------------------------------------------------------
-        // SENSOR
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
+        // Sensor
+        // --------------------------------------------------------
         .sensor_valid (sensor_valid),
         .sensor_write (sensor_write),
         .sensor_addr  (sensor_addr),
@@ -272,9 +232,9 @@ module cpu_soc_ram_top #(
         .sensor_ready  (sensor_ready),
         .sensor_rdata  (sensor_rdata),
 
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         // VDP
-        // -------------------------------------------------------------
+        // --------------------------------------------------------
         .vdp_valid  (vdp_valid),
         .vdp_write  (vdp_write),
         .vdp_addr   (vdp_addr),
@@ -285,133 +245,24 @@ module cpu_soc_ram_top #(
         .vdp_rdata  (vdp_rdata)
     );
 
-
-    // =================================================================
-    // 4 KB RAM
-    // =================================================================
+    // ============================================================
+    // RAM
+    // ============================================================
 
     soc_ram #(
-        .ADDR_WIDTH (RAM_ADDR_WIDTH),
-        .DATA_WIDTH (DATA_WIDTH),
-        .DEPTH      (RAM_DEPTH)
-    ) ram (
-        .valid      (ram_valid),
-        .write      (ram_write),
-
-        .addr       (ram_addr[RAM_ADDR_WIDTH-1:0]),
-        .wdata      (ram_wdata),
-        .strb       (ram_strb),
-
-        .ready      (ram_ready),
-        .rdata      (ram_rdata)
-    );
-
-
-    // =================================================================
-    // GPIO native peripheral
-    // =================================================================
-
-    gpio_native_slave gpio (
-        .clk        (clk),
-        .resetn     (resetn),
-
-        .mem_valid  (gpio_valid),
-        .mem_instr  (1'b0),
-        .mem_ready  (gpio_ready),
-
-        .mem_addr   (gpio_addr[11:0]),
-        .mem_wdata  (gpio_wdata),
-        .mem_wstrb  (gpio_strb),
-
-        .mem_rdata  (gpio_rdata),
-
-        .gpio_out   (gpio_out),
-        .gpio_oe    (gpio_oe),
-        .gpio_in    (gpio_in)
-    );
-
-
-    // =================================================================
-    // RF native peripheral
-    // =================================================================
-
-    rf_telemetry_native_slave rf (
-        .clk                 (clk),
-        .resetn              (resetn),
-
-        .mem_valid           (rf_valid),
-        .mem_instr           (1'b0),
-        .mem_ready           (rf_ready),
-
-        .mem_addr            (rf_addr[11:0]),
-        .mem_wdata           (rf_wdata),
-        .mem_wstrb           (rf_strb),
-
-        .mem_rdata           (rf_rdata),
-
-        .rssi_dbm_i          (rf_rssi_dbm_i),
-        .link_up_i           (rf_link_up_i),
-        .link_error_i        (rf_link_error_i),
-        .carrier_detect_i    (rf_carrier_detect_i),
-
-        .rf_enable_o         (rf_enable_o)
-    );
-
-
-    // =================================================================
-    // SENSOR native peripheral
-    // =================================================================
-
-    sensor_status_native_slave sensor (
-        .clk                    (clk),
-        .resetn                 (resetn),
-
-        .mem_valid              (sensor_valid),
-        .mem_instr              (1'b0),
-        .mem_ready              (sensor_ready),
-
-        .mem_addr               (sensor_addr[11:0]),
-        .mem_wdata              (sensor_wdata),
-        .mem_wstrb              (sensor_strb),
-
-        .mem_rdata              (sensor_rdata),
-
-        .battery_percent_i      (battery_percent_i),
-        .battery_voltage_mv_i   (battery_voltage_mv_i),
-        .temperature_tenthsC_i  (temperature_tenthsC_i),
-        .sensor_valid_i         (sensor_valid_i)
-    );
-
-
-    // =================================================================
-    // VDP native peripheral
-    // =================================================================
-
-    vdp_native_slave vdp (
-        .clk        (clk),
-        .resetn     (resetn),
-
-        .mem_valid  (vdp_valid),
-        .mem_instr  (1'b0),
-        .mem_ready  (vdp_ready),
-
-        .mem_addr   (vdp_addr[11:0]),
-        .mem_wdata  (vdp_wdata),
-        .mem_wstrb  (vdp_strb),
-
-        .mem_rdata  (vdp_rdata),
-
-        .pixel_clk  (pixel_clk),
-
-        .hsync_o    (hsync_o),
-        .vsync_o    (vsync_o),
-
-        .pixel_x_o  (pixel_x_o),
-        .pixel_y_o  (pixel_y_o),
-
-        .rgb_r_o    (rgb_r_o),
-        .rgb_g_o    (rgb_g_o),
-        .rgb_b_o    (rgb_b_o)
+        .ADDR_WIDTH(ADDR_WIDTH),
+        .DATA_WIDTH(DATA_WIDTH),
+        .DEPTH     (RAM_DEPTH)
+    ) u_ram (
+        .clk   (clk),
+        .reset (~resetn),
+        .valid (ram_valid),
+        .write (ram_write),
+        .addr  (ram_addr),
+        .wdata (ram_wdata),
+        .strb  (ram_strb),
+        .ready (ram_ready),
+        .rdata (ram_rdata)
     );
 
 endmodule

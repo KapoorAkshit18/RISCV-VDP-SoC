@@ -1,0 +1,14 @@
+BEGIN 1:glbl:fast:work
+    GSR :  1:xpm_cdc_sync_rst:fast:xpm
+END 
+BEGIN 1:xpm_memory_base:fast:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast:xpm
+END 
+BEGIN 1:xpm_memory_base:fast__2:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast__2:xpm
+    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__2:xpm
+END 
+BEGIN 1:xpm_memory_base:fast__1:xpm
+    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__1:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast__1:xpm
+END 

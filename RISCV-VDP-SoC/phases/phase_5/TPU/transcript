@@ -1,0 +1,292 @@
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim -voptargs="+acc" work.tb_nn_axi_wrapper 
+# Start time: 20:59:37 on Sep 01,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# ** Error: nn.v(133): Module 'xpm_memory_tdpram' is not defined.
+#  For instance 'xpm_memory_tdpram_wb' at path 'tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0'
+# ** Error: nn.v(209): Module 'xpm_memory_tdpram' is not defined.
+#  For instance 'xpm_memory_tdpram_k' at path 'tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0'
+# ** Error: nn.v(498): Module 'xpm_memory_tdpram' is not defined.
+#  For instance 'xpm_memory_tdpram_a' at path 'tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0'
+# ** Error: axis_nn.v(73): Module 'xpm_fifo_axis' is not defined.
+#  For instance 'xpm_fifo_axis_0' at path 'tb_nn_axi_wrapper.dut.axis_nn_inst'
+# ** Error: axis_nn.v(270): Module 'xpm_fifo_axis' is not defined.
+#  For instance 'xpm_fifo_axis_1' at path 'tb_nn_axi_wrapper.dut.axis_nn_inst'
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=5, Warnings=1.
+# Error loading design
+# End time: 20:59:39 on Sep 01,2026, Elapsed time: 0:00:02
+# Errors: 5, Warnings: 1
+add wave -position insertpoint sim:/tb_nn_axi_wrapper/dut/axis_nn_inst/*
+# Unrecognized dataset prefix: sim
+vlog C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+# QuestaSim-64 vlog 2024.1 Compiler 2024.02 Feb  1 2024
+# Start time: 21:01:13 on Sep 01,2026
+# vlog -reportprogress 300 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v 
+# -- Compiling module glbl
+# 
+# Top level modules:
+# 	glbl
+# End time: 21:01:13 on Sep 01,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vopt +acc -L xpm work.tb_nn_axi_wrapper work.glbl -o tb_opt
+# QuestaSim-64 vopt 2024.1 Compiler 2024.02 Feb  1 2024
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# Start time: 21:02:28 on Sep 01,2026
+# vopt -reportprogress 300 "+acc" -L xpm work.tb_nn_axi_wrapper work.glbl -o tb_opt 
+# 
+# Top level modules:
+# 	tb_nn_axi_wrapper
+# 	glbl
+# Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
+# Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
+# 
+# Analyzing design...
+# -- Loading module tb_nn_axi_wrapper
+# -- Loading module glbl
+# -- Loading module nn_axi_wrapper
+# -- Loading module axis_nn
+# -- Loading module xpm.xpm_fifo_axis
+# -- Loading module xpm.xpm_fifo_base
+# -- Loading module xpm.xpm_fifo_rst
+# -- Loading module xpm.xpm_fifo_reg_bit
+# -- Loading module xpm.xpm_counter_updn
+# -- Loading module register
+# -- Loading module nn
+# -- Loading module xpm.xpm_memory_tdpram
+# -- Loading module xpm.xpm_memory_base
+# -- Loading module systolic
+# -- Loading module pe
+# -- Loading module sigmoid
+# -- Loading module xpm.xpm_cdc_sync_rst
+# Optimizing 27 design-units (inlining 0/154 module instances):
+# -- Optimizing module xpm.xpm_memory_base(fast)
+# -- Optimizing module glbl(fast)
+# -- Optimizing module pe(fast)
+# -- Optimizing module xpm.xpm_counter_updn(fast__5)
+# -- Optimizing module xpm.xpm_counter_updn(fast__4)
+# -- Optimizing module xpm.xpm_counter_updn(fast__1)
+# -- Optimizing module xpm.xpm_counter_updn(fast__2)
+# -- Optimizing module xpm.xpm_counter_updn(fast)
+# -- Optimizing module xpm.xpm_counter_updn(fast__3)
+# -- Optimizing module register(fast__1)
+# -- Optimizing module register(fast)
+# -- Optimizing module xpm.xpm_fifo_reg_bit(fast__1)
+# -- Optimizing module xpm.xpm_fifo_reg_bit(fast)
+# -- Optimizing module xpm.xpm_memory_base(fast__1)
+# -- Optimizing module xpm.xpm_memory_base(fast__2)
+# -- Optimizing module xpm.xpm_fifo_base(fast)
+# ** Note: (vopt-143) Recognized 1 FSM in module "xpm_fifo_base(fast)".
+# -- Optimizing module xpm.xpm_fifo_axis(fast)
+# -- Optimizing module nn(fast)
+# -- Optimizing module systolic(fast)
+# -- Optimizing module sigmoid(fast)
+# -- Optimizing module nn_axi_wrapper(fast)
+# -- Optimizing module tb_nn_axi_wrapper(fast)
+# -- Optimizing module xpm.xpm_fifo_rst(fast)
+# -- Optimizing module axis_nn(fast)
+# ** Note: (vopt-143) Recognized 1 FSM in module "axis_nn(fast)".
+# -- Optimizing module xpm.xpm_cdc_sync_rst(fast)
+# -- Optimizing module xpm.xpm_memory_tdpram(fast)
+# -- Optimizing module xpm.xpm_memory_tdpram(fast__1)
+# Optimized design name is tb_opt
+# End time: 21:02:29 on Sep 01,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1
+
+vsim tb_opt
+# vsim tb_opt 
+# Start time: 21:02:57 on Sep 01,2026
+# Loading sv_std.std
+# Loading work.tb_nn_axi_wrapper(fast)
+# Loading work.nn_axi_wrapper(fast)
+# Loading work.axis_nn(fast)
+# Loading xpm.xpm_fifo_axis(fast)
+# Loading xpm.xpm_cdc_sync_rst(fast)
+# Loading xpm.xpm_fifo_base(fast)
+# Loading xpm.xpm_fifo_rst(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast)
+# Loading xpm.xpm_counter_updn(fast)
+# Loading xpm.xpm_counter_updn(fast__1)
+# Loading xpm.xpm_counter_updn(fast__2)
+# Loading xpm.xpm_counter_updn(fast__3)
+# Loading xpm.xpm_counter_updn(fast__4)
+# Loading xpm.xpm_memory_base(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast__1)
+# Loading xpm.xpm_counter_updn(fast__5)
+# Loading work.register(fast)
+# Loading work.nn(fast)
+# Loading xpm.xpm_memory_tdpram(fast)
+# Loading xpm.xpm_memory_base(fast__1)
+# Loading xpm.xpm_memory_tdpram(fast__1)
+# Loading xpm.xpm_memory_base(fast__2)
+# Loading work.register(fast__1)
+# Loading work.systolic(fast)
+# Loading work.pe(fast)
+# Loading work.sigmoid(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_nn_axi_wrapper/dut/axis_nn_inst/nn_0/xpm_memory_tdpram_wb File: nn.v Line: 133
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_nn_axi_wrapper/dut/axis_nn_inst/nn_0/xpm_memory_tdpram_wb File: nn.v Line: 133
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_nn_axi_wrapper/dut/axis_nn_inst/nn_0/xpm_memory_tdpram_k File: nn.v Line: 209
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_nn_axi_wrapper/dut/axis_nn_inst/nn_0/xpm_memory_tdpram_k File: nn.v Line: 209
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_nn_axi_wrapper/dut/axis_nn_inst/nn_0/xpm_memory_tdpram_a File: nn.v Line: 498
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_nn_axi_wrapper/dut/axis_nn_inst/nn_0/xpm_memory_tdpram_a File: nn.v Line: 498
+add wave  \
+sim:/tb_nn_axi_wrapper/dut/C_S_AXI_DATA_WIDTH \
+sim:/tb_nn_axi_wrapper/dut/C_S_AXI_ADDR_WIDTH \
+sim:/tb_nn_axi_wrapper/dut/aclk \
+sim:/tb_nn_axi_wrapper/dut/aresetn \
+sim:/tb_nn_axi_wrapper/dut/nn_valid \
+sim:/tb_nn_axi_wrapper/dut/nn_write \
+sim:/tb_nn_axi_wrapper/dut/nn_addr \
+sim:/tb_nn_axi_wrapper/dut/nn_wdata \
+sim:/tb_nn_axi_wrapper/dut/nn_strb \
+sim:/tb_nn_axi_wrapper/dut/nn_ready \
+sim:/tb_nn_axi_wrapper/dut/nn_rdata \
+sim:/tb_nn_axi_wrapper/dut/s_axi_awaddr \
+sim:/tb_nn_axi_wrapper/dut/s_axi_awvalid \
+sim:/tb_nn_axi_wrapper/dut/s_axi_awready \
+sim:/tb_nn_axi_wrapper/dut/s_axi_wdata \
+sim:/tb_nn_axi_wrapper/dut/s_axi_wstrb \
+sim:/tb_nn_axi_wrapper/dut/s_axi_wvalid \
+sim:/tb_nn_axi_wrapper/dut/s_axi_wready \
+sim:/tb_nn_axi_wrapper/dut/s_axi_bresp \
+sim:/tb_nn_axi_wrapper/dut/s_axi_bvalid \
+sim:/tb_nn_axi_wrapper/dut/s_axi_bready \
+sim:/tb_nn_axi_wrapper/dut/s_axi_araddr \
+sim:/tb_nn_axi_wrapper/dut/s_axi_arvalid \
+sim:/tb_nn_axi_wrapper/dut/s_axi_arready \
+sim:/tb_nn_axi_wrapper/dut/s_axi_rdata \
+sim:/tb_nn_axi_wrapper/dut/s_axi_rresp \
+sim:/tb_nn_axi_wrapper/dut/s_axi_rvalid \
+sim:/tb_nn_axi_wrapper/dut/s_axi_rready \
+sim:/tb_nn_axi_wrapper/dut/s_axis_tdata \
+sim:/tb_nn_axi_wrapper/dut/s_axis_tvalid \
+sim:/tb_nn_axi_wrapper/dut/s_axis_tready \
+sim:/tb_nn_axi_wrapper/dut/s_axis_tlast \
+sim:/tb_nn_axi_wrapper/dut/m_axis_tdata \
+sim:/tb_nn_axi_wrapper/dut/m_axis_tvalid \
+sim:/tb_nn_axi_wrapper/dut/m_axis_tready \
+sim:/tb_nn_axi_wrapper/dut/m_axis_tlast \
+sim:/tb_nn_axi_wrapper/dut/control_reg \
+sim:/tb_nn_axi_wrapper/dut/input_data_reg \
+sim:/tb_nn_axi_wrapper/dut/input_valid_reg \
+sim:/tb_nn_axi_wrapper/dut/input_last_reg \
+sim:/tb_nn_axi_wrapper/dut/output_data_reg \
+sim:/tb_nn_axi_wrapper/dut/output_valid_reg \
+sim:/tb_nn_axi_wrapper/dut/output_last_reg \
+sim:/tb_nn_axi_wrapper/dut/axi_rdata_reg \
+sim:/tb_nn_axi_wrapper/dut/axi_rvalid_reg \
+sim:/tb_nn_axi_wrapper/dut/axi_bvalid_reg \
+sim:/tb_nn_axi_wrapper/dut/awready_reg \
+sim:/tb_nn_axi_wrapper/dut/wready_reg \
+sim:/tb_nn_axi_wrapper/dut/arready_reg \
+sim:/tb_nn_axi_wrapper/dut/axi_write_fire \
+sim:/tb_nn_axi_wrapper/dut/native_write_fire \
+sim:/tb_nn_axi_wrapper/dut/axi_start_request \
+sim:/tb_nn_axi_wrapper/dut/native_start_request \
+sim:/tb_nn_axi_wrapper/dut/nn_s_axis_tdata \
+sim:/tb_nn_axi_wrapper/dut/nn_s_axis_tvalid \
+sim:/tb_nn_axi_wrapper/dut/nn_s_axis_tready \
+sim:/tb_nn_axi_wrapper/dut/nn_s_axis_tlast \
+sim:/tb_nn_axi_wrapper/dut/nn_m_axis_tdata \
+sim:/tb_nn_axi_wrapper/dut/nn_m_axis_tvalid \
+sim:/tb_nn_axi_wrapper/dut/nn_m_axis_tready \
+sim:/tb_nn_axi_wrapper/dut/nn_m_axis_tlast
+run -all
+# 
+# ============================================================
+# TEST 1: RESET
+# ============================================================
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_nn_axi_wrapper.dut.axis_nn_inst.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_nn_axi_wrapper.dut.axis_nn_inst.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_nn_axi_wrapper.dut.axis_nn_inst.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# 
+# ============================================================
+# TEST 2: NATIVE CONTROL REGISTER
+# ============================================================
+# PASS: Native read 000 = 00000001
+# 
+# ============================================================
+# TEST 3: NATIVE INPUT DATA LOW
+# ============================================================
+# PASS: Native read 00c = 11223344
+# 
+# ============================================================
+# TEST 4: NATIVE INPUT DATA HIGH
+# ============================================================
+# PASS: Native read 010 = 55667788
+# 
+# ============================================================
+# TEST 5: VERSION REGISTER
+# ============================================================
+# PASS: Native read 008 = 00010000
+# 
+# ============================================================
+# TEST 6: AXI4-LITE CONTROL
+# ============================================================
+# PASS: AXI write 00 = 00000001
+# PASS: AXI read 00 = 00000001
+# 
+# ============================================================
+# TEST 7: AXI4-LITE INPUT DATA
+# ============================================================
+# PASS: AXI write 0c = aabbccdd
+# PASS: AXI write 10 = eeff0011
+# PASS: AXI read 0c = aabbccdd
+# PASS: AXI read 10 = eeff0011
+# 
+# ============================================================
+# TEST 8: START AXI4-STREAM TRANSACTION
+# ============================================================
+# 
+# ============================================================
+# TEST 9: STATUS REGISTER
+# ============================================================
+# PASS: Native read 004 = 00000000
+# 
+# ============================================================
+# TB_NN_AXI_WRAPPER: ALL TESTS PASSED
+# ============================================================
+# 
+# ** Note: $finish    : tb_nn_axi_wrapper.sv(658)
+#    Time: 615 ns  Iteration: 0  Instance: /tb_nn_axi_wrapper
+# 1
+# Break in Module tb_nn_axi_wrapper at tb_nn_axi_wrapper.sv line 658
+exit
+# End time: 21:21:55 on Sep 01,2026, Elapsed time: 0:18:58
+# Errors: 0, Warnings: 6

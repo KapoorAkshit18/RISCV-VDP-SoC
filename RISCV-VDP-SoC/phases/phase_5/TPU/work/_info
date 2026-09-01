@@ -1,6 +1,9 @@
 m255
 K4
 z2
+Z0 !s99 nomlopt
+!s12c _opt
+R0
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -8,52 +11,271 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/TPU
+Z1 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/TPU
+T_opt
+!s110 1788275954
+V0P=AOR3M0K>gDdB45d:Xl0
+Z2 04 17 4 work tb_nn_axi_wrapper fast 0
+Z3 04 4 4 work glbl fast 0
+=1-48e7dad10595-6a96ecf1-262-2618
+R0
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+o-quiet -auto_acc_if_foreign -work work -L xpm
+Z7 tCvgOpt 0
+n@_opt
+Z8 OL;O;2024.1;79
+R1
 vaxis_nn
-Z1 2nn_axi_wrapper.sv|axis_nn.v
-Z2 !s110 1788118328
+Z9 2axis_nn.v|nn.v|nn_axi_wrapper.v|pe.v|pe_top.v|register.v|sigmoid.v|systolic.v
+Z10 !s110 1788288965
 !i10b 1
 !s100 coE2DA1I:Nd88?Tf0ojOc2
 Iz28NXk5M;o`9TK76YQ?HD2
-R0
-w1779217788
+R1
+Z11 w1779217788
 8axis_nn.v
 Faxis_nn.v
-!i122 0
+!i122 8
 L0 3 307
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 OL;L;2024.1;79
+Z12 VDg1SIo80bB@j0V0VzS_@n1
+Z13 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z5 !s108 1788118326.000000
-!s107 axis_nn.v|nn_axi_wrapper.sv|
-Z6 !s90 nn_axi_wrapper.sv|axis_nn.v|
+Z14 !s108 1788288965.000000
+Z15 !s107 systolic.v|sigmoid.v|register.v|pe_top.v|pe.v|nn_axi_wrapper.v|nn.v|axis_nn.v|
+Z16 !s90 axis_nn.v|nn.v|nn_axi_wrapper.v|pe.v|pe_top.v|register.v|sigmoid.v|systolic.v|
 !i113 0
-Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z8 tCvgOpt 0
-vnn_axi_wrapper
-R1
-DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-R2
-!i10b 1
-!s100 G;E8WUDb]M9?kjWHEWbn41
-I55aWkD06L9:JTc5T=VaAg0
-S1
-R0
-w1788117867
-8nn_axi_wrapper.sv
-Fnn_axi_wrapper.sv
-!i122 0
-L0 3 275
-R3
-R4
-r1
-!s85 0
-31
-R5
-Z9 !s107 axis_nn.v|nn_axi_wrapper.sv|
-R6
-!i113 0
+Z17 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R7
+vglbl
+2C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+!s110 1788276673
+!i10b 1
+!s100 TL<1YD8i05Z]RjCH=O^Cf3
+Ijbca:GLC?@I5ehXSOo3zA2
+R1
+w1590624368
+8C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+FC:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+!i122 7
+L0 6 78
+R12
+R13
+r1
+!s85 0
+31
+!s108 1788276673.000000
+!s107 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
+!s90 -reportprogress|300|C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
+!i113 0
+R17
+R7
+vnn
+R9
+R10
+!i10b 1
+!s100 J9]GlbJUQUG7oJ1>Qi[VB1
+IF]NjhK`TTTAGBazE<_b@T0
+R1
+R11
+8nn.v
+Fnn.v
+!i122 8
+L0 3 529
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R7
+vnn_axi_wrapper
+R9
+R10
+!i10b 1
+!s100 HflO1CTgDoLU[IK>STQ_X2
+IUSKIm3dkN:01D1?hWT^^S3
+R1
+Z18 w1788275460
+Z19 8nn_axi_wrapper.v
+Z20 Fnn_axi_wrapper.v
+!i122 8
+L0 133 1152
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R7
+vpe
+R9
+R10
+!i10b 1
+!s100 3l5HIMZ6eWnPzQk<jd=c`0
+Ibzgo_=Ea=Lj4<XNWOQ]d@3
+R1
+R18
+8pe.v
+Fpe.v
+R19
+R20
+!i122 8
+L0 1 20
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R7
+vpe_top
+R9
+Z21 !s110 1788288966
+!i10b 1
+!s100 N8Qel2E0Q`=SgBR4maa?A2
+IhV9>Y5oh@oC2BmdM:f@H=2
+R1
+R18
+8pe_top.v
+Fpe_top.v
+R19
+R20
+!i122 8
+L0 1 150
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R7
+vregister
+R9
+R21
+!i10b 1
+!s100 `F?TS9nnAaSPRIRm5[JF@2
+I[elGhDmb_TTTeU:HbXAe33
+R1
+R18
+8register.v
+Fregister.v
+R19
+R20
+!i122 8
+L0 1 26
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R7
+vsigmoid
+R9
+R21
+!i10b 1
+!s100 9D74bo2e[m7P3F;CEh7Rb0
+II;Q@58Yl_2_U1^cGjJI6V1
+R1
+w1787490591
+8sigmoid.v
+Fsigmoid.v
+!i122 8
+L0 12 313
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R7
+vsystolic
+R9
+R21
+!i10b 1
+!s100 R1U^KT`d[^Az5Yn32XkZW2
+IGWBk1MZDUiSf7=ZdFD;011
+R1
+R11
+8systolic.v
+Fsystolic.v
+!i122 8
+L0 3 172
+R12
+R13
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R17
+R7
+vtb_nn_axi_wrapper
+2tb_nn_axi_wrapper.sv
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1788289536
+!i10b 1
+!s100 czP2`if9KlQjBi6<PO1k23
+II_]A0DDgU?Kbn0SWaI0BY1
+S1
+R1
+w1788289532
+8tb_nn_axi_wrapper.sv
+Ftb_nn_axi_wrapper.sv
+!i122 9
+L0 41 645
+R12
+R13
+r1
+!s85 0
+31
+!s108 1788289536.000000
+!s107 tb_nn_axi_wrapper.sv|
+!s90 tb_nn_axi_wrapper.sv|
+!i113 0
+R17
+R7
+Ttb_opt
+!s110 1788276748
+V:X`NfhL<G?elBeAhOi9Fj1
+R2
+R3
+R0
+R4
+R5
+R6
+o+acc -L xpm
+R7
+ntb_opt
 R8
+R1

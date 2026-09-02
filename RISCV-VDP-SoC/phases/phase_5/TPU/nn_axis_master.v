@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`ifndef NN_AXIS_MASTER_V
+`define NN_AXIS_MASTER_V
 
 //==============================================================================
 // Module      : nn_axis_master
@@ -272,3 +274,4 @@ module nn_axis_master (
     end
 
 endmodule
+`endif

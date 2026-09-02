@@ -13,25 +13,32 @@
 # // and may not be used in any way not expressly authorized by SISW.
 # //
 # vsim tb_opt 
-# Start time: 18:02:37 on Sep 02,2026
-# Loading sv_std.std
-# Loading work.tb_nn_axi_wrapper(fast)
-# Loading work.nn_axi_wrapper(fast)
+# Start time: 21:46:24 on Sep 02,2026
+# Loading work.tb_nn_axis_master(fast)
+# Loading work.nn_axis_master(fast)
 # Loading work.glbl(fast)
+configure wave -wavebackground white
+configure wave -waveeventbackground white
+configure wave -wavestripbackground white
+configure wave -gridcolor grey50
+configure wave -textcolor black
+configure wave -timecolor black
+configure wave -background white
+configure wave -background white -foreground black
 add wave *
 run -all
-# READ PASS addr=00000010 data=55667788
-# READ PASS addr=00000014 data=11223344
-# READ PASS addr=00000038 data=41424344
-# READ PASS addr=0000003c data=45464748
-# READ PASS addr=00000050 data=9abcdef0
-# READ PASS addr=00000054 data=12345678
-# READ PASS addr=00000058 data=76543210
-# READ PASS addr=0000005c data=fedcba98
-# TB_NN_AXI_WRAPPER: 1 ERRORS
-# ** Note: $finish    : tb_nn_axi_wrapper.sv(262)
-#    Time: 525 ns  Iteration: 1  Instance: /tb_nn_axi_wrapper
+# AXIS BEAT 0 : DATA=1111111111111111 TLAST=0
+# AXIS BEAT 1 : DATA=2222222222222222 TLAST=0
+# AXIS BEAT 2 : DATA=3333333333333333 TLAST=0
+# AXIS BEAT 3 : DATA=4444444444444444 TLAST=0
+# AXIS BEAT 4 : DATA=5555555555555555 TLAST=0
+# AXIS BEAT 5 : DATA=aaaaaaaaaaaaaaaa TLAST=0
+# AXIS BEAT 6 : DATA=bbbbbbbbbbbbbbbb TLAST=1
+# TB_NN_AXIS_MASTER: ALL TESTS PASSED
+# ** Note: $finish    : tb_nn_axis_master.v(188)
+#    Time: 285 ns  Iteration: 1  Instance: /tb_nn_axis_master
 # 1
-# Break in Module tb_nn_axi_wrapper at tb_nn_axi_wrapper.sv line 262
-# A time value could not be extracted from the current line
-# A time value could not be extracted from the current line
+# Break in Module tb_nn_axis_master at tb_nn_axis_master.v line 188
+quit
+# End time: 21:49:45 on Sep 02,2026, Elapsed time: 0:03:21
+# Errors: 0, Warnings: 0

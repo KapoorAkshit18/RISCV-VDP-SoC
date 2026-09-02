@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`ifndef NN_AXI_WRAPPER_V
+`define NN_AXI_WRAPPER_V
 
 //==============================================================================
 // Module      : nn_axi_wrapper
@@ -410,3 +412,4 @@ module nn_axi_wrapper #(
     end
 
 endmodule
+`endif

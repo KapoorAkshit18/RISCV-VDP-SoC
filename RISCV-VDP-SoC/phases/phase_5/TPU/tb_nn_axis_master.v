@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`ifndef TB_NN_AXIS_MASTER_V
+`define TB_NN_AXIS_MASTER_V
 
 // ============================================================================
 // Testbench: nn_axis_master        
@@ -187,3 +189,4 @@ module tb_nn_axis_master;
     end
 
 endmodule
+`endif

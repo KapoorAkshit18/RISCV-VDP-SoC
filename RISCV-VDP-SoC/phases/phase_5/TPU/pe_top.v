@@ -1,3 +1,6 @@
+`timescale 1ns / 1ps
+`ifndef PE_TOP_V
+`define PE_TOP_V
 module pe_top
     (
         input wire         clk,
@@ -148,3 +151,5 @@ module pe_top
     register #(8) reg_3(clk, rst_n, 1'b1, 1'b0, y_out, y_out_reg);
     
 endmodule
+
+`endif

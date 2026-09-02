@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`ifndef TB_TPU_AXIS_TOP_SV
+`define TB_TPU_AXIS_TOP_SV
 
 // ============================================================================
 // Full TPU integration testbench
@@ -210,3 +212,4 @@ module tb_tpu_axis_top;
     end
 
 endmodule
+`endif

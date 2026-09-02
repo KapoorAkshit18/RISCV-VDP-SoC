@@ -1,3 +1,5 @@
+`ifndef REGISTER_V
+`define REGISTER_V
 module register
     #( 
         parameter WIDTH = 16
@@ -24,3 +26,4 @@ module register
     end
     
 endmodule
+`endif

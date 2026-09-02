@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`ifndef SIGMOID_V
+`define SIGMOID_V
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Kyushu Institute of Technology
 // Engineer: DSP Lab, http://www.lsi-contest.com/2018/shiyou_4e.html
@@ -322,3 +324,4 @@ module sigmoid
     register #(16) reg_dout(clk, rst_n, en, clr, mem[addr][29:14], dout); 
     
 endmodule
+`endif

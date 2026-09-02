@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`ifndef TPU_AXIS_TOP_V
+`define TPU_AXIS_TOP_V
 
 //==============================================================================
 // Module      : tpu_axis_top
@@ -250,3 +252,4 @@ module tpu_axis_top #(
     end
 
 endmodule
+`endif

@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`ifndef SYSTOLIC_V
+`define SYSTOLIC_V
 
 module systolic
     #( 
@@ -172,3 +174,4 @@ module systolic
     assign out_valid = in_valid_reg8;
 
 endmodule
+`endif

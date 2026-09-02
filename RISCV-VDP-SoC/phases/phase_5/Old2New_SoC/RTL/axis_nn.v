@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
-// ©2024 ????
+`ifndef AXIS_NN_V
+`define AXIS_NN_V
+// ï¿½2024 
 module axis_nn
     (
         input wire         aclk,
@@ -307,3 +309,4 @@ module axis_nn
     );
 
 endmodule
+`endif

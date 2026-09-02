@@ -1,3 +1,5 @@
+`ifndef PE_V
+`define PE_V
 module pe
     #( 
         parameter WIDTH = 8,
@@ -18,3 +20,4 @@ module pe
     assign y_out = y_in + y_out_i[WIDTH+FRAC_BIT-1:FRAC_BIT];
 
 endmodule
+`endif

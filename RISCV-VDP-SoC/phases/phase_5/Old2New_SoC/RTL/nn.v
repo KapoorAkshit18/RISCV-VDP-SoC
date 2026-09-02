@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
-// ©2024 ????
+`ifndef NN_V
+`define NN_V
 module nn
     (
         input wire         clk,
@@ -529,3 +530,4 @@ module nn
     );
     
 endmodule
+`endif

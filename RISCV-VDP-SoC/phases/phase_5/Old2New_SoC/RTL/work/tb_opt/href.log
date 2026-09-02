@@ -1,0 +1,34 @@
+BEGIN 1:glbl:fast:work
+    GSR :  1:xpm_cdc_sync_rst:fast:xpm
+END 
+BEGIN 1:xpm_memory_base:fast:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast:xpm
+END 
+BEGIN 1:xpm_memory_base:fast__2:xpm
+    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__2:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast__2:xpm
+END 
+BEGIN 1:xpm_memory_base:fast__1:xpm
+    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__1:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast__1:xpm
+END 
+BEGIN 1:cpu_soc_ram_top:fast:work
+    nn_m_axis_tready :  1:tb_soc_ram_top:fast:work
+    m_rdata :  1:tb_soc_ram_top:fast:work
+    axis_busy :  1:tb_soc_ram_top:fast:work
+    m_ready :  1:tb_soc_ram_top:fast:work
+    axis_done :  1:tb_soc_ram_top:fast:work
+    nn_s_axis_tdata :  1:tb_soc_ram_top:fast:work
+    nn_s_axis_tlast :  1:tb_soc_ram_top:fast:work
+    m_wdata :  1:tb_soc_ram_top:fast:work
+    nn_s_axis_tready :  1:tb_soc_ram_top:fast:work
+    axis_start :  1:tb_soc_ram_top:fast:work
+    nn_s_axis_tvalid :  1:tb_soc_ram_top:fast:work
+    nn_m_axis_tdata :  1:tb_soc_ram_top:fast:work
+    m_addr :  1:tb_soc_ram_top:fast:work
+    nn_m_axis_tlast :  1:tb_soc_ram_top:fast:work
+    m_write :  1:tb_soc_ram_top:fast:work
+    nn_m_axis_tvalid :  1:tb_soc_ram_top:fast:work
+    m_valid :  1:tb_soc_ram_top:fast:work
+    m_strb :  1:tb_soc_ram_top:fast:work
+END 

@@ -14,11 +14,11 @@ module ptb
 );
 	//reg        mem_ready         ;
 	//reg [31:0] mem_rdata         ;
-	reg        pcpi_wr           ;
-	reg [31:0] pcpi_rd           ;
-	reg        pcpi_wait         ;
-	reg        pcpi_ready        ;
-	reg [31:0] irq               ;
+	wire       pcpi_wr           ;
+	wire [31:0] pcpi_rd           ;
+	wire       pcpi_wait         ;
+	wire       pcpi_ready        ;
+	wire [31:0] irq               ;
 
 	//wire        trap              ;
 	//wire        mem_valid         ;

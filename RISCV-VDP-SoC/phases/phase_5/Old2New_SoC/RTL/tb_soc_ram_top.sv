@@ -1149,7 +1149,7 @@ module tb_soc_ram_top;
         // Finish simulation.
         // ---------------------------------------------------------------------
 
-        // $finish;
+        $finish;
 
     end
 

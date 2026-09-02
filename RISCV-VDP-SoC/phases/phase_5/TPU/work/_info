@@ -2,6 +2,7 @@ m255
 K4
 z2
 Z0 !s99 nomlopt
+R0
 !s12c _opt
 R0
 !s11f vlog 2024.1 2024.02, Feb  1 2024
@@ -28,27 +29,27 @@ n@_opt
 Z8 OL;O;2024.1;79
 R1
 vaxis_nn
-Z9 2axis_nn.v|nn.v|nn_axi_wrapper.v|pe.v|pe_top.v|register.v|sigmoid.v|systolic.v
-Z10 !s110 1788288965
+Z9 2axis_nn.v|nn.v|nn_axi_wrapper.v|nn_axis_master.v|pe.v|pe_top.v|register.v|sigmoid.v|systolic.v|tb_nn_axis_master.v|tpu_axis_top.v
+Z10 !s110 1788351523
 !i10b 1
 !s100 coE2DA1I:Nd88?Tf0ojOc2
 Iz28NXk5M;o`9TK76YQ?HD2
 R1
-Z11 w1779217788
+w1788349527
 8axis_nn.v
 Faxis_nn.v
-!i122 8
+!i122 10
 L0 3 307
-Z12 VDg1SIo80bB@j0V0VzS_@n1
-Z13 OL;L;2024.1;79
+Z11 VDg1SIo80bB@j0V0VzS_@n1
+Z12 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z14 !s108 1788288965.000000
-Z15 !s107 systolic.v|sigmoid.v|register.v|pe_top.v|pe.v|nn_axi_wrapper.v|nn.v|axis_nn.v|
-Z16 !s90 axis_nn.v|nn.v|nn_axi_wrapper.v|pe.v|pe_top.v|register.v|sigmoid.v|systolic.v|
+Z13 !s108 1788351523.000000
+Z14 !s107 tpu_axis_top.v|tb_nn_axis_master.v|systolic.v|sigmoid.v|register.v|pe_top.v|pe.v|nn_axis_master.v|nn_axi_wrapper.v|nn.v|axis_nn.v|
+Z15 !s90 axis_nn.v|nn.v|nn_axi_wrapper.v|nn_axis_master.v|pe.v|pe_top.v|register.v|sigmoid.v|systolic.v|tb_nn_axis_master.v|tpu_axis_top.v|
 !i113 0
-Z17 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z16 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R7
 vglbl
 2C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
@@ -62,8 +63,8 @@ w1590624368
 FC:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
 !i122 7
 L0 6 78
+R11
 R12
-R13
 r1
 !s85 0
 31
@@ -71,7 +72,7 @@ r1
 !s107 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
 !s90 -reportprogress|300|C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
 !i113 0
-R17
+R16
 R7
 vnn
 R9
@@ -80,123 +81,146 @@ R10
 !s100 J9]GlbJUQUG7oJ1>Qi[VB1
 IF]NjhK`TTTAGBazE<_b@T0
 R1
-R11
+Z17 w1779217788
 8nn.v
 Fnn.v
-!i122 8
+!i122 10
 L0 3 529
+R11
 R12
-R13
 r1
 !s85 0
 31
+R13
 R14
 R15
-R16
 !i113 0
-R17
+R16
 R7
 vnn_axi_wrapper
 R9
 R10
 !i10b 1
-!s100 HflO1CTgDoLU[IK>STQ_X2
-IUSKIm3dkN:01D1?hWT^^S3
+!s100 4c6_h2M>zA::]iKh3;ISR3
+IeOhA]HJ:ZBSMbNHKE6G1?2
 R1
-Z18 w1788275460
-Z19 8nn_axi_wrapper.v
-Z20 Fnn_axi_wrapper.v
-!i122 8
-L0 133 1152
+w1788350748
+8nn_axi_wrapper.v
+Fnn_axi_wrapper.v
+!i122 10
+L0 51 362
+R11
 R12
-R13
 r1
 !s85 0
 31
+R13
 R14
 R15
-R16
 !i113 0
-R17
+R16
+R7
+vnn_axis_master
+R9
+R10
+!i10b 1
+!s100 ddS_ReS77<CMl9<0z8ii91
+I]FK7SEdhbm9@k5;LLLPbh0
+R1
+Z18 w1788350091
+Z19 8nn_axis_master.v
+Z20 Fnn_axis_master.v
+!i122 10
+L0 36 239
+R11
+R12
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R16
 R7
 vpe
 R9
 R10
 !i10b 1
 !s100 3l5HIMZ6eWnPzQk<jd=c`0
-Ibzgo_=Ea=Lj4<XNWOQ]d@3
+Ie7YIT7@;aKfQNKY0_0=X_3
 R1
 R18
 8pe.v
 Fpe.v
 R19
 R20
-!i122 8
+!i122 10
 L0 1 20
+R11
 R12
-R13
 r1
 !s85 0
 31
+R13
 R14
 R15
-R16
 !i113 0
-R17
+R16
 R7
 vpe_top
 R9
-Z21 !s110 1788288966
+R10
 !i10b 1
 !s100 N8Qel2E0Q`=SgBR4maa?A2
-IhV9>Y5oh@oC2BmdM:f@H=2
+I=`Tgg8QHLJ]ShGi1e8QP]2
 R1
 R18
 8pe_top.v
 Fpe_top.v
 R19
 R20
-!i122 8
+!i122 10
 L0 1 150
+R11
 R12
-R13
 r1
 !s85 0
 31
+R13
 R14
 R15
-R16
 !i113 0
-R17
+R16
 R7
 vregister
 R9
-R21
+R10
 !i10b 1
 !s100 `F?TS9nnAaSPRIRm5[JF@2
-I[elGhDmb_TTTeU:HbXAe33
+IDE4gFR2PnEUGK_fLb;ohL0
 R1
 R18
 8register.v
 Fregister.v
 R19
 R20
-!i122 8
+!i122 10
 L0 1 26
+R11
 R12
-R13
 r1
 !s85 0
 31
+R13
 R14
 R15
-R16
 !i113 0
-R17
+R16
 R7
 vsigmoid
 R9
-R21
+R10
 !i10b 1
 !s100 9D74bo2e[m7P3F;CEh7Rb0
 II;Q@58Yl_2_U1^cGjJI6V1
@@ -204,70 +228,93 @@ R1
 w1787490591
 8sigmoid.v
 Fsigmoid.v
-!i122 8
+!i122 10
 L0 12 313
+R11
 R12
-R13
 r1
 !s85 0
 31
+R13
 R14
 R15
-R16
 !i113 0
-R17
+R16
 R7
 vsystolic
 R9
-R21
+R10
 !i10b 1
 !s100 R1U^KT`d[^Az5Yn32XkZW2
 IGWBk1MZDUiSf7=ZdFD;011
 R1
-R11
+R17
 8systolic.v
 Fsystolic.v
-!i122 8
+!i122 10
 L0 3 172
+R11
 R12
-R13
 r1
 !s85 0
 31
+R13
 R14
 R15
-R16
 !i113 0
-R17
+R16
 R7
 vtb_nn_axi_wrapper
-2tb_nn_axi_wrapper.sv
+2tb_nn_axi_wrapper.sv|tb_tpu_axis_top.sv
 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-!s110 1788289536
+!s110 1788351530
 !i10b 1
-!s100 czP2`if9KlQjBi6<PO1k23
-II_]A0DDgU?Kbn0SWaI0BY1
+!s100 D4SC8`WQP=EGeoa029hjT0
+I9;@iYhEKcYcW7;jgFHEfS2
 S1
 R1
-w1788289532
+w1788351119
 8tb_nn_axi_wrapper.sv
 Ftb_nn_axi_wrapper.sv
-!i122 9
-L0 41 645
+!i122 11
+L0 3 264
+R11
 R12
-R13
 r1
 !s85 0
 31
-!s108 1788289536.000000
-!s107 tb_nn_axi_wrapper.sv|
-!s90 tb_nn_axi_wrapper.sv|
+!s108 1788351530.000000
+!s107 tb_tpu_axis_top.sv|tb_nn_axi_wrapper.sv|
+!s90 tb_nn_axi_wrapper.sv|tb_tpu_axis_top.sv|
 !i113 0
-R17
+R16
+R7
+vtb_nn_axis_master
+R9
+R10
+!i10b 1
+!s100 UCCKGcXhF7j4m[Ig]ERzP2
+IKoJzfRVU::=75oB?SCc<l3
+R1
+w1788351029
+8tb_nn_axis_master.v
+Ftb_nn_axis_master.v
+!i122 10
+L0 7 168
+R11
+R12
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R16
 R7
 Ttb_opt
-!s110 1788276748
-V:X`NfhL<G?elBeAhOi9Fj1
+!s110 1788352280
+V4heUA7]N]ceJ<`5_cd><o0
 R2
 R3
 R0
@@ -278,4 +325,26 @@ o+acc -L xpm
 R7
 ntb_opt
 R8
+vtpu_axis_top
+R9
+R10
+!i10b 1
+!s100 2iFQL>^mWazRa4ACg1eCl1
+Iclon4dO2o3nO72_h3T^hH0
 R1
+w1788350202
+8tpu_axis_top.v
+Ftpu_axis_top.v
+!i122 10
+L0 36 217
+R11
+R12
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R16
+R7

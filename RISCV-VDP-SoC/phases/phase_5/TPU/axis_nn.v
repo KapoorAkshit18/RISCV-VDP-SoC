@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-// ©2024 ????
+// ©2024 
 module axis_nn
     (
         input wire         aclk,

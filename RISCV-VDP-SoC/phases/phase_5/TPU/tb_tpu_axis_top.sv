@@ -33,14 +33,14 @@ module tb_tpu_axis_top;
         .clk       (clk),
         .rst_n     (rst_n),
 
-        .bus_req   (bus_req),
-        .bus_write (bus_write),
-        .bus_addr  (bus_addr),
-        .bus_wdata (bus_wdata),
-        .bus_strb   (bus_strb),
+        .nn_valid  (bus_req),
+        .nn_write  (bus_write),
+        .nn_addr   (bus_addr[11:0]),
+        .nn_wdata  (bus_wdata),
+        .nn_strb   (bus_strb),
 
-        .bus_ready (bus_ready),
-        .bus_rdata (bus_rdata)
+        .nn_ready  (bus_ready),
+        .nn_rdata  (bus_rdata)
     );
 
     // =========================================================================

@@ -367,7 +367,7 @@ module nn_axi_wrapper #(
         case (bus_addr[7:0])
 
             REG_CONTROL:
-                bus_rdata = 32'h0000_0001;
+                bus_rdata = 32'h0000_0000;
 
             REG_STATUS:
                 begin

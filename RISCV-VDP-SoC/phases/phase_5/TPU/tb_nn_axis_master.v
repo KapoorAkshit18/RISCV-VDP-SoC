@@ -25,6 +25,11 @@ module tb_nn_axis_master;
     wire        m_axis_tlast;
     reg         m_axis_tready;
 
+    wire        s_axis_tvalid;
+    wire        s_axis_tready;
+    wire [63:0] s_axis_tdata;
+    wire        s_axis_tlast;
+
     wire busy;
     wire tx_done;
 
@@ -39,7 +44,7 @@ module tb_nn_axis_master;
         .clk          (clk),
         .rst_n        (rst_n),
 
-        .start        (start),
+        .axis_start   (start),
 
         .weight0      (weight0),
         .weight1      (weight1),
@@ -55,8 +60,13 @@ module tb_nn_axis_master;
         .m_axis_tlast (m_axis_tlast),
         .m_axis_tready(m_axis_tready),
 
-        .busy         (busy),
-        .tx_done      (tx_done)
+        .s_axis_tvalid(s_axis_tvalid),
+        .s_axis_tready(s_axis_tready),
+        .s_axis_tdata (s_axis_tdata),
+        .s_axis_tlast (s_axis_tlast),
+
+        .axis_busy    (busy),
+        .axis_done    (tx_done)
     );
 
     // -------------------------------------------------------------------------
@@ -114,6 +124,11 @@ module tb_nn_axis_master;
             beat = beat + 1;
         end
     end
+
+    // s_axis stub: drive two result beats after all TX beats done
+    assign s_axis_tdata  = 64'hDEAD_BEEF_CAFE_F00D;
+    assign s_axis_tlast  = (beat >= 7) ? 1'b1 : 1'b0;
+    assign s_axis_tvalid = (beat >= 7) ? 1'b1 : 1'b0;
 
     // -------------------------------------------------------------------------
     // Test

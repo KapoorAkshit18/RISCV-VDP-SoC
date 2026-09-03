@@ -1,4 +1,3 @@
-
 `ifndef CPU_SOC_RAM_TOP_V
 `define CPU_SOC_RAM_TOP_V
 

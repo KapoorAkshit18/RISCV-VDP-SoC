@@ -1,54 +1,21 @@
-BEGIN 1:cpu_soc_ram_top:fast:work
-    ram_write :  1:tb_cpu_soc_ram_top:fast:work
-    m_addr :  1:tb_cpu_soc_ram_top:fast:work
-    mem_ready :  1:tb_cpu_soc_ram_top:fast:work
-    nn_strb :  1:tb_cpu_soc_ram_top:fast:work
-    gpio_strb :  1:tb_cpu_soc_ram_top:fast:work
-    gpio_write :  1:tb_cpu_soc_ram_top:fast:work
-    ram_strb :  1:tb_cpu_soc_ram_top:fast:work
-    m_wdata :  1:tb_cpu_soc_ram_top:fast:work
-    sensor_strb :  1:tb_cpu_soc_ram_top:fast:work
-    mem_rdata :  1:tb_cpu_soc_ram_top:fast:work
-    m_valid :  1:tb_cpu_soc_ram_top:fast:work
-    rf_strb :  1:tb_cpu_soc_ram_top:fast:work
-    mem_instr :  1:tb_cpu_soc_ram_top:fast:work
-    nn_valid :  1:tb_cpu_soc_ram_top:fast:work
-    vdp_valid :  1:tb_cpu_soc_ram_top:fast:work
-    sensor_valid :  1:tb_cpu_soc_ram_top:fast:work
-    mem_wdata :  1:tb_cpu_soc_ram_top:fast:work
-    nn_addr :  1:tb_cpu_soc_ram_top:fast:work
-    gpio_valid :  1:tb_cpu_soc_ram_top:fast:work
-    m_ready :  1:tb_cpu_soc_ram_top:fast:work
-    ram_valid :  1:tb_cpu_soc_ram_top:fast:work
-    m_write :  1:tb_cpu_soc_ram_top:fast:work
-    rf_addr :  1:tb_cpu_soc_ram_top:fast:work
-    rf_valid :  1:tb_cpu_soc_ram_top:fast:work
-    gpio_addr :  1:tb_cpu_soc_ram_top:fast:work
-    vdp_addr :  1:tb_cpu_soc_ram_top:fast:work
-    ram_addr :  1:tb_cpu_soc_ram_top:fast:work
-    sensor_addr :  1:tb_cpu_soc_ram_top:fast:work
-    mem_wstrb :  1:tb_cpu_soc_ram_top:fast:work
-    nn_write :  1:tb_cpu_soc_ram_top:fast:work
-    mem_valid :  1:tb_cpu_soc_ram_top:fast:work
-    vdp_write :  1:tb_cpu_soc_ram_top:fast:work
-    sensor_write :  1:tb_cpu_soc_ram_top:fast:work
-    m_strb :  1:tb_cpu_soc_ram_top:fast:work
-    rf_write :  1:tb_cpu_soc_ram_top:fast:work
-    mem_addr :  1:tb_cpu_soc_ram_top:fast:work
-    vdp_strb :  1:tb_cpu_soc_ram_top:fast:work
+BEGIN 1:glbl:fast:work
+    GSR :  1:xpm_cdc_sync_rst:fast:xpm
 END 
-BEGIN 1:soc_ram:fast:work
-    mem :  1:tb_cpu_soc_ram_top:fast:work
+BEGIN 1:cpu_soc_ram_top:fast:work
+    m_write :  1:tb_cpu_soc_ram_top:fast:work
+    m_valid :  1:tb_cpu_soc_ram_top:fast:work
+    m_rdata :  1:tb_cpu_soc_ram_top:fast:work
+    m_wdata :  1:tb_cpu_soc_ram_top:fast:work
+    m_ready :  1:tb_cpu_soc_ram_top:fast:work
+    m_strb :  1:tb_cpu_soc_ram_top:fast:work
+    m_addr :  1:tb_cpu_soc_ram_top:fast:work
 END 
 BEGIN 1:xpm_memory_base:fast:xpm
     gen_rd_b.doutb_reg :  1:xpm_memory_base:fast:xpm
 END 
-BEGIN 1:glbl:fast:work
-    GSR :  1:xpm_cdc_sync_rst:fast:xpm
-END 
 BEGIN 1:xpm_memory_base:fast__1:xpm
-    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__1:xpm
     gen_rd_b.doutb_reg :  1:xpm_memory_base:fast__1:xpm
+    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__1:xpm
 END 
 BEGIN 1:xpm_memory_base:fast__2:xpm
     gen_rd_a.douta_reg :  1:xpm_memory_base:fast__2:xpm

@@ -27,7 +27,7 @@
 //   0x0001_1000 - 0x0001_1FFF : RF
 //   0x0001_2000 - 0x0001_2FFF : Sensor
 //   0x0001_3000 - 0x0001_3FFF : VDP
-////   0x0001_4000 - 0x0001_4FFF : TPU
+//   0x0001_4000 - 0x0001_4FFF : TPU
 
 // Peripheral local address width = 12 bits.
 //

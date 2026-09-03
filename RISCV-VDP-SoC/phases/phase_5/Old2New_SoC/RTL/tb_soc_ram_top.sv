@@ -1771,7 +1771,7 @@ module tb_cpu_soc_ram_top;
 
     initial begin
 
-        $dumpfile("waveform.vcd");
+        $dumpfile("waveform_phase_5_wo_firmw.vcd");
         $dumpvars(0, tb_cpu_soc_ram_top);
 
     end

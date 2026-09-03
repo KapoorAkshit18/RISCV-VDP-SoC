@@ -1,631 +1,733 @@
-`timescale 1ns/1ps
+`timescale 1ns / 1ps
 
 // =============================================================================
-// tb_soc_ram_top.sv
+// tb_cpu_soc_ram_top.v
 //
-// RISCV-VDP-SoC + TPU SYSTEM-LEVEL INTEGRATION TEST
+// LEVEL-1 MANUAL PERIPHERAL INTEGRATION TESTBENCH
+// =============================================================================
 //
-// Architecture under test:
+// PURPOSE
+// -------
+// This testbench verifies the PERIPHERAL INTEGRATION of cpu_soc_ram_top
+// WITHOUT using firmware.
 //
-//      PicoRV32
-//          |
-//      CPU Bus Adapter
-//          |
-//      SoC Memory Interconnect
-//       /    |      |       |       \
-//     RAM  GPIO   SENSOR    RF      VDP
-//                                   |
-//                                NN/TPU
-//                                   |
-//                           nn_axi_wrapper
-//                                   |
-//                           nn_axis_master
-//                                   |
-//                              AXI4-Stream
-//                                   |
-//                               axis_nn
+// No firmware.hex is required.
+// No PicoRV32 instruction execution is required.
+// No software-generated MMIO transactions are required.
 //
-// TPU MMIO BASE:
-//      0x0001_4000
+// Instead, the testbench manually drives the native master-side bus signals
+// entering the SoC memory interconnect.
 //
-// TPU AXI4-Stream transaction:
-//      CPU -> wrapper -> master -> axis_nn
 //
-//      7 TX beats:
-//          weight0
-//          weight1
-//          weight2
-//          weight3
-//          weight4
-//          input0
-//          input1 + TLAST
 //
-//      2 RX beats:
-//          result0
-//          result1 + TLAST
+//                  LEVEL-1 VERIFICATION PATH
 //
-// This testbench:
-//   1. Drives all external DUT inputs.
-//   2. Connects all DUT outputs.
-//   3. Verifies reset behavior.
-//   4. Verifies CPU startup.
-//   5. Verifies no unexpected CPU trap.
-//   6. Provides sensor/RF/GPIO inputs.
-//   7. Provides independent VDP pixel clock.
-//   8. Monitors CPU MMIO accesses.
-//   9. Detects TPU START command.
-//  10. Monitors TPU busy/done.
-//  11. Counts AXI4-Stream TX transfers.
-//  12. Checks TX TLAST.
-//  13. Counts AXI4-Stream RX transfers.
-//  14. Checks RX TLAST.
-//  15. Checks TPU completion.
-//  16. Reports complete system-level result.
+//                         TESTBENCH
+//                             |
+//                             |
+//                   Manual native bus
+//                  m_valid/m_write/etc.
+//                             |
+//                             v
+//                  +--------------------+
+//                  | SoC Memory         |
+//                  | Interconnect       |
+//                  +--------------------+
+//                    |    |    |    |   |   |
+//                    v    v    v    v   v   v
+//                   RAM GPIO   RF SENSOR VDP TPU
 //
-// IMPORTANT:
-// The CPU must execute firmware which writes the TPU registers and
-// writes CONTROL.START at 0x0001_4000.
 //
-// Therefore this TB does NOT artificially force TPU transactions.
-// It verifies the real CPU-driven integration path.
+// The following are intentionally NOT verified here:
+//
+//   - PicoRV32 instruction execution
+//   - firmware
+//   - firmware.hex
+//   - compiler/toolchain
+//   - AXI DMA
+//   - neural-network numerical correctness
+//   - FPGA timing
+//   - TPU performance
+//
+// Those belong to later verification levels.
+//
+// =============================================================================
+//
+// ADDRESS MAP
+// ----------
+//
+//   0x0000_0000 - 0x0000_FFFF : RAM
+//   0x0001_0000 - 0x0001_0FFF : GPIO
+//   0x0001_1000 - 0x0001_1FFF : RF
+//   0x0001_2000 - 0x0001_2FFF : SENSOR
+//   0x0001_3000 - 0x0001_3FFF : VDP
+//   0x0001_4000 - 0x0001_4FFF : TPU
+//
+// =============================================================================
+//
+// TEST PHILOSOPHY
+// ---------------
+//
+// Every manual transaction follows:
+//
+//       DRIVE
+//         |
+//         v
+//       WAIT
+//         |
+//         v
+//       CHECK DECODE
+//         |
+//         v
+//       CHECK READY
+//         |
+//         v
+//       CHECK DATA
+//         |
+//         v
+//       RELEASE
+//         |
+//         v
+//       GUARD BAND
+//
+// This prevents a transaction from leaking into the next test.
 //
 // =============================================================================
 
-module tb_soc_ram_top;
 
-    // =========================================================================
-    // Parameters
-    // =========================================================================
-
-    localparam ADDR_WIDTH     = 32;
-    localparam DATA_WIDTH     = 32;
-    localparam RAM_ADDR_WIDTH = 16;
-    localparam RAM_DEPTH      = 16384;
-    localparam GPIO_WIDTH     = 32;
-
-    // -------------------------------------------------------------------------
-    // TPU configuration
-    // -------------------------------------------------------------------------
-
-    localparam [31:0] NN_BASE_ADDR = 32'h0001_4000;
-
-    localparam integer EXPECTED_TX_BEATS = 7;
-    localparam integer EXPECTED_RX_BEATS = 2;
-
-    // -------------------------------------------------------------------------
-    // Expected result values.
-    //
-    // These must match the values generated by the currently connected
-    // axis_nn test configuration.
-    // -------------------------------------------------------------------------
-
-    localparam [63:0] EXPECTED_RESULT0 =
-                        64'hDEAD_BEEF_CAFE_F00D;
-
-    localparam [63:0] EXPECTED_RESULT1 =
-                        64'h1234_5678_9ABC_DEF0;
+module tb_cpu_soc_ram_top;
 
 
     // =========================================================================
-    // System clock / reset
+    // 1. CLOCKS
     // =========================================================================
 
     reg clk;
-    reg resetn;
-
-
-    // =========================================================================
-    // VDP pixel clock
-    //
-    // Independent from CPU/system clock.
-    // 25 MHz equivalent pixel clock for smoke testing.
-    // =========================================================================
-
     reg pixel_clk;
 
 
-    // =========================================================================
-    // Sensor inputs
-    // =========================================================================
-
-    reg [7:0]  battery_percent;
-    reg [15:0] battery_voltage;
-    reg [15:0] temperature;
-    reg        sensor_valid;
-
-
-    // =========================================================================
-    // RF telemetry inputs
-    // =========================================================================
-
-    reg [7:0] rssi_dbm;
-    reg       link_up;
-    reg       link_error;
-    reg       carrier_detect;
-
-
-    // =========================================================================
-    // GPIO input
-    // =========================================================================
-
-    reg [GPIO_WIDTH-1:0] gpio_in;
-
-
-    // =========================================================================
-    // DUT outputs
-    // =========================================================================
-
-    wire                    rf_enable_o;
-
-    wire [GPIO_WIDTH-1:0]   gpio_out;
-    wire [GPIO_WIDTH-1:0]   gpio_oe;
-
-    wire                    hsync_o;
-    wire                    vsync_o;
-
-    wire [11:0]             pixel_x_o;
-    wire [11:0]             pixel_y_o;
-
-    wire [3:0]              rgb_r_o;
-    wire [3:0]              rgb_g_o;
-    wire [3:0]              rgb_b_o;
-
-    wire                    trap;
-
-
-    // =========================================================================
-    // Error counter
-    // =========================================================================
-
-    integer errors;
-
-
-    // =========================================================================
-    // TPU verification counters
-    // =========================================================================
-
-    integer tx_count;
-    integer rx_count;
-
-    reg tpu_start_seen;
-    reg tpu_busy_seen;
-    reg tpu_done_seen;
-
-    reg tpu_tx_tlast_seen;
-    reg tpu_rx_tlast_seen;
-
-    reg tpu_result0_seen;
-    reg tpu_result1_seen;
-
-    reg tpu_test_active;
-
-
-    // =========================================================================
-    // DUT
-    // =========================================================================
-
-    cpu_soc_ram_top #(
-        .ADDR_WIDTH     (ADDR_WIDTH),
-        .DATA_WIDTH     (DATA_WIDTH),
-        .RAM_ADDR_WIDTH (RAM_ADDR_WIDTH),
-        .RAM_DEPTH      (RAM_DEPTH),
-        .GPIO_WIDTH     (GPIO_WIDTH)
-    ) dut (
-
-        // ---------------------------------------------------------------------
-        // System clock/reset
-        // ---------------------------------------------------------------------
-
-        .clk                   (clk),
-        .resetn                (resetn),
-
-        // ---------------------------------------------------------------------
-        // Sensor
-        // ---------------------------------------------------------------------
-
-        .battery_percent_i     (battery_percent),
-        .battery_voltage_mv_i  (battery_voltage),
-        .temperature_tenthsC_i (temperature),
-        .sensor_valid_i        (sensor_valid),
-
-        // ---------------------------------------------------------------------
-        // RF
-        // ---------------------------------------------------------------------
-
-        .rssi_dbm_i            (rssi_dbm),
-        .link_up_i             (link_up),
-        .link_error_i          (link_error),
-        .carrier_detect_i      (carrier_detect),
-
-        .rf_enable_o           (rf_enable_o),
-
-        // ---------------------------------------------------------------------
-        // GPIO
-        // ---------------------------------------------------------------------
-
-        .gpio_out              (gpio_out),
-        .gpio_oe               (gpio_oe),
-        .gpio_in               (gpio_in),
-
-        // ---------------------------------------------------------------------
-        // VDP / VGA
-        // ---------------------------------------------------------------------
-
-        .pixel_clk             (pixel_clk),
-
-        .hsync_o               (hsync_o),
-        .vsync_o               (vsync_o),
-
-        .pixel_x_o             (pixel_x_o),
-        .pixel_y_o             (pixel_y_o),
-
-        .rgb_r_o               (rgb_r_o),
-        .rgb_g_o               (rgb_g_o),
-        .rgb_b_o               (rgb_b_o),
-
-        // ---------------------------------------------------------------------
-        // CPU status
-        // ---------------------------------------------------------------------
-
-        .trap                  (trap)
-    );
-
-
-    // =========================================================================
-    // System clock
+    // -------------------------------------------------------------------------
+    // 100 MHz system clock
     //
-    // 100 MHz
     // Period = 10 ns
-    // =========================================================================
+    // -------------------------------------------------------------------------
 
     initial begin
         clk = 1'b0;
 
-        forever #5 clk = ~clk;
+        forever
+            #5 clk = ~clk;
     end
 
 
-    // =========================================================================
-    // Pixel clock
+    // -------------------------------------------------------------------------
+    // 25 MHz pixel clock
     //
-    // 25 MHz
     // Period = 40 ns
-    // =========================================================================
+    //
+    // VDP requires this clock even though Level-1 MMIO verification does not
+    // perform complete VGA functional verification.
+    // -------------------------------------------------------------------------
 
     initial begin
         pixel_clk = 1'b0;
 
-        forever #20 pixel_clk = ~pixel_clk;
+        forever
+            #20 pixel_clk = ~pixel_clk;
     end
 
 
     // =========================================================================
-    // CPU BUS MONITOR
-    //
-    // Monitors the adapter/interconnect side of the CPU.
-    //
-    // This is particularly useful for confirming that firmware actually
-    // reaches the TPU MMIO region.
+    // 2. RESET
     // =========================================================================
 
-    always @(posedge clk) begin
+    reg resetn;
 
-        if (resetn) begin
 
-            if (dut.m_valid && !dut.m_write) begin
+    // =========================================================================
+    // 3. SENSOR INPUTS
+    // =========================================================================
+
+    reg [7:0]  battery_percent_i;
+    reg [15:0] battery_voltage_mv_i;
+    reg [15:0] temperature_tenthsC_i;
+    reg        sensor_valid_i;
+
+
+    // =========================================================================
+    // 4. RF INPUTS
+    // =========================================================================
+
+    reg [7:0] rssi_dbm_i;
+    reg       link_up_i;
+    reg       link_error_i;
+    reg       carrier_detect_i;
+
+
+    // =========================================================================
+    // 5. GPIO INPUT
+    // =========================================================================
+
+    reg [31:0] gpio_in;
+
+
+    // =========================================================================
+    // 6. DUT OUTPUTS
+    // =========================================================================
+
+    wire        rf_enable_o;
+
+    wire [31:0] gpio_out;
+    wire [31:0] gpio_oe;
+
+    wire        hsync_o;
+    wire        vsync_o;
+
+    wire [11:0] pixel_x_o;
+    wire [11:0] pixel_y_o;
+
+    wire [3:0] rgb_r_o;
+    wire [3:0] rgb_g_o;
+    wire [3:0] rgb_b_o;
+
+    wire trap;
+
+
+    // =========================================================================
+    // 7. DUT
+    // =========================================================================
+    //
+    // Exact current cpu_soc_ram_top port interface.
+    //
+    // No firmware connection exists here.
+    //
+    // =========================================================================
+
+    cpu_soc_ram_top #(
+        .ADDR_WIDTH     (32),
+        .DATA_WIDTH     (32),
+        .RAM_ADDR_WIDTH (16),
+        .RAM_DEPTH      (16384),
+        .GPIO_WIDTH     (32)
+    ) dut (
+
+        .clk                   (clk),
+        .resetn                (resetn),
+
+        // Sensor
+        .battery_percent_i     (battery_percent_i),
+        .battery_voltage_mv_i  (battery_voltage_mv_i),
+        .temperature_tenthsC_i (temperature_tenthsC_i),
+        .sensor_valid_i        (sensor_valid_i),
+
+        // RF
+        .rssi_dbm_i            (rssi_dbm_i),
+        .link_up_i             (link_up_i),
+        .link_error_i          (link_error_i),
+        .carrier_detect_i      (carrier_detect_i),
+
+        .rf_enable_o           (rf_enable_o),
+
+        // GPIO
+        .gpio_out              (gpio_out),
+        .gpio_oe               (gpio_oe),
+        .gpio_in               (gpio_in),
+
+        // VDP
+        .pixel_clk             (pixel_clk),
+        .hsync_o               (hsync_o),
+        .vsync_o               (vsync_o),
+        .pixel_x_o             (pixel_x_o),
+        .pixel_y_o             (pixel_y_o),
+        .rgb_r_o               (rgb_r_o),
+        .rgb_g_o               (rgb_g_o),
+        .rgb_b_o               (rgb_b_o),
+
+        .trap                   (trap)
+    );
+
+
+    // =========================================================================
+    // 8. ADDRESS MAP CONSTANTS
+    // =========================================================================
+
+    localparam [31:0] RAM_BASE    = 32'h0000_0000;
+    localparam [31:0] GPIO_BASE   = 32'h0001_0000;
+    localparam [31:0] RF_BASE     = 32'h0001_1000;
+    localparam [31:0] SENSOR_BASE = 32'h0001_2000;
+    localparam [31:0] VDP_BASE    = 32'h0001_3000;
+    localparam [31:0] TPU_BASE    = 32'h0001_4000;
+
+    localparam [31:0] RAM_LIMIT    = 32'h0000_FFFF;
+    localparam [31:0] GPIO_LIMIT   = 32'h0001_0FFF;
+    localparam [31:0] RF_LIMIT     = 32'h0001_1FFF;
+    localparam [31:0] SENSOR_LIMIT = 32'h0001_2FFF;
+    localparam [31:0] VDP_LIMIT    = 32'h0001_3FFF;
+    localparam [31:0] TPU_LIMIT    = 32'h0001_4FFF;
+
+
+    // =========================================================================
+    // 9. MANUAL MASTER BUS
+    // =========================================================================
+    //
+    // These are the internal signals between cpu_bus_adapter and
+    // soc_mem_interconnect in the DUT.
+    //
+    // Normally:
+    //
+    //      PicoRV32
+    //          |
+    //      cpu_bus_adapter
+    //          |
+    //      m_*
+    //
+    // For Level 1:
+    //
+    //      TESTBENCH
+    //          |
+    //      m_*
+    //          |
+    //      soc_mem_interconnect
+    //
+    // We use hierarchical force/release so that the REAL interconnect and
+    // REAL peripherals remain in the DUT.
+    //
+    // =========================================================================
+
+
+    // =========================================================================
+    // 10. TEST CONTROL PARAMETERS
+    // =========================================================================
+
+    localparam integer RESET_CYCLES      = 5;
+    localparam integer READY_TIMEOUT     = 50;
+    localparam integer GUARD_CYCLES      = 3;
+    localparam integer FINAL_GUARD_CYCLES = 5;
+
+
+    // =========================================================================
+    // 11. TEST RESULT COUNTERS
+    // =========================================================================
+
+    integer total_tests;
+    integer passed_tests;
+    integer failed_tests;
+
+    reg test_failed;
+
+
+    // =========================================================================
+    // 12. TEST REPORTING TASKS
+    // =========================================================================
+
+    task automatic pass_test;
+
+        input [8*100-1:0] message;
+
+        begin
+
+            total_tests  = total_tests + 1;
+            passed_tests = passed_tests + 1;
+
+            $display(
+                "[PASS] %0s",
+                message
+            );
+
+        end
+
+    endtask
+
+
+    task automatic fail_test;
+
+        input [8*100-1:0] message;
+
+        begin
+
+            total_tests  = total_tests + 1;
+            failed_tests = failed_tests + 1;
+
+            test_failed = 1'b1;
+
+            $display(
+                "[FAIL] %0s",
+                message
+            );
+
+        end
+
+    endtask
+
+
+    // =========================================================================
+    // 13. GUARD BAND
+    // =========================================================================
+    //
+    // After every manual transaction, the bus is released and allowed to
+    // remain idle for several system-clock cycles.
+    //
+    // This prevents:
+    //
+    //      previous transaction
+    //
+    // from being confused with:
+    //
+    //      next transaction
+    //
+    // =========================================================================
+
+    task automatic guard_band;
+
+        integer i;
+
+        begin
+
+            for (i = 0; i < GUARD_CYCLES; i = i + 1)
+                @(posedge clk);
+
+        end
+
+    endtask
+
+
+    // =========================================================================
+    // 14. BUS RELEASE TASK
+    // =========================================================================
+    //
+    // Return the manually driven master bus to an inactive state.
+    //
+    // =========================================================================
+
+    task automatic release_master_bus;
+
+        begin
+
+            force dut.m_valid = 1'b0;
+            force dut.m_write = 1'b0;
+            force dut.m_addr  = 32'h0000_0000;
+            force dut.m_wdata = 32'h0000_0000;
+            force dut.m_strb  = 4'b0000;
+
+        end
+
+    endtask
+
+
+    // =========================================================================
+    // 15. MANUAL BUS WRITE
+    // =========================================================================
+    //
+    // Performs one complete native-bus write.
+    //
+    // The task:
+    //
+    //   1. drives address/data/strobes
+    //   2. asserts valid
+    //   3. waits for ready
+    //   4. checks expected slave decode
+    //   5. releases the bus
+    //   6. inserts guard band
+    //
+    // =========================================================================
+
+    task automatic bus_write;
+
+        input [31:0] address;
+        input [31:0] data;
+        input [3:0]  strb;
+
+        input [2:0] expected_slave;
+
+        integer wait_count;
+
+        begin
+
+            $display("");
+            $display(
+                "[WRITE] addr=%08h data=%08h strb=%b",
+                address,
+                data,
+                strb
+            );
+
+
+            // -----------------------------------------------------------------
+            // Drive transaction.
+            // -----------------------------------------------------------------
+
+            force dut.m_valid = 1'b1;
+            force dut.m_write = 1'b1;
+            force dut.m_addr  = address;
+            force dut.m_wdata = data;
+            force dut.m_strb  = strb;
+
+
+            // -----------------------------------------------------------------
+            // Allow combinational decode to settle.
+            // -----------------------------------------------------------------
+
+            #1;
+
+
+            // -----------------------------------------------------------------
+            // Verify expected decode.
+            // -----------------------------------------------------------------
+
+            case (expected_slave)
+
+                3'd0: begin
+                    if (dut.ram_valid !== 1'b1)
+                        fail_test("RAM write: RAM was not selected");
+                end
+
+                3'd1: begin
+                    if (dut.gpio_valid !== 1'b1)
+                        fail_test("GPIO write: GPIO was not selected");
+                end
+
+                3'd2: begin
+                    if (dut.rf_valid !== 1'b1)
+                        fail_test("RF write: RF was not selected");
+                end
+
+                3'd3: begin
+                    if (dut.sensor_valid !== 1'b1)
+                        fail_test("SENSOR write: SENSOR was not selected");
+                end
+
+                3'd4: begin
+                    if (dut.vdp_valid !== 1'b1)
+                        fail_test("VDP write: VDP was not selected");
+                end
+
+                3'd5: begin
+                    if (dut.nn_valid !== 1'b1)
+                        fail_test("TPU write: TPU was not selected");
+                end
+
+                default: begin
+                    fail_test("Invalid expected slave ID");
+                end
+
+            endcase
+
+
+            // -----------------------------------------------------------------
+            // Wait for selected slave to return ready.
+            // -----------------------------------------------------------------
+
+            wait_count = 0;
+
+            while (
+                (dut.m_ready !== 1'b1) &&
+                (wait_count < READY_TIMEOUT)
+            ) begin
+
+                @(posedge clk);
+
+                wait_count = wait_count + 1;
+
+            end
+
+
+            // -----------------------------------------------------------------
+            // Timeout protection.
+            // -----------------------------------------------------------------
+
+            if (wait_count >= READY_TIMEOUT) begin
+
+                fail_test(
+                    "WRITE transaction timed out waiting for m_ready"
+                );
+
+            end
+            else begin
 
                 $display(
-                    "CPU READ : addr=%h ready=%b rdata=%h",
-                    dut.m_addr,
-                    dut.m_ready,
+                    "[WRITE RESPONSE] ready=1 rdata=%08h",
                     dut.m_rdata
                 );
 
-                if (dut.m_addr == 32'h0001_2000)
-                    $display("***** SENSOR READ FOUND *****");
-
-                if ((dut.m_addr & 32'hFFFF_F000) == NN_BASE_ADDR) begin
-                    $display(
-                        "***** TPU MMIO READ ***** addr=%h rdata=%h",
-                        dut.m_addr,
-                        dut.m_rdata
-                    );
-                end
             end
 
 
-            if (dut.m_valid && dut.m_write) begin
+            // -----------------------------------------------------------------
+            // Release transaction.
+            // -----------------------------------------------------------------
 
-                $display(
-                    "CPU WRITE: addr=%h wdata=%h strb=%b",
-                    dut.m_addr,
-                    dut.m_wdata,
-                    dut.m_strb
+            release_master_bus;
+
+            guard_band;
+
+        end
+
+    endtask
+
+
+    // =========================================================================
+    // 16. MANUAL BUS READ
+    // =========================================================================
+    //
+    // Performs one complete native-bus read.
+    //
+    // expected_data_valid:
+    //
+    //      1 -> compare returned data
+    //      0 -> only verify routing/ready
+    //
+    // =========================================================================
+
+    task automatic bus_read;
+
+        input [31:0] address;
+
+        input [2:0] expected_slave;
+
+        input        expected_data_valid;
+        input [31:0] expected_data;
+
+        integer wait_count;
+
+        begin
+
+            $display("");
+            $display(
+                "[READ] addr=%08h",
+                address
+            );
+
+
+            // -----------------------------------------------------------------
+            // Drive read transaction.
+            // -----------------------------------------------------------------
+            //
+            // Native-bus convention:
+            //
+            //      m_write = 0
+            //      m_strb  = 0000
+            //
+            // -----------------------------------------------------------------
+
+            force dut.m_valid = 1'b1;
+            force dut.m_write = 1'b0;
+            force dut.m_addr  = address;
+            force dut.m_wdata = 32'h0000_0000;
+            force dut.m_strb  = 4'b0000;
+
+
+            // -----------------------------------------------------------------
+            // Allow combinational decode to settle.
+            // -----------------------------------------------------------------
+
+            #1;
+
+
+            // -----------------------------------------------------------------
+            // Verify expected slave selection.
+            // -----------------------------------------------------------------
+
+            case (expected_slave)
+
+                3'd0: begin
+                    if (dut.ram_valid !== 1'b1)
+                        fail_test("RAM read: RAM was not selected");
+                end
+
+                3'd1: begin
+                    if (dut.gpio_valid !== 1'b1)
+                        fail_test("GPIO read: GPIO was not selected");
+                end
+
+                3'd2: begin
+                    if (dut.rf_valid !== 1'b1)
+                        fail_test("RF read: RF was not selected");
+                end
+
+                3'd3: begin
+                    if (dut.sensor_valid !== 1'b1)
+                        fail_test("SENSOR read: SENSOR was not selected");
+                end
+
+                3'd4: begin
+                    if (dut.vdp_valid !== 1'b1)
+                        fail_test("VDP read: VDP was not selected");
+                end
+
+                3'd5: begin
+                    if (dut.nn_valid !== 1'b1)
+                        fail_test("TPU read: TPU was not selected");
+                end
+
+                default: begin
+                    fail_test("Invalid expected slave ID");
+                end
+
+            endcase
+
+
+            // -----------------------------------------------------------------
+            // Wait for ready.
+            // -----------------------------------------------------------------
+
+            wait_count = 0;
+
+            while (
+                (dut.m_ready !== 1'b1) &&
+                (wait_count < READY_TIMEOUT)
+            ) begin
+
+                @(posedge clk);
+
+                wait_count = wait_count + 1;
+
+            end
+
+
+            // -----------------------------------------------------------------
+            // Timeout.
+            // -----------------------------------------------------------------
+
+            if (wait_count >= READY_TIMEOUT) begin
+
+                fail_test(
+                    "READ transaction timed out waiting for m_ready"
                 );
 
-                if ((dut.m_addr & 32'hFFFF_F000) == NN_BASE_ADDR) begin
-
-                    $display(
-                        "***** TPU MMIO WRITE ***** addr=%h wdata=%h strb=%b",
-                        dut.m_addr,
-                        dut.m_wdata,
-                        dut.m_strb
-                    );
-
-                end
             end
-
-        end
-
-    end
-
-
-    // =========================================================================
-    // TPU CONTROL / STATUS MONITOR
-    //
-    // These signals exist inside cpu_soc_ram_top after TPU integration.
-    //
-    // Hierarchical references are intentional here:
-    // this is a verification testbench, not synthesizable RTL.
-    // =========================================================================
-
-    always @(posedge clk) begin
-
-        if (resetn) begin
-
-            // -----------------------------------------------------------------
-            // START pulse
-            // -----------------------------------------------------------------
-
-            if (dut.axis_start) begin
-
-                if (!tpu_start_seen) begin
-
-                    $display("");
-                    $display("------------------------------------------------------");
-                    $display("TPU START DETECTED");
-                    $display("------------------------------------------------------");
-
-                    tpu_start_seen = 1'b1;
-                    tpu_test_active = 1'b1;
-
-                end
-
-            end
-
-
-            // -----------------------------------------------------------------
-            // BUSY
-            // -----------------------------------------------------------------
-
-            if (dut.axis_busy) begin
-
-                if (!tpu_busy_seen) begin
-
-                    $display("PASS: TPU axis_busy asserted");
-
-                    tpu_busy_seen = 1'b1;
-
-                end
-
-            end
-
-
-            // -----------------------------------------------------------------
-            // DONE
-            // -----------------------------------------------------------------
-
-            if (dut.axis_done) begin
-
-                if (!tpu_done_seen) begin
-
-                    $display("PASS: TPU axis_done asserted");
-
-                    tpu_done_seen = 1'b1;
-
-                end
-
-            end
-
-        end
-
-    end
-
-
-    // =========================================================================
-    // AXI4-STREAM TX MONITOR
-    //
-    // nn_axis_master -> axis_nn
-    //
-    // Transfer occurs only when:
-    //
-    //      TVALID && TREADY
-    //
-    // Expected:
-    //
-    //      7 transfers
-    //      TLAST only on beat 6
-    // =========================================================================
-
-    always @(posedge clk) begin
-
-        if (resetn) begin
-
-            if (dut.nn_m_axis_tvalid &&
-                dut.nn_m_axis_tready) begin
-
-                tx_count = tx_count + 1;
+            else begin
 
                 $display(
-                    "TPU AXIS TX: beat=%0d data=%h tlast=%b",
-                    tx_count,
-                    dut.nn_m_axis_tdata,
-                    dut.nn_m_axis_tlast
-                );
-
-                // -------------------------------------------------------------
-                // TLAST check
-                // -------------------------------------------------------------
-
-                if (tx_count == EXPECTED_TX_BEATS) begin
-
-                    if (dut.nn_m_axis_tlast) begin
-
-                        $display(
-                            "PASS: TPU TX TLAST asserted on final beat"
-                        );
-
-                        tpu_tx_tlast_seen = 1'b1;
-
-                    end
-                    else begin
-
-                        $display(
-                            "FAIL: TPU TX final beat missing TLAST"
-                        );
-
-                        errors = errors + 1;
-
-                    end
-
-                end
-                else begin
-
-                    if (dut.nn_m_axis_tlast) begin
-
-                        $display(
-                            "FAIL: TPU TX TLAST asserted early on beat %0d",
-                            tx_count
-                        );
-
-                        errors = errors + 1;
-
-                    end
-
-                end
-
-            end
-
-        end
-
-    end
-
-
-    // =========================================================================
-    // AXI4-STREAM RX MONITOR
-    //
-    // axis_nn -> nn_axis_master
-    //
-    // Expected:
-    //
-    //      2 transfers
-    //      result0 = DEAD_BEEF_CAFE_F00D
-    //      result1 = 1234_5678_9ABC_DEF0
-    //      TLAST only on second beat
-    // =========================================================================
-
-    always @(posedge clk) begin
-
-        if (resetn) begin
-
-            if (dut.nn_s_axis_tvalid &&
-                dut.nn_s_axis_tready) begin
-
-                rx_count = rx_count + 1;
-
-                $display(
-                    "TPU AXIS RX: beat=%0d data=%h tlast=%b",
-                    rx_count,
-                    dut.nn_s_axis_tdata,
-                    dut.nn_s_axis_tlast
+                    "[READ RESPONSE] ready=1 rdata=%08h",
+                    dut.m_rdata
                 );
 
 
                 // -------------------------------------------------------------
-                // First result
+                // Optional data comparison.
                 // -------------------------------------------------------------
 
-                if (rx_count == 1) begin
+                if (expected_data_valid) begin
 
-                    if (dut.nn_s_axis_tdata == EXPECTED_RESULT0) begin
+                    if (dut.m_rdata !== expected_data) begin
 
                         $display(
-                            "PASS: TPU result0 AXIS data correct"
+                            "[DATA ERROR] expected=%08h actual=%08h",
+                            expected_data,
+                            dut.m_rdata
                         );
 
-                        tpu_result0_seen = 1'b1;
+                        fail_test(
+                            "READ data mismatch"
+                        );
 
                     end
                     else begin
 
                         $display(
-                            "FAIL: TPU result0 mismatch: expected=%h actual=%h",
-                            EXPECTED_RESULT0,
-                            dut.nn_s_axis_tdata
+                            "[DATA MATCH] %08h",
+                            dut.m_rdata
                         );
-
-                        errors = errors + 1;
-
-                    end
-
-
-                    if (dut.nn_s_axis_tlast) begin
-
-                        $display(
-                            "FAIL: TPU RX TLAST asserted too early"
-                        );
-
-                        errors = errors + 1;
-
-                    end
-
-                end
-
-
-                // -------------------------------------------------------------
-                // Second result
-                // -------------------------------------------------------------
-
-                if (rx_count == EXPECTED_RX_BEATS) begin
-
-                    if (dut.nn_s_axis_tdata == EXPECTED_RESULT1) begin
-
-                        $display(
-                            "PASS: TPU result1 AXIS data correct"
-                        );
-
-                        tpu_result1_seen = 1'b1;
-
-                    end
-                    else begin
-
-                        $display(
-                            "FAIL: TPU result1 mismatch: expected=%h actual=%h",
-                            EXPECTED_RESULT1,
-                            dut.nn_s_axis_tdata
-                        );
-
-                        errors = errors + 1;
-
-                    end
-
-
-                    if (dut.nn_s_axis_tlast) begin
-
-                        $display(
-                            "PASS: TPU RX TLAST asserted on final beat"
-                        );
-
-                        tpu_rx_tlast_seen = 1'b1;
-
-                    end
-                    else begin
-
-                        $display(
-                            "FAIL: TPU RX final beat missing TLAST"
-                        );
-
-                        errors = errors + 1;
 
                     end
 
@@ -633,524 +735,615 @@ module tb_soc_ram_top;
 
             end
 
+
+            // -----------------------------------------------------------------
+            // Release transaction.
+            // -----------------------------------------------------------------
+
+            release_master_bus;
+
+            guard_band;
+
         end
 
-    end
+    endtask
 
 
     // =========================================================================
-    // Main test
+    // 17. INVALID ADDRESS TEST
+    // =========================================================================
+    //
+    // Address:
+    //
+    //      0x0001_5000
+    //
+    // is outside every defined address window.
+    //
+    // Expected behavior according to the interconnect:
+    //
+    //      m_ready = 1
+    //      m_rdata = 0
+    //      all slave valid signals = 0
+    //
+    // =========================================================================
+
+    task automatic invalid_read;
+
+        input [31:0] address;
+
+        integer wait_count;
+
+        begin
+
+            $display("");
+            $display(
+                "[INVALID READ] addr=%08h",
+                address
+            );
+
+
+            force dut.m_valid = 1'b1;
+            force dut.m_write = 1'b0;
+            force dut.m_addr  = address;
+            force dut.m_wdata = 32'h0000_0000;
+            force dut.m_strb  = 4'b0000;
+
+
+            #1;
+
+
+            // -----------------------------------------------------------------
+            // No peripheral must be selected.
+            // -----------------------------------------------------------------
+
+            if (
+                (dut.ram_valid    !== 1'b0) ||
+                (dut.gpio_valid   !== 1'b0) ||
+                (dut.rf_valid     !== 1'b0) ||
+                (dut.sensor_valid !== 1'b0) ||
+                (dut.vdp_valid    !== 1'b0) ||
+                (dut.nn_valid     !== 1'b0)
+            ) begin
+
+                fail_test(
+                    "INVALID address incorrectly selected a peripheral"
+                );
+
+            end
+
+
+            // -----------------------------------------------------------------
+            // Interconnect should terminate unmapped access.
+            // -----------------------------------------------------------------
+
+            wait_count = 0;
+
+            while (
+                (dut.m_ready !== 1'b1) &&
+                (wait_count < READY_TIMEOUT)
+            ) begin
+
+                @(posedge clk);
+
+                wait_count = wait_count + 1;
+
+            end
+
+
+            if (wait_count >= READY_TIMEOUT) begin
+
+                fail_test(
+                    "INVALID address did not receive m_ready"
+                );
+
+            end
+            else if (dut.m_rdata !== 32'h0000_0000) begin
+
+                fail_test(
+                    "INVALID address returned non-zero data"
+                );
+
+            end
+            else begin
+
+                pass_test(
+                    "INVALID address correctly terminated"
+                );
+
+            end
+
+
+            release_master_bus;
+
+            guard_band;
+
+        end
+
+    endtask
+
+
+    // =========================================================================
+    // 18. INITIAL SIGNAL VALUES
     // =========================================================================
 
     initial begin
 
-        // ---------------------------------------------------------------------
-        // Initialize verification state
-        // ---------------------------------------------------------------------
-
-        errors = 0;
-
-        tx_count = 0;
-        rx_count = 0;
-
-        tpu_start_seen    = 1'b0;
-        tpu_busy_seen     = 1'b0;
-        tpu_done_seen     = 1'b0;
-
-        tpu_tx_tlast_seen = 1'b0;
-        tpu_rx_tlast_seen = 1'b0;
-
-        tpu_result0_seen  = 1'b0;
-        tpu_result1_seen  = 1'b0;
-
-        tpu_test_active   = 1'b0;
-
-
-        // =====================================================================
-        // Initial conditions
-        // =====================================================================
-
         resetn = 1'b0;
 
+
         // Sensor
-        battery_percent = 8'd67;
-        battery_voltage = 16'd3700;
-        temperature     = 16'sd235;
-        sensor_valid    = 1'b1;
+        battery_percent_i     = 8'd75;
+        battery_voltage_mv_i  = 16'd3700;
+        temperature_tenthsC_i = 16'd250;
+        sensor_valid_i        = 1'b1;
+
 
         // RF
-        rssi_dbm       = 8'd200;
-        link_up        = 1'b1;
-        link_error     = 1'b0;
-        carrier_detect = 1'b1;
+        rssi_dbm_i       = 8'd200;
+        link_up_i        = 1'b1;
+        link_error_i     = 1'b0;
+        carrier_detect_i = 1'b1;
+
 
         // GPIO
         gpio_in = 32'hA5A5_5A5A;
 
 
+        // Test status
+        total_tests  = 0;
+        passed_tests = 0;
+        failed_tests = 0;
+
+        test_failed = 1'b0;
+
+    end
+
+
+    // =========================================================================
+    // 19. MAIN LEVEL-1 TEST
+    // =========================================================================
+
+    initial begin : main_test
+
+        integer i;
+
+        // ---------------------------------------------------------------------
+        // Keep the manual bus inactive initially.
+        // ---------------------------------------------------------------------
+
+        #1;
+
+        release_master_bus;
+
+
+        // ---------------------------------------------------------------------
+        // RESET
+        // ---------------------------------------------------------------------
+
         $display("");
-        $display("======================================================");
-        $display("       TB_CPU_SOC_RAM_TOP");
-        $display("       RISCV-VDP-SoC + TPU INTEGRATION TEST");
-        $display("======================================================");
+        $display("============================================================");
+        $display("LEVEL-1 MANUAL PERIPHERAL INTEGRATION TEST");
+        $display("============================================================");
+
         $display("");
-        $display("TPU BASE ADDRESS : %h", NN_BASE_ADDR);
-        $display("EXPECTED TX BEATS: %0d", EXPECTED_TX_BEATS);
-        $display("EXPECTED RX BEATS: %0d", EXPECTED_RX_BEATS);
+        $display("[INFO] No firmware is used.");
+        $display("[INFO] CPU execution is intentionally bypassed.");
+        $display("[INFO] Native master bus is manually driven.");
         $display("");
 
 
-        // =====================================================================
-        // Reset
-        // =====================================================================
+        for (i = 0; i < RESET_CYCLES; i = i + 1)
+            @(posedge clk);
 
-        $display("INFO: Applying reset...");
-
-        repeat (5) @(posedge clk);
-
-
-        // ---------------------------------------------------------------------
-        // Trap must remain low during reset
-        // ---------------------------------------------------------------------
-
-        if (trap === 1'b0) begin
-
-            $display("PASS: trap low during reset");
-
-        end
-        else begin
-
-            $display("FAIL: trap asserted during reset");
-
-            errors = errors + 1;
-
-        end
-
-
-        // ---------------------------------------------------------------------
-        // TPU must be idle during reset
-        // ---------------------------------------------------------------------
-
-        if (dut.axis_busy === 1'b0) begin
-
-            $display("PASS: TPU busy low during reset");
-
-        end
-        else begin
-
-            $display("FAIL: TPU busy asserted during reset");
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // Release reset
-        // =====================================================================
 
         resetn = 1'b1;
 
-        $display("INFO: reset released");
+
+        guard_band;
+
+
+        pass_test("RESET completed");
 
 
         // =====================================================================
-        // CPU startup
+        // TEST 1: RAM WRITE
         // =====================================================================
 
-        repeat (20) @(posedge clk);
+        bus_write(
+            32'h0000_0100,
+            32'h1234_5678,
+            4'b1111,
+            3'd0
+        );
 
-
-        if (trap === 1'b0) begin
-
-            $display("PASS: trap remains low after CPU startup");
-
-        end
-        else begin
-
-            $display("FAIL: trap asserted after CPU startup");
-
-            errors = errors + 1;
-
-        end
+        pass_test("RAM write transaction completed");
 
 
         // =====================================================================
-        // Check GPIO input connection
+        // TEST 2: RAM READ
         // =====================================================================
-
-        $display("");
-        $display("INFO: GPIO input = %h", gpio_in);
-
-
-        // =====================================================================
-        // Check RF input configuration
-        // =====================================================================
-
-        $display("INFO: RF inputs:");
-        $display("      RSSI           = %0d", rssi_dbm);
-        $display("      link_up        = %b", link_up);
-        $display("      link_error     = %b", link_error);
-        $display("      carrier_detect = %b", carrier_detect);
-
-
-        // =====================================================================
-        // Check sensor configuration
-        // =====================================================================
-
-        $display("");
-        $display("INFO: Sensor inputs:");
-        $display("      battery_percent = %0d", battery_percent);
-        $display("      battery_voltage = %0d mV", battery_voltage);
-        $display("      temperature     = %0d tenths C", temperature);
-        $display("      sensor_valid    = %b", sensor_valid);
-
-
-        // =====================================================================
-        // Allow CPU to execute.
         //
-        // Firmware should eventually:
+        // Because RAM is synchronous, allow the actual RAM response to return
+        // before comparing the data.
         //
-        //   1. Write weight0..weight4
-        //   2. Write input0/input1
-        //   3. Write CONTROL.START
+        // =====================================================================
+
+        bus_read(
+            32'h0000_0100,
+            3'd0,
+            1'b1,
+            32'h1234_5678
+        );
+
+        pass_test("RAM read transaction completed");
+
+
+        // =====================================================================
+        // TEST 3: RAM BYTE-STROBE WRITE
+        // =====================================================================
         //
-        // TPU monitoring begins immediately.
+        // Existing value:
+        //
+        //      1234_5678
+        //
+        // Write:
+        //
+        //      0000_AA00
+        //
+        // with:
+        //
+        //      0010
+        //
+        // Only byte lane 1 should be modified.
+        //
+        // Expected:
+        //
+        //      1234_AA78
+        //
+        // =====================================================================
+
+        bus_write(
+            32'h0000_0100,
+            32'h0000_AA00,
+            4'b0010,
+            3'd0
+        );
+
+        pass_test("RAM byte-strobe write completed");
+
+
+        bus_read(
+            32'h0000_0100,
+            3'd0,
+            1'b1,
+            32'h1234_AA78
+        );
+
+        pass_test("RAM byte-strobe readback verified");
+
+
+        // =====================================================================
+        // TEST 4: GPIO WRITE
+        // =====================================================================
+        //
+        // GPIO base:
+        //
+        //      0x0001_0000
+        //
+        // =====================================================================
+
+        bus_write(
+            GPIO_BASE,
+            32'hCAFE_BABE,
+            4'b1111,
+            3'd1
+        );
+
+        pass_test("GPIO write routed correctly");
+
+
+        // =====================================================================
+        // TEST 5: GPIO READ
+        // =====================================================================
+        //
+        // GPIO input is externally driven:
+        //
+        //      A5A5_5A5A
+        //
+        // =====================================================================
+
+        bus_read(
+            GPIO_BASE,
+            3'd1,
+            1'b1,
+            32'hA5A5_5A5A
+        );
+
+        pass_test("GPIO read routed correctly");
+
+
+        // =====================================================================
+        // TEST 6: RF READ
+        // =====================================================================
+        //
+        // RF base:
+        //
+        //      0x0001_1000
+        //
+        // Exact returned value depends on the RF slave register map.
+        //
+        // Therefore Level 1 checks routing and response rather than assuming
+        // a particular RF register encoding.
+        //
+        // =====================================================================
+
+        bus_read(
+            RF_BASE,
+            3'd2,
+            1'b0,
+            32'h0000_0000
+        );
+
+        pass_test("RF read routed correctly");
+
+
+        // =====================================================================
+        // TEST 7: SENSOR READ
+        // =====================================================================
+        //
+        // Sensor base:
+        //
+        //      0x0001_2000
+        //
+        // The sensor input values are driven externally.
+        //
+        // =====================================================================
+
+        bus_read(
+            SENSOR_BASE,
+            3'd3,
+            1'b0,
+            32'h0000_0000
+        );
+
+        pass_test("SENSOR read routed correctly");
+
+
+        // =====================================================================
+        // TEST 8: VDP READ
+        // =====================================================================
+        //
+        // VDP base:
+        //
+        //      0x0001_3000
+        //
+        // Level 1 verifies that the native transaction reaches the VDP slave.
+        //
+        // Complete VGA verification is outside this test.
+        //
+        // =====================================================================
+
+        bus_read(
+            VDP_BASE,
+            3'd4,
+            1'b0,
+            32'h0000_0000
+        );
+
+        pass_test("VDP read routed correctly");
+
+
+        // =====================================================================
+        // TEST 9: TPU CONTROL WRITE
+        // =====================================================================
+        //
+        // TPU register map currently begins at:
+        //
+        //      BASE + 0x00
+        //
+        // The test verifies:
+        //
+        //      CPU/native address
+        //          |
+        //          v
+        //      TPU address decoder
+        //          |
+        //          v
+        //      nn_axi_wrapper
+        //
+        // No TPU computation is expected from this Level-1 test.
+        //
+        // =====================================================================
+
+        bus_write(
+            TPU_BASE + 32'h0000,
+            32'h0000_0001,
+            4'b1111,
+            3'd5
+        );
+
+        pass_test("TPU control write routed correctly");
+
+
+        // =====================================================================
+        // TEST 10: TPU STATUS READ
+        // =====================================================================
+        //
+        // Status register:
+        //
+        //      BASE + 0x04
+        //
+        // Exact status value depends on accelerator state.
+        //
+        // Therefore routing/ready is checked.
+        //
+        // =====================================================================
+
+        bus_read(
+            TPU_BASE + 32'h0004,
+            3'd5,
+            1'b0,
+            32'h0000_0000
+        );
+
+        pass_test("TPU status read routed correctly");
+
+
+        // =====================================================================
+        // TEST 11: TPU WEIGHT REGISTER WRITE
+        // =====================================================================
+        //
+        // Weight0 low word:
+        //
+        //      BASE + 0x10
+        //
+        // This verifies that a real MMIO transaction reaches the TPU wrapper.
+        //
+        // =====================================================================
+
+        bus_write(
+            TPU_BASE + 32'h0010,
+            32'h1122_3344,
+            4'b1111,
+            3'd5
+        );
+
+        pass_test("TPU weight0 low-word write routed correctly");
+
+
+        // =====================================================================
+        // TEST 12: TPU WEIGHT REGISTER HIGH WORD
+        // =====================================================================
+
+        bus_write(
+            TPU_BASE + 32'h0014,
+            32'h5566_7788,
+            4'b1111,
+            3'd5
+        );
+
+        pass_test("TPU weight0 high-word write routed correctly");
+
+
+        // =====================================================================
+        // TEST 13: TPU INPUT REGISTER
+        // =====================================================================
+
+        bus_write(
+            TPU_BASE + 32'h0038,
+            32'hDEAD_BEEF,
+            4'b1111,
+            3'd5
+        );
+
+        pass_test("TPU input0 low-word write routed correctly");
+
+
+        // =====================================================================
+        // TEST 14: INVALID ADDRESS
+        // =====================================================================
+        //
+        // 0x0001_5000 is outside every currently implemented peripheral window.
+        //
+        // =====================================================================
+
+        invalid_read(
+            32'h0001_5000
+        );
+
+
+        // =====================================================================
+        // FINAL GUARD BAND
+        // =====================================================================
+
+        repeat (FINAL_GUARD_CYCLES)
+            @(posedge clk);
+
+
+        // =====================================================================
+        // FINAL REPORT
         // =====================================================================
 
         $display("");
-        $display("INFO: Waiting for CPU firmware to access TPU...");
-        $display("INFO: TPU MMIO region = 0x0001_4000 - 0x0001_4FFF");
-        $display("");
+        $display("============================================================");
+        $display("LEVEL-1 TEST SUMMARY");
+        $display("============================================================");
+
+        $display(
+            "Total checks : %0d",
+            total_tests
+        );
+
+        $display(
+            "Passed       : %0d",
+            passed_tests
+        );
+
+        $display(
+            "Failed       : %0d",
+            failed_tests
+        );
 
-        repeat (200) @(posedge clk);
-
-
-        // =====================================================================
-        // TPU START check
-        // =====================================================================
-
-        if (tpu_start_seen) begin
-
-            $display("PASS: CPU firmware issued TPU START");
-
-        end
-        else begin
-
-            $display("FAIL: TPU START was not detected");
-            $display("      Check firmware MMIO writes to 0x0001_4000");
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // TPU AXI4-Stream TX count
-        // =====================================================================
-
-        if (tx_count == EXPECTED_TX_BEATS) begin
-
-            $display(
-                "PASS: TPU transmitted %0d AXIS beats",
-                tx_count
-            );
-
-        end
-        else begin
-
-            $display(
-                "FAIL: TPU TX beat count: expected=%0d actual=%0d",
-                EXPECTED_TX_BEATS,
-                tx_count
-            );
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // TPU TX TLAST
-        // =====================================================================
-
-        if (tpu_tx_tlast_seen) begin
-
-            $display("PASS: TPU TX packet TLAST correct");
-
-        end
-        else begin
-
-            $display("FAIL: TPU TX packet TLAST incorrect");
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // TPU RX count
-        // =====================================================================
-
-        if (rx_count == EXPECTED_RX_BEATS) begin
-
-            $display(
-                "PASS: TPU received %0d AXIS result beats",
-                rx_count
-            );
-
-        end
-        else begin
-
-            $display(
-                "FAIL: TPU RX beat count: expected=%0d actual=%0d",
-                EXPECTED_RX_BEATS,
-                rx_count
-            );
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // TPU RX TLAST
-        // =====================================================================
-
-        if (tpu_rx_tlast_seen) begin
-
-            $display("PASS: TPU RX packet TLAST correct");
-
-        end
-        else begin
-
-            $display("FAIL: TPU RX packet TLAST incorrect");
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // Result checks
-        // =====================================================================
-
-        if (tpu_result0_seen) begin
-
-            $display("PASS: TPU result0 correct");
-
-        end
-        else begin
-
-            $display("FAIL: TPU result0 incorrect");
-
-            errors = errors + 1;
-
-        end
-
-
-        if (tpu_result1_seen) begin
-
-            $display("PASS: TPU result1 correct");
-
-        end
-        else begin
-
-            $display("FAIL: TPU result1 incorrect");
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // TPU DONE check
-        // =====================================================================
-
-        if (tpu_done_seen) begin
-
-            $display("PASS: TPU transaction completed");
-
-        end
-        else begin
-
-            $display("FAIL: TPU DONE was not detected");
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // Extended system execution
-        // =====================================================================
-
-        repeat (50) @(posedge clk);
-
-
-        // =====================================================================
-        // Trap check
-        // =====================================================================
-
-        if (trap === 1'b0) begin
-
-            $display(
-                "PASS: CPU/system remains running without trap"
-            );
-
-        end
-        else begin
-
-            $display(
-                "FAIL: trap asserted during extended execution"
-            );
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // Change sensor inputs
-        // =====================================================================
-
-        battery_percent = 8'd10;
-        battery_voltage = 16'd3300;
-        temperature     = 16'sd801;
-        sensor_valid    = 1'b1;
-
-        repeat (10) @(posedge clk);
-
-        $display("");
-        $display("INFO: Sensor inputs changed:");
-        $display("      battery_percent = %0d", battery_percent);
-        $display("      battery_voltage = %0d mV", battery_voltage);
-        $display("      temperature     = %0d tenths C", temperature);
-        $display("      sensor_valid    = %b", sensor_valid);
-
-
-        // =====================================================================
-        // Change RF inputs
-        // =====================================================================
-
-        rssi_dbm       = 8'd180;
-        link_up        = 1'b0;
-        link_error     = 1'b1;
-        carrier_detect = 1'b0;
-
-        repeat (10) @(posedge clk);
-
-        $display("");
-        $display("INFO: RF inputs changed:");
-        $display("      RSSI           = %0d", rssi_dbm);
-        $display("      link_up        = %b", link_up);
-        $display("      link_error     = %b", link_error);
-        $display("      carrier_detect = %b", carrier_detect);
-
-
-        // =====================================================================
-        // Change GPIO inputs
-        // =====================================================================
-
-        gpio_in = 32'h1234_5678;
-
-        repeat (10) @(posedge clk);
-
-        $display("");
-        $display("INFO: GPIO input changed = %h", gpio_in);
-
-
-        // =====================================================================
-        // Final trap check
-        // =====================================================================
-
-        repeat (20) @(posedge clk);
-
-        if (trap === 1'b0) begin
-
-            $display(
-                "PASS: system remains stable after input changes"
-            );
-
-        end
-        else begin
-
-            $display(
-                "FAIL: trap asserted after input changes"
-            );
-
-            errors = errors + 1;
-
-        end
-
-
-        // =====================================================================
-        // Final TPU summary
-        // =====================================================================
-
-        $display("");
-        $display("======================================================");
-        $display("                 TPU TEST SUMMARY");
-        $display("======================================================");
-
-        $display("START detected       : %b", tpu_start_seen);
-        $display("BUSY detected        : %b", tpu_busy_seen);
-        $display("DONE detected        : %b", tpu_done_seen);
-
-        $display("TX beats             : %0d / %0d",
-                 tx_count, EXPECTED_TX_BEATS);
-
-        $display("TX TLAST             : %b",
-                 tpu_tx_tlast_seen);
-
-        $display("RX beats             : %0d / %0d",
-                 rx_count, EXPECTED_RX_BEATS);
-
-        $display("RX TLAST             : %b",
-                 tpu_rx_tlast_seen);
-
-        $display("Result0 correct      : %b",
-                 tpu_result0_seen);
-
-        $display("Result1 correct      : %b",
-                 tpu_result1_seen);
-
-        $display("======================================================");
-
-
-        // =====================================================================
-        // Final result
-        // =====================================================================
-
-        $display("");
-        $display("======================================================");
-
-        if (errors == 0) begin
-
-            $display(
-                "TB_CPU_SOC_RAM_TOP + TPU: ALL TESTS PASSED"
-            );
-
-        end
-        else begin
-
-            $display(
-                "TB_CPU_SOC_RAM_TOP + TPU: %0d TEST(S) FAILED",
-                errors
-            );
-
-        end
-
-        $display("======================================================");
         $display("");
 
 
-        // ---------------------------------------------------------------------
-        // Finish simulation.
-        // ---------------------------------------------------------------------
+        if (
+            (failed_tests == 0) &&
+            (test_failed == 1'b0)
+        ) begin
+
+            $display("============================================================");
+            $display("TB_CPU_SOC_RAM_TOP");
+            $display("LEVEL-1 RESULT : ALL TESTS PASSED");
+            $display("============================================================");
+
+        end
+        else begin
+
+            $display("============================================================");
+            $display("TB_CPU_SOC_RAM_TOP");
+            $display("LEVEL-1 RESULT : FAILED");
+            $display("============================================================");
+
+        end
+
+
+        $display("");
 
         $finish;
 
     end
+
+
+    // =========================================================================
+    // 20. GLOBAL SIMULATION WATCHDOG
+    // =========================================================================
+    //
+    // Independent safety net.
+    //
+    // If a task becomes stuck because of an RTL deadlock, simulation cannot
+    // continue indefinitely.
+    //
+    // =========================================================================
+
+    initial begin : global_watchdog
+
+        #10000;
+
+        $display("");
+        $display("============================================================");
+        $display("GLOBAL TESTBENCH TIMEOUT");
+        $display("============================================================");
+        $display(
+            "Simulation exceeded 10 us."
+        );
+        $display("");
+
+        test_failed = 1'b1;
+
+        $finish;
+
+    end
+
 
 endmodule

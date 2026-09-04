@@ -2,11 +2,7 @@ m255
 K4
 z2
 Z0 !s99 nomlopt
-R0
-R0
-R0
-R0
-!s11f MIXED_VERSIONS
+!s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
 !i10d 8192
@@ -16,7 +12,7 @@ cModel Technology
 Z1 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/RTL
 vaxis_nn
 Z2 2axis_nn.v|cdc_reset_sync.v|cpu_bus_adapter.v|cpu_ram_subsystem.v|cpu_soc_ram_top.v|cpu_soc_ram_top_smoke.v|gpio_native_slave.v|nn.v|nn_axi_wrapper.v|nn_axis_master.v|pe.v|pe_top.v|register.v|rf_telemetry_native.v|riscv.v|riscv_wrapper.v|sensor_status_native.v|sigmoid.v|soc_mem_interconnect.v|soc_ram.v|systolic.v|tpu_axis_top.v|vdp_native_slave.v|vga_timing_gen.v
-Z3 !s110 1788438244
+Z3 !s110 1788495440
 !i10b 1
 !s100 054Kf6:BfMFlBz@:G@Z[O1
 I@`i5UW_F]]cbOPk^dg5zO1
@@ -24,14 +20,14 @@ R1
 Z4 w1788365370
 Z5 8axis_nn.v
 Z6 Faxis_nn.v
-!i122 20
+!i122 8
 L0 5 307
 Z7 VDg1SIo80bB@j0V0VzS_@n1
 Z8 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z9 !s108 1788438243.000000
+Z9 !s108 1788495440.000000
 Z10 !s107 vga_timing_gen.v|vdp_native_slave.v|tpu_axis_top.v|systolic.v|soc_ram.v|soc_mem_interconnect.v|sigmoid.v|sensor_status_native.v|riscv_wrapper.v|riscv.v|rf_telemetry_native.v|register.v|pe_top.v|pe.v|nn_axis_master.v|nn_axi_wrapper.v|nn.v|gpio_native_slave.v|cpu_soc_ram_top_smoke.v|cpu_soc_ram_top.v|cpu_ram_subsystem.v|cpu_bus_adapter.v|cdc_reset_sync.v|axis_nn.v|
 Z11 !s90 axis_nn.v|cdc_reset_sync.v|cpu_bus_adapter.v|cpu_ram_subsystem.v|cpu_soc_ram_top.v|cpu_soc_ram_top_smoke.v|gpio_native_slave.v|nn.v|nn_axi_wrapper.v|nn_axis_master.v|pe.v|pe_top.v|register.v|rf_telemetry_native.v|riscv.v|riscv_wrapper.v|sensor_status_native.v|sigmoid.v|soc_mem_interconnect.v|soc_ram.v|systolic.v|tpu_axis_top.v|vdp_native_slave.v|vga_timing_gen.v|
 !i113 0
@@ -49,7 +45,7 @@ R4
 Fcdc_reset_sync.v
 R5
 R6
-!i122 20
+!i122 8
 L0 20 21
 R7
 R8
@@ -74,7 +70,7 @@ R4
 Fcpu_bus_adapter.v
 R5
 R6
-!i122 20
+!i122 8
 L0 4 47
 R7
 R8
@@ -99,7 +95,7 @@ w1788437643
 Fcpu_ram_subsystem.v
 R5
 R6
-!i122 20
+!i122 8
 L0 4 169
 R7
 R8
@@ -116,16 +112,14 @@ vcpu_soc_ram_top
 R2
 R3
 !i10b 1
-!s100 a3Ih@3cHUEMd67>_:?7PY2
-I?^KLd;;ZD^TELRLF4Dd_M2
+!s100 o^Vf7DfCWkgahQfHXgQFY2
+I7nNQj@H<7AoSlS[8cWIW@3
 R1
-w1788438029
-8cpu_soc_ram_top.v
-Fcpu_soc_ram_top.v
-R5
-R6
-!i122 20
-L0 36 661
+Z14 w1788494366
+Z15 8cpu_soc_ram_top.v
+Z16 Fcpu_soc_ram_top.v
+!i122 8
+L0 97 671
 R7
 R8
 r1
@@ -139,7 +133,7 @@ R12
 R13
 vglbl
 2C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
-!s110 1788373595
+!s110 1788494339
 !i10b 1
 !s100 TL<1YD8i05Z]RjCH=O^Cf3
 Ijbca:GLC?@I5ehXSOo3zA2
@@ -147,14 +141,14 @@ R1
 w1590624368
 8C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
 FC:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
-!i122 8
+!i122 2
 L0 6 78
 R7
 R8
 r1
 !s85 0
 31
-!s108 1788373595.000000
+!s108 1788494339.000000
 !s107 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
 !s90 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
 !i113 0
@@ -164,15 +158,15 @@ vgpio_native_slave
 R2
 R3
 !i10b 1
-!s100 ?>X:>4Tc9DLa7ig8_UE_J1
-I3hnA;TGM2W7:513jzzFLY2
+!s100 NQ@jABHJ`?hOa7Qc<LbK@0
+ISiBMNhe`TNc1:UATbG2lA0
 R1
-R4
+R14
 8gpio_native_slave.v
 Fgpio_native_slave.v
-R5
-R6
-!i122 20
+R15
+R16
+!i122 8
 L0 38 96
 R7
 R8
@@ -195,7 +189,7 @@ R1
 w1788365285
 8nn.v
 Fnn.v
-!i122 20
+!i122 8
 L0 4 529
 R7
 R8
@@ -218,7 +212,7 @@ R1
 w1788364905
 8nn_axi_wrapper.v
 Fnn_axi_wrapper.v
-!i122 20
+!i122 8
 L0 53 362
 R7
 R8
@@ -235,14 +229,14 @@ vnn_axis_master
 R2
 R3
 !i10b 1
-!s100 VF`a=b6;WUPHScc8SkmKU2
-IFD[Q:G[[6i5g6SB4K<an^3
+!s100 m5PiUi?mJe=?XzGMW60<n3
+I^S[hazZE_XI:G=Zf=;a:D3
 R1
-w1788364909
-Z14 8nn_axis_master.v
-Z15 Fnn_axis_master.v
-!i122 20
-L0 38 239
+Z17 w1788493383
+Z18 8nn_axis_master.v
+Z19 Fnn_axis_master.v
+!i122 8
+L0 47 428
 R7
 R8
 r1
@@ -261,12 +255,12 @@ R3
 !s100 Rde>J44nM2[bRfLCG6JiH2
 I]c;YQ5E`jSz^1Z4deSRZi1
 R1
-w1788364919
+R17
 8pe.v
 Fpe.v
-R14
-R15
-!i122 20
+R18
+R19
+!i122 8
 L0 3 20
 R7
 R8
@@ -286,10 +280,10 @@ R3
 !s100 HJC8O:6RHmBZ:IjBIiNaX0
 IZkiUPh16L:LE6cZa9=J5E1
 R1
-Z16 w1788365540
-Z17 8pe_top.v
-Z18 Fpe_top.v
-!i122 20
+Z20 w1788365540
+Z21 8pe_top.v
+Z22 Fpe_top.v
+!i122 8
 L0 4 150
 R7
 R8
@@ -309,12 +303,12 @@ R3
 !s100 ]kb7KkeF0JHVDiLK^gNWM2
 II3^AK^dn63A^[J:AN5gR23
 R1
-R16
-Z19 8riscv.v
-Z20 Friscv.v
-R17
-R18
-!i122 20
+R20
+Z23 8riscv.v
+Z24 Friscv.v
+R21
+R22
+!i122 8
 L0 2445 208
 R7
 R8
@@ -334,12 +328,12 @@ R3
 !s100 H:^@U7[^j<XFJ@F[J;ljl0
 IC8Q:`E<HOB[f@Ic7IUFHV1
 R1
-R16
-R19
 R20
-R17
-R18
-!i122 20
+R23
+R24
+R21
+R22
+!i122 8
 L0 2659 78
 R7
 R8
@@ -359,12 +353,12 @@ R3
 !s100 GnA:Id[NHIZB6z906gRWH0
 IJB<<z@I;a>Z<n]f]?<K;c0
 R1
-R16
-R19
 R20
-R17
-R18
-!i122 20
+R23
+R24
+R21
+R22
+!i122 8
 L0 2348 91
 R7
 R8
@@ -384,12 +378,12 @@ R3
 !s100 nU>l`3LFH07eWLFj7fG6>1
 I[[FUkk5]zEb@>d3T6znoV0
 R1
-R16
-R19
 R20
-R17
-R18
-!i122 20
+R23
+R24
+R21
+R22
+!i122 8
 L0 2246 96
 R7
 R8
@@ -409,12 +403,12 @@ R3
 !s100 a6W_KU_=ChGFcBJ:82@6T0
 IAlHbcNDgCzOK`kKlEQfoP2
 R1
-R16
-R19
 R20
-R17
-R18
-!i122 20
+R23
+R24
+R21
+R22
+!i122 8
 L0 2125 120
 R7
 R8
@@ -434,12 +428,12 @@ R3
 !s100 ?G=0cH;@mZ[f=4dbG5H[R3
 If7LYKeW7oaig[CDN3QH`^0
 R1
-R16
-R19
 R20
-R17
-R18
-!i122 20
+R23
+R24
+R21
+R22
+!i122 8
 L0 2102 17
 R7
 R8
@@ -459,12 +453,12 @@ R3
 !s100 4::?1YB[j=Cd@G3jOSmN60
 IE71V14<k8C]QFDjULNSc>2
 R1
-R16
-R19
 R20
-R17
-R18
-!i122 20
+R23
+R24
+R21
+R22
+!i122 8
 L0 2743 235
 R7
 R8
@@ -484,12 +478,12 @@ R3
 !s100 g3E[5`9DM`]XPC0CXO:@<1
 Ib8m`i^fn;hO:bcAj=kXPG0
 R1
-R16
-R19
 R20
-R17
-R18
-!i122 20
+R23
+R24
+R21
+R22
+!i122 8
 L0 57 2039
 R7
 R8
@@ -512,9 +506,9 @@ R1
 w1788375491
 8riscv_wrapper.v
 Friscv_wrapper.v
-R17
-R18
-!i122 20
+R21
+R22
+!i122 8
 L0 2 84
 R7
 R8
@@ -534,12 +528,12 @@ R3
 !s100 ^oce0aF4UVzY?izEa8FMj1
 IYQU:0YldN9LoCQmf8YgOL0
 R1
-R16
+R20
 8register.v
 Fregister.v
-R17
-R18
-!i122 20
+R21
+R22
+!i122 8
 L0 3 26
 R7
 R8
@@ -559,12 +553,12 @@ R3
 !s100 @imPb69?Qci3M2Jgb4XMf3
 IX^Y^l]PTPcLz6J01PV?5>2
 R1
-R16
+R20
 8rf_telemetry_native.v
 Frf_telemetry_native.v
-R17
-R18
-!i122 20
+R21
+R22
+!i122 8
 L0 31 241
 R7
 R8
@@ -584,12 +578,12 @@ R3
 !s100 1JT[baeXY@2mchf:Z1ob20
 IZJJ[hU3XYS6[nAOJ[aaZg2
 R1
-R16
+R20
 8sensor_status_native.v
 Fsensor_status_native.v
-R17
-R18
-!i122 20
+R21
+R22
+!i122 8
 L0 40 198
 R7
 R8
@@ -612,7 +606,7 @@ R1
 w1788365063
 8sigmoid.v
 Fsigmoid.v
-!i122 20
+!i122 8
 L0 14 313
 R7
 R8
@@ -632,10 +626,10 @@ R3
 !s100 RB3<bJi[jYIB8GIkoPLkn2
 IB`LL3^8l9AAKdgMg50OCB1
 R1
-Z21 w1788145990
-Z22 8soc_mem_interconnect.v
-Z23 Fsoc_mem_interconnect.v
-!i122 20
+Z25 w1788145990
+Z26 8soc_mem_interconnect.v
+Z27 Fsoc_mem_interconnect.v
+!i122 8
 L0 47 407
 R7
 R8
@@ -655,12 +649,12 @@ R3
 !s100 5IaV0Qkh<H`QBFSzWQ6]10
 I6<X;N5d@Nh7=0Dm9m]nW23
 R1
-R21
+R25
 8soc_ram.v
 Fsoc_ram.v
-R22
-R23
-!i122 20
+R26
+R27
+!i122 8
 L0 4 64
 R7
 R8
@@ -674,9 +668,9 @@ R11
 R12
 R13
 vsoc_uvm_dut
-Z24 2soc_uvm_dut.sv|tb_soc_ram_top.sv
-Z25 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z26 !s110 1788451697
+Z28 2soc_uvm_dut.sv|tb_soc_ram_top.sv
+Z29 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z30 !s110 1788495443
 !i10b 1
 !s100 JCT9`?7CHhkifeQf8oPld3
 IdEIFi9P]akAVEK]JE5T_23
@@ -685,16 +679,16 @@ R1
 w1786069876
 8soc_uvm_dut.sv
 Fsoc_uvm_dut.sv
-!i122 24
+!i122 9
 L0 32 365
 R7
 R8
 r1
 !s85 0
 31
-Z27 !s108 1788451697.000000
-Z28 !s107 tb_soc_ram_top.sv|soc_uvm_dut.sv|
-Z29 !s90 soc_uvm_dut.sv|tb_soc_ram_top.sv|
+Z31 !s108 1788495443.000000
+Z32 !s107 tb_soc_ram_top.sv|soc_uvm_dut.sv|
+Z33 !s90 soc_uvm_dut.sv|tb_soc_ram_top.sv|
 !i113 0
 R12
 R13
@@ -708,7 +702,7 @@ R1
 w1788364995
 8systolic.v
 Fsystolic.v
-!i122 20
+!i122 8
 L0 5 172
 R7
 R8
@@ -722,58 +716,33 @@ R11
 R12
 R13
 vtb_cpu_soc_ram_top
-R24
-R25
-R26
+R28
+R29
+R30
 !i10b 1
 !s100 KO[O6WGzY`S<Q>fM064nQ2
 I@F3=E=nJL]d2SiU[CdDDC3
 S1
 R1
 w1788451687
-Z30 8tb_soc_ram_top.sv
-Z31 Ftb_soc_ram_top.sv
-!i122 24
+8tb_soc_ram_top.sv
+Ftb_soc_ram_top.sv
+!i122 9
 L0 108 1672
 R7
 R8
 r1
 !s85 0
 31
-R27
-R28
-R29
+R31
+R32
+R33
 !i113 0
 R12
 R13
-vtb_nn_axi_wrapper
-2nn_axi_wrapper.v|axis_nn.v|tb_nn_axi_wrapper.sv
-R25
-!s110 1788275388
-!i10b 1
-!s100 @^XF>i53kc@njQZXH`W[c3
-IMzU95Pf_@Q`EgKMfid>bb2
-S1
-R1
-w1788252288
-8tb_nn_axi_wrapper.sv
-Ftb_nn_axi_wrapper.sv
-!i122 4
-L0 41 622
-R7
-R8
-r1
-!s85 0
-31
-!s108 1788275388.000000
-!s107 tb_nn_axi_wrapper.sv|axis_nn.v|nn_axi_wrapper.v|
-!s90 -reportprogress|300|-sv|nn_axi_wrapper.v|axis_nn.v|tb_nn_axi_wrapper.sv|
-!i113 0
-o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R13
 Ttb_opt
-!s110 1788451709
-Vb:i;8;?HU81<[^oeRHPjL0
+!s110 1788495448
+VUNkD26hgJEKQa;5U5kEiD1
 04 18 4 work tb_cpu_soc_ram_top fast 0
 04 4 4 work glbl fast 0
 R0
@@ -784,43 +753,18 @@ o+acc -L xpm
 R13
 ntb_opt
 OL;O;2024.1;79
-vtb_soc_ram_top
-R24
-R25
-!s110 1788432874
-!i10b 1
-!s100 ]<n^<Fe9Oa`]TC_gX^k<21
-IVRM]O3za<g_lil2i1>;J^2
-S1
-R1
-w1788373290
-R30
-R31
-!i122 17
-L0 74 1083
-R7
-R8
-r1
-!s85 0
-31
-!s108 1788432873.000000
-R28
-R29
-!i113 0
-R12
-R13
 vtpu_axis_top
 R2
 R3
 !i10b 1
-!s100 dZdF[j]<BWKA8Q;l4QB_W1
-IJ5=k@h]5K4ed0`AU>_J6m0
+!s100 =;DaoNFkoiodMYWhAFMKU0
+IYQW^mmdz2Yb9mWB7^m<bW0
 R1
-w1788364914
+w1788495424
 8tpu_axis_top.v
 Ftpu_axis_top.v
-!i122 20
-L0 38 217
+!i122 8
+L0 38 220
 R7
 R8
 r1
@@ -840,9 +784,9 @@ R3
 I1`UVj^2<H3izeL<0`_5[X1
 R1
 w1786352939
-Z32 8vdp_native_slave.v
-Z33 Fvdp_native_slave.v
-!i122 20
+Z34 8vdp_native_slave.v
+Z35 Fvdp_native_slave.v
+!i122 8
 L0 61 721
 R7
 R8
@@ -865,9 +809,9 @@ R1
 w1786353546
 8vga_timing_gen.v
 Fvga_timing_gen.v
-R32
-R33
-!i122 20
+R34
+R35
+!i122 8
 L0 16 91
 R7
 R8

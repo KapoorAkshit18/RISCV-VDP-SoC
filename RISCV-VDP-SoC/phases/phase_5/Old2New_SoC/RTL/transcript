@@ -839,3 +839,6 @@ run -all
 #    Time: 3265 ns  Iteration: 1  Instance: /tb_cpu_soc_ram_top
 # 1
 # Break in Module tb_cpu_soc_ram_top at tb_soc_ram_top.sv line 1747
+exit
+# End time: 12:18:23 on Sep 04,2026, Elapsed time: 2:30:29
+# Errors: 1, Warnings: 6

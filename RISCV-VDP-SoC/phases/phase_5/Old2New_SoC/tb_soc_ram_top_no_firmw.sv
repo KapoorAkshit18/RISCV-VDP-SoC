@@ -736,21 +736,38 @@ module tb_cpu_soc_ram_top;
             // Individual byte lane 0.
             // -----------------------------------------------------------------
 
-            check_write(
-                "RAM byte lane 0 write",
+
+
+
+    // -----------------------------------------------------------------------------
+    // RAM BYTE-STROBE TEST
+    //
+    // First initialize the complete word so that all four byte lanes contain
+    // known values. Then overwrite only byte lane 0.
+    //
+    // Expected final word:
+    //   31:24 = 00
+    //   23:16 = 00
+    //   15:8  = 00
+    //    7:0  = EF
+    // -----------------------------------------------------------------------------
+
+    check_write("RAM byte lane 0 setup",
+                RAM_BASE + 32'h0000_0048,
+                32'h0000_0000,
+                4'b1111);
+
+    check_write("RAM byte lane 0 write",
                 RAM_BASE + 32'h0000_0048,
                 32'h0000_00EF,
-                4'b0001
-            );
+                4'b0001);
 
-            check_read(
-                "RAM byte lane 0 read",
-                RAM_BASE + 32'h0000_0048,
-                32'h0000_00EF
-            );
+    check_read("RAM byte lane 0 read",
+            RAM_BASE + 32'h0000_0048,
+            32'h0000_00EF);
 
-        end
-    endtask
+            end
+        endtask
 
     // =========================================================================
     // TEST: GPIO

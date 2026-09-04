@@ -97,7 +97,9 @@ module axis_nn
         .s_axis_tlast(s_axis_tlast),
         .s_axis_tstrb(8'hff), 
         .s_axis_tuser(1'b0), 
-        
+       
+        // make this ready unconditional but it is already being simulated and verified so not
+
         .m_axis_tready(mm2s_ready_reg), // ready  
         .m_axis_tdata(mm2s_data), // data
         .m_axis_tvalid(), // valid

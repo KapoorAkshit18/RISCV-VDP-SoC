@@ -1,33 +1,79 @@
-+incdir+tb
-+incdir+tb/soc_pkg
-+incdir+tb/soc_env
-+incdir+tb/soc_native_if
+# =============================================================================
+# filelist.f
+# =============================================================================
 
-rtl/soc_mem_interconnect.v
-rtl/soc_ram.v
-rtl/gpio_native_slave.v
-rtl/rf_telemetry_native.v
-rtl/sensor_status_native.v
-rtl/cdc_reset_sync.v
-rtl/vga_timing_gen.v
-rtl/vdp_native_slave.v
+# -----------------------------------------------------------------------------
+# Include directories
+# -----------------------------------------------------------------------------
 
-rtl/soc_uvm_dut.sv
++incdir+Old2New_SoC/RTL
++incdir+Old2New_SoC/Tb
++incdir+Old2New_SoC/Tb/directed_tb
++incdir+TPU
 
 
+# -----------------------------------------------------------------------------
+# CPU / RISC-V
+# -----------------------------------------------------------------------------
 
-+incdir+tb
-+incdir+tb/soc_agent
-+incdir+tb/soc_agent/soc_sequence_item
-+incdir+tb/soc_sequencer
-+incdir+tb/soc_driver
-+incdir+tb/soc_monitor
-+incdir+tb/soc_env
-+incdir+tb/soc_base_test
-+incdir+tb/soc_native_if
-+incdir+tb/soc_ral
-+incdir+tb/soc_coverage
+Old2New_SoC/RTL/riscv.v
+Old2New_SoC/RTL/riscv_wrapper.v
+Old2New_SoC/RTL/cpu_bus_adapter.v
 
-tb/soc_native_if/soc_native_if.sv
-tb/soc_pkg/soc_uvm_pkg.sv
-tb_soc_uvm.sv
+
+# -----------------------------------------------------------------------------
+# SoC memory subsystem
+# -----------------------------------------------------------------------------
+
+Old2New_SoC/RTL/soc_mem_interconnect.v
+Old2New_SoC/RTL/soc_ram.v
+Old2New_SoC/RTL/cpu_ram_subsystem.v
+
+
+# -----------------------------------------------------------------------------
+# SoC peripherals
+# -----------------------------------------------------------------------------
+
+Old2New_SoC/RTL/gpio_native_slave.v
+Old2New_SoC/RTL/rf_telemetry_native.v
+Old2New_SoC/RTL/sensor_status_native.v
+Old2New_SoC/RTL/vdp_native_slave.v
+Old2New_SoC/RTL/vga_timing_gen.v
+
+
+# -----------------------------------------------------------------------------
+# TPU
+# -----------------------------------------------------------------------------
+
+TPU/pe.v
+TPU/register.v
+TPU/sigmoid.v
+TPU/systolic.v
+TPU/pe_top.v
+TPU/nn.v
+
+TPU/axis_nn.v
+TPU/nn_axi_wrapper.v
+TPU/nn_axis_master.v
+TPU/tpu_axis_top.v
+
+
+# -----------------------------------------------------------------------------
+# Clock / reset
+# -----------------------------------------------------------------------------
+
+Old2New_SoC/RTL/cdc_reset_sync.v
+
+
+# -----------------------------------------------------------------------------
+# SoC top
+# -----------------------------------------------------------------------------
+
+Old2New_SoC/RTL/cpu_soc_ram_top.v
+
+
+# -----------------------------------------------------------------------------
+# Testbench
+# -----------------------------------------------------------------------------
+
+Old2New_SoC/Tb/directed_tb/tb_soc_ram_top.sv

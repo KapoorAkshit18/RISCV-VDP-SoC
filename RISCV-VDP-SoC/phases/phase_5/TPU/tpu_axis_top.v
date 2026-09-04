@@ -51,7 +51,9 @@ module tpu_axis_top #(
     input  wire [3:0]  nn_strb,
 
     output wire        nn_ready,
-    output wire [31:0] nn_rdata
+    output wire [31:0] nn_rdata,
+    output wire [63:0] result0,
+    output wire [63:0] result1
 );
 
     //==========================================================================
@@ -72,8 +74,7 @@ module tpu_axis_top #(
     wire        axis_busy;
     wire        axis_done;
 
-    reg [63:0] result0;
-    reg [63:0] result1;
+
 
     //==========================================================================
     // AXI4-Stream signals between packet master and axis_nn
@@ -175,7 +176,9 @@ module tpu_axis_top #(
         .s_axis_tlast   (out_tlast),
 
         .axis_busy      (axis_busy),
-        .axis_done      (axis_done)
+        .axis_done      (axis_done),
+        .result0         (result0),
+        .result1         (result1)
     );
 
     //==========================================================================
@@ -209,47 +212,47 @@ module tpu_axis_top #(
         .m_axis_tlast   (out_tlast)
     );
 
-    //==========================================================================
-    // Result capture
-    //==========================================================================
+    // //==========================================================================
+    // // Result capture
+    // //==========================================================================
 
-    always @(posedge clk or negedge rst_n) begin
+    // always @(posedge clk or negedge rst_n) begin
 
-        if (!rst_n) begin
+    //     if (!rst_n) begin
 
-            result0     <= 64'd0;
-            result1     <= 64'd0;
-            result_count <= 1'b0;
+    //         result0     <= 64'd0;
+    //         result1     <= 64'd0;
+    //         result_count <= 1'b0;
 
-        end
+    //     end
 
-        else begin
+    //     else begin
 
-            if (axis_done) begin
-                result_count <= 1'b0;
-            end
+    //         if (axis_done) begin
+    //             result_count <= 1'b0;
+    //         end
 
-            // AXI4-Stream result handshake
-            if (out_tvalid && out_tready) begin
+    //         // AXI4-Stream result handshake
+    //         if (out_tvalid && out_tready) begin
 
-                if (!result_count) begin
+    //             if (!result_count) begin
 
-                    // First result beat.
-                    result0 <= out_tdata;
-                    result_count <= 1'b1;
+    //                 // First result beat.
+    //                 result0 <= out_tdata;
+    //                 result_count <= 1'b1;
 
-                end
+    //             end
 
-                else begin
+    //             else begin
 
-                    // Second/final result beat.
-                    result1 <= out_tdata;
-                    result_count <= 1'b0;
+    //                 // Second/final result beat.
+    //                 result1 <= out_tdata;
+    //                 result_count <= 1'b0;
 
-                end
-            end
-        end
-    end
+    //             end
+    //         end
+    //     end
+  //  end
 
 endmodule
 `endif

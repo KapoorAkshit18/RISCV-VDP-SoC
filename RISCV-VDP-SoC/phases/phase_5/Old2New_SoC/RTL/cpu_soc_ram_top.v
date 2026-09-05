@@ -408,7 +408,7 @@ module cpu_soc_ram_top #(
     soc_mem_interconnect #(
         .ADDR_WIDTH (ADDR_WIDTH),
         .DATA_WIDTH (DATA_WIDTH)
-    ) interconnect (
+    ) u_interconnect (
 
         // ---------------------------------------------------------------------
         // MASTER

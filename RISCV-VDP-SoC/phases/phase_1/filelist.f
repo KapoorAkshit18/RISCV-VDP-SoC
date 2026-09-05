@@ -31,3 +31,4 @@
 # Testbench
 # ------------------------------------------------------------
 ./hdl_interconnect/tb_soc_mem_interconnect.sv
+tb_top.sv

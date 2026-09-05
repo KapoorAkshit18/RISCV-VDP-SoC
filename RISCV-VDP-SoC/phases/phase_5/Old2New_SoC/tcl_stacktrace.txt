@@ -1,0 +1,25 @@
+Fri Sep 04 18:11:05 IST 2026
+Trace back: can't use empty string as operand of "-"
+    while executing
+"expr {[lindex $labelBBox 2] - [lindex $labelBBox 0]}"
+    (object "::.main_pane.cs.3.ts-tab0" method "::mtiwidgets::Tab::labelwidth" body line 4)
+    invoked from within
+"$tab labelwidth"
+    (object "::.main_pane.cs.3.ts" method "::mtiwidgets::Tabset::_relayoutTabs" body line 9)
+    invoked from within
+"_relayoutTabs"
+    (object "::.main_pane.cs.3.ts" method "::mtiwidgets::Tabset::_configRelayout" body line 5)
+    invoked from within
+"_configRelayout"
+    (object "::.main_pane.cs.3.ts" method "::mtiwidgets::Tabset::configure" body line 4)
+    invoked from within
+"configure -start 0"
+    (object "::.main_pane.cs.3.ts" method "::mtiwidgets::Tabset::_canvasReconfigure" body line 17)
+    invoked from within
+"::.main_pane.cs.3.ts _canvasReconfigure 1258 23"
+    (in namespace inscope "::mtiwidgets::Tabset" script line 1)
+    invoked from within
+"namespace inscope ::mtiwidgets::Tabset {::.main_pane.cs.3.ts _canvasReconfigure 1258 23}"
+    (command bound to event)
+  <2:C:/questasim64_2024.1/win64/tk8.6/bgerror.tcl:106: ::tkerror {can't use empty string as operand of "-"}
+  <1:eval:1: ::tk::dialog::error::bgerror {can't use empty string as operand of "-"}

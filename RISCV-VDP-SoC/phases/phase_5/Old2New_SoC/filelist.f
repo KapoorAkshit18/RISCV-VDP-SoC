@@ -6,74 +6,73 @@
 # Include directories
 # -----------------------------------------------------------------------------
 
-+incdir+Old2New_SoC/RTL
-+incdir+Old2New_SoC/Tb
-+incdir+Old2New_SoC/Tb/directed_tb
-+incdir+TPU
++incdir+RTL
++incdir+Tb
++incdir+Tb/directed_tb
 
 
 # -----------------------------------------------------------------------------
 # CPU / RISC-V
 # -----------------------------------------------------------------------------
 
-Old2New_SoC/RTL/riscv.v
-Old2New_SoC/RTL/riscv_wrapper.v
-Old2New_SoC/RTL/cpu_bus_adapter.v
+RTL/riscv.v
+RTL/riscv_wrapper.v
+RTL/cpu_bus_adapter.v
 
 
 # -----------------------------------------------------------------------------
 # SoC memory subsystem
 # -----------------------------------------------------------------------------
 
-Old2New_SoC/RTL/soc_mem_interconnect.v
-Old2New_SoC/RTL/soc_ram.v
-Old2New_SoC/RTL/cpu_ram_subsystem.v
+RTL/soc_mem_interconnect.v
+RTL/soc_ram.v
+RTL/cpu_ram_subsystem.v
 
 
 # -----------------------------------------------------------------------------
 # SoC peripherals
 # -----------------------------------------------------------------------------
 
-Old2New_SoC/RTL/gpio_native_slave.v
-Old2New_SoC/RTL/rf_telemetry_native.v
-Old2New_SoC/RTL/sensor_status_native.v
-Old2New_SoC/RTL/vdp_native_slave.v
-Old2New_SoC/RTL/vga_timing_gen.v
+RTL/gpio_native_slave.v
+RTL/rf_telemetry_native.v
+RTL/sensor_status_native.v
+RTL/vdp_native_slave.v
+RTL/vga_timing_gen.v
 
 
 # -----------------------------------------------------------------------------
 # TPU
 # -----------------------------------------------------------------------------
 
-TPU/pe.v
-TPU/register.v
-TPU/sigmoid.v
-TPU/systolic.v
-TPU/pe_top.v
-TPU/nn.v
+../TPU/pe.v
+../TPU/register.v
+../TPU/sigmoid.v
+../TPU/systolic.v
+../TPU/pe_top.v
+../TPU/nn.v
 
-TPU/axis_nn.v
-TPU/nn_axi_wrapper.v
-TPU/nn_axis_master.v
-TPU/tpu_axis_top.v
+../TPU/axis_nn.v
+../TPU/nn_axi_wrapper.v
+../TPU/nn_axis_master.v
+../TPU/tpu_axis_top.v
 
 
 # -----------------------------------------------------------------------------
 # Clock / reset
 # -----------------------------------------------------------------------------
 
-Old2New_SoC/RTL/cdc_reset_sync.v
+RTL/cdc_reset_sync.v
 
 
 # -----------------------------------------------------------------------------
 # SoC top
 # -----------------------------------------------------------------------------
 
-Old2New_SoC/RTL/cpu_soc_ram_top.v
+RTL/cpu_soc_ram_top.v
 
 
 # -----------------------------------------------------------------------------
 # Testbench
 # -----------------------------------------------------------------------------
 
-Old2New_SoC/Tb/directed_tb/tb_soc_ram_top.sv
+tb_soc_ram_top_no_firmw.sv

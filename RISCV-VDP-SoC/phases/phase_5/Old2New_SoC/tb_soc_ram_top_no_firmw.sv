@@ -1758,8 +1758,10 @@ module tb_cpu_soc_ram_top;
         // End simulation.
         // ---------------------------------------------------------------------
 
+        $fclose(csv_fd);
+
         if (fail_count == 0)
-            $finish;
+            $stop;
         else
             $fatal(1, "LEVEL-1 TB FAILED: %0d failures", fail_count);
 
@@ -1775,10 +1777,8 @@ module tb_cpu_soc_ram_top;
 
         #1_000_000;
 
-        $fatal(
-            1,
-            "GLOBAL TIMEOUT: Level-1 testbench exceeded simulation limit."
-        );
+        $fclose(csv_fd);
+        $fatal(1, "GLOBAL TIMEOUT: Level-1 testbench exceeded simulation limit.");
 
     end
 
@@ -1787,10 +1787,56 @@ module tb_cpu_soc_ram_top;
     // =========================================================================
 
     initial begin
-
         $dumpfile("waveform_phase_5_wo_firmw.vcd");
         $dumpvars(0, tb_cpu_soc_ram_top);
+    end
 
+    // =========================================================================
+    // CSV BENCHMARK LOGGER
+    // =========================================================================
+
+    integer csv_fd;
+
+    initial begin
+        csv_fd = $fopen("sim_output.csv", "w");
+        $fwrite(csv_fd,
+            "time_ns,resetn,m_valid,m_write,m_addr,m_ready,m_rdata,nn_valid,nn_write,nn_addr,nn_ready,nn_rdata,axis_start,axis_busy,axis_done,in_tvalid,in_tready,in_tdata,in_tlast,out_tvalid,out_tready,out_tdata,out_tlast,weight0,weight1,weight2,weight3,weight4,input0,input1,result0,result1\n");
+        end
+
+    always @(posedge clk) begin
+        $fwrite(csv_fd, "%0t,%b,%b,%b,%h,%b,%h,%b,%b,%h,%b,%h,%b,%b,%b,%b,%b,%h,%b,%b,%b,%h,%b,%h,%h,%h,%h,%h,%h,%h,%h,%h\n",
+            $time,
+            dut.resetn,
+            dut.m_valid,
+            dut.m_write,
+            dut.m_addr,
+            dut.m_ready,
+            dut.m_rdata,
+            dut.nn_valid,
+            dut.nn_write,
+            dut.nn_addr,
+            dut.nn_ready,
+            dut.nn_rdata,
+            dut.tpu.axis_start,
+            dut.tpu.axis_busy,
+            dut.tpu.axis_done,
+            dut.tpu.in_tvalid,
+            dut.tpu.in_tready,
+            dut.tpu.in_tdata,
+            dut.tpu.in_tlast,
+            dut.tpu.out_tvalid,
+            dut.tpu.out_tready,
+            dut.tpu.out_tdata,
+            dut.tpu.out_tlast,
+            dut.tpu.weight0,
+            dut.tpu.weight1,
+            dut.tpu.weight2,
+            dut.tpu.weight3,
+            dut.tpu.weight4,
+            dut.tpu.input0,
+            dut.tpu.input1,
+            dut.tpu.result0,
+            dut.tpu.result1);
     end
 
 endmodule

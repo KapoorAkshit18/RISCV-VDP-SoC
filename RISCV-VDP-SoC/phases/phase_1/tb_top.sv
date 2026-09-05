@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_cpu_soc_ram_top;
+module tb_top;
 
     // ============================================================
     // Parameters
@@ -65,7 +65,7 @@ module tb_cpu_soc_ram_top;
     // ============================================================
     initial begin
         $dumpfile("cpu_soc_ram_top.vcd");
-        $dumpvars(0, tb_cpu_soc_ram_top);
+        $dumpvars(0, tb_top);
     end
 
     // ============================================================
@@ -89,7 +89,7 @@ module tb_cpu_soc_ram_top;
 
         $display("[%0t ns] Simulation finished", $time);
 
-        $finish;
+        $stop;
     end
 
 endmodule

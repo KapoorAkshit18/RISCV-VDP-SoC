@@ -1,11 +1,25 @@
 # run.do - Questa Sim script
 
-# SOC CLOCK/RESET
-add wave -divider "SOC CLOCK/RESET"
+# ------------------------------------------------------------
+# SOC CLOCK / RESET
+# ------------------------------------------------------------
+add wave -divider "SOC CLOCK / RESET"
 add wave sim:/tb_soc_ram_top/clk
 add wave sim:/tb_soc_ram_top/resetn
 
+# ------------------------------------------------------------
+# CPU CORE INTERNALS
+# ------------------------------------------------------------
+add wave -divider "CPU CORE"
+add wave -position insertpoint sim:/tb_soc_ram_top/dut/u_cpu/prv/reg_pc
+add wave -position insertpoint sim:/tb_soc_ram_top/dut/u_cpu/prv/reg_next_pc
+add wave -position insertpoint sim:/tb_soc_ram_top/dut/u_cpu/prv/count_cycle
+add wave -position insertpoint sim:/tb_soc_ram_top/dut/u_cpu/prv/count_instr
+add wave -position insertpoint sim:/tb_soc_ram_top/dut/u_cpu/prv/next_insn_opcode
+
+# ------------------------------------------------------------
 # CPU BUS
+# ------------------------------------------------------------
 add wave -divider "CPU BUS"
 add wave sim:/tb_soc_ram_top/dut/mem_valid
 add wave sim:/tb_soc_ram_top/dut/mem_instr
@@ -16,7 +30,9 @@ add wave sim:/tb_soc_ram_top/dut/mem_wstrb
 add wave sim:/tb_soc_ram_top/dut/mem_rdata
 add wave sim:/tb_soc_ram_top/dut/trap
 
+# ------------------------------------------------------------
 # SOC INTERCONNECT
+# ------------------------------------------------------------
 add wave -divider "SOC INTERCONNECT"
 add wave sim:/tb_soc_ram_top/dut/m_valid
 add wave sim:/tb_soc_ram_top/dut/m_write
@@ -26,7 +42,9 @@ add wave sim:/tb_soc_ram_top/dut/m_strb
 add wave sim:/tb_soc_ram_top/dut/m_ready
 add wave sim:/tb_soc_ram_top/dut/m_rdata
 
+# ------------------------------------------------------------
 # RAM INTERCONNECT
+# ------------------------------------------------------------
 add wave -divider "RAM INTERCONNECT"
 add wave sim:/tb_soc_ram_top/dut/ram_valid
 add wave sim:/tb_soc_ram_top/dut/ram_write
@@ -36,7 +54,9 @@ add wave sim:/tb_soc_ram_top/dut/ram_strb
 add wave sim:/tb_soc_ram_top/dut/ram_ready
 add wave sim:/tb_soc_ram_top/dut/ram_rdata
 
+# ------------------------------------------------------------
 # GPIO INTERCONNECT & I/O
+# ------------------------------------------------------------
 add wave -divider "GPIO INTERCONNECT"
 add wave sim:/tb_soc_ram_top/dut/gpio_valid
 add wave sim:/tb_soc_ram_top/dut/gpio_write
@@ -51,7 +71,9 @@ add wave sim:/tb_soc_ram_top/dut/gpio_in
 add wave sim:/tb_soc_ram_top/dut/gpio_out
 add wave sim:/tb_soc_ram_top/dut/gpio_oe
 
+# ------------------------------------------------------------
 # RF INTERCONNECT & I/O
+# ------------------------------------------------------------
 add wave -divider "RF INTERCONNECT"
 add wave sim:/tb_soc_ram_top/dut/rf_valid
 add wave sim:/tb_soc_ram_top/dut/rf_write
@@ -68,7 +90,9 @@ add wave sim:/tb_soc_ram_top/dut/link_error_i
 add wave sim:/tb_soc_ram_top/dut/carrier_detect_i
 add wave sim:/tb_soc_ram_top/dut/rf_enable_o
 
+# ------------------------------------------------------------
 # SENSOR INTERCONNECT & I/O
+# ------------------------------------------------------------
 add wave -divider "SENSOR INTERCONNECT"
 add wave sim:/tb_soc_ram_top/dut/sensor_valid
 add wave sim:/tb_soc_ram_top/dut/sensor_write
@@ -83,7 +107,9 @@ add wave sim:/tb_soc_ram_top/dut/battery_percent_i
 add wave sim:/tb_soc_ram_top/dut/battery_voltage_mv_i
 add wave sim:/tb_soc_ram_top/dut/sensor_valid_i
 
-# VDP (VIDEO DISPLAY PROCESSOR) INTERCONNECT & I/O
+# ------------------------------------------------------------
+# VDP INTERCONNECT & I/O
+# ------------------------------------------------------------
 add wave -divider "VDP INTERCONNECT"
 add wave sim:/tb_soc_ram_top/dut/vdp_valid
 add wave sim:/tb_soc_ram_top/dut/vdp_write
@@ -103,8 +129,9 @@ add wave sim:/tb_soc_ram_top/dut/rgb_r_o
 add wave sim:/tb_soc_ram_top/dut/rgb_g_o
 add wave sim:/tb_soc_ram_top/dut/rgb_b_o
 
-# Run the simulation to completion
+# ------------------------------------------------------------
+# RUN SIMULATION
+# ------------------------------------------------------------
 run 5000 us
 
-# Exit if running in batch mode (uncomment if you want it to auto-close)
 # quit -sim

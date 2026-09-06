@@ -485,5 +485,4 @@ module cpu_soc_ram_top #(
 
 
 endmodule
-
 `endif

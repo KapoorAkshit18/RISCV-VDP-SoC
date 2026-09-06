@@ -35,7 +35,7 @@
 
 module rf_telemetry_native_slave #(
     parameter ADDR_WIDTH = 12,
-    parameter DATA_WIDTH = 32,
+    parameter DATA_WIDTH = 32
     // parameter [31:0] BAND_ID = 32'd0   // 0=2.4GHz 1=5GHz 2=900MHz 3=Sub-1GHz
 )(
     input  wire                     clk,

@@ -198,7 +198,7 @@ module cpu_soc_ram_top #(
     // PicoRV32
     // =========================================================================
 
-    ptb cpu (
+    ptb u_cpu (
         .clk        (clk),
         .resetn     (resetn),
 

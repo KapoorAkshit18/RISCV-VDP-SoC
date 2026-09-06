@@ -322,6 +322,38 @@ int main(void)
         }
     }
 
+
+      static inline uint32_t rdcycle_lo(void) {
+          uint32_t lo;
+          asm volatile ("rdcycle %0" : "=r"(lo));
+          return lo;
+      }
+
+        static inline uint32_t rdcycle_hi(void) {
+            uint32_t hi;
+            asm volatile ("rdcycleh %0" : "=r"(hi));
+            return hi;
+        }
+
+  /* Read 64-bit cycle counter safely (retries if high changes) */
+  static uint64_t read_cycle64(void) {
+      uint32_t hi1, lo, hi2;
+      do {
+          hi1 = rdcycle_hi();
+          lo  = rdcycle_lo();
+          hi2 = rdcycle_hi();
+      } while (hi1 != hi2);
+      return ((uint64_t)hi1 << 32) | lo;
+  }
+
+    /* ... in main, after workload and verification ... */
+    volatile uint64_t sim_cycles = 0;
+    sim_cycles = read_cycle64();
+
+    /* Make result visible — store into output[] so the testbench/simulator can inspect it */
+    output[0] = (uint32_t)(sim_cycles & 0xffffffffUL);       // low 32 bits
+    output[1] = (uint32_t)(sim_cycles >> 32);                // high 32 bits
+
     /*
      * Workload completed successfully.
      *

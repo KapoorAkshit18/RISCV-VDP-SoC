@@ -32,7 +32,7 @@
 //
 // =============================================================================
 
-module cpu_soc_ram_top #(
+module cpu_soc_ram_top_smoke #(
     parameter ADDR_WIDTH     = 32,
     parameter DATA_WIDTH     = 32,
     parameter RAM_ADDR_WIDTH = 16,

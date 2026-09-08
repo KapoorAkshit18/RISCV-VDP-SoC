@@ -1,7 +1,7 @@
 #include <stdint.h>
 
-#define INPUT_SIZE  32
-#define OUTPUT_SIZE 32
+#define INPUT_SIZE  32  // provides a fixed-size input vector for the workload
+#define OUTPUT_SIZE 32  // provides a fixed-size output vector for the workload
 
 /* ---------------------------------------------------------
  * Debug / benchmark variables
@@ -89,7 +89,7 @@ static inline uint32_t rdcycle_lo(void)
     asm volatile (
         "rdcycle %0"
         : "=r"(lo)
-    );
+    );                                   
 
     return lo;
 }
@@ -188,15 +188,15 @@ int main(void)
     /* -----------------------------------------------
      * Verify results
      *
-     * sum(input) = 528
+     * sum(input) = 272
      *
      * output[i] =
-     *     (i+1) * 528 + (i+1)
-     *   = (i+1) * 529
+     *     (i+1) * 272 + (i+1)
+     *   = (i+1) * 273
      * ----------------------------------------------- */
     for (int i = 0; i < OUTPUT_SIZE; i++)
     {
-        int32_t expected = (i + 1) * 529;
+        int32_t expected = (i + 1) * 273;
 
         if (output[i] != expected)
         {

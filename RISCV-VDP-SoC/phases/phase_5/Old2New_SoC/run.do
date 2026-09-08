@@ -64,6 +64,15 @@ add wave -position end sim:/tb_cpu_soc_ram_top/clk
 add wave -position end sim:/tb_cpu_soc_ram_top/resetn
 add wave -position end sim:/tb_cpu_soc_ram_top/pixel_clk
 
+# ------------------------------------------------------------
+# CPU CORE INTERNALS
+# ------------------------------------------------------------
+add wave -divider "CPU CORE"
+add wave -position insertpoint sim:/tb_cpu_soc_ram_top/dut/u_cpu/prv/reg_pc
+add wave -position insertpoint sim:/tb_cpu_soc_ram_top/dut/u_cpu/prv/reg_next_pc
+add wave -position insertpoint sim:/tb_cpu_soc_ram_top/dut/u_cpu/prv/count_cycle
+add wave -position insertpoint sim:/tb_cpu_soc_ram_top/dut/u_cpu/prv/count_instr
+add wave -position insertpoint sim:/tb_cpu_soc_ram_top/dut/u_cpu/prv/next_insn_opcode
 
 # =============================================================================
 # GROUP 2: CPU NATIVE MEMORY BUS

@@ -44,7 +44,7 @@ The measured cycle count is stored as two 32-bit values:
 The expected result is:
 
 ```text
-output[i] = (i + 1) × 529
+output[i] = (i + 1) × 272
 ```
 
 The firmware enters an infinite loop if verification fails. After successful execution, it remains in an infinite loop so the completion point can be identified in simulation.

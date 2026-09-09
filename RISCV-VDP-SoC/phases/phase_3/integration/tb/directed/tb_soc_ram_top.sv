@@ -1,33 +1,12 @@
 `timescale 1ns/1ps
 
-// =============================================================================
-// tb_cpu_soc_ram_top.sv
-//
-// Integration smoke test for:
-//
-//      PicoRV32
-//          |
-//      CPU Bus Adapter
-//          |
-//      SoC Memory Interconnect
-//       /    |      |       |       \
-//     RAM  GPIO   SENSOR    RF      VDP
-//
-// This testbench:
-//   1. Drives all external DUT inputs.
-//   2. Connects all DUT outputs.
-//   3. Verifies reset behavior.
-//   4. Verifies CPU startup.
-//   5. Verifies no unexpected trap.
-//   6. Provides sensor/RF/GPIO inputs.
-//   7. Provides the independent VDP pixel clock.
-//
-// NOTE:
-// Actual peripheral register transactions occur only if the program
-// inside the ptb/PicoRV32 wrapper performs those accesses.
-// =============================================================================
-
 module tb_soc_ram_top;
+
+    // ================================================================
+    // DUT signals
+    // Keep your existing declarations/connections here
+    // ================================================================
+
 
     // =========================================================================
     // Parameters
@@ -105,20 +84,8 @@ module tb_soc_ram_top;
     wire [3:0]              rgb_b_o;
 
     wire                    trap;
-
-
-    // =========================================================================
-    // Error counter
-    // =========================================================================
-
-    integer errors;
-
-
-    // =========================================================================
-    // DUT
-    // =========================================================================
-
-    cpu_soc_ram_top #(
+    
+cpu_soc_ram_top #(
         .ADDR_WIDTH     (ADDR_WIDTH),
         .DATA_WIDTH     (DATA_WIDTH),
         .RAM_ADDR_WIDTH (RAM_ADDR_WIDTH),
@@ -185,284 +152,562 @@ module tb_soc_ram_top;
     );
 
 
-    // =========================================================================
-    // Load firmware into RAM
-    // =========================================================================
+    // ================================================================
+    // Firmware / debug parameters
+    // ================================================================
 
-    initial begin
-    $readmemh("../../phase_1/firmware_test2/firmware.hex", dut.ram.mem);
-    end
+    localparam [31:0] OUTPUT_BASE = 32'h0000_1220;
+    localparam [31:0] OUTPUT_LAST = 32'h0000_129C;
 
+    localparam integer OUTPUT_RAM_INDEX = 1160;
 
+    localparam [31:0] WORKLOAD_DONE = 32'h2222_2222;
+    localparam [31:0] VERIFY_FAIL   = 32'hDEAD_0001;
+    localparam [31:0] BENCH_DONE    = 32'h3333_3333;
 
-
-    // =========================================================================
-    // System clock
+    // 100 MHz clock => 10 ns/cycle
     //
-    // 100 MHz
-    // Period = 10 ns
-    // =========================================================================
+    // This is NOT the expected execution time.
+    // It is only a safety timeout.
+    //
+    // 100000 cycles = 1 ms.
+    localparam integer TIMEOUT_CYCLES = 100000;
+
+
+    // ================================================================
+    // Debug state
+    // ================================================================
+
+    integer i;
+    integer errors;
+    integer cycle_count;
+
+    integer output_write_count;
+    integer output_read_count;
+
+    reg workload_done;
+    reg verification_failed;
+    reg benchmark_done;
+    reg simulation_timeout;
+
+
+    // ================================================================
+    // Clock
+    // ================================================================
 
     initial begin
         clk = 1'b0;
-
         forever #5 clk = ~clk;
     end
 
 
-    // =========================================================================
+    // ================================================================
     // Pixel clock
-    //
-    // 25 MHz
-    // Period = 40 ns
-    // =========================================================================
+    // Keep it because Phase 3 has it, although it is not relevant
+    // to this pre-TPU firmware debug.
+    // ================================================================
 
     initial begin
         pixel_clk = 1'b0;
-
         forever #20 pixel_clk = ~pixel_clk;
     end
-    always @(posedge clk) begin
-        if (dut.m_valid && !dut.m_write) begin
-            $display("CPU READ: addr=%h ready=%b rdata=%h",
-                    dut.m_addr,
-                    dut.m_ready,
-                    dut.m_rdata);
 
-            if (dut.m_addr == 32'h0001_2000)
-                $display("***** SENSOR READ FOUND *****");
-        end
+
+    // ================================================================
+    // Firmware
+    // ================================================================
+
+    initial begin
+        $display("");
+        $display("==============================================");
+        $display("PHASE 3 PRE-TPU FIRMWARE DEBUG");
+        $display("==============================================");
+
+        $display("Loading firmware_new.hex ...");
+
+        $readmemh(
+            "../../phase_1/firmware_test2/firmware_new.hex",
+            dut.ram.mem
+        );
+
+        $display("Firmware loaded.");
+        $display("");
     end
 
-    // =========================================================================
-    // Main test
-    // =========================================================================
+
+    // ================================================================
+    // Initial state
+    // ================================================================
 
     initial begin
 
-        errors = 0;
+        errors              = 0;
+        cycle_count         = 0;
 
+        output_write_count  = 0;
+        output_read_count   = 0;
 
-        // =====================================================================
-        // Initial conditions
-        // =====================================================================
+        workload_done       = 1'b0;
+        verification_failed = 1'b0;
+        benchmark_done      = 1'b0;
+        simulation_timeout  = 1'b0;
 
         resetn = 1'b0;
 
-        // Sensor
-        battery_percent = 8'd67;
-        battery_voltage = 16'd3700;
-        temperature     = 16'sd235;
-        sensor_valid    = 1'b1;
-
-        // RF
-        rssi_dbm        = 8'd200;
-        link_up         = 1'b1;
-        link_error      = 1'b0;
-        carrier_detect  = 1'b1;
-
-        // GPIO
-        gpio_in         = 32'hA5A5_5A5A;
+        // Keep your other existing TB inputs here.
+        // Example:
+        //
+        // gpio_in = 0;
+        // sensor_data = ...;
+        // rssi_dbm = ...;
+        //
+        // Do NOT change them dynamically during this debug.
+    end
 
 
-        $display("");
-        $display("======================================================");
-        $display("       TB_CPU_SOC_RAM_TOP");
-        $display("       RISCV-VDP-SoC INTEGRATION TEST");
-        $display("======================================================");
-        $display("");
+    // ================================================================
+    // CPU BUS MONITOR
+    //
+    // This is the most important monitor.
+    //
+    // Only print a transaction when valid AND ready are both high.
+    // That represents a completed bus transaction.
+    // ================================================================
+
+    always @(posedge clk) begin
+
+        if (dut.m_valid && dut.m_ready) begin
+
+            // --------------------------------------------------------
+            // WRITE
+            // --------------------------------------------------------
+
+            if (dut.m_write) begin
+
+                $display(
+                    "CPU WRITE: time=%0t addr=%08h wdata=%08h strb=%h",
+                    $time,
+                    dut.m_addr,
+                    dut.m_wdata,
+                    dut.m_strb
+                );
 
 
-        // =====================================================================
-        // Reset
-        // =====================================================================
+                // ----------------------------------------------------
+                // OUTPUT ARRAY WRITE
+                //
+                // 0x1220 -> output[0]
+                // 0x1224 -> output[1]
+                // ...
+                // 0x129C -> output[31]
+                // ----------------------------------------------------
 
-        $display("INFO: Applying reset...");
+                if ((dut.m_addr >= OUTPUT_BASE) &&
+                    (dut.m_addr <= OUTPUT_LAST)) begin
 
-        repeat (5) @(posedge clk);
+                    output_write_count =
+                        output_write_count + 1;
+
+                    $display(
+                        "    >>> OUTPUT WRITE: output[%0d] addr=%08h data=%08h",
+                        (dut.m_addr - OUTPUT_BASE) >> 2,
+                        dut.m_addr,
+                        dut.m_wdata
+                    );
+
+                end
 
 
-        // ---------------------------------------------------------------------
-        // Trap must remain low during reset
-        // ---------------------------------------------------------------------
+                // ----------------------------------------------------
+                // DEBUG MARKERS
+                //
+                // Your firmware uses these to indicate progress.
+                // ----------------------------------------------------
 
-        if (trap === 1'b0) begin
-            $display("PASS: trap low during reset");
+                if (dut.m_wdata == WORKLOAD_DONE) begin
+
+                    workload_done = 1'b1;
+
+                    $display("");
+                    $display("==============================================");
+                    $display("WORKLOAD COMPLETE: 0x22222222");
+                    $display("Output writes observed = %0d",
+                             output_write_count);
+                    $display("==============================================");
+                    $display("");
+
+                end
+
+
+                if (dut.m_wdata == VERIFY_FAIL) begin
+
+                    verification_failed = 1'b1;
+
+                    $display("");
+                    $display("==============================================");
+                    $display("VERIFICATION FAILED: 0xDEAD0001");
+                    $display("==============================================");
+                    $display("");
+
+                end
+
+
+                if (dut.m_wdata == BENCH_DONE) begin
+
+                    benchmark_done = 1'b1;
+
+                    $display("");
+                    $display("==============================================");
+                    $display("BENCHMARK COMPLETE: 0x33333333");
+                    $display("==============================================");
+                    $display("");
+
+                end
+
+            end
+
+
+            // --------------------------------------------------------
+            // READ
+            // --------------------------------------------------------
+
+            else begin
+
+                $display(
+                    "CPU READ : time=%0t addr=%08h rdata=%08h",
+                    $time,
+                    dut.m_addr,
+                    dut.m_rdata
+                );
+
+
+                // ----------------------------------------------------
+                // OUTPUT ARRAY READ
+                // ----------------------------------------------------
+
+                if ((dut.m_addr >= OUTPUT_BASE) &&
+                    (dut.m_addr <= OUTPUT_LAST)) begin
+
+                    output_read_count =
+                        output_read_count + 1;
+
+                    $display(
+                        "    <<< OUTPUT READ: output[%0d] addr=%08h data=%08h",
+                        (dut.m_addr - OUTPUT_BASE) >> 2,
+                        dut.m_addr,
+                        dut.m_rdata
+                    );
+
+                end
+
+            end
+
         end
-        else begin
-            $display("FAIL: trap asserted during reset");
-            errors = errors + 1;
+
+    end
+
+
+    // ================================================================
+    // RAM SIDE MONITOR
+    //
+    // This tells us whether the CPU transaction actually reaches RAM.
+    // ================================================================
+
+    always @(posedge clk) begin
+
+        if (dut.ram_valid && dut.ram_ready) begin
+
+            if (dut.ram_write) begin
+
+                $display(
+                    "RAM WRITE: time=%0t addr=%08h index=%0d data=%08h strb=%h",
+                    $time,
+                    dut.ram_addr,
+                    dut.ram_addr >> 2,
+                    dut.ram_wdata,
+                    dut.ram_strb
+                );
+
+            end
+            else begin
+
+                $display(
+                    "RAM READ : time=%0t addr=%08h index=%0d data=%08h",
+                    $time,
+                    dut.ram_addr,
+                    dut.ram_addr >> 2,
+                    dut.ram_rdata
+                );
+
+            end
+
         end
 
+    end
 
-        // =====================================================================
-        // Release reset
-        // =====================================================================
+
+    // ================================================================
+    // CPU CYCLE COUNTER
+    // ================================================================
+
+    always @(posedge clk) begin
+
+        if (!resetn)
+            cycle_count <= 0;
+        else
+            cycle_count <= cycle_count + 1;
+
+    end
+
+
+    // ================================================================
+    // RESET / MAIN TEST
+    // ================================================================
+
+    initial begin
+
+        // Hold reset initially
+        resetn = 1'b0;
+
+        // Give reset some real clock cycles.
+        repeat (10) @(posedge clk);
 
         resetn = 1'b1;
 
-        $display("INFO: reset released");
-
-
-        // =====================================================================
-        // CPU startup
-        // =====================================================================
-
-        repeat (20) @(posedge clk);
-
-
-        if (trap === 1'b0) begin
-            $display("PASS: trap remains low after CPU startup");
-        end
-        else begin
-            $display("FAIL: trap asserted after CPU startup");
-            errors = errors + 1;
-        end
-
-
-        // =====================================================================
-        // Check GPIO input connection
-        // =====================================================================
-
         $display("");
-        $display("INFO: GPIO input = %h", gpio_in);
-
-
-        // =====================================================================
-        // Check RF input configuration
-        // =====================================================================
-
-        $display("INFO: RF inputs:");
-        $display("      RSSI           = %0d", rssi_dbm);
-        $display("      link_up        = %b", link_up);
-        $display("      link_error     = %b", link_error);
-        $display("      carrier_detect = %b", carrier_detect);
-
-
-        // =====================================================================
-        // Check sensor configuration
-        // =====================================================================
-
-        $display("");
-        $display("INFO: Sensor inputs:");
-        $display("      battery_percent = %0d", battery_percent);
-        $display("      battery_voltage = %0d mV", battery_voltage);
-        $display("      temperature     = %0d tenths C", temperature);
-        $display("      sensor_valid    = %b", sensor_valid);
-
-
-        // =====================================================================
-        // Allow system to execute
-        // =====================================================================
-
-        repeat (50) @(posedge clk);
-
-
-        // =====================================================================
-        // Trap check
-        // =====================================================================
-
-        if (trap === 1'b0) begin
-            $display("PASS: CPU/system remains running without trap");
-        end
-        else begin
-            $display("FAIL: trap asserted during extended execution");
-            errors = errors + 1;
-        end
-
-
-        // =====================================================================
-        // Change sensor inputs
-        // =====================================================================
-
-        battery_percent = 8'd10;
-        battery_voltage = 16'd3300;
-        temperature     = 16'sd801;
-        sensor_valid    = 1'b1;
-
-
-        repeat (10) @(posedge clk);
-
-
-        $display("");
-        $display("INFO: Sensor inputs changed:");
-        $display("      battery_percent = %0d", battery_percent);
-        $display("      battery_voltage = %0d mV", battery_voltage);
-        $display("      temperature     = %0d tenths C", temperature);
-        $display("      sensor_valid    = %b", sensor_valid);
-
-
-        // =====================================================================
-        // Change RF inputs
-        // =====================================================================
-
-        rssi_dbm       = 8'd180;
-        link_up        = 1'b0;
-        link_error     = 1'b1;
-        carrier_detect = 1'b0;
-
-
-        repeat (10) @(posedge clk);
-
-
-        $display("");
-        $display("INFO: RF inputs changed:");
-        $display("      RSSI           = %0d", rssi_dbm);
-        $display("      link_up        = %b", link_up);
-        $display("      link_error     = %b", link_error);
-        $display("      carrier_detect = %b", carrier_detect);
-
-
-        // =====================================================================
-        // Change GPIO inputs
-        // =====================================================================
-
-        gpio_in = 32'h1234_5678;
-
-
-        repeat (10) @(posedge clk);
-
-
-        $display("");
-        $display("INFO: GPIO input changed = %h", gpio_in);
-
-
-        // =====================================================================
-        // Final trap check
-        // =====================================================================
-
-        repeat (20) @(posedge clk);
-
-
-        if (trap === 1'b0) begin
-            $display("PASS: system remains stable after input changes");
-        end
-        else begin
-            $display("FAIL: trap asserted after input changes");
-            errors = errors + 1;
-        end
-
-
-        // =====================================================================
-        // Final result
-        // =====================================================================
-
-        $display("");
-        $display("======================================================");
-
-        if (errors == 0) begin
-            $display("TB_CPU_SOC_RAM_TOP: ALL TESTS PASSED");
-        end
-        else begin
-            $display("TB_CPU_SOC_RAM_TOP: %0d TEST(S) FAILED", errors);
-        end
-
-        $display("======================================================");
+        $display("RESET RELEASED");
+        $display("Waiting for firmware...");
+        $display("Timeout = %0d CPU cycles", TIMEOUT_CYCLES);
         $display("");
 
+        // ------------------------------------------------------------
+        // DO NOT use:
+        //
+        // repeat(20)
+        // repeat(50)
+        //
+        // The firmware workload is much longer than this.
+        //
+        // Instead wait for a firmware marker.
+        // ------------------------------------------------------------
 
-//        $finish;
-        $display("Extended time for more testcases");
+        fork : FIRMWARE_WAIT
+
+            begin
+
+                wait (
+                    workload_done       ||
+                    verification_failed ||
+                    benchmark_done      ||
+                    dut.trap
+                );
+
+            end
+
+
+            begin
+
+                repeat (TIMEOUT_CYCLES)
+                    @(posedge clk);
+
+                simulation_timeout = 1'b1;
+
+            end
+
+        join_any
+
+        disable FIRMWARE_WAIT;
+
+
+        // ============================================================
+        // TIMEOUT
+        // ============================================================
+
+        if (simulation_timeout) begin
+
+            $display("");
+            $display("==============================================");
+            $display("TIMEOUT");
+            $display("==============================================");
+            $display(
+                "Firmware did not reach a terminal marker."
+            );
+            $display(
+                "Cycles executed = %0d",
+                cycle_count
+            );
+            $display("");
+            $display(
+                "Output writes observed = %0d",
+                output_write_count
+            );
+            $display(
+                "Output reads observed  = %0d",
+                output_read_count
+            );
+            $display("");
+
+            $finish;
+        end
+
+
+        // ============================================================
+        // WORKLOAD COMPLETED
+        // ============================================================
+
+        if (workload_done) begin
+
+            $display("");
+            $display("==============================================");
+            $display("CHECKING OUTPUT RAM");
+            $display("==============================================");
+
+            errors = 0;
+
+            for (i = 0; i < 32; i = i + 1) begin
+
+                $display(
+                    "output[%0d] addr=%08hmem[%0d]=%08h expected=%08h",
+                    i,
+                    OUTPUT_BASE + (i * 4),
+                    OUTPUT_RAM_INDEX + i,
+                    dut.ram.mem[OUTPUT_RAM_INDEX + i],
+                    (i + 1) * 273
+                );
+
+
+                if (dut.ram.mem[OUTPUT_RAM_INDEX + i] !==
+                    ((i + 1) * 273)) begin
+
+                    errors = errors + 1;
+
+                end
+
+            end
+
+            $display("");
+            $display(
+                "Output writes observed = %0d",
+                output_write_count
+            );
+
+            $display(
+                "Output reads observed  = %0d",
+                output_read_count
+            );
+
+            $display(
+                "Incorrect output values  = %0d",
+                errors
+            );
+
+            $display("==============================================");
+            $display("");
+
+
+            // --------------------------------------------------------
+            // If output RAM is already wrong, stop here.
+            // This is exactly the failure we are investigating.
+            // --------------------------------------------------------
+
+            if (errors != 0) begin
+
+                $display("");
+                $display("FAIL: Output RAM contents are incorrect.");
+                $display(
+                    "Now inspect CPU WRITE -> RAM WRITE path."
+                );
+                $display("");
+
+                $finish;
+
+            end
+
+
+            // --------------------------------------------------------
+            // All outputs correct.
+            // Wait for final firmware marker.
+            // --------------------------------------------------------
+
+            $display("");
+            $display("All 32 output values are correct.");
+            $display("Waiting for 0x33333333...");
+            $display("");
+
+            fork : FINAL_WAIT
+
+                begin
+
+                    wait (
+                        benchmark_done      ||
+                        verification_failed ||
+                        dut.trap
+                    );
+
+                end
+
+                begin
+
+                    repeat (10000)
+                        @(posedge clk);
+
+                    simulation_timeout = 1'b1;
+
+                end
+
+            join_any
+
+            disable FINAL_WAIT;
+
+        end
+
+
+        // ============================================================
+        // FINAL RESULT
+        // ============================================================
+
+        if (benchmark_done) begin
+
+            $display("");
+            $display("==============================================");
+            $display("PHASE 3 PASS");
+            $display("0x33333333 received.");
+            $display("==============================================");
+            $display("");
+
+        end
+        else if (verification_failed) begin
+
+            $display("");
+            $display("==============================================");
+            $display("PHASE 3 FAIL");
+            $display("Firmware reported 0xDEAD0001.");
+            $display("==============================================");
+            $display("");
+
+        end
+        else if (dut.trap) begin
+
+            $display("");
+            $display("==============================================");
+            $display("PHASE 3 FAIL: CPU TRAP");
+            $display("==============================================");
+            $display("");
+
+        end
+        else if (simulation_timeout) begin
+
+            $display("");
+            $display("==============================================");
+            $display("PHASE 3 TIMEOUT");
+            $display("==============================================");
+            $display("");
+
+        end
+
+
+        $finish;
+
     end
 
 endmodule

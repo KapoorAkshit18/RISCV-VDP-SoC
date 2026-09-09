@@ -1,3 +1,0 @@
-BEGIN 1:soc_ram:fast:work
-    mem :  1:tb_top:fast:work
-END 

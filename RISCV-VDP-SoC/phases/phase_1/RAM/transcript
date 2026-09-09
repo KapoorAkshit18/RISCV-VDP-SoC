@@ -1,5 +1,5 @@
 # vsim -c tb_soc_ram 
-# Start time: 01:28:55 on Sep 06,2026
+# Start time: 18:01:48 on Sep 09,2026
 # ** Note: (vsim-3812) Design is being optimized...
 # Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
 # Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.
@@ -19,8 +19,7 @@
 # //
 # Loading sv_std.std
 # Loading work.tb_soc_ram(fast)
-# ** Warning: (vsim-7) Failed to open readmem file "firmware/firmware.hex" in read mode.
-# No such file or directory. (errno = ENOENT)    : tb_soc_ram.sv(39)
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 257 of file "../firmware_test2/firmware_new.hex". (Current address [256], address range [0:255])    : tb_soc_ram.sv(40)
 #    Time: 0 ps  Iteration: 0  Instance: /tb_soc_ram
 # [TEST] RAM write
 # [PASS] RAM write accepted
@@ -33,7 +32,7 @@
 # --------------------------------
 # SOC RAM TEST COMPLETE
 # --------------------------------
-# ** Note: $finish    : tb_soc_ram.sv(181)
+# ** Note: $finish    : tb_soc_ram.sv(186)
 #    Time: 96 ns  Iteration: 0  Instance: /tb_soc_ram
-# End time: 01:29:00 on Sep 06,2026, Elapsed time: 0:00:05
+# End time: 18:02:00 on Sep 09,2026, Elapsed time: 0:00:12
 # Errors: 0, Warnings: 1

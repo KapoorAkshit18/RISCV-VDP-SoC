@@ -33,7 +33,7 @@ module tb_top;
     // Loading the Hex file generate from the riscv gnu toolchain
     // ============================================================
     initial begin
-    $readmemh("firmware/firmware.hex", dut.u_ram.mem);
+    $readmemh("firmware_test2/firmware_new.hex", dut.u_ram.mem);
         end
     
     // ============================================================

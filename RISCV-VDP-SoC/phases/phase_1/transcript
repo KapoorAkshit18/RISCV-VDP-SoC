@@ -13,7 +13,7 @@
 # // and may not be used in any way not expressly authorized by SISW.
 # //
 # vsim -voptargs="+acc" work.tb_top -do "run.do" 
-# Start time: 02:17:35 on Sep 06,2026
+# Start time: 22:24:54 on Sep 09,2026
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
 # Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
@@ -59,10 +59,10 @@
 # add wave -divider "CLOCK / RESET"
 # add wave -position insertpoint sim:/tb_top/clk
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: akshi  Hostname: ENVY  ProcessID: 18812
-#           Attempting to use alternate WLF file "./wlftyrygri".
+#           File in use by: akshi  Hostname: ENVY  ProcessID: 27224
+#           Attempting to use alternate WLF file "./wlftben62q".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftyrygri
+#           Using alternate file: ./wlftben62q
 # add wave -position insertpoint sim:/tb_top/resetn
 # 
 # ---------------- u_cpu ----------------
@@ -101,6 +101,8 @@
 # =============================================================================
 # 
 # run -all
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 257 of file "firmware_test2/firmware_new.hex". (Current address [256], address range [0:255])    : tb_top.sv(36)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top
 # [0 ns] clk=0 resetn=0 trap=x
 # [5000 ns] clk=1 resetn=0 trap=0
 # [10000 ns] clk=0 resetn=0 trap=0
@@ -2116,17 +2118,16 @@
 # 0 ps
 # 10500 ns
 exit
-# End time: 02:40:30 on Sep 06,2026, Elapsed time: 0:22:55
-# Errors: 0, Warnings: 6
+# End time: 22:26:11 on Sep 09,2026, Elapsed time: 0:01:17
+# Errors: 0, Warnings: 7
                                                                                                                                                             # make[1]: Entering directory 'C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1'
 # vsim -voptargs="+acc" work.tb_top -do run.do
 # Reading pref.tcl
 # make[1]: Leaving directory 'C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1'
-# make[1]: Entering directory 'C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1'
-# rm -rf work transcript *.wlf modelsim.ini
-# make[1]: Leaving directory 'C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1'
-# rm: cannot remove 'transcript': Device or resource busy
-# rm: cannot remove 'vsim.wlf': Device or resource busy
-# make[1]: *** [Makefile:16: clean] Error 1
-# End time: 02:40:41 on Sep 06,2026, Elapsed time: 0:23:26
-# Errors: 0, Warnings: 4
+# Trace back: Error QStructure::sort: invalid command name ""
+#   <6:C:/mtitcl/vsim/qstructure.tc_:2478: ::QStructure::sort .main_pane.structure 0 ascending
+#   <5:eval:1: ::QStructure::structsort .main_pane.structure 0 ascending
+#   <4:eval:1: ::namespace inscope ::QStructure {structsort .main_pane.structure} 0 ascending
+#   >3:proc:26: ::.main_pane.structure.interior.cs.body.struct sort 0 ascending
+#   >2:proc:10: ::.main_pane.structure.interior.cs.body.struct _initializeSortColumn
+#   <1:eval:1: ::namespace inscope ::vsimwidgets::Hierarchy {::.main_pane.structure.interior.cs.body.struct _initializeSortColumn}

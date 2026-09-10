@@ -43,6 +43,15 @@ module soc_ram #(
 
                 if (write) begin
 
+                    // -- temporary display for debugging
+            $display(
+                    "[%0t] SOC_RAM WRITE: addr=%08h word_addr=%0d wdata=%08h strb=%h",
+                    $time,
+                    addr,
+                    word_addr,
+                    wdata,
+                    strb
+                );
                     if (strb[0])
                         mem[word_addr][7:0]   <= wdata[7:0];
 

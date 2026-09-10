@@ -1,0 +1,51 @@
+BEGIN 1:tpu_axis_top:fast:work
+    out_tdata :  1:tb_cpu_soc_ram_top:fast:work
+    input1 :  1:tb_cpu_soc_ram_top:fast:work
+    weight2 :  1:tb_cpu_soc_ram_top:fast:work
+    axis_busy :  1:tb_cpu_soc_ram_top:fast:work
+    out_tready :  1:tb_cpu_soc_ram_top:fast:work
+    out_tlast :  1:tb_cpu_soc_ram_top:fast:work
+    in_tready :  1:tb_cpu_soc_ram_top:fast:work
+    input0 :  1:tb_cpu_soc_ram_top:fast:work
+    weight1 :  1:tb_cpu_soc_ram_top:fast:work
+    in_tlast :  1:tb_cpu_soc_ram_top:fast:work
+    result1 :  1:tb_cpu_soc_ram_top:fast:work
+    axis_done :  1:tb_cpu_soc_ram_top:fast:work
+    weight4 :  1:tb_cpu_soc_ram_top:fast:work
+    in_tvalid :  1:tb_cpu_soc_ram_top:fast:work
+    weight0 :  1:tb_cpu_soc_ram_top:fast:work
+    in_tdata :  1:tb_cpu_soc_ram_top:fast:work
+    result0 :  1:tb_cpu_soc_ram_top:fast:work
+    axis_start :  1:tb_cpu_soc_ram_top:fast:work
+    out_tvalid :  1:tb_cpu_soc_ram_top:fast:work
+    weight3 :  1:tb_cpu_soc_ram_top:fast:work
+END 
+BEGIN 1:xpm_memory_base:fast__1:xpm
+    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__1:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast__1:xpm
+END 
+BEGIN 1:cpu_soc_ram_top:fast:work
+    m_ready :  1:tb_cpu_soc_ram_top:fast:work
+    nn_valid :  1:tb_cpu_soc_ram_top:fast:work
+    m_strb :  1:tb_cpu_soc_ram_top:fast:work
+    m_addr :  1:tb_cpu_soc_ram_top:fast:work
+    nn_ready :  1:tb_cpu_soc_ram_top:fast:work
+    m_write :  1:tb_cpu_soc_ram_top:fast:work
+    nn_rdata :  1:tb_cpu_soc_ram_top:fast:work
+    m_valid :  1:tb_cpu_soc_ram_top:fast:work
+    m_rdata :  1:tb_cpu_soc_ram_top:fast:work
+    nn_write :  1:tb_cpu_soc_ram_top:fast:work
+    nn_addr :  1:tb_cpu_soc_ram_top:fast:work
+    m_wdata :  1:tb_cpu_soc_ram_top:fast:work
+    resetn :  1:tb_cpu_soc_ram_top:fast:work
+END 
+BEGIN 1:glbl:fast:work
+    GSR :  1:xpm_cdc_sync_rst:fast:xpm
+END 
+BEGIN 1:xpm_memory_base:fast:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast:xpm
+END 
+BEGIN 1:xpm_memory_base:fast__2:xpm
+    gen_rd_a.douta_reg :  1:xpm_memory_base:fast__2:xpm
+    gen_rd_b.doutb_reg :  1:xpm_memory_base:fast__2:xpm
+END 

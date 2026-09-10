@@ -1,5 +1,5 @@
 $date
-	Mon Sep  7 23:30:34 2026
+	Thu Sep 10 20:56:42 2026
 $end
 $version
 	QuestaSim Version 2024.1
@@ -1298,7 +1298,7 @@ $var wire 1 y+ result1 [2] $end
 $var wire 1 z+ result1 [1] $end
 $var wire 1 {+ result1 [0] $end
 
-$scope module cpu $end
+$scope module u_cpu $end
 $var wire 1 }! clk $end
 $var wire 1 ~! resetn $end
 $var wire 1 ^# mem_ready $end
@@ -2289,9 +2289,9 @@ $var reg 1 23 instr_maskirq $end
 $var reg 1 33 instr_waitirq $end
 $var reg 1 43 instr_timer $end
 $var wire 1 53 instr_trap $end
-$var reg 5 63 decoded_rd [4:0] $end
-$var reg 5 73 decoded_rs1 [4:0] $end
-$var reg 5 83 decoded_rs2 [4:0] $end
+$var reg 6 63 decoded_rd [5:0] $end
+$var reg 6 73 decoded_rs1 [5:0] $end
+$var reg 6 83 decoded_rs2 [5:0] $end
 $var reg 32 93 decoded_imm [31:0] $end
 $var reg 32 :3 decoded_imm_uj [31:0] $end
 $var reg 1 ;3 decoder_trigger $end
@@ -2353,7 +2353,7 @@ $var reg 1 r3 latched_trace $end
 $var reg 1 s3 latched_is_lu $end
 $var reg 1 t3 latched_is_lh $end
 $var reg 1 u3 latched_is_lb $end
-$var reg 5 v3 latched_rd [4:0] $end
+$var reg 6 v3 latched_rd [5:0] $end
 $var reg 32 w3 current_pc [31:0] $end
 $var reg 4 x3 pcpi_timeout_counter [3:0] $end
 $var reg 1 y3 pcpi_timeout $end
@@ -2376,7 +2376,7 @@ $var reg 1 +4 cpuregs_write $end
 $var reg 32 ,4 cpuregs_wrdata [31:0] $end
 $var reg 32 -4 cpuregs_rs1 [31:0] $end
 $var reg 32 .4 cpuregs_rs2 [31:0] $end
-$var reg 5 /4 decoded_rs [4:0] $end
+$var reg 6 /4 decoded_rs [5:0] $end
 
 $scope task empty_statement $end
 $upscope $end
@@ -23750,7 +23750,7 @@ b100 {!
 b10100000000000000 |!
 b1 l.
 b1 m.
-b0 n.
+b1 n.
 b0 o.
 b0 p.
 b1 q.
@@ -23777,9 +23777,9 @@ b11111111111111111111111111111111 '/
 b0 (/
 b1 )/
 b10 */
-b10000 +/
-b10100 ,/
-b101 -/
+b100000 +/
+b100100 ,/
+b110 -/
 b1 ./
 b100000000000000000000000000000000 //
 b1000000000000000000000000000000000 0/
@@ -39328,6 +39328,9 @@ bx s4
 1?5
 xI3
 bx0 :3
+b0xxxxx 63
+b0xxxxx 73
+b0xxxxx 83
 0?3
 0x1
 0;/
@@ -39372,6 +39375,7 @@ xf,
 xe,
 xd,
 xc,
+b0xxxxx /4
 #120000
 0X
 0W
@@ -39563,10 +39567,10 @@ b0 x4
 b0 o1
 0?5
 1?5
+0u6
 1_3
 1a3
 b0 Q/
-0u6
 xM3
 xg2
 xh2
@@ -39598,6 +39602,7 @@ b0x 93
 b1000 G/
 0;3
 1<3
+b0xxxxx v3
 0q3
 b100 J/
 b1 H/
@@ -39608,6 +39613,8 @@ xa,
 1w6
 0`3
 1x0
+bx /4
+b0xxxxx /4
 b0 j3
 b11011000110010001011111011100100111001100110001 j3
 b0 P3
@@ -39822,7 +39829,6 @@ xF3
 xG3
 xH3
 xM3
-0v6
 b0 Y3
 b0x Z3
 b0xxxxxxxxxxxxxxxx [3
@@ -39830,6 +39836,7 @@ b0xxxxxxxxxxxxxxxx [3
 b0 b3
 b0x c3
 b0xxxxxxxxxxxxxxxx d3
+0v6
 b1001 G/
 0<3
 1W3
@@ -39843,6 +39850,8 @@ b0 v4
 1t4
 b1000000 v4
 bx s4
+bx /4
+b0xxxxx /4
 b0 j3
 b11011000110010001011111011100100111001100110010 j3
 0g$
@@ -39924,6 +39933,8 @@ b0 v4
 b1000000 v4
 1r4
 b10100101101001010101101001011010 s4
+bx /4
+b0xxxxx /4
 b0 j3
 b1100101011110000110010101100011 j3
 0)%
@@ -40189,6 +40200,8 @@ x^0
 x]0
 x\0
 x[0
+bx /4
+b0xxxxx /4
 b0 j3
 b110011001100101011101000110001101101000 j3
 #166000
@@ -40685,6 +40698,7 @@ xf,
 xe,
 xd,
 xc,
+bx /4
 b1010 /4
 #200000
 0X

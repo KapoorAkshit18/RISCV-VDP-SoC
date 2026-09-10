@@ -1,0 +1,854 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/Old2New_SoC
+vaxis_nn
+Z2 2RTL/riscv.v|RTL/riscv_wrapper.v|RTL/cpu_bus_adapter.v|RTL/soc_mem_interconnect.v|RTL/soc_ram.v|RTL/cpu_ram_subsystem.v|RTL/gpio_native_slave.v|RTL/rf_telemetry_native.v|RTL/sensor_status_native.v|RTL/vdp_native_slave.v|RTL/vga_timing_gen.v|../TPU/pe.v|../TPU/register.v|../TPU/sigmoid.v|../TPU/systolic.v|../TPU/pe_top.v|../TPU/nn.v|../TPU/axis_nn.v|../TPU/nn_axi_wrapper.v|../TPU/nn_axis_master.v|../TPU/tpu_axis_top.v|RTL/cdc_reset_sync.v|RTL/cpu_soc_ram_top.v|tb_soc_ram_top_no_firmw.sv
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z4 !s110 1789053976
+!i10b 1
+!s100 beDk=0Y5N52R1>EoSomoZ3
+Iz3>9G`XO9mhf_ggbOFo?81
+S1
+R1
+w1788500172
+8../TPU/axis_nn.v
+F../TPU/axis_nn.v
+!i122 0
+L0 5 309
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z7 !s108 1789053975.000000
+Z8 !s107 tb_soc_ram_top_no_firmw.sv|RTL/cpu_soc_ram_top.v|RTL/cdc_reset_sync.v|../TPU/tpu_axis_top.v|../TPU/nn_axis_master.v|../TPU/nn_axi_wrapper.v|../TPU/axis_nn.v|../TPU/nn.v|../TPU/pe_top.v|../TPU/systolic.v|../TPU/sigmoid.v|../TPU/register.v|../TPU/pe.v|RTL/vga_timing_gen.v|RTL/vdp_native_slave.v|RTL/sensor_status_native.v|RTL/rf_telemetry_native.v|RTL/gpio_native_slave.v|RTL/cpu_ram_subsystem.v|RTL/soc_ram.v|RTL/soc_mem_interconnect.v|RTL/cpu_bus_adapter.v|RTL/riscv_wrapper.v|RTL/riscv.v|
+Z9 !s90 -sv|-f|filelist.f|
+!i113 0
+Z10 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 !s92 -sv +incdir+RTL +incdir+Tb +incdir+Tb/directed_tb -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 tCvgOpt 0
+vcdc_reset_sync
+R2
+R3
+R4
+!i10b 1
+!s100 lSToRGeC_T=V94RLQ5INV1
+Ink<3Pz5YHmO0ANH87=19S1
+S1
+R1
+w1786352845
+8RTL/cdc_reset_sync.v
+FRTL/cdc_reset_sync.v
+!i122 0
+L0 20 21
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vcpu_bus_adapter
+R2
+R3
+R4
+!i10b 1
+!s100 8VLATC53]@c]iKaj@5lNS3
+I2okhcAGaYbbS3nEL5n:I<2
+S1
+R1
+w1785880707
+8RTL/cpu_bus_adapter.v
+FRTL/cpu_bus_adapter.v
+!i122 0
+L0 4 47
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vcpu_ram_subsystem
+R2
+R3
+R4
+!i10b 1
+!s100 J^S8PdXO]=6ji22[KDlVU2
+I=5o6`MLzERn^O3oKPi5`l0
+S1
+R1
+w1788437643
+8RTL/cpu_ram_subsystem.v
+FRTL/cpu_ram_subsystem.v
+!i122 0
+L0 4 169
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vcpu_soc_ram_top
+R2
+R3
+R4
+!i10b 1
+!s100 l[L5XGd7OFjUKLD=aC0AZ0
+IX;31Wg?=adXXDUhhibi9`2
+S1
+R1
+w1789053959
+8RTL/cpu_soc_ram_top.v
+FRTL/cpu_soc_ram_top.v
+!i122 0
+L0 97 671
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vglbl
+2C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+R4
+!i10b 1
+!s100 TL<1YD8i05Z]RjCH=O^Cf3
+Ijbca:GLC?@I5ehXSOo3zA2
+R1
+w1590624368
+8C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+FC:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+!i122 1
+L0 6 78
+R5
+R6
+r1
+!s85 0
+31
+!s108 1789053976.000000
+!s107 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
+!s90 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
+!i113 0
+o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R12
+vgpio_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 i3Mbl9H=:UV383HI[lmdT2
+I:j9moN1VNZjGLTVZn3WWl1
+S1
+R1
+w1786045581
+8RTL/gpio_native_slave.v
+FRTL/gpio_native_slave.v
+!i122 0
+L0 38 96
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vnn
+R2
+R3
+R4
+!i10b 1
+!s100 LmeJCoY^4Q>oRM^5O60G?0
+I5D[F:A4g]oRDY:R<B=PR:1
+S1
+R1
+w1788365285
+8../TPU/nn.v
+F../TPU/nn.v
+!i122 0
+L0 4 529
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vnn_axi_wrapper
+R2
+R3
+R4
+!i10b 1
+!s100 J`=MSUM2Vc2EhcVF:0bi@3
+InF?M^Fh1jUUDXzW8nhhc=1
+S1
+R1
+w1788364905
+8../TPU/nn_axi_wrapper.v
+F../TPU/nn_axi_wrapper.v
+!i122 0
+L0 53 362
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vnn_axis_master
+R2
+R3
+R4
+!i10b 1
+!s100 fXH@J@<2MczV4hWFKKgNS1
+IjNQ?2zeHC3o5MSVchEC]b2
+S1
+R1
+w1788493383
+8../TPU/nn_axis_master.v
+F../TPU/nn_axis_master.v
+!i122 0
+L0 47 428
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpe
+R2
+R3
+R4
+!i10b 1
+!s100 K;:R77^iLZ2fEXPz<]K;L3
+I2fa[]H0[EOFOUnTi^[0gB0
+S1
+R1
+w1788364919
+8../TPU/pe.v
+F../TPU/pe.v
+!i122 0
+L0 3 20
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpe_top
+R2
+R3
+R4
+!i10b 1
+!s100 69AbE:R:Da;7lJAboWlh[3
+IZSNX0ZZ5kL;EBhO82AMSz2
+S1
+R1
+w1788365540
+8../TPU/pe_top.v
+F../TPU/pe_top.v
+!i122 0
+L0 4 150
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_axi
+R2
+R3
+R4
+!i10b 1
+!s100 o5b`9ZQH=X6QEELG8iTS>0
+IiOc=nRjYcoRIOc9O=:j:41
+S1
+R1
+Z13 w1789048917
+Z14 8RTL/riscv.v
+Z15 FRTL/riscv.v
+!i122 0
+L0 2445 208
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_axi_adapter
+R2
+R3
+R4
+!i10b 1
+!s100 `FL;[1HUc[91R9AHH=T^W2
+I2gZAl?5io2Wmeb=kf0RbV3
+S1
+R1
+R13
+R14
+R15
+!i122 0
+L0 2659 78
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_pcpi_div
+R2
+R3
+R4
+!i10b 1
+!s100 ZFMmNnO]ZSzQOlfCV55Q;0
+I`Eh4]UH60C<dGico6Gaa[0
+S1
+R1
+R13
+R14
+R15
+!i122 0
+L0 2348 91
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_pcpi_fast_mul
+R2
+R3
+R4
+!i10b 1
+!s100 QAbQFhfOc5D`3]KP[A]VM2
+I0@E>C;fF>4:MhP_HGVK@c2
+S1
+R1
+R13
+R14
+R15
+!i122 0
+L0 2246 96
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_pcpi_mul
+R2
+R3
+R4
+!i10b 1
+!s100 eFXeYD5aC45MI7S`BcT:K0
+Ic8kIfMc>zO^W6l<T1XL`31
+S1
+R1
+R13
+R14
+R15
+!i122 0
+L0 2125 120
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_regs
+R2
+R3
+R4
+!i10b 1
+!s100 ISVaoocHmB7ZT1efM@aZ31
+IMVGWeO25k8?Fi7`E89cAM3
+S1
+R1
+R13
+R14
+R15
+!i122 0
+L0 2102 17
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_wb
+R2
+R3
+R4
+!i10b 1
+!s100 DM`5HY`TV1nY]`6mK2]@l0
+I5`GLE:A9czPm6<k5cPC3P3
+S1
+R1
+R13
+R14
+R15
+!i122 0
+L0 2743 235
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32a
+R2
+R3
+R4
+!i10b 1
+!s100 WE1]XfHW>^V5RcTiAceZc2
+IH8U]kfTQZ<^Z8mI:<hS<R0
+S1
+R1
+R13
+R14
+R15
+!i122 0
+L0 57 2039
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vptb
+R2
+R3
+R4
+!i10b 1
+!s100 OE9:3G`?NK>Ra_E?BzhaI2
+IY<N]i;zSFD79nLNfM_kgi2
+S1
+R1
+w1788375491
+8RTL/riscv_wrapper.v
+FRTL/riscv_wrapper.v
+!i122 0
+L0 2 84
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vregister
+R2
+R3
+R4
+!i10b 1
+!s100 8ike_QJWg35zhg[I?X;<A3
+I7ccYYVN]:A7o9ThR=[[Gf0
+S1
+R1
+w1788364991
+8../TPU/register.v
+F../TPU/register.v
+!i122 0
+L0 3 26
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vrf_telemetry_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 0OK<^Q6G211TXf9^UMnC;3
+IG21NC?o4IjJcK=N:o0zGB2
+S1
+R1
+w1785936182
+8RTL/rf_telemetry_native.v
+FRTL/rf_telemetry_native.v
+!i122 0
+L0 31 241
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsensor_status_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 khS@E9z=I6RLzSf<EYhG>3
+Iz0m^gnj^KAZR3oNKP_cGa3
+S1
+R1
+w1785950505
+8RTL/sensor_status_native.v
+FRTL/sensor_status_native.v
+!i122 0
+L0 40 198
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsigmoid
+R2
+R3
+R4
+!i10b 1
+!s100 88M<E?LbcL^7oa`=Ulh``2
+IYh]m[jLRNA3E3S9;^V>913
+S1
+R1
+w1788365063
+8../TPU/sigmoid.v
+F../TPU/sigmoid.v
+!i122 0
+L0 14 313
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsoc_mem_interconnect
+R2
+R3
+R4
+!i10b 1
+!s100 8m0PPee;zb0ddP?b``[mz3
+IPEF4d6AmmRI5gT@<<kd8S1
+S1
+R1
+w1788145990
+8RTL/soc_mem_interconnect.v
+FRTL/soc_mem_interconnect.v
+!i122 0
+L0 47 407
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsoc_ram
+R2
+R3
+R4
+!i10b 1
+!s100 g4b?8h];NhA9Fo`GTd`Zf0
+IB>nhJf4Tl`IK7[PM^onhh0
+S1
+R1
+w1785847180
+8RTL/soc_ram.v
+FRTL/soc_ram.v
+!i122 0
+L0 4 64
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsystolic
+R2
+R3
+R4
+!i10b 1
+!s100 2=nWR>AKz6DAn4[075Pbk3
+IbP5L@n1LdHNm>@z0ozdXj1
+S1
+R1
+w1788364995
+8../TPU/systolic.v
+F../TPU/systolic.v
+!i122 0
+L0 5 172
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vtb_cpu_soc_ram_top
+R2
+R3
+R4
+!i10b 1
+!s100 A153U3gHKMhzdlGekR30o2
+I_VoPZf`TF7SEXUO<k<olX0
+S1
+R1
+w1788600645
+8tb_soc_ram_top_no_firmw.sv
+Ftb_soc_ram_top_no_firmw.sv
+!i122 0
+L0 108 1735
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+Ttb_opt
+!s110 1789053978
+VH;]P`YNf3eD9NVFifR<2z3
+04 18 4 work tb_cpu_soc_ram_top fast 0
+04 4 4 work glbl fast 0
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+o+acc -L xpm
+R12
+ntb_opt
+OL;O;2024.1;79
+vtpu_axis_top
+R2
+R3
+R4
+!i10b 1
+!s100 Y]k9adV0IKc6FH5[A9ndD0
+IlRGVa3Vdj^Ehi[l;]Q<A>2
+S1
+R1
+w1788495424
+8../TPU/tpu_axis_top.v
+F../TPU/tpu_axis_top.v
+!i122 0
+L0 38 220
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vvdp_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 MVYPNH9g^^Lm>34J7L3@^2
+I>A^>fKHN<ENW8;enG:KTe3
+S1
+R1
+w1786352939
+8RTL/vdp_native_slave.v
+FRTL/vdp_native_slave.v
+!i122 0
+L0 61 721
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vvga_timing_gen
+R2
+R3
+R4
+!i10b 1
+!s100 TGjmDf_j3i;UGG:T>]05D3
+I8Q_`NKDM2Fg18Q0;QYD1j3
+S1
+R1
+w1786353546
+8RTL/vga_timing_gen.v
+FRTL/vga_timing_gen.v
+!i122 0
+L0 16 91
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12

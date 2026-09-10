@@ -333,7 +333,7 @@ module cpu_soc_ram_top #(
     //
     // =========================================================================
 
-    ptb cpu (
+    ptb u_cpu (
         .clk       (clk),
         .resetn    (resetn),
 

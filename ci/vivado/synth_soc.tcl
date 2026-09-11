@@ -39,7 +39,7 @@ puts "=================================================================="
 set rtl_dir "$root_dir/Design_Dir/RTL"
 set rtl_files [list \
     "$rtl_dir/riscv.v" \
-    "$rtl_dir/tb_riscv_wrapper.sv" \
+    "$rtl_dir/riscv_wrapper.v" \
     "$rtl_dir/cpu_bus_adapter.v" \
     "$rtl_dir/soc_mem_interconnect.v" \
     "$rtl_dir/soc_ram.v" \

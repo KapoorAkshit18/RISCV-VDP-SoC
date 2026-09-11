@@ -52,7 +52,7 @@ echo "Creating work library in $BUILD_DIR/work..."
 RTL_DIR="$ROOT_DIR/Design_Dir/RTL"
 RTL_FILES=(
     "$RTL_DIR/riscv.v"
-    "$RTL_DIR/tb_riscv_wrapper.sv"
+    "$RTL_DIR/riscv_wrapper.v"
     "$RTL_DIR/cpu_bus_adapter.v"
     "$RTL_DIR/soc_mem_interconnect.v"
     "$RTL_DIR/soc_ram.v"

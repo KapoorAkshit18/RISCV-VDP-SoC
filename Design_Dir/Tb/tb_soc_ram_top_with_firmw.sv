@@ -1,30 +1,145 @@
 `timescale 1ns / 1ps
 
+// =============================================================================
+// tb_soc_ram_top_with_firmw.sv
+//
+// RISCV-VDP-SoC - Phase 5
+// CPU firmware execution + TPU integration observation
+//
+// DUT:
+//     cpu_soc_ram_top
+//
+// Firmware:
+//     firmware.hex
+//
+// IMPORTANT:
+//   This testbench does NOT invent expected TPU results.
+//   It observes:
+//     - CPU native-bus transactions
+//     - RAM transactions
+//     - TPU MMIO transactions
+//     - TPU START/BUSY/DONE
+//     - AXI4-Stream input handshakes
+//     - AXI4-Stream output handshakes
+//     - result register values
+//     - CPU trap
+//
+// Verified DUT hierarchy from current repository:
+//     dut.m_valid
+//     dut.m_write
+//     dut.m_addr
+//     dut.m_wdata
+//     dut.m_strb
+//     dut.m_ready
+//     dut.m_rdata
+//
+//     dut.ram_valid
+//     dut.ram_write
+//     dut.ram_addr
+//     dut.ram_wdata
+//     dut.ram_strb
+//     dut.ram_ready
+//     dut.ram_rdata
+//     dut.ram.mem
+//
+//     dut.tpu
+//       dut.tpu.axis_start
+//       dut.tpu.axis_busy
+//       dut.tpu.axis_done
+//       dut.tpu.in_tvalid
+//       dut.tpu.in_tready
+//       dut.tpu.in_tdata
+//       dut.tpu.in_tlast
+//       dut.tpu.out_tvalid
+//       dut.tpu.out_tready
+//       dut.tpu.out_tdata
+//       dut.tpu.out_tlast
+//       dut.tpu.result0
+//       dut.tpu.result1
+//
+// =============================================================================
+
 module tb_cpu_soc_ram_top;
 
     // =========================================================================
     // PARAMETERS
     // =========================================================================
 
-    localparam integer DATA_WIDTH = 32;
-    localparam integer GPIO_WIDTH = 32;
-    localparam integer RAM_DEPTH  = 16384;
-
-    localparam integer CLK_PERIOD       = 10;
-    localparam integer PIXEL_CLK_PERIOD = 20;
-
     localparam integer TIMEOUT_CYCLES = 1_000_000;
 
+    // Firmware file used by $readmemh.
+    localparam string FIRMWARE_FILE = "firmware.hex";
+
+    // RAM output observation window.
+    //
+    // These are ONLY observation addresses. They are not used to declare an
+    // expected result.
+    //
+    // 0x1220 was the output region used in the Phase-3/firmware flow.
+    // Change these two values if the Phase-5 firmware uses a different RAM
+    // output region.
+    localparam [31:0] RESULT_BASE = 32'h0000_1230;
+    localparam integer RESULT_WORDS = 4;
+
     // =========================================================================
-    // CLOCK AND RESET
+    // TPU SYSTEM ADDRESS MAP
+    //
+    // These are the CPU-visible addresses from cpu_soc_ram_top /
+    // soc_mem_interconnect.
+    // =========================================================================
+
+    localparam [31:0] TPU_BASE = 32'h0001_4000;
+
+    localparam [31:0] TPU_CTRL    = TPU_BASE + 32'h0000;
+    localparam [31:0] TPU_STATUS  = TPU_BASE + 32'h0004;
+
+    localparam [31:0] TPU_WEIGHT0_L = TPU_BASE + 32'h0010;
+    localparam [31:0] TPU_WEIGHT0_H = TPU_BASE + 32'h0014;
+
+    localparam [31:0] TPU_WEIGHT1_L = TPU_BASE + 32'h0018;
+    localparam [31:0] TPU_WEIGHT1_H = TPU_BASE + 32'h001C;
+
+    localparam [31:0] TPU_WEIGHT2_L = TPU_BASE + 32'h0020;
+    localparam [31:0] TPU_WEIGHT2_H = TPU_BASE + 32'h0024;
+
+    localparam [31:0] TPU_WEIGHT3_L = TPU_BASE + 32'h0028;
+    localparam [31:0] TPU_WEIGHT3_H = TPU_BASE + 32'h002C;
+
+    localparam [31:0] TPU_WEIGHT4_L = TPU_BASE + 32'h0030;
+    localparam [31:0] TPU_WEIGHT4_H = TPU_BASE + 32'h0034;
+
+    localparam [31:0] TPU_INPUT0_L  = TPU_BASE + 32'h0038;
+    localparam [31:0] TPU_INPUT0_H  = TPU_BASE + 32'h003C;
+
+    localparam [31:0] TPU_INPUT1_L  = TPU_BASE + 32'h0040;
+    localparam [31:0] TPU_INPUT1_H  = TPU_BASE + 32'h0044;
+
+    localparam [31:0] TPU_RESULT0_L = TPU_BASE + 32'h0050;
+    localparam [31:0] TPU_RESULT0_H = TPU_BASE + 32'h0054;
+
+    localparam [31:0] TPU_RESULT1_L = TPU_BASE + 32'h0058;
+    localparam [31:0] TPU_RESULT1_H = TPU_BASE + 32'h005C;
+
+    // =========================================================================
+    // CLOCK / RESET
     // =========================================================================
 
     reg clk;
-    reg pixel_clk;
     reg resetn;
+    reg pixel_clk;
+
+    initial begin
+        clk = 1'b0;
+        forever #5 clk = ~clk;
+    end
+
+    initial begin
+        pixel_clk = 1'b0;
+        forever #20 pixel_clk = ~pixel_clk;
+    end
 
     // =========================================================================
-    // SENSOR INPUTS
+    // DUT INPUTS
     // =========================================================================
 
     reg [7:0]  battery_percent_i;
@@ -32,29 +147,21 @@ module tb_cpu_soc_ram_top;
     reg [15:0] temperature_tenthsC_i;
     reg        sensor_valid_i;
 
-    // =========================================================================
-    // RF INPUTS
-    // =========================================================================
+    reg [7:0]  rssi_dbm_i;
+    reg        link_up_i;
+    reg        link_error_i;
+    reg        carrier_detect_i;
 
-    reg [7:0] rssi_dbm_i;
-    reg       link_up_i;
-    reg       link_error_i;
-    reg       carrier_detect_i;
-
-    wire rf_enable_o;
+    reg [31:0] gpio_in;
 
     // =========================================================================
-    // GPIO
+    // DUT OUTPUTS
     // =========================================================================
 
-    wire [GPIO_WIDTH-1:0] gpio_out;
-    wire [GPIO_WIDTH-1:0] gpio_oe;
+    wire       rf_enable_o;
 
-    reg  [GPIO_WIDTH-1:0] gpio_in;
-
-    // =========================================================================
-    // VGA / VDP
-    // =========================================================================
+    wire [31:0] gpio_out;
+    wire [31:0] gpio_oe;
 
     wire       hsync_o;
     wire       vsync_o;
@@ -66,345 +173,958 @@ module tb_cpu_soc_ram_top;
     wire [3:0] rgb_g_o;
     wire [3:0] rgb_b_o;
 
-    // =========================================================================
-    // CPU STATUS
-    // =========================================================================
-
     wire trap;
 
     // =========================================================================
     // DUT
     // =========================================================================
 
-    cpu_soc_ram_top #(
-        .ADDR_WIDTH     (32),
-        .DATA_WIDTH     (DATA_WIDTH),
-        .RAM_ADDR_WIDTH (16),
-        .RAM_DEPTH      (RAM_DEPTH),
-        .GPIO_WIDTH     (GPIO_WIDTH)
-    ) dut (
-        .clk                    (clk),
-        .resetn                 (resetn),
+    cpu_soc_ram_top dut (
+        .clk                     (clk),
+        .resetn                  (resetn),
 
-        .battery_percent_i      (battery_percent_i),
-        .battery_voltage_mv_i   (battery_voltage_mv_i),
-        .temperature_tenthsC_i  (temperature_tenthsC_i),
-        .sensor_valid_i         (sensor_valid_i),
+        .battery_percent_i       (battery_percent_i),
+        .battery_voltage_mv_i    (battery_voltage_mv_i),
+        .temperature_tenthsC_i   (temperature_tenthsC_i),
+        .sensor_valid_i          (sensor_valid_i),
 
-        .rssi_dbm_i             (rssi_dbm_i),
-        .link_up_i              (link_up_i),
-        .link_error_i           (link_error_i),
-        .carrier_detect_i       (carrier_detect_i),
+        .rssi_dbm_i              (rssi_dbm_i),
+        .link_up_i               (link_up_i),
+        .link_error_i            (link_error_i),
+        .carrier_detect_i        (carrier_detect_i),
 
-        .rf_enable_o            (rf_enable_o),
+        .rf_enable_o             (rf_enable_o),
 
-        .gpio_out               (gpio_out),
-        .gpio_oe                (gpio_oe),
-        .gpio_in                (gpio_in),
+        .gpio_out                (gpio_out),
+        .gpio_oe                 (gpio_oe),
+        .gpio_in                 (gpio_in),
 
-        .pixel_clk              (pixel_clk),
+        .pixel_clk               (pixel_clk),
 
-        .hsync_o                (hsync_o),
-        .vsync_o                (vsync_o),
+        .hsync_o                 (hsync_o),
+        .vsync_o                 (vsync_o),
 
-        .pixel_x_o              (pixel_x_o),
-        .pixel_y_o              (pixel_y_o),
+        .pixel_x_o               (pixel_x_o),
+        .pixel_y_o               (pixel_y_o),
 
-        .rgb_r_o                (rgb_r_o),
-        .rgb_g_o                (rgb_g_o),
-        .rgb_b_o                (rgb_b_o),
+        .rgb_r_o                 (rgb_r_o),
+        .rgb_g_o                 (rgb_g_o),
+        .rgb_b_o                 (rgb_b_o),
 
-        .trap                   (trap)
+        .trap                     (trap)
     );
 
     // =========================================================================
-    // CLOCK GENERATION
+    // TESTBENCH STATE / COUNTERS
     // =========================================================================
 
-    initial begin
-        clk = 1'b0;
+    integer cycle_count;
 
-        forever #(CLK_PERIOD / 2) clk = ~clk;
-    end
+    integer cpu_write_count;
+    integer cpu_read_count;
 
-    initial begin
-        pixel_clk = 1'b0;
+    integer ram_write_count;
+    integer ram_read_count;
 
-        forever #(PIXEL_CLK_PERIOD / 2)
-            pixel_clk = ~pixel_clk;
-    end
+    integer tpu_write_count;
+    integer tpu_read_count;
+
+    integer tpu_config_write_count;
+
+    integer input_axis_handshake_count;
+    integer output_axis_handshake_count;
+
+    integer input_tlast_count;
+    integer output_tlast_count;
+
+    integer timeout_hit;
+
+    reg start_seen;
+    reg busy_seen;
+    reg done_seen;
+
+    reg trap_seen;
+
+    integer start_cycle;
+    integer done_cycle;
+
+    reg previous_busy;
+    reg previous_done;
+
+    // =========================================================================
+    // RESULT OBSERVATION
+    // =========================================================================
+
+    reg [63:0] observed_result0;
+    reg [63:0] observed_result1;
+
+    reg result0_seen;
+    reg result1_seen;
+
+    // CPU MMIO result-read halves.
+    reg [31:0] result0_low_read;
+    reg [31:0] result0_high_read;
+    reg [31:0] result1_low_read;
+    reg [31:0] result1_high_read;
+
+    reg result0_low_read_seen;
+    reg result0_high_read_seen;
+    reg result1_low_read_seen;
+    reg result1_high_read_seen;
 
     // =========================================================================
     // FIRMWARE LOADING
-    // =========================================================================
     //
-    // The RAM instance in cpu_soc_ram_top.v is named:
-    //
-    //     ram
-    //
-    // The internal memory array inside soc_ram is assumed to be named:
-    //
-    //     mem
-    //
-    // Therefore:
-    //
-    //     dut.ram.mem
-    //
+    // soc_ram.mem is a real memory array in the current RTL.
     // =========================================================================
 
     initial begin
-        $display("====================================================");
-        $display("Loading firmware...");
-        $display("====================================================");
+        $display("");
+        $display("============================================================");
+        $display("PHASE 5 - FIRMWARE / TPU TESTBENCH");
+        $display("============================================================");
+        $display("Loading firmware: %s", FIRMWARE_FILE);
 
-        $readmemh("firmware/firmware.hex", dut.ram.mem);
+        $readmemh(FIRMWARE_FILE, dut.ram.mem);
 
-        $display("Firmware loaded successfully.");
+        $display("Firmware load command completed.");
+        $display("============================================================");
+        $display("");
     end
 
     // =========================================================================
-    // INITIAL INPUT VALUES
+    // INITIALIZATION
     // =========================================================================
 
     initial begin
-        battery_percent_i     = 8'd85;
-        battery_voltage_mv_i  = 16'd12000;
+
+        battery_percent_i     = 8'd80;
+        battery_voltage_mv_i  = 16'd3700;
         temperature_tenthsC_i = 16'd250;
         sensor_valid_i        = 1'b1;
 
-        rssi_dbm_i            = 8'd70;
+        rssi_dbm_i            = 8'd50;
         link_up_i             = 1'b1;
         link_error_i          = 1'b0;
         carrier_detect_i      = 1'b1;
 
-        gpio_in               = 32'h0000_0000;
-    end
+        gpio_in               = 32'd0;
 
-    // =========================================================================
-    // RESET SEQUENCE
-    // =========================================================================
+        resetn                = 1'b0;
 
-    initial begin
-        resetn = 1'b0;
+        cycle_count           = 0;
+
+        cpu_write_count       = 0;
+        cpu_read_count        = 0;
+
+        ram_write_count       = 0;
+        ram_read_count        = 0;
+
+        tpu_write_count       = 0;
+        tpu_read_count        = 0;
+
+        tpu_config_write_count = 0;
+
+        input_axis_handshake_count  = 0;
+        output_axis_handshake_count = 0;
+
+        input_tlast_count  = 0;
+        output_tlast_count = 0;
+
+        timeout_hit = 0;
+
+        start_seen = 1'b0;
+        busy_seen  = 1'b0;
+        done_seen  = 1'b0;
+        trap_seen  = 1'b0;
+
+        start_cycle = -1;
+        done_cycle  = -1;
+
+        previous_busy = 1'b0;
+        previous_done = 1'b0;
+
+        observed_result0 = 64'd0;
+        observed_result1 = 64'd0;
+
+        result0_seen = 1'b0;
+        result1_seen = 1'b0;
+
+        result0_low_read  = 32'd0;
+        result0_high_read = 32'd0;
+        result1_low_read  = 32'd0;
+        result1_high_read = 32'd0;
+
+        result0_low_read_seen  = 1'b0;
+        result0_high_read_seen = 1'b0;
+        result1_low_read_seen  = 1'b0;
+        result1_high_read_seen = 1'b0;
 
         repeat (10) @(posedge clk);
 
         resetn = 1'b1;
 
-        $display("[%0t] Reset released.", $time);
+        $display("[%0t] RESET RELEASED", $time);
+        $display("");
+
     end
 
     // =========================================================================
-    // CPU BUS MONITOR
+    // MAIN CYCLE COUNTER / TRAP / TIMEOUT
     // =========================================================================
 
     always @(posedge clk) begin
-        if (resetn && dut.m_valid && dut.m_ready) begin
 
-            if (dut.m_write) begin
-                $display(
-                    "[%0t] CPU WRITE: addr=%h data=%h strb=%b",
-                    $time,
-                    dut.m_addr,
-                    dut.m_wdata,
-                    dut.m_strb
-                );
-            end
-            else begin
-                $display(
-                    "[%0t] CPU READ : addr=%h",
-                    $time,
-                    dut.m_addr
-                );
+        if (!resetn) begin
+            cycle_count <= 0;
+        end
+        else begin
+
+            cycle_count <= cycle_count + 1;
+
+            if (trap && !trap_seen) begin
+                trap_seen <= 1'b1;
+
+                $display("");
+                $display("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                $display("[%0t] CPU TRAP OBSERVED", $time);
+                $display("cycle = %0d", cycle_count);
+                $display("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                $display("");
             end
 
+            if (cycle_count >= TIMEOUT_CYCLES) begin
+
+                timeout_hit <= 1;
+
+                $display("");
+                $display("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                $display("TIMEOUT");
+                $display("TIMEOUT_CYCLES = %0d", TIMEOUT_CYCLES);
+                $display("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                $display("");
+
+                print_summary();
+                show_output_ram();
+
+                $finish;
+            end
         end
     end
 
     // =========================================================================
-    // TPU / NN MONITOR
-    // =========================================================================
+    // CPU NATIVE BUS MONITOR
     //
-    // TPU is mapped at:
+    // A transaction is considered completed when:
     //
-    //     0x0001_4000 - 0x0001_4FFF
+    //     m_valid && m_ready
     //
-    // The TPU instance is:
-    //
-    //     dut.tpu
-    //
+    // This matches the actual CPU master/interconnect interface.
     // =========================================================================
 
     always @(posedge clk) begin
-        if (resetn && dut.nn_valid && dut.nn_ready) begin
 
-            if (dut.nn_write) begin
-                $display(
-                    "[%0t] TPU WRITE: local_addr=%h data=%h strb=%b",
-                    $time,
-                    dut.nn_addr,
-                    dut.nn_wdata,
-                    dut.nn_strb
-                );
-            end
-            else begin
-                $display(
-                    "[%0t] TPU READ : local_addr=%h data=%h",
-                    $time,
-                    dut.nn_addr,
-                    dut.nn_rdata
-                );
-            end
-
-        end
-    end
-
-    // =========================================================================
-    // TPU RESULT MONITOR
-    // =========================================================================
-
-    always @(posedge clk) begin
         if (resetn) begin
 
-            if ((dut.tpu.result0 !== 64'bx) ||
-                (dut.tpu.result1 !== 64'bx)) begin
+            if (dut.m_valid && dut.m_ready) begin
+
+                if (dut.m_write) begin
+
+                    cpu_write_count = cpu_write_count + 1;
+
+                    $display(
+                        "[%0t][CPU-WRITE] addr=0x%08h data=0x%08h strb=0x%1h",
+                        $time,
+                        dut.m_addr,
+                        dut.m_wdata,
+                        dut.m_strb
+                    );
+
+                    // ---------------------------------------------------------
+                    // TPU MMIO WRITE
+                    // ---------------------------------------------------------
+
+                    if ((dut.m_addr >= TPU_BASE) &&
+                        (dut.m_addr < (TPU_BASE + 32'h1000))) begin
+
+                        tpu_write_count = tpu_write_count + 1;
+
+                        $display(
+                            "    [TPU-MMIO-WRITE] addr=0x%08h local=0x%03h data=0x%08h",
+                            dut.m_addr,
+                            dut.m_addr[11:0],
+                            dut.m_wdata
+                        );
+                                // can be made to 14 to avoid gaps
+                        if ((dut.m_addr >= TPU_WEIGHT0_L) &&
+                            (dut.m_addr <= TPU_INPUT1_H)) begin
+
+                            tpu_config_write_count =
+                                tpu_config_write_count + 1;
+
+                        end
+
+                        if (dut.m_addr == TPU_CTRL) begin
+
+                            if (dut.m_strb[0] && dut.m_wdata[0]) begin
+                                $display(
+                                    "    [TPU-CMD] START write observed; axis_start acceptance depends on TPU busy state."
+                                );
+                            end
+
+                        end
+
+                    end
+
+                    // ---------------------------------------------------------
+                    // RAM OUTPUT REGION OBSERVATION
+                    // ---------------------------------------------------------
+
+                    if ((dut.m_addr >= RESULT_BASE) &&
+                        (dut.m_addr < (RESULT_BASE +
+                                       OUTPUT_WORDS * 4))) begin
+
+                        $display(
+                            "    [RAM-OUTPUT-WRITE] addr=0x%08h data=0x%08h",
+                            dut.m_addr,
+                            dut.m_wdata
+                        );
+
+                    end
+
+                end
+                else begin
+
+                    cpu_read_count = cpu_read_count + 1;
+
+                    $display(
+                        "[%0t][CPU-READ ] addr=0x%08h data=0x%08h",
+                        $time,
+                        dut.m_addr,
+                        dut.m_rdata
+                    );
+
+                    // ---------------------------------------------------------
+                    // TPU MMIO READ
+                    // ---------------------------------------------------------
+
+                    if ((dut.m_addr >= TPU_BASE) &&
+                        (dut.m_addr < (TPU_BASE + 32'h1000))) begin
+
+                        tpu_read_count = tpu_read_count + 1;
+
+                        $display(
+                            "    [TPU-MMIO-READ] addr=0x%08h local=0x%03h data=0x%08h",
+                            dut.m_addr,
+                            dut.m_addr[11:0],
+                            dut.m_rdata
+                        );
+
+                        // STATUS:
+                        // bit 0 = BUSY
+                        // bit 1 = DONE
+                        if (dut.m_addr == TPU_STATUS) begin
+
+                            $display(
+                                "    [TPU-STATUS] BUSY=%0d DONE=%0d",
+                                dut.m_rdata[0],
+                                dut.m_rdata[1]
+                            );
+
+                        end
+
+                        // RESULT0
+                        if (dut.m_addr == TPU_RESULT0_L) begin
+                            result0_low_read = dut.m_rdata;
+                            result0_low_read_seen = 1'b1;
+                        end
+
+                        if (dut.m_addr == TPU_RESULT0_H) begin
+                            result0_high_read = dut.m_rdata;
+                            result0_high_read_seen = 1'b1;
+                        end
+
+                        // RESULT1
+                        if (dut.m_addr == TPU_RESULT1_L) begin
+                            result1_low_read = dut.m_rdata;
+                            result1_low_read_seen = 1'b1;
+                        end
+
+                        if (dut.m_addr == TPU_RESULT1_H) begin
+                            result1_high_read = dut.m_rdata;
+                            result1_high_read_seen = 1'b1;
+                        end
+
+                    end
+
+                    // ---------------------------------------------------------
+                    // RAM OUTPUT REGION OBSERVATION
+                    // ---------------------------------------------------------
+
+                    if ((dut.m_addr >= RESULT_BASE) &&
+                        (dut.m_addr < (RESULT_BASE +
+                                       OUTPUT_WORDS * 4))) begin
+
+                        $display(
+                            "    [RAM-OUTPUT-READ] addr=0x%08h data=0x%08h",
+                            dut.m_addr,
+                            dut.m_rdata
+                        );
+
+                    end
+
+                end
+            end
+        end
+    end
+
+    // =========================================================================
+    // DIRECT RAM INTERFACE MONITOR
+    //
+    // This is useful because it observes the actual RAM-side transaction after
+    // address decoding.
+    // =========================================================================
+
+    always @(posedge clk) begin
+
+        if (resetn) begin
+
+            if (dut.ram_valid && dut.ram_ready) begin
+
+                if (dut.ram_write) begin
+
+                    ram_write_count = ram_write_count + 1;
+
+                    if ((dut.ram_addr >= RESULT_BASE) &&
+                        (dut.ram_addr < (RESULT_BASE +
+                                         OUTPUT_WORDS * 4))) begin
+
+                        $display(
+                            "[%0t][RAM-WRITE] addr=0x%08h data=0x%08h strb=0x%1h",
+                            $time,
+                            dut.ram_addr,
+                            dut.ram_wdata,
+                            dut.ram_strb
+                        );
+
+                    end
+
+                end
+                else begin
+
+                    ram_read_count = ram_read_count + 1;
+
+                    if ((dut.ram_addr >= RESULT_BASE) &&
+                        (dut.ram_addr < (RESULT_BASE +
+                                         OUTPUT_WORDS * 4))) begin
+
+                        $display(
+                            "[%0t][RAM-READ ] addr=0x%08h data=0x%08h",
+                            $time,
+                            dut.ram_addr,
+                            dut.ram_rdata
+                        );
+
+                    end
+
+                end
+            end
+        end
+    end
+
+    // =========================================================================
+    // TPU STATUS MONITOR
+    //
+    // Directly observes the verified TPU internal signals.
+    // =========================================================================
+
+    always @(posedge clk) begin
+
+        if (resetn) begin
+
+            // ---------------------------------------------------------
+            // START
+            // ---------------------------------------------------------
+
+            if (dut.tpu.axis_start) begin
+
+                if (!start_seen) begin
+
+                    start_seen  = 1'b1;
+                    start_cycle = cycle_count;
+
+                    $display("");
+                    $display(
+                        "[%0t][TPU] AXIS START asserted at cycle %0d",
+                        $time,
+                        cycle_count
+                    );
+                    $display("");
+
+                end
+
+            end
+
+            // ---------------------------------------------------------
+            // BUSY rising edge
+            // ---------------------------------------------------------
+
+            if (dut.tpu.axis_busy && !previous_busy) begin
+
+                busy_seen = 1'b1;
 
                 $display(
-                    "[%0t] TPU RESULT: result0=%h result1=%h",
+                    "[%0t][TPU] BUSY asserted at cycle %0d",
                     $time,
-                    dut.tpu.result0,
+                    cycle_count
+                );
+
+            end
+
+            // ---------------------------------------------------------
+            // DONE rising edge
+            // ---------------------------------------------------------
+
+            if (dut.tpu.axis_done && !previous_done) begin
+
+                done_seen  = 1'b1;
+                done_cycle = cycle_count;
+
+                $display("");
+                $display(
+                    "[%0t][TPU] DONE asserted at cycle %0d",
+                    $time,
+                    cycle_count
+                );
+
+                if (start_seen) begin
+                    $display(
+                        "[TPU] Observed START-to-DONE cycles = %0d",
+                        done_cycle - start_cycle
+                    );
+                end
+
+                $display("");
+
+            end
+
+            previous_busy = dut.tpu.axis_busy;
+            previous_done = dut.tpu.axis_done;
+
+        end
+
+    end
+
+    // =========================================================================
+    // AXI4-STREAM INPUT MONITOR
+    //
+    // A beat is transferred only when:
+    //
+    //     in_tvalid && in_tready
+    //
+    // TLAST is reported only on an actual transferred beat.
+    // =========================================================================
+
+    always @(posedge clk) begin
+
+        if (resetn) begin
+
+            if (dut.tpu.in_tvalid && dut.tpu.in_tready) begin
+
+                input_axis_handshake_count =
+                    input_axis_handshake_count + 1;
+
+                $display(
+                    "[%0t][AXIS-IN ] beat=%0d data=0x%016h tlast=%0d",
+                    $time,
+                    input_axis_handshake_count,
+                    dut.tpu.in_tdata,
+                    dut.tpu.in_tlast
+                );
+
+                if (dut.tpu.in_tlast) begin
+
+                    input_tlast_count = input_tlast_count + 1;
+
+                    $display(
+                        "    [AXIS-IN ] TLAST transferred."
+                    );
+
+                end
+
+            end
+
+        end
+
+    end
+
+    // =========================================================================
+    // AXI4-STREAM OUTPUT MONITOR
+    //
+    // A beat is transferred only when:
+    //
+    //     out_tvalid && out_tready
+    // =========================================================================
+
+    always @(posedge clk) begin
+
+        if (resetn) begin
+
+            if (dut.tpu.out_tvalid && dut.tpu.out_tready) begin
+
+                output_axis_handshake_count =
+                    output_axis_handshake_count + 1;
+
+                $display(
+                    "[%0t][AXIS-OUT] beat=%0d data=0x%016h tlast=%0d",
+                    $time,
+                    output_axis_handshake_count,
+                    dut.tpu.out_tdata,
+                    dut.tpu.out_tlast
+                );
+
+                if (dut.tpu.out_tlast) begin
+
+                    output_tlast_count = output_tlast_count + 1;
+
+                    $display(
+                        "    [AXIS-OUT] TLAST transferred."
+                    );
+
+                end
+
+            end
+
+        end
+
+    end
+
+    // =========================================================================
+    // DIRECT TPU RESULT OBSERVATION
+    //
+    // These are the actual result signals exported by tpu_axis_top.
+    // No expected value is assumed.
+    // =========================================================================
+
+    always @(posedge clk) begin
+
+        if (resetn) begin
+
+            if (dut.tpu.result0 !== observed_result0) begin
+
+                observed_result0 = dut.tpu.result0;
+                result0_seen     = 1'b1;
+
+                $display(
+                    "[%0t][TPU-RESULT0] observed = 0x%016h",
+                    $time,
+                    dut.tpu.result0
+                );
+
+            end
+
+            if (dut.tpu.result1 !== observed_result1) begin
+
+                observed_result1 = dut.tpu.result1;
+                result1_seen     = 1'b1;
+
+                $display(
+                    "[%0t][TPU-RESULT1] observed = 0x%016h",
+                    $time,
                     dut.tpu.result1
                 );
 
             end
 
         end
+
     end
 
     // =========================================================================
-    // GPIO MONITOR
+    // OUTPUT RAM DUMP
+    //
+    // This reads the actual simulation memory array.
+    // It does NOT compare against an invented expected value.
     // =========================================================================
 
-    always @(posedge clk) begin
-        if (resetn) begin
-            if (gpio_out !== 32'b0) begin
-                $display(
-                    "[%0t] GPIO OUT=%h GPIO OE=%h",
-                    $time,
-                    gpio_out,
-                    gpio_oe
-                );
-            end
-        end
-    end
-
-    // =========================================================================
-    // RF MONITOR
-    // =========================================================================
-
-    always @(posedge clk) begin
-        if (resetn) begin
-            if (rf_enable_o !== 1'b0) begin
-                $display(
-                    "[%0t] RF ENABLE=%b",
-                    $time,
-                    rf_enable_o
-                );
-            end
-        end
-    end
-
-    // =========================================================================
-    // TRAP DETECTION
-    // =========================================================================
-
-    always @(posedge clk) begin
-        if (trap === 1'b1) begin
-            $display("====================================================");
-            $display("[%0t] CPU TRAP DETECTED", $time);
-            $display("====================================================");
-
-            scan_ram_markers();
-
-            $finish;
-        end
-    end
-
-    // =========================================================================
-    // RAM MARKER SCAN
-    // =========================================================================
-
-    task scan_ram_markers;
+    task show_output_ram;
 
         integer i;
+        integer word_index;
 
         begin
-            $display("====================================================");
-            $display("Scanning RAM for firmware markers...");
-            $display("====================================================");
 
-            for (i = 0; i < RAM_DEPTH; i = i + 1) begin
+            $display("");
+            $display("============================================================");
+            $display("RAM OUTPUT OBSERVATION");
+            $display("Base address = 0x%08h", RESULT_BASE);
+            $display("Words        = %0d", OUTPUT_WORDS);
+            $display("============================================================");
 
-                if (dut.ram.mem[i] == 32'h1111_1111) begin
-                    $display(
-                        "RAM marker 0x11111111 found at word index %0d",
-                        i
-                    );
-                end
+            for (i = 0; i < OUTPUT_WORDS; i = i + 1) begin
 
-                if (dut.ram.mem[i] == 32'h2222_2222) begin
-                    $display(
-                        "RAM marker 0x22222222 found at word index %0d",
-                        i
-                    );
-                end
+                word_index = (RESULT_BASE >> 2) + i;
 
-                if (dut.ram.mem[i] == 32'h3333_3333) begin
-                    $display(
-                        "RAM marker 0x33333333 found at word index %0d",
-                        i
-                    );
-                end
-
-                if (dut.ram.mem[i] == 32'hDEAD_0001) begin
-                    $display(
-                        "RAM ERROR marker 0xDEAD0001 found at word index %0d",
-                        i
-                    );
-                end
+                $display(
+                    "RAM[%0d] addr=0x%08h data=0x%08h",
+                    word_index,
+                    RESULT_BASE + (i * 4),
+                    dut.ram.mem[word_index]
+                );
 
             end
 
-            $display("RAM marker scan completed.");
+            $display("============================================================");
+            $display("");
+
         end
 
     endtask
 
     // =========================================================================
-    // TIMEOUT
+    // TPU REGISTER SUMMARY
+    //
+    // Reads the internal register values directly for debugging.
+    // These are observations, not expected-value checks.
     // =========================================================================
 
-    initial begin
+    task show_tpu_registers;
 
-        repeat (TIMEOUT_CYCLES) @(posedge clk);
+        begin
 
-        $display("====================================================");
-        $display("[%0t] TESTBENCH TIMEOUT", $time);
-        $display("====================================================");
+            $display("");
+            $display("============================================================");
+            $display("TPU INTERNAL REGISTER OBSERVATION");
+            $display("============================================================");
 
-        scan_ram_markers();
+            $display(
+                "weight0 = 0x%016h",
+                dut.tpu.u_nn_axi_wrapper.weight0
+            );
 
-        $finish;
+            $display(
+                "weight1 = 0x%016h",
+                dut.tpu.u_nn_axi_wrapper.weight1
+            );
+
+            $display(
+                "weight2 = 0x%016h",
+                dut.tpu.u_nn_axi_wrapper.weight2
+            );
+
+            $display(
+                "weight3 = 0x%016h",
+                dut.tpu.u_nn_axi_wrapper.weight3
+            );
+
+            $display(
+                "weight4 = 0x%016h",
+                dut.tpu.u_nn_axi_wrapper.weight4
+            );
+
+            $display(
+                "input0  = 0x%016h",
+                dut.tpu.u_nn_axi_wrapper.input0
+            );
+
+            $display(
+                "input1  = 0x%016h",
+                dut.tpu.u_nn_axi_wrapper.input1
+            );
+
+            $display(
+                "axis_busy = %0d",
+                dut.tpu.axis_busy
+            );
+
+            $display(
+                "axis_done = %0d",
+                dut.tpu.axis_done
+            );
+
+            $display(
+                "result0 = 0x%016h",
+                dut.tpu.result0
+            );
+
+            $display(
+                "result1 = 0x%016h",
+                dut.tpu.result1
+            );
+
+            $display("============================================================");
+            $display("");
+
+        end
+
+    endtask
+
+    // =========================================================================
+    // FINAL SUMMARY
+    // =========================================================================
+
+    task print_summary;
+
+        begin
+
+            $display("");
+            $display("################################################################");
+            $display("                    PHASE 5 SUMMARY");
+            $display("################################################################");
+
+            $display("");
+            $display("CPU");
+            $display("  CPU writes             : %0d", cpu_write_count);
+            $display("  CPU reads              : %0d", cpu_read_count);
+            $display("  Trap observed          : %0d", trap_seen);
+
+            $display("");
+            $display("RAM");
+            $display("  RAM writes             : %0d", ram_write_count);
+            $display("  RAM reads              : %0d", ram_read_count);
+
+            $display("");
+            $display("TPU MMIO");
+            $display("  TPU writes             : %0d", tpu_write_count);
+            $display("  TPU reads              : %0d", tpu_read_count);
+            $display("  TPU configuration writes: %0d",
+                     tpu_config_write_count);
+
+            $display("");
+            $display("TPU CONTROL / STATUS");
+            $display("  START observed         : %0d", start_seen);
+            $display("  BUSY observed          : %0d", busy_seen);
+            $display("  DONE observed          : %0d", done_seen);
+
+            if (start_seen)
+                $display("  START cycle            : %0d", start_cycle);
+
+            if (done_seen)
+                $display("  DONE cycle             : %0d", done_cycle);
+
+            if (start_seen && done_seen)
+                $display(
+                    "  START -> DONE cycles   : %0d",
+                    done_cycle - start_cycle
+                );
+
+            $display("");
+            $display("AXI4-STREAM INPUT");
+            $display("  Transferred beats      : %0d",
+                     input_axis_handshake_count);
+            $display("  Transferred TLAST      : %0d",
+                     input_tlast_count);
+
+            $display("");
+            $display("AXI4-STREAM OUTPUT");
+            $display("  Transferred beats      : %0d",
+                     output_axis_handshake_count);
+            $display("  Transferred TLAST      : %0d",
+                     output_tlast_count);
+
+            $display("");
+            $display("TPU RESULTS");
+            $display("  result0 observed       : %0d", result0_seen);
+            $display("  result1 observed       : %0d", result1_seen);
+            $display("  result0                : 0x%016h",
+                     dut.tpu.result0);
+            $display("  result1                : 0x%016h",
+                     dut.tpu.result1);
+
+            $display("");
+            $display("CPU READBACK OF RESULTS");
+
+            if (result0_low_read_seen &&
+                result0_high_read_seen) begin
+
+                $display(
+                    "  result0 readback       : 0x%016h",
+                    {result0_high_read, result0_low_read}
+                );
+
+            end
+            else begin
+
+                $display(
+                    "  result0 readback       : not completely observed"
+                );
+
+            end
+
+            if (result1_low_read_seen &&
+                result1_high_read_seen) begin
+
+                $display(
+                    "  result1 readback       : 0x%016h",
+                    {result1_high_read, result1_low_read}
+                );
+
+            end
+            else begin
+
+                $display(
+                    "  result1 readback       : not completely observed"
+                );
+
+            end
+
+            $display("");
+            $display("TIMEOUT");
+            $display("  Timeout hit            : %0d", timeout_hit);
+
+            $display("");
+            $display("################################################################");
+            $display("");
+
+        end
+
+    endtask
+
+    // =========================================================================
+    // END CONDITION
+    //
+    // We do not assume that DONE means the firmware has finished its entire
+    // software flow. Therefore we do NOT automatically finish on TPU DONE.
+    //
+    // The simulation ends on:
+    //   1. CPU trap, or
+    //   2. timeout.
+    //
+    // After trap, give the firmware a few cycles to settle, dump observations,
+    // then finish.
+    // =========================================================================
+
+    always @(posedge clk) begin
+
+        if (resetn && trap && !trap_seen) begin
+
+            fork
+                begin
+                    repeat (10) @(posedge clk);
+
+                    show_tpu_registers();
+                    show_output_ram();
+                    print_summary();
+
+                    $display("PHASE 5 SIMULATION FINISHED AFTER CPU TRAP.");
+                    $finish;
+                end
+            join_none
+
+        end
 
     end
 
     // =========================================================================
-    // WAVEFORM DUMP
+    // VCD
     // =========================================================================
 
     initial begin
-        $dumpfile("cpu_soc_ram_top.vcd");
+
+        $dumpfile("phase5_soc_tpu.vcd");
+
         $dumpvars(0, tb_cpu_soc_ram_top);
+
     end
 
 endmodule

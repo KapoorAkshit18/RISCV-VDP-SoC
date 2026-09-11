@@ -1,4 +1,22 @@
+# Simulation & Compilation Artifacts
+transcript
+*.wlf
+wlft*
+*.vcd
+work/
+build/
+
+# Vivado generated logs & temporary files
+*.jou
+*.log
+.Xil/
+ci/vivado/reports/*.dcp
+
+# Phase specific
 RISCV-VDP-SoC/phases/phase_3/integration/transcript
 RISCV-VDP-SoC/phases/phase_3/integration/vsim.wlf
 RISCV-VDP-SoC/phases/phase_3/integration/wlft*
 RISCV-VDP-SoC/phases/phase_3/integration/work/
+RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/work/
+RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/transcript
+RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/vsim.wlf

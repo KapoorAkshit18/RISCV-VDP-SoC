@@ -77,4 +77,3 @@ RTL/cpu_soc_ram_top.v
 
 tb_soc_ram_top_no_firmw.sv
 tb_soc_ram_top_with_firmw.sv
-tb_soc_ram_top.sv

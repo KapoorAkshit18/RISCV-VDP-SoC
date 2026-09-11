@@ -1,0 +1,107 @@
+name: RISCV-VDP-SoC CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      run_synthesis:
+        description: 'Run Vivado Local Synthesis'
+        required: true
+        type: boolean
+        default: true
+      top_module:
+        description: 'Top Module for Synthesis'
+        required: false
+        type: string
+        default: 'cpu_soc_ram_top'
+      target_part:
+        description: 'FPGA Part Number'
+        required: false
+        type: string
+        default: 'xc7z020clg484-1'
+
+jobs:
+  # =========================================================================
+  # Stage 1: QuestaSim Lint & Syntax Check
+  # =========================================================================
+  questasim_lint:
+    name: "QuestaSim Lint Check"
+    runs-on: [ self-hosted, windows ]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run QuestaSim Lint & Compilation
+        run: |
+          bash ./ci/scripts/run_questasim_lint.sh
+
+      - name: Upload Lint Log Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: questasim-lint-log
+          path: build/questasim_lint/lint.log
+          if-no-files-found: ignore
+
+  # =========================================================================
+  # Stage 2: QuestaSim Top Testbench Simulation
+  # =========================================================================
+  questasim_top_sim:
+    name: "QuestaSim Top Simulation"
+    needs: questasim_lint
+    runs-on: [ self-hosted, windows ]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Top Testbench Simulation
+        run: |
+          bash ./ci/scripts/run_questasim_sim.sh
+
+      - name: Upload Simulation Log Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: questasim-simulation-log
+          path: build/questasim_sim/simulation.log
+          if-no-files-found: ignore
+
+  # =========================================================================
+  # Stage 3: Local Vivado FPGA Synthesis
+  # =========================================================================
+  vivado_local_synthesis:
+    name: "Local Vivado Synthesis"
+    needs: questasim_lint
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.run_synthesis }}
+    runs-on: [ self-hosted, windows ]
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Local Vivado Batch Synthesis
+        env:
+          VIVADO_TOP_MODULE: ${{ inputs.top_module || 'cpu_soc_ram_top' }}
+          VIVADO_PART: ${{ inputs.target_part || 'xc7z020clg484-1' }}
+        run: |
+          bash ./ci/scripts/run_vivado_synth.sh
+
+      - name: Upload Vivado Synthesis Reports & Checkpoints
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vivado-synthesis-artifacts
+          path: ci/vivado/reports/
+          if-no-files-found: ignore
+

@@ -6,14 +6,12 @@ module tb_cpu_soc_ram_top;
     // PARAMETERS
     // =========================================================================
 
-    localparam integer DATA_WIDTH = 32;
-    localparam integer GPIO_WIDTH = 32;
-    localparam integer RAM_DEPTH  = 16384;
-
+    localparam integer DATA_WIDTH       = 32;
+    localparam integer GPIO_WIDTH       = 32;
+    localparam integer RAM_DEPTH        = 16384;
     localparam integer CLK_PERIOD       = 10;
     localparam integer PIXEL_CLK_PERIOD = 20;
-
-    localparam integer TIMEOUT_CYCLES = 1_000_000;
+    localparam integer TIMEOUT_CYCLES   = 1_000_000;
 
     // =========================================================================
     // CLOCK AND RESET
@@ -47,10 +45,9 @@ module tb_cpu_soc_ram_top;
     // GPIO
     // =========================================================================
 
+    reg  [GPIO_WIDTH-1:0] gpio_in;
     wire [GPIO_WIDTH-1:0] gpio_out;
     wire [GPIO_WIDTH-1:0] gpio_oe;
-
-    reg  [GPIO_WIDTH-1:0] gpio_in;
 
     // =========================================================================
     // VGA / VDP
@@ -58,13 +55,11 @@ module tb_cpu_soc_ram_top;
 
     wire       hsync_o;
     wire       vsync_o;
-
     wire [11:0] pixel_x_o;
     wire [11:0] pixel_y_o;
-
-    wire [3:0] rgb_r_o;
-    wire [3:0] rgb_g_o;
-    wire [3:0] rgb_b_o;
+    wire [3:0]  rgb_r_o;
+    wire [3:0]  rgb_g_o;
+    wire [3:0]  rgb_b_o;
 
     // =========================================================================
     // CPU STATUS
@@ -83,38 +78,35 @@ module tb_cpu_soc_ram_top;
         .RAM_DEPTH      (RAM_DEPTH),
         .GPIO_WIDTH     (GPIO_WIDTH)
     ) dut (
-        .clk                    (clk),
-        .resetn                 (resetn),
+        .clk                  (clk),
+        .resetn               (resetn),
 
-        .battery_percent_i      (battery_percent_i),
-        .battery_voltage_mv_i   (battery_voltage_mv_i),
-        .temperature_tenthsC_i  (temperature_tenthsC_i),
-        .sensor_valid_i         (sensor_valid_i),
+        .battery_percent_i    (battery_percent_i),
+        .battery_voltage_mv_i (battery_voltage_mv_i),
+        .temperature_tenthsC_i(temperature_tenthsC_i),
+        .sensor_valid_i       (sensor_valid_i),
 
-        .rssi_dbm_i             (rssi_dbm_i),
-        .link_up_i              (link_up_i),
-        .link_error_i           (link_error_i),
-        .carrier_detect_i       (carrier_detect_i),
+        .rssi_dbm_i           (rssi_dbm_i),
+        .link_up_i            (link_up_i),
+        .link_error_i         (link_error_i),
+        .carrier_detect_i     (carrier_detect_i),
 
-        .rf_enable_o            (rf_enable_o),
+        .rf_enable_o          (rf_enable_o),
 
-        .gpio_out               (gpio_out),
-        .gpio_oe                (gpio_oe),
-        .gpio_in                (gpio_in),
+        .gpio_out             (gpio_out),
+        .gpio_oe              (gpio_oe),
+        .gpio_in              (gpio_in),
 
-        .pixel_clk              (pixel_clk),
+        .pixel_clk            (pixel_clk),
+        .hsync_o              (hsync_o),
+        .vsync_o              (vsync_o),
+        .pixel_x_o            (pixel_x_o),
+        .pixel_y_o            (pixel_y_o),
+        .rgb_r_o              (rgb_r_o),
+        .rgb_g_o              (rgb_g_o),
+        .rgb_b_o              (rgb_b_o),
 
-        .hsync_o                (hsync_o),
-        .vsync_o                (vsync_o),
-
-        .pixel_x_o              (pixel_x_o),
-        .pixel_y_o              (pixel_y_o),
-
-        .rgb_r_o                (rgb_r_o),
-        .rgb_g_o                (rgb_g_o),
-        .rgb_b_o                (rgb_b_o),
-
-        .trap                   (trap)
+        .trap                 (trap)
     );
 
     // =========================================================================
@@ -124,7 +116,8 @@ module tb_cpu_soc_ram_top;
     initial begin
         clk = 1'b0;
 
-        forever #(CLK_PERIOD / 2) clk = ~clk;
+        forever #(CLK_PERIOD / 2)
+            clk = ~clk;
     end
 
     initial begin
@@ -138,13 +131,11 @@ module tb_cpu_soc_ram_top;
     // FIRMWARE LOADING
     // =========================================================================
     //
-    // The RAM instance in cpu_soc_ram_top.v is named:
+    // Assumed hierarchy:
     //
-    //     ram
-    //
-    // The internal memory array inside soc_ram is assumed to be named:
-    //
-    //     mem
+    // cpu_soc_ram_top
+    //     └── ram
+    //          └── mem
     //
     // Therefore:
     //
@@ -157,9 +148,10 @@ module tb_cpu_soc_ram_top;
         $display("Loading firmware...");
         $display("====================================================");
 
-        $readmemh("firmware/firmware.hex", dut.ram.mem);
+        $readmemh("firmware.hex", dut.ram.mem);
 
-        $display("Firmware loaded successfully.");
+        $display("Firmware loading completed.");
+        $display("");
     end
 
     // =========================================================================
@@ -167,17 +159,17 @@ module tb_cpu_soc_ram_top;
     // =========================================================================
 
     initial begin
-        battery_percent_i     = 8'd85;
-        battery_voltage_mv_i  = 16'd12000;
-        temperature_tenthsC_i = 16'd250;
-        sensor_valid_i        = 1'b1;
+        battery_percent_i      = 8'd85;
+        battery_voltage_mv_i   = 16'd12000;
+        temperature_tenthsC_i  = 16'd250;
+        sensor_valid_i         = 1'b1;
 
-        rssi_dbm_i            = 8'd70;
-        link_up_i             = 1'b1;
-        link_error_i          = 1'b0;
-        carrier_detect_i      = 1'b1;
+        rssi_dbm_i             = 8'd70;
+        link_up_i              = 1'b1;
+        link_error_i           = 1'b0;
+        carrier_detect_i       = 1'b1;
 
-        gpio_in               = 32'h0000_0000;
+        gpio_in                = 32'h0000_0000;
     end
 
     // =========================================================================
@@ -187,15 +179,29 @@ module tb_cpu_soc_ram_top;
     initial begin
         resetn = 1'b0;
 
-        repeat (10) @(posedge clk);
+        repeat (10)
+            @(posedge clk);
 
         resetn = 1'b1;
 
         $display("[%0t] Reset released.", $time);
+        $display("");
     end
 
     // =========================================================================
     // CPU BUS MONITOR
+    // =========================================================================
+    //
+    // These signals must actually exist inside cpu_soc_ram_top:
+    //
+    //     dut.m_valid
+    //     dut.m_ready
+    //     dut.m_write
+    //     dut.m_addr
+    //     dut.m_wdata
+    //     dut.m_strb
+    //
+    // If your RTL uses different names, remove or rename this monitor.
     // =========================================================================
 
     always @(posedge clk) begin
@@ -210,72 +216,14 @@ module tb_cpu_soc_ram_top;
                     dut.m_strb
                 );
             end
+
             else begin
                 $display(
-                    "[%0t] CPU READ : addr=%h",
+                    "[%0t] CPU READ : addr=%h rdata=%h",
                     $time,
-                    dut.m_addr
+                    dut.m_addr,
+                    dut.m_rdata
                 );
-            end
-
-        end
-    end
-
-    // =========================================================================
-    // TPU / NN MONITOR
-    // =========================================================================
-    //
-    // TPU is mapped at:
-    //
-    //     0x0001_4000 - 0x0001_4FFF
-    //
-    // The TPU instance is:
-    //
-    //     dut.tpu
-    //
-    // =========================================================================
-
-    always @(posedge clk) begin
-        if (resetn && dut.nn_valid && dut.nn_ready) begin
-
-            if (dut.nn_write) begin
-                $display(
-                    "[%0t] TPU WRITE: local_addr=%h data=%h strb=%b",
-                    $time,
-                    dut.nn_addr,
-                    dut.nn_wdata,
-                    dut.nn_strb
-                );
-            end
-            else begin
-                $display(
-                    "[%0t] TPU READ : local_addr=%h data=%h",
-                    $time,
-                    dut.nn_addr,
-                    dut.nn_rdata
-                );
-            end
-
-        end
-    end
-
-    // =========================================================================
-    // TPU RESULT MONITOR
-    // =========================================================================
-
-    always @(posedge clk) begin
-        if (resetn) begin
-
-            if ((dut.tpu.result0 !== 64'bx) ||
-                (dut.tpu.result1 !== 64'bx)) begin
-
-                $display(
-                    "[%0t] TPU RESULT: result0=%h result1=%h",
-                    $time,
-                    dut.tpu.result0,
-                    dut.tpu.result1
-                );
-
             end
 
         end
@@ -287,7 +235,7 @@ module tb_cpu_soc_ram_top;
 
     always @(posedge clk) begin
         if (resetn) begin
-            if (gpio_out !== 32'b0) begin
+            if (gpio_out !== 32'h0000_0000) begin
                 $display(
                     "[%0t] GPIO OUT=%h GPIO OE=%h",
                     $time,
@@ -315,11 +263,34 @@ module tb_cpu_soc_ram_top;
     end
 
     // =========================================================================
+    // VGA MONITOR
+    // =========================================================================
+
+    always @(posedge pixel_clk) begin
+        if (resetn) begin
+            if (hsync_o || vsync_o) begin
+                $display(
+                    "[%0t] VGA: x=%0d y=%0d RGB=%h%h%h HS=%b VS=%b",
+                    $time,
+                    pixel_x_o,
+                    pixel_y_o,
+                    rgb_r_o,
+                    rgb_g_o,
+                    rgb_b_o,
+                    hsync_o,
+                    vsync_o
+                );
+            end
+        end
+    end
+
+    // =========================================================================
     // TRAP DETECTION
     // =========================================================================
 
     always @(posedge clk) begin
-        if (trap === 1'b1) begin
+        if (resetn && trap === 1'b1) begin
+
             $display("====================================================");
             $display("[%0t] CPU TRAP DETECTED", $time);
             $display("====================================================");
@@ -376,6 +347,8 @@ module tb_cpu_soc_ram_top;
             end
 
             $display("RAM marker scan completed.");
+            $display("");
+
         end
 
     endtask
@@ -386,7 +359,8 @@ module tb_cpu_soc_ram_top;
 
     initial begin
 
-        repeat (TIMEOUT_CYCLES) @(posedge clk);
+        repeat (TIMEOUT_CYCLES)
+            @(posedge clk);
 
         $display("====================================================");
         $display("[%0t] TESTBENCH TIMEOUT", $time);

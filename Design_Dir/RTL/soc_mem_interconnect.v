@@ -13,7 +13,8 @@
 //   0x0001_1000 - 0x0001_1FFF : RF
 //   0x0001_2000 - 0x0001_2FFF : Sensor
 //   0x0001_3000 - 0x0001_3FFF : VDP
-//
+//   0x0001_4000 - 0x0001_4FFF : TPU
+// 
 // All peripheral windows are 4 KB.
 //
 // System/master address:
@@ -135,7 +136,20 @@ module soc_mem_interconnect #(
     output reg  [DATA_WIDTH/8-1:0]  vdp_strb,
 
     input  wire                     vdp_ready,
-    input wire  [DATA_WIDTH-1:0]    vdp_rdata
+    input wire  [DATA_WIDTH-1:0]    vdp_rdata,
+        // =========================================================================
+    // NN / TPU native slave
+    //
+    // 4-KB local address space.
+    // =========================================================================
+    output reg                      nn_valid,
+    output reg                      nn_write,
+    output reg  [11:0]              nn_addr,
+    output reg  [DATA_WIDTH-1:0]    nn_wdata,
+    output reg  [DATA_WIDTH/8-1:0]  nn_strb,
+
+    input  wire                     nn_ready,
+    input wire  [DATA_WIDTH-1:0]    nn_rdata
 
 );
 
@@ -170,6 +184,10 @@ module soc_mem_interconnect #(
     // 4-KB VDP window
     localparam [ADDR_WIDTH-1:0] VDP_BASE =
                                       32'h0001_3000;
+    
+    // 4-KB NN window
+    localparam [ADDR_WIDTH-1:0] NN_BASE =
+                                      32'h0001_4000;
 
 
     // All peripheral windows are 4 KB.
@@ -186,7 +204,7 @@ module soc_mem_interconnect #(
     wire rf_sel;
     wire sensor_sel;
     wire vdp_sel;
-
+    wire nn_sel;
 
     assign ram_sel =
         ((m_addr & RAM_MASK) == RAM_BASE);
@@ -207,6 +225,9 @@ module soc_mem_interconnect #(
     assign vdp_sel =
         ((m_addr & PERIPH_MASK) == VDP_BASE);
 
+
+    assign nn_sel =
+        ((m_addr & PERIPH_MASK) == NN_BASE);
 
     // =========================================================================
     // Combinational routing
@@ -276,6 +297,15 @@ module soc_mem_interconnect #(
         vdp_wdata = {DATA_WIDTH{1'b0}};
         vdp_strb  = {(DATA_WIDTH/8){1'b0}};
 
+        // ---------------------------------------------------------------------
+        // NN defaults
+        // ---------------------------------------------------------------------
+
+        nn_valid = 1'b0;
+        nn_write = 1'b0;
+        nn_addr  = 12'h000;
+        nn_wdata = {DATA_WIDTH{1'b0}};
+        nn_strb  = {(DATA_WIDTH/8){1'b0}};
 
         // =====================================================================
         // Address decode and routing
@@ -383,6 +413,25 @@ module soc_mem_interconnect #(
             end
 
 
+            // -----------------------------------------------------------------
+            // NN
+            // -----------------------------------------------------------------
+
+            else if (nn_sel) begin
+
+                nn_valid = 1'b1;
+                nn_write = m_write;
+
+                // Convert system address into 12-bit NN-local address.
+                nn_addr  = m_addr[11:0];
+
+                nn_wdata = m_wdata;
+                nn_strb  = m_strb;
+
+                m_ready  = nn_ready;
+                m_rdata  = nn_rdata;
+
+            end
             // -----------------------------------------------------------------
             // Unmapped address
             //

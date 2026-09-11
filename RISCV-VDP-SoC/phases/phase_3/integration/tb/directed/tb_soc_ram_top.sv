@@ -705,6 +705,35 @@ cpu_soc_ram_top #(
 
         end
 
+        // output array
+
+
+        $display("");
+        $display("==============================================");
+        $display("SIMULATION TIMEOUT / FINAL RAM CHECK");
+        $display("==============================================");
+
+        $display("");
+        $display("OUTPUT ARRAY:");
+        $display("");
+
+        for (i = 0; i < 32; i = i + 1) begin
+
+            $display(
+                "output[%0d] : mem[%0d] = %08h   expected = %08h",
+                i,
+                1160 + i,
+                dut.ram.mem[1160 + i],
+                (i + 1) * 273
+            );
+
+        end
+
+        $display("");
+        $display("==============================================");
+
+        $stop;
+
 
         $finish;
 

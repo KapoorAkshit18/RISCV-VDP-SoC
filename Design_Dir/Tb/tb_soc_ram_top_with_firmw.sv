@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-
+// `include "firmware.hex"
 // =============================================================================
 // RISCV-VDP-SoC - PHASE 5 COMPLETE TESTBENCH
 //
@@ -315,7 +315,7 @@ module tb_cpu_soc_ram_top;
         $display("");
         $display("============================================================");
         $display("PHASE 5 TESTBENCH START");
-        $display("Loading firmware: %s", FIRMWARE_FILE);
+        $display("Loading firmware: %s", firmware.hex);
         $display("============================================================");
 
         $readmemh("firmware.hex", dut.ram.mem);

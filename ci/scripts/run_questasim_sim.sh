@@ -76,7 +76,7 @@ RTL_FILES=(
 )
 
 TB_FILES=(
-    "${SIM_TB_FILE:-$ROOT_DIR/Design_Dir/Tb/tb_soc_ram_top.sv}"
+    "${SIM_TB_FILE:-$ROOT_DIR/Design_Dir/Tb/tb_soc_ram_top_with_firmw.sv}"
 )
 
 # Include Vivado XPM libraries if available for XPM macros (e.g. tdpram, axis fifo)

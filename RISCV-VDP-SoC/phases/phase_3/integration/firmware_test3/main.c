@@ -204,10 +204,10 @@ static void p3_run_reference(int16_t hidden[4], int16_t result[4])
 
 int main(void)
 {
-    volatile int16_t *sig_mem =
-        (volatile int16_t *)(uintptr_t)P3_SIG_BASE;
-    volatile int16_t *result_mem =
-        (volatile int16_t *)(uintptr_t)P3_RESULT_BASE;
+    volatile uint32_t *sig_mem =
+        (volatile uint32_t *)(uintptr_t)P3_SIG_BASE;
+    volatile uint32_t *result_mem =
+        (volatile uint32_t *)(uintptr_t)P3_RESULT_BASE;
 
     int16_t hidden[4];
     int16_t result[4];
@@ -237,11 +237,11 @@ int main(void)
     P3_U32(P3_CYCLES_LO_ADDR) = (uint32_t)cycles;
     P3_U32(P3_CYCLES_HI_ADDR) = (uint32_t)(cycles >> 32);
 
-    for (i = 0; i < 4; ++i)
-        sig_mem[i] = hidden[i];
+for (i = 0; i < 4; ++i)
+    sig_mem[i] = (uint32_t)(uint16_t)hidden[i];   // it gives 0 extension
 
-    for (i = 0; i < 4; ++i)
-        result_mem[i] = result[i];
+for (i = 0; i < 4; ++i)
+    result_mem[i] = (uint32_t)(uint16_t)result[i];
 
     P3_U32(P3_DEBUG_ADDR) = 0x22222222u;
 

@@ -103,7 +103,7 @@ module tb_cpu_soc_ram_top;
         start_seen = 0; done_seen = 0; previous_busy = 0; previous_done = 0;
         firmware_done = 0; firmware_fail = 0; timeout_hit = 0;
         observed_result0 = 0; observed_result1 = 0;
-        $readmemh("firmware.hex", dut.ram.mem);
+        $readmemh("./firmware_test03/firmware.hex", dut.ram.mem);
         repeat (10) @(posedge clk);
         resetn = 1'b1;
         $display("[TB] Phase 5 reset released; firmware loaded.");

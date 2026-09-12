@@ -1,5 +1,4 @@
 # Simulation & Compilation Artifacts
-transcript
 *.wlf
 wlft*
 *.vcd

@@ -285,7 +285,7 @@ module tb_cpu_soc_ram_top;
         $display("============================================================");
         $display("Loading firmware: %s", FIRMWARE_FILE);
 
-        $readmemh(FIRMWARE_FILE, dut.ram.mem);
+        $readmemh("FIRMWARE_FILE", dut.ram.mem);
 
         $display("Firmware load command completed.");
         $display("============================================================");

@@ -135,6 +135,8 @@ module nn_axi_wrapper #(
     localparam [7:0] REG_RESULT1_L = 8'h58;
     localparam [7:0] REG_RESULT1_H = 8'h5C;
 
+    reg done_latched;
+
     //==========================================================================
     // Native bus write logic
     //
@@ -170,6 +172,15 @@ module nn_axi_wrapper #(
 
             // START is deliberately a pulse.
             axis_start <= 1'b0;
+            
+            // Latch accelerator completion for CPU polling.
+            if (axis_start)
+                done_latched <= 1'b0;
+
+            if (axis_done)
+                done_latched <= 1'b1;
+
+            
 
             if (bus_req) begin
 
@@ -375,7 +386,7 @@ module nn_axi_wrapper #(
                 begin
                     // bit 0 = BUSY
                     // bit 1 = DONE
-                    bus_rdata = {30'd0, axis_done, axis_busy};
+                        bus_rdata = {30'd0, done_latched, axis_busy};               
                 end
 
             REG_WEIGHT0_L: bus_rdata = weight0[31:0];
@@ -410,6 +421,27 @@ module nn_axi_wrapper #(
 
         endcase
     end
+`ifndef SYNTHESIS
+always @(posedge clk) begin
+    if (rst_n && bus_req) begin
+        $display("[%0t] NN BUS req=%b write=%b addr=%h wdata=%h strb=%b ready=%b",
+                 $time,
+                 bus_req,
+                 bus_write,
+                 bus_addr,
+                 bus_wdata,
+                 bus_strb,
+                 bus_ready);
+    end
 
+    if (rst_n && axis_start) begin
+        $display("[%0t] NN AXIS START busy=%b", $time, axis_busy);
+    end
+
+    if (rst_n && axis_done) begin
+        $display("[%0t] NN AXIS DONE", $time);
+    end
+end
+`endif
 endmodule
 `endif

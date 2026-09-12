@@ -157,10 +157,13 @@ cpu_soc_ram_top #(
     // ================================================================
 
     localparam [31:0] SIG_BASE    = 32'h0000_1340;
-    localparam [31:0] RESULT_BASE = 32'h0000_1350;
+    localparam [31:0] OUTPUT_BASE = 32'h0000_1350;
+
+
+    localparam [31:0] OUTPUT_LAST = 32'h0000_135c;
 
     localparam integer SIG_RAM_INDEX    = 32'h1340 >> 2;
-    localparam integer RESULT_RAM_INDEX = 32'h1350 >> 2;
+    localparam integer OUTPUT_RAM_INDEX = 32'h1350 >> 2;
 
     localparam integer SIG_WORDS    = 2;
     localparam integer RESULT_WORDS = 2;
@@ -169,9 +172,6 @@ cpu_soc_ram_top #(
     localparam [31:0] BENCH_DONE    = 32'h3333_3333;
     localparam [31:0] VERIFY_FAIL   = 32'hDEAD_0001;
 
-    localparam [31:0] WORKLOAD_DONE = 32'h2222_2222;
-    localparam [31:0] VERIFY_FAIL   = 32'hDEAD_0001;
-    localparam [31:0] BENCH_DONE    = 32'h3333_3333;
 
     // 100 MHz clock => 10 ns/cycle
     //
@@ -231,10 +231,10 @@ cpu_soc_ram_top #(
         $display("PHASE 3 PRE-TPU FIRMWARE DEBUG");
         $display("==============================================");
 
-        $display("Loading firmware_new.hex ...");
+        $display("Loading firmware.hex ...");
 
         $readmemh(
-            "../../firmware_test3/firmware_3.hex",
+            "./firmware_test3/firmware.hex",
             dut.ram.mem
         );
 

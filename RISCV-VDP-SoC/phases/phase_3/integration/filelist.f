@@ -38,4 +38,6 @@
 // ------------------------------------------------------------
 // Testbench
 // ------------------------------------------------------------
-./tb/directed/tb_soc_ram_top.sv
+./tb/directed/tb_soc_ram_top_sigmoid.sv
+./tb/directed/tb_soc_ram_top_relu.sv
+

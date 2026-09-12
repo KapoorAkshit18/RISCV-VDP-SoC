@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_soc_ram_top;
+module tb_soc_ram_top_relu;
 
     // ================================================================
     // DUT signals

@@ -38,6 +38,7 @@ echo "Using vsim: $VSIM_BIN"
 # 2. Configurable options
 TOP_TB="${SIM_TOP_TB:-tb_cpu_soc_ram_top}"
 SIM_TIME="${SIM_TIME:-50us}"
+FW="${FIRMWARE:-$ROOT_DIR/Design_Dir/Tb/firmware.hex}"
 BUILD_DIR="$ROOT_DIR/build/questasim_sim"
 LOG_FILE="$BUILD_DIR/simulation.log"
 
@@ -106,11 +107,12 @@ if [ $COMPILE_STATUS -ne 0 ]; then
     exit $COMPILE_STATUS
 fi
 
-echo "Running Top Testbench simulation: $TOP_TB ($SIM_TIME)..."
+    echo "Running Top Testbench simulation: $TOP_TB ($SIM_TIME) with firmware $FW..."
 "$VSIM_BIN" \
     -c \
     -voptargs="+acc" \
     work."$TOP_TB" \
+    +FIRMWARE="$FW" \
     -do "run $SIM_TIME; quit -f" \
     2>&1 | tee "$LOG_FILE"
 

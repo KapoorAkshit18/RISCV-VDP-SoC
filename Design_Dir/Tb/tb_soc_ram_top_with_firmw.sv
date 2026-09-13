@@ -241,7 +241,7 @@ module tb_cpu_soc_ram_top;
     reg result0_high_read_seen;
     reg result1_low_read_seen;
     reg result1_high_read_seen;
-
+    string firmware_path;
     // =========================================================================
     // INITIALIZATION AND FIRMWARE LOAD
     // =========================================================================
@@ -312,16 +312,29 @@ module tb_cpu_soc_ram_top;
         result1_low_read_seen  = 1'b0;
         result1_high_read_seen = 1'b0;
 
-        $display("");
-        $display("============================================================");
-        $display("PHASE 5 TESTBENCH START");
-        $display("Loading firmware: %s", firmware.hex);
-        $display("============================================================");
+        // $display("");
+        // $display("============================================================");
+        // $display("PHASE 5 TESTBENCH START");
+        // $display("Loading firmware: %s", firmware.hex);
+        // $display("============================================================");
 
-        $readmemh("firmware.hex", dut.ram.mem);
+        // $readmemh("firmware.hex", dut.ram.mem);
 
-        $display("[TB] Firmware loaded.");
-        $display("[TB] Reset active.");
+        // $display("[TB] Firmware loaded.");
+        
+
+    
+
+            // Option A: Check plusarg first, fallback to relative path from workspace root or tb/
+            if (!$value$plusargs("FIRMWARE=%s", firmware_path)) begin
+            firmware_path = "tb/firmware.hex"; // default if run from project root (design_dir)
+            end
+            
+            $display("[TB] Loading firmware from: %s", firmware_path);
+            $readmemh(firmware_path, dut.ram.mem);
+            $display("[TB] Reset active.");
+
+
 
         repeat (10) @(posedge clk);
 

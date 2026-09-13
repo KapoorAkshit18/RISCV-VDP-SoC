@@ -87,6 +87,9 @@ if [ -d "/c/Xilinx/Vivado/2020.1/data/ip/xpm" ]; then
         "/c/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv"
         "/c/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv"
         "/c/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv"
+        "/c/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v"
+	
+
     )
 fi
 

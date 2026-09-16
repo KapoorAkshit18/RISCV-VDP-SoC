@@ -127,7 +127,10 @@ class soc_env extends uvm_env;
 
         // Coverage
 
-        coverage = soc_coverage::type_id::create("coverage",this);
+        coverage = soc_coverage::type_id::create(
+            "coverage",
+            this
+            );
 
 
 

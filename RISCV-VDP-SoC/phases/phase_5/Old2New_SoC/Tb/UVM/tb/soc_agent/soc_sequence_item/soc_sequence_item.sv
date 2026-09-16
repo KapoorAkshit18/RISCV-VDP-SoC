@@ -140,6 +140,10 @@ class soc_sequence_item extends uvm_sequence_item;
 
             target = "VDP";
 
+        else if ((addr & 32'hFFFF_F000) == 32'h0001_4000)
+                
+                target = "TPU";
+
         else
 
             target = "UNMAPPED";

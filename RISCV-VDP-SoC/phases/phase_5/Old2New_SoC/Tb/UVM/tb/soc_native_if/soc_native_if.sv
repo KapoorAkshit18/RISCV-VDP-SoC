@@ -1,3 +1,6 @@
+`ifndef SOC_NATIVE_IF_SV
+`define SOC_NATIVE_IF_SV
+
 `timescale 1ns/1ps
 
 interface soc_native_if #(
@@ -10,20 +13,17 @@ interface soc_native_if #(
     // ================================================================
     // Native master -> interconnect
     // ================================================================
-
-    logic                         m_valid;
-    logic                         m_write;
-    logic [ADDR_WIDTH-1:0]        m_addr;
-    logic [DATA_WIDTH-1:0]        m_wdata;
-    logic [DATA_WIDTH/8-1:0]      m_strb;
+    logic                        m_valid;
+    logic                        m_write;
+    logic [ADDR_WIDTH-1:0]       m_addr;
+    logic [DATA_WIDTH-1:0]       m_wdata;
+    logic [DATA_WIDTH/8-1:0]     m_strb;
 
     // ================================================================
     // Native interconnect -> master
     // ================================================================
-
-    logic                         m_ready;
-    logic [DATA_WIDTH-1:0]        m_rdata;
-
+    logic                        m_ready;
+    logic [DATA_WIDTH-1:0]       m_rdata;
 
     // ================================================================
     // Driver clocking block
@@ -34,10 +34,9 @@ interface soc_native_if #(
     //
     // The interconnect itself is combinational, but the clocking
     // block provides deterministic UVM synchronization.
+    //
     // ================================================================
-
     clocking driver_cb @(posedge clk);
-
         default input #1step output #0;
 
         output m_valid;
@@ -48,16 +47,12 @@ interface soc_native_if #(
 
         input  m_ready;
         input  m_rdata;
-
     endclocking
-
 
     // ================================================================
     // Monitor clocking block
     // ================================================================
-
     clocking monitor_cb @(posedge clk);
-
         default input #1step;
 
         input m_valid;
@@ -65,17 +60,13 @@ interface soc_native_if #(
         input m_addr;
         input m_wdata;
         input m_strb;
-
         input m_ready;
         input m_rdata;
-
     endclocking
-
 
     // ================================================================
     // Modports
     // ================================================================
-
     modport DRIVER (
         clocking driver_cb
     );
@@ -85,3 +76,5 @@ interface soc_native_if #(
     );
 
 endinterface
+
+`endif // SOC_NATIVE_IF_SV

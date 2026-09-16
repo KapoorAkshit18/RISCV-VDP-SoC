@@ -23,7 +23,7 @@
 // =============================================================================
 
 class soc_reg_predictor extends uvm_reg_predictor #(soc_sequence_item);
-
+// updates the mirror values
     `uvm_component_utils(soc_reg_predictor)
 
 

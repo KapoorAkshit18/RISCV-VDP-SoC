@@ -23,8 +23,8 @@
 //     write = 1  -> write
 //     write = 0  -> read
 //
-//     strb != 0  -> write
-//     strb == 0  -> read
+// For writes, strb specifies active byte lanes.
+// For reads, strb = 0000.
 //
 // Address : 32-bit
 // Data    : 32-bit

@@ -42,16 +42,7 @@ delete wave *
 # 2. Waveform appearance
 # -----------------------------------------------------------------------------
 
-configure wave -wavebackground white
-configure wave -waveeventbackground white
-configure wave -wavestripbackground white
-configure wave -gridcolor grey50
-configure wave -textcolor black
-configure wave -timecolor black
-configure wave -background white
-configure wave -foreground black
-configure wave -signalnamewidth 1
-configure wave -namecolwidth 200
+mak
 
 
 # =============================================================================

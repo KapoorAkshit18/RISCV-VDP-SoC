@@ -66,7 +66,11 @@ class soc_coverage extends uvm_subscriber #(soc_sequence_item);
             bins RF       = {2};
             bins SENSOR   = {3};
             bins VDP      = {4};
-            bins UNMAPPED = {5};
+            bins TPU      = {5};
+
+            bins UNMAPPED = {6};
+           
+           // default: target_bin = 6;
           //  bins UNKNOWN  = {6};
 
         }
@@ -123,6 +127,10 @@ class soc_coverage extends uvm_subscriber #(soc_sequence_item);
 
             bins VDP_BASE = {
                 32'h0001_3000
+            };
+
+            bins TPU_BASE = {
+                    32'h0001_4000
             };
 
             bins UNMAPPED = {
@@ -273,9 +281,13 @@ class soc_coverage extends uvm_subscriber #(soc_sequence_item);
 
             "VDP":
                 target_bin = 4;
-
-            "UNMAPPED":
+            
+            "TPU":      
+            
                 target_bin = 5;
+                
+            "UNMAPPED":
+                target_bin = 6;
 
             default:
                 target_bin = 6;

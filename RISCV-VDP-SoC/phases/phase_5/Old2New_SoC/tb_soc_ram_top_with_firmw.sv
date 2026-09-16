@@ -104,12 +104,12 @@ module tb_cpu_soc_ram_top;
 
     initial begin
         clk = 1'b0;
-        forever #5 clk = ~clk;
+        forever #5 clk = ~clk;  // 10 ns 
     end
 
     initial begin
         pixel_clk = 1'b0;
-        forever #20 pixel_clk = ~pixel_clk;
+        forever #20 pixel_clk = ~pixel_clk;  // can be made more accurate
     end
 
     // =========================================================================
@@ -312,11 +312,21 @@ module tb_cpu_soc_ram_top;
         result1_low_read_seen  = 1'b0;
         result1_high_read_seen = 1'b0;
 
+            // =========================================================================
+    // WAVEFORM DUMP
+    // =========================================================================
+
+
+        $dumpfile("waveform_phase_5_with_firmw.vcd");
+        $dumpvars(0, tb_cpu_soc_ram_top);
+
         $display("");
         $display("============================================================");
         $display("PHASE 5 TESTBENCH START");
-        $display("Loading firmware: %s", FIRMWARE_FILE);
+        $display("Loading firmware: ");
         $display("============================================================");
+
+
 
         $readmemh("./firmware_test03/firmware.hex", dut.ram.mem);
 

@@ -10,42 +10,9 @@ import uvm_pkg::*;
 // `include "../soc_agent/soc_sequence_item/soc_sequence_item.sv"
 // `include "../soc_native_if/soc_native_if.sv"
 
-
-// =============================================================================
-// RISCV-VDP-SoC
-// Native Bus UVM Driver
-// =============================================================================
-//
-// Drives the PicoRV32-style native memory interface used by
-// soc_mem_interconnect.
-//
-// Request:
-//     m_valid
-//     m_write
-//     m_addr
-//     m_wdata
-//     m_strb
-//
-// Response:
-//     m_ready
-//     m_rdata
-//
-// Handshake:
-//     Request remains valid until m_ready == 1.
-//
-// Read:
-//     write = 0
-//     strb  = 4'b0000
-//
-// Write:
-//     write = 1
-//     strb  != 4'b0000
-// =============================================================================
-
 class soc_driver extends uvm_driver #(soc_sequence_item);
 
     `uvm_component_utils(soc_driver)
-
 
     // =========================================================================
     // Virtual interface
@@ -53,6 +20,11 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
 
     virtual soc_native_if vif;
 
+    // =========================================================================
+    // Configuration
+    // =========================================================================
+
+    localparam int MAX_TIMEOUT = 500;
 
     // =========================================================================
     // Constructor
@@ -62,11 +34,8 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
         string name = "soc_driver",
         uvm_component parent = null
     );
-
         super.new(name, parent);
-
     endfunction
-
 
     // =========================================================================
     // Build phase
@@ -92,14 +61,12 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
 
     endfunction
 
-
     // =========================================================================
     // Run phase
     // =========================================================================
 
     virtual task run_phase(uvm_phase phase);
 
-        // Always start with the bus inactive.
         drive_idle();
 
         forever begin
@@ -123,18 +90,17 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
 
     endtask
 
-
     // =========================================================================
     // Drive one native-bus transaction
     // =========================================================================
 
-        virtual task drive_transaction(soc_sequence_item tr);
+    virtual task drive_transaction(soc_sequence_item tr);
 
-        // ------------------------------------------------------------
-        // Drive request
-        // ------------------------------------------------------------
         int timeout_count = 0;
-        const int MAX_TIMEOUT = 500; // Adjust based on your CDC latency
+
+        // ---------------------------------------------------------------------
+        // Drive request
+        // ---------------------------------------------------------------------
 
         @(vif.driver_cb);
 
@@ -144,43 +110,49 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
         vif.driver_cb.m_wdata <= tr.wdata;
         vif.driver_cb.m_strb  <= tr.strb;
 
-
-        // ------------------------------------------------------------
-        // Wait for slave/interconnect response.
+        // ---------------------------------------------------------------------
+        // Wait for m_ready
         //
-        // m_valid remains asserted until m_ready.
-        // ------------------------------------------------------------
+        // Request remains stable while m_valid = 1 and m_ready = 0.
+        // ---------------------------------------------------------------------
 
-// ------------------------------------------------------------
-        // Wait for slave/interconnect response with WATCHDOG
-        // ------------------------------------------------------------
-      
-        do begin
+        while (!vif.driver_cb.m_ready) begin
+
             @(vif.driver_cb);
+
             timeout_count++;
-            if (timeout_count > MAX_TIMEOUT) begin
-                `uvm_fatal("TIMEOUT", $sformatf("Slave failed to assert m_ready for address 0x%08h after %0d cycles", tr.addr, MAX_TIMEOUT))
+
+            if (timeout_count >= MAX_TIMEOUT) begin
+
+                `uvm_fatal(
+                    "TIMEOUT",
+                    $sformatf(
+                        "No m_ready for address 0x%08h after %0d cycles",
+                        tr.addr,
+                        MAX_TIMEOUT
+                    )
+                )
+
             end
-        end while (!vif.driver_cb.m_ready);
-        
-        // ------------------------------------------------------------
+
+        end
+
+        // ---------------------------------------------------------------------
         // Capture response
-        // ------------------------------------------------------------
+        // ---------------------------------------------------------------------
 
         tr.ready = vif.driver_cb.m_ready;
         tr.rdata = vif.driver_cb.m_rdata;
 
-
-        // ------------------------------------------------------------
+        // ---------------------------------------------------------------------
         // Return bus to idle
-        // ------------------------------------------------------------
+        // ---------------------------------------------------------------------
 
         vif.driver_cb.m_valid <= 1'b0;
         vif.driver_cb.m_write <= 1'b0;
         vif.driver_cb.m_addr  <= '0;
         vif.driver_cb.m_wdata <= '0;
         vif.driver_cb.m_strb  <= '0;
-
 
         `uvm_info(
             "DRIVER",
@@ -193,12 +165,13 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
 
     endtask
 
-
     // =========================================================================
     // Idle bus
     // =========================================================================
 
     virtual task drive_idle();
+
+        @(vif.driver_cb);
 
         vif.driver_cb.m_valid <= 1'b0;
         vif.driver_cb.m_write <= 1'b0;
@@ -209,6 +182,5 @@ class soc_driver extends uvm_driver #(soc_sequence_item);
     endtask
 
 endclass
-
 
 `endif

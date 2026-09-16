@@ -1,7 +1,7 @@
 # =============================================================================
 # Makefile for RISCV-VDP-SoC CI/CD Pipeline (Git Bash / Linux)
 # =============================================================================
-
+FIRMWARE ?= Design_Dir/Tb/firmware.hex
 .PHONY: all lint sim synth clean help
 
 all: lint sim synth
@@ -13,7 +13,7 @@ lint:
 
 sim:
 	@echo "=== Running QuestaSim Top Testbench Simulation ==="
-	@bash ci/scripts/run_questasim_sim.sh
+	FIRMWARE=$(FIRMWARE) bash ci/scripts/run_questasim_sim.sh
 
 synth:
 	@echo "=== Running Local Vivado Synthesis ==="

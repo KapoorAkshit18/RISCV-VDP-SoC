@@ -55,7 +55,7 @@ module tb_cpu_soc_ram_top;
 
     localparam integer TIMEOUT_CYCLES = 1_000_000;
 
-    localparam string FIRMWARE_FILE = "firmware.hex";
+    // localparam string FIRMWARE_FILE = "firmware.hex";
 
     localparam [31:0] FIRMWARE_MARKER_ADDR = 32'h0000_12A8;
 
@@ -422,7 +422,7 @@ module tb_cpu_soc_ram_top;
                         tpu_config_write_count =
                             tpu_config_write_count + 1;
                     end
-
+             
                     // ---------------------------------------------------------
                     // Explicit CONTROL write monitor
                     // ---------------------------------------------------------
@@ -894,5 +894,6 @@ module tb_cpu_soc_ram_top;
             end
         end
     end
+    
 
 endmodule

@@ -1,0 +1,858 @@
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# vsim tb_opt -do "run.do" 
+# Start time: 00:35:52 on Sep 13,2026
+# Loading sv_std.std
+# Loading work.tb_cpu_soc_ram_top(fast)
+# Loading work.cpu_soc_ram_top(fast)
+# Loading work.ptb(fast)
+# Loading work.picorv32a(fast)
+# Loading work.picorv32_pcpi_fast_mul(fast)
+# Loading work.cpu_bus_adapter(fast)
+# Loading work.soc_mem_interconnect(fast)
+# Loading work.soc_ram(fast)
+# Loading work.gpio_native_slave(fast)
+# Loading work.sensor_status_native_slave(fast)
+# Loading work.rf_telemetry_native_slave(fast)
+# Loading work.vdp_native_slave(fast)
+# Loading work.cdc_reset_sync(fast)
+# Loading work.vga_timing_gen(fast)
+# Loading work.tpu_axis_top(fast)
+# Loading work.nn_axi_wrapper(fast)
+# Loading work.nn_axis_master(fast)
+# Loading work.axis_nn(fast)
+# Loading xpm.xpm_fifo_axis(fast)
+# Loading xpm.xpm_cdc_sync_rst(fast)
+# Loading xpm.xpm_fifo_base(fast)
+# Loading xpm.xpm_fifo_rst(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast)
+# Loading xpm.xpm_counter_updn(fast)
+# Loading xpm.xpm_counter_updn(fast__1)
+# Loading xpm.xpm_counter_updn(fast__2)
+# Loading xpm.xpm_counter_updn(fast__3)
+# Loading xpm.xpm_counter_updn(fast__4)
+# Loading xpm.xpm_memory_base(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast__1)
+# Loading xpm.xpm_counter_updn(fast__5)
+# Loading work.register(fast)
+# Loading work.nn(fast)
+# Loading xpm.xpm_memory_tdpram(fast)
+# Loading xpm.xpm_memory_base(fast__1)
+# Loading xpm.xpm_memory_tdpram(fast__1)
+# Loading xpm.xpm_memory_base(fast__2)
+# Loading work.register(fast__1)
+# Loading work.systolic(fast)
+# Loading work.pe(fast)
+# Loading work.sigmoid(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_wb File: ../TPU/nn.v Line: 134
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_wb File: ../TPU/nn.v Line: 134
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_k File: ../TPU/nn.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_k File: ../TPU/nn.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_a File: ../TPU/nn.v Line: 499
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_a File: ../TPU/nn.v Line: 499
+# do run.do
+# .main_pane.wave.interior.cs.body.pw.wf
+# 
+# ============================================================
+# PHASE 5 TESTBENCH START
+# Loading firmware: firmware.hex
+# ============================================================
+# [TB] Firmware loaded.
+# [TB] Reset active.
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# [95000] [TB] Reset released.
+# 
+# [135000][CPU-READ ] addr=00000000 data=00010137
+# [175000][CPU-READ ] addr=00000004 data=00001197
+# [215000][CPU-READ ] addr=00000008 data=9dc18193
+# [255000][CPU-READ ] addr=0000000c data=00000413
+# [295000][CPU-READ ] addr=00000010 data=01c000ef
+# [335000][CPU-READ ] addr=0000002c data=fe010113
+# [375000][CPU-READ ] addr=00000030 data=00812c23
+# [415000][CPU-READ ] addr=00000034 data=01212823
+# [445000][CPU-WRITE] addr=0000fff8 data=00000000 strb=f
+# [445000][RAM-WRITE] addr=0000fff8 data=00000000 strb=f
+# [485000][CPU-READ ] addr=00000038 data=000017b7
+# [515000][CPU-WRITE] addr=0000fff0 data=xxxxxxxx strb=f
+# [515000][RAM-WRITE] addr=0000fff0 data=xxxxxxxx strb=f
+# [555000][CPU-READ ] addr=0000003c data=00112e23
+# [595000][CPU-READ ] addr=00000040 data=00912a23
+# [625000][CPU-WRITE] addr=0000fffc data=00000014 strb=f
+# [625000][RAM-WRITE] addr=0000fffc data=00000014 strb=f
+# [665000][CPU-READ ] addr=00000044 data=01312623
+# [695000][CPU-WRITE] addr=0000fff4 data=xxxxxxxx strb=f
+# [695000][RAM-WRITE] addr=0000fff4 data=xxxxxxxx strb=f
+# [735000][CPU-READ ] addr=00000048 data=01412423
+# [765000][CPU-WRITE] addr=0000ffec data=xxxxxxxx strb=f
+# [765000][RAM-WRITE] addr=0000ffec data=xxxxxxxx strb=f
+# [805000][CPU-READ ] addr=0000004c data=01512223
+# [835000][CPU-WRITE] addr=0000ffe8 data=xxxxxxxx strb=f
+# [835000][RAM-WRITE] addr=0000ffe8 data=xxxxxxxx strb=f
+# [875000][CPU-READ ] addr=00000050 data=01612023
+# [905000][CPU-WRITE] addr=0000ffe4 data=xxxxxxxx strb=f
+# [905000][RAM-WRITE] addr=0000ffe4 data=xxxxxxxx strb=f
+# [945000][CPU-READ ] addr=00000054 data=2a07a023
+# [975000][CPU-WRITE] addr=0000ffe0 data=xxxxxxxx strb=f
+# [975000][RAM-WRITE] addr=0000ffe0 data=xxxxxxxx strb=f
+# [1015000][CPU-READ ] addr=00000058 data=2a07a223
+# [1045000][CPU-WRITE] addr=000012a0 data=00000000 strb=f
+# [1045000][RAM-WRITE] addr=000012a0 data=00000000 strb=f
+# [1085000][CPU-READ ] addr=0000005c data=2207a823
+# [1115000][CPU-WRITE] addr=000012a4 data=00000000 strb=f
+# [1115000][RAM-WRITE] addr=000012a4 data=00000000 strb=f
+# [1155000][CPU-READ ] addr=00000060 data=2207aa23
+# [1185000][CPU-WRITE] addr=00001230 data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=00001230 data=00000000
+# [1185000][RAM-WRITE] addr=00001230 data=00000000 strb=f
+# [1225000][CPU-READ ] addr=00000064 data=2207ac23
+# [1255000][CPU-WRITE] addr=00001234 data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=00001234 data=00000000
+# [1255000][RAM-WRITE] addr=00001234 data=00000000 strb=f
+# [1295000][CPU-READ ] addr=00000068 data=11111737
+# [1325000][CPU-WRITE] addr=00001238 data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=00001238 data=00000000
+# [1325000][RAM-WRITE] addr=00001238 data=00000000 strb=f
+# [1365000][CPU-READ ] addr=0000006c data=2207ae23
+# [1405000][CPU-READ ] addr=00000070 data=11170713
+# [1435000][CPU-WRITE] addr=0000123c data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=0000123c data=00000000
+# [1435000][RAM-WRITE] addr=0000123c data=00000000 strb=f
+# [1475000][CPU-READ ] addr=00000074 data=2ae7a423
+# [1515000][CPU-READ ] addr=00000078 data=fa1ff0ef
+# [1545000][CPU-WRITE] addr=000012a8 data=11111111 strb=f
+# [1545000][FW] START marker 0x11111111
+# [1545000][RAM-WRITE] addr=000012a8 data=11111111 strb=f
+# [1585000][CPU-READ ] addr=00000018 data=c80025f3
+# [1625000][CPU-READ ] addr=0000001c data=c0002573
+# [1665000][CPU-READ ] addr=00000020 data=c80027f3
+# [1705000][CPU-READ ] addr=00000024 data=fef59ae3
+# [1745000][CPU-READ ] addr=00000028 data=00008067
+# [1835000][CPU-READ ] addr=0000007c data=05050737
+# [1875000][CPU-READ ] addr=00000080 data=000147b7
+# [1915000][CPU-READ ] addr=00000084 data=57a70713
+# [1955000][CPU-READ ] addr=00000088 data=00e7a823
+# [1995000][CPU-READ ] addr=0000008c data=0000b737
+# [2015000] NN BUS req=1 write=1 addr=00000010 wdata=0505057a strb=1111 ready=0
+# [2025000] NN BUS req=1 write=1 addr=00000010 wdata=0505057a strb=1111 ready=1
+# [2025000][CPU-WRITE] addr=00014010 data=0505057a strb=f
+#     [TPU-MMIO-WRITE] local=010 data=0505057a
+# [2065000][CPU-READ ] addr=00000090 data=07a70713
+# [2105000][CPU-READ ] addr=00000094 data=00e7aa23
+# [2145000][CPU-READ ] addr=00000098 data=03e10737
+# [2165000] NN BUS req=1 write=1 addr=00000014 wdata=0000b07a strb=1111 ready=0
+# [2175000] NN BUS req=1 write=1 addr=00000014 wdata=0000b07a strb=1111 ready=1
+# [2175000][CPU-WRITE] addr=00014014 data=0000b07a strb=f
+#     [TPU-MMIO-WRITE] local=014 data=0000b07a
+# [2215000][CPU-READ ] addr=0000009c data=31470713
+# [2255000][CPU-READ ] addr=000000a0 data=00e7ac23
+# [2295000][CPU-READ ] addr=000000a4 data=00010737
+# [2315000] NN BUS req=1 write=1 addr=00000018 wdata=03e10314 strb=1111 ready=0
+# [2325000] NN BUS req=1 write=1 addr=00000018 wdata=03e10314 strb=1111 ready=1
+# [2325000][CPU-WRITE] addr=00014018 data=03e10314 strb=f
+#     [TPU-MMIO-WRITE] local=018 data=03e10314
+# [2365000][CPU-READ ] addr=000000a8 data=c6670693
+# [2405000][CPU-READ ] addr=000000ac data=00d7ae23
+# [2445000][CPU-READ ] addr=000000b0 data=028f06b7
+# [2465000] NN BUS req=1 write=1 addr=0000001c wdata=0000fc66 strb=1111 ready=0
+# [2475000] NN BUS req=1 write=1 addr=0000001c wdata=0000fc66 strb=1111 ready=1
+# [2475000][CPU-WRITE] addr=0001401c data=0000fc66 strb=f
+#     [TPU-MMIO-WRITE] local=01c data=0000fc66
+# [2515000][CPU-READ ] addr=000000b4 data=43368693
+# [2555000][CPU-READ ] addr=000000b8 data=02d7a023
+# [2595000][CPU-READ ] addr=000000bc data=c7070713
+# [2615000] NN BUS req=1 write=1 addr=00000020 wdata=028f0433 strb=1111 ready=0
+# [2625000] NN BUS req=1 write=1 addr=00000020 wdata=028f0433 strb=1111 ready=1
+# [2625000][CPU-WRITE] addr=00014020 data=028f0433 strb=f
+#     [TPU-MMIO-WRITE] local=020 data=028f0433
+# [2665000][CPU-READ ] addr=000000c0 data=02e7a223
+# [2705000][CPU-READ ] addr=000000c4 data=fac22737
+# [2725000] NN BUS req=1 write=1 addr=00000024 wdata=0000fc70 strb=1111 ready=0
+# [2735000] NN BUS req=1 write=1 addr=00000024 wdata=0000fc70 strb=1111 ready=1
+# [2735000][CPU-WRITE] addr=00014024 data=0000fc70 strb=f
+#     [TPU-MMIO-WRITE] local=024 data=0000fc70
+# [2775000][CPU-READ ] addr=000000c8 data=87070713
+# [2815000][CPU-READ ] addr=000000cc data=02e7a423
+# [2855000][CPU-READ ] addr=000000d0 data=f5a30737
+# [2875000] NN BUS req=1 write=1 addr=00000028 wdata=fac21870 strb=1111 ready=0
+# [2885000] NN BUS req=1 write=1 addr=00000028 wdata=fac21870 strb=1111 ready=1
+# [2885000][CPU-WRITE] addr=00014028 data=fac21870 strb=f
+#     [TPU-MMIO-WRITE] local=028 data=fac21870
+# [2925000][CPU-READ ] addr=000000d4 data=05170713
+# [2965000][CPU-READ ] addr=000000d8 data=02e7a623
+# [3005000][CPU-READ ] addr=000000dc data=0685e737
+# [3025000] NN BUS req=1 write=1 addr=0000002c wdata=f5a30051 strb=1111 ready=0
+# [3035000] NN BUS req=1 write=1 addr=0000002c wdata=f5a30051 strb=1111 ready=1
+# [3035000][CPU-WRITE] addr=0001402c data=f5a30051 strb=f
+#     [TPU-MMIO-WRITE] local=02c data=f5a30051
+# [3075000][CPU-READ ] addr=000000e0 data=39970713
+# [3115000][CPU-READ ] addr=000000e4 data=02e7a823
+# [3155000][CPU-READ ] addr=000000e8 data=00cc0737
+# [3175000] NN BUS req=1 write=1 addr=00000030 wdata=0685e399 strb=1111 ready=0
+# [3185000] NN BUS req=1 write=1 addr=00000030 wdata=0685e399 strb=1111 ready=1
+# [3185000][CPU-WRITE] addr=00014030 data=0685e399 strb=f
+#     [TPU-MMIO-WRITE] local=030 data=0685e399
+# [3225000][CPU-READ ] addr=000000ec data=7e170713
+# [3265000][CPU-READ ] addr=000000f0 data=02e7aa23
+# [3305000][CPU-READ ] addr=000000f4 data=20002737
+# [3325000] NN BUS req=1 write=1 addr=00000034 wdata=00cc07e1 strb=1111 ready=0
+# [3335000] NN BUS req=1 write=1 addr=00000034 wdata=00cc07e1 strb=1111 ready=1
+# [3335000][CPU-WRITE] addr=00014034 data=00cc07e1 strb=f
+#     [TPU-MMIO-WRITE] local=034 data=00cc07e1
+# [3375000][CPU-READ ] addr=000000f8 data=02e7ac23
+# [3415000][CPU-READ ] addr=000000fc data=14001737
+# [3435000] NN BUS req=1 write=1 addr=00000038 wdata=20002000 strb=1111 ready=0
+# [3445000] NN BUS req=1 write=1 addr=00000038 wdata=20002000 strb=1111 ready=1
+# [3445000][CPU-WRITE] addr=00014038 data=20002000 strb=f
+#     [TPU-MMIO-WRITE] local=038 data=20002000
+# [3485000][CPU-READ ] addr=00000100 data=40070713
+# [3525000][CPU-READ ] addr=00000104 data=02e7ae23
+# [3565000][CPU-READ ] addr=00000108 data=14002737
+# [3585000] NN BUS req=1 write=1 addr=0000003c wdata=14001400 strb=1111 ready=0
+# [3595000] NN BUS req=1 write=1 addr=0000003c wdata=14001400 strb=1111 ready=1
+# [3595000][CPU-WRITE] addr=0001403c data=14001400 strb=f
+#     [TPU-MMIO-WRITE] local=03c data=14001400
+# [3635000][CPU-READ ] addr=0000010c data=04e7a023
+# [3675000][CPU-READ ] addr=00000110 data=04e7a223
+# [3695000] NN BUS req=1 write=1 addr=00000040 wdata=14002000 strb=1111 ready=0
+# [3705000] NN BUS req=1 write=1 addr=00000040 wdata=14002000 strb=1111 ready=1
+# [3705000][CPU-WRITE] addr=00014040 data=14002000 strb=f
+#     [TPU-MMIO-WRITE] local=040 data=14002000
+# [3745000][CPU-READ ] addr=00000114 data=00100713
+# [3765000] NN BUS req=1 write=1 addr=00000044 wdata=14002000 strb=1111 ready=0
+# [3775000] NN BUS req=1 write=1 addr=00000044 wdata=14002000 strb=1111 ready=1
+# [3775000][CPU-WRITE] addr=00014044 data=14002000 strb=f
+#     [TPU-MMIO-WRITE] local=044 data=14002000
+# [3815000][CPU-READ ] addr=00000118 data=00e7a023
+# [3855000][CPU-READ ] addr=0000011c data=000f4737
+# [3875000] NN BUS req=1 write=1 addr=00000000 wdata=00000001 strb=1111 ready=0
+# [3885000] NN BUS req=1 write=1 addr=00000000 wdata=00000001 strb=1111 ready=1
+# [3885000] NN AXIS START busy=0
+# [3885000][CPU-WRITE] addr=00014000 data=00000001 strb=f
+#     [TPU-MMIO-WRITE] local=000 data=00000001
+#     [TPU-CONTROL] write data=00000001 bit0=1
+#     [TPU-START-CMD] CPU START command observed
+# [3885000][TPU-START] cycle=378 axis_start=1
+# [3895000] NN AXIS START busy=1
+# [3895000][AXI-IN ] beat=1 data=0000b07a0505057a tlast=0
+# [3895000][TPU-START] cycle=379 axis_start=1
+# [3895000][TPU-BUSY] cycle=379 axis_busy=1
+# [3905000][AXI-IN ] beat=2 data=0000fc6603e10314 tlast=0
+# [3915000][AXI-IN ] beat=3 data=0000fc70028f0433 tlast=0
+# [3925000][CPU-READ ] addr=00000120 data=00050913
+# [3925000][AXI-IN ] beat=4 data=f5a30051fac21870 tlast=0
+# [3935000][AXI-IN ] beat=5 data=00cc07e10685e399 tlast=0
+# [3945000][AXI-IN ] beat=6 data=1400140020002000 tlast=0
+# [3955000][AXI-IN ] beat=7 data=1400200014002000 tlast=1
+# [3965000][CPU-READ ] addr=00000124 data=00058413
+# [4005000][CPU-READ ] addr=00000128 data=24070713
+# [4045000][CPU-READ ] addr=0000012c data=0047a683
+# [4085000][CPU-READ ] addr=00000130 data=0026f693
+# [4105000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=0
+# [4115000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=1
+# [4115000][CPU-READ ] addr=00014004 data=00000001
+#     [TPU-MMIO-READ] local=004 data=00000001
+#     [TPU-STATUS] BUSY=1 DONE=0
+# [4155000][CPU-READ ] addr=00000134 data=04069063
+# [4195000][CPU-READ ] addr=00000138 data=fff70713
+# [4245000][CPU-READ ] addr=0000013c data=fe0718e3
+# [4285000][CPU-READ ] addr=00000140 data=ed9ff0ef
+# [4325000][CPU-READ ] addr=0000012c data=0047a683
+# [4365000][CPU-READ ] addr=00000130 data=0026f693
+# [4385000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=0
+# [4395000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=1
+# [4395000][CPU-READ ] addr=00014004 data=00000001
+#     [TPU-MMIO-READ] local=004 data=00000001
+#     [TPU-STATUS] BUSY=1 DONE=0
+# [4435000][CPU-READ ] addr=00000134 data=04069063
+# [4445000][AXI-OUT] beat=1 data=0014001c001f02a9 tlast=0
+# [4455000][TPU-RESULT0] value=0014001c001f02a9
+# [4455000][AXI-OUT] beat=2 data=03e803e003dc00ba tlast=1
+# [4465000][TPU-RESULT1] value=03e803e003dc00ba
+# [4475000] NN AXIS DONE
+# [4475000][CPU-READ ] addr=00000138 data=fff70713
+# [4475000][TPU-DONE] cycle=437 START-to-DONE=59
+# [4525000][CPU-READ ] addr=0000013c data=fe0718e3
+# [4565000][CPU-READ ] addr=00000140 data=ed9ff0ef
+# [4605000][CPU-READ ] addr=0000012c data=0047a683
+# [4645000][CPU-READ ] addr=00000130 data=0026f693
+# [4665000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=0
+# [4675000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=1
+# [4675000][CPU-READ ] addr=00014004 data=00000002
+#     [TPU-MMIO-READ] local=004 data=00000002
+#     [TPU-STATUS] BUSY=0 DONE=1
+# [4715000][CPU-READ ] addr=00000134 data=04069063
+# [4755000][CPU-READ ] addr=00000138 data=fff70713
+# [4795000][CPU-READ ] addr=00000174 data=22222737
+# [4835000][CPU-READ ] addr=00000178 data=000014b7
+# [4875000][CPU-READ ] addr=0000017c data=22270713
+# [4915000][CPU-READ ] addr=00000180 data=2ae4a423
+# [4955000][CPU-READ ] addr=00000184 data=0507ab03
+# [4985000][CPU-WRITE] addr=000012a8 data=22222222 strb=f
+# [4985000][FW] WORKLOAD marker 0x22222222
+# [4985000][RAM-WRITE] addr=000012a8 data=22222222 strb=f
+# [5025000][CPU-READ ] addr=00000188 data=0547aa83
+# [5045000] NN BUS req=1 write=0 addr=00000050 wdata=22222222 strb=0000 ready=0
+# [5055000] NN BUS req=1 write=0 addr=00000050 wdata=22222222 strb=0000 ready=1
+# [5055000][CPU-READ ] addr=00014050 data=001f02a9
+#     [TPU-MMIO-READ] local=050 data=001f02a9
+# [5095000][CPU-READ ] addr=0000018c data=0587aa03
+# [5115000] NN BUS req=1 write=0 addr=00000054 wdata=22222222 strb=0000 ready=0
+# [5125000] NN BUS req=1 write=0 addr=00000054 wdata=22222222 strb=0000 ready=1
+# [5125000][CPU-READ ] addr=00014054 data=0014001c
+#     [TPU-MMIO-READ] local=054 data=0014001c
+# [5165000][CPU-READ ] addr=00000190 data=05c7a983
+# [5185000] NN BUS req=1 write=0 addr=00000058 wdata=22222222 strb=0000 ready=0
+# [5195000] NN BUS req=1 write=0 addr=00000058 wdata=22222222 strb=0000 ready=1
+# [5195000][CPU-READ ] addr=00014058 data=03dc00ba
+#     [TPU-MMIO-READ] local=058 data=03dc00ba
+# [5235000][CPU-READ ] addr=00000194 data=e85ff0ef
+# [5255000] NN BUS req=1 write=0 addr=0000005c wdata=22222222 strb=0000 ready=0
+# [5265000] NN BUS req=1 write=0 addr=0000005c wdata=22222222 strb=0000 ready=1
+# [5265000][CPU-READ ] addr=0001405c data=03e803e0
+#     [TPU-MMIO-READ] local=05c data=03e803e0
+# [5305000][CPU-READ ] addr=00000018 data=c80025f3
+# [5345000][CPU-READ ] addr=0000001c data=c0002573
+# [5385000][CPU-READ ] addr=00000020 data=c80027f3
+# [5425000][CPU-READ ] addr=00000024 data=fef59ae3
+# [5465000][CPU-READ ] addr=00000028 data=00008067
+# [5555000][CPU-READ ] addr=00000198 data=41250933
+# [5595000][CPU-READ ] addr=0000019c data=01253533
+# [5645000][CPU-READ ] addr=000001a0 data=408585b3
+# [5695000][CPU-READ ] addr=000001a4 data=2b24a023
+# [5745000][CPU-READ ] addr=000001a8 data=40a585b3
+# [5775000][CPU-WRITE] addr=000012a0 data=00000174 strb=f
+# [5775000][RAM-WRITE] addr=000012a0 data=00000174 strb=f
+# [5815000][CPU-READ ] addr=000001ac data=2ab4a223
+# [5865000][CPU-READ ] addr=000001b0 data=2364a823
+# [5895000][CPU-WRITE] addr=000012a4 data=00000000 strb=f
+# [5895000][RAM-WRITE] addr=000012a4 data=00000000 strb=f
+# [5935000][CPU-READ ] addr=000001b4 data=2354aa23
+# [5965000][CPU-WRITE] addr=00001230 data=001f02a9 strb=f
+#     [RESULT-RAM-WRITE] addr=00001230 data=001f02a9
+# [5965000][RAM-WRITE] addr=00001230 data=001f02a9 strb=f
+# [6005000][CPU-READ ] addr=000001b8 data=2344ac23
+# [6035000][CPU-WRITE] addr=00001234 data=0014001c strb=f
+#     [RESULT-RAM-WRITE] addr=00001234 data=0014001c
+# [6035000][RAM-WRITE] addr=00001234 data=0014001c strb=f
+# [6075000][CPU-READ ] addr=000001bc data=333337b7
+# [6105000][CPU-WRITE] addr=00001238 data=03dc00ba strb=f
+#     [RESULT-RAM-WRITE] addr=00001238 data=03dc00ba
+# [6105000][RAM-WRITE] addr=00001238 data=03dc00ba strb=f
+# [6145000][CPU-READ ] addr=000001c0 data=2334ae23
+# [6185000][CPU-READ ] addr=000001c4 data=33378793
+# [6215000][CPU-WRITE] addr=0000123c data=03e803e0 strb=f
+#     [RESULT-RAM-WRITE] addr=0000123c data=03e803e0
+# [6215000][RAM-WRITE] addr=0000123c data=03e803e0 strb=f
+# [6255000][CPU-READ ] addr=000001c8 data=2af4a423
+# [6295000][CPU-READ ] addr=000001cc data=00000013
+# [6325000][CPU-WRITE] addr=000012a8 data=33333333 strb=f
+# [6325000][FW] COMPLETION marker 0x33333333
+# [6325000][RAM-WRITE] addr=000012a8 data=33333333 strb=f
+# 
+# ============================================================
+# ================ PHASE 5 SUMMARY ===========================
+# ============================================================
+# CPU writes                  = 38
+# CPU reads                   = 125
+# RAM writes                  = 23
+# RAM reads                   = 118
+# TPU MMIO writes             = 15
+# TPU MMIO reads              = 7
+# TPU config writes           = 14
+# AXI input beats             = 7
+# AXI input TLAST             = 1
+# AXI output beats            = 2
+# AXI output TLAST            = 1
+# START event count           = 2
+# BUSY event count            = 1
+# DONE event count            = 1
+# START seen                   = 1
+# BUSY seen                    = 1
+# DONE seen                    = 1
+# START-to-DONE cycles        = 59
+# Firmware done marker         = 1
+# Firmware failure marker      = 0
+# CPU trap seen                = 0
+# CPU cycles                   = 622
+# TPU result0                  = 0014001c001f02a9
+# TPU result1                  = 03e803e003dc00ba
+# ============================================================
+# 
+# ============================================================
+# PHASE 5 RESULT RAM: base=00001230 words=4
+# RAM[1164] addr=00001230 data=001f02a9
+# RAM[1165] addr=00001234 data=0014001c
+# RAM[1166] addr=00001238 data=03dc00ba
+# RAM[1167] addr=0000123c data=03e803e0
+# ============================================================
+# 
+# PHASE 5 PASS: firmware completion marker detected.
+# 
+# ** Note: $finish    : tb_soc_ram_top_with_firmw.sv(855)
+#    Time: 6325 ns  Iteration: 1  Instance: /tb_cpu_soc_ram_top
+# 1
+# Break in Module tb_cpu_soc_ram_top at tb_soc_ram_top_with_firmw.sv line 855
+# 0 ps
+# 6641250 ps
+add wave  \
+sim:/tb_cpu_soc_ram_top/dut/ram/mem
+# (vsim-4077) Logging very large object: /tb_cpu_soc_ram_top/dut/ram/mem
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_cpu_soc_ram_top(fast)
+# Loading work.cpu_soc_ram_top(fast)
+# Loading work.ptb(fast)
+# Loading work.picorv32a(fast)
+# Loading work.picorv32_pcpi_fast_mul(fast)
+# Loading work.cpu_bus_adapter(fast)
+# Loading work.soc_mem_interconnect(fast)
+# Loading work.soc_ram(fast)
+# Loading work.gpio_native_slave(fast)
+# Loading work.sensor_status_native_slave(fast)
+# Loading work.rf_telemetry_native_slave(fast)
+# Loading work.vdp_native_slave(fast)
+# Loading work.cdc_reset_sync(fast)
+# Loading work.vga_timing_gen(fast)
+# Loading work.tpu_axis_top(fast)
+# Loading work.nn_axi_wrapper(fast)
+# Loading work.nn_axis_master(fast)
+# Loading work.axis_nn(fast)
+# Loading xpm.xpm_fifo_axis(fast)
+# Loading xpm.xpm_cdc_sync_rst(fast)
+# Loading xpm.xpm_fifo_base(fast)
+# Loading xpm.xpm_fifo_rst(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast)
+# Loading xpm.xpm_counter_updn(fast)
+# Loading xpm.xpm_counter_updn(fast__1)
+# Loading xpm.xpm_counter_updn(fast__2)
+# Loading xpm.xpm_counter_updn(fast__3)
+# Loading xpm.xpm_counter_updn(fast__4)
+# Loading xpm.xpm_memory_base(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast__1)
+# Loading xpm.xpm_counter_updn(fast__5)
+# Loading work.register(fast)
+# Loading work.nn(fast)
+# Loading xpm.xpm_memory_tdpram(fast)
+# Loading xpm.xpm_memory_base(fast__1)
+# Loading xpm.xpm_memory_tdpram(fast__1)
+# Loading xpm.xpm_memory_base(fast__2)
+# Loading work.register(fast__1)
+# Loading work.systolic(fast)
+# Loading work.pe(fast)
+# Loading work.sigmoid(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_wb File: ../TPU/nn.v Line: 134
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_wb File: ../TPU/nn.v Line: 134
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_k File: ../TPU/nn.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_k File: ../TPU/nn.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_a File: ../TPU/nn.v Line: 499
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_soc_ram_top/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_a File: ../TPU/nn.v Line: 499
+run -all
+# 
+# ============================================================
+# PHASE 5 TESTBENCH START
+# Loading firmware: firmware.hex
+# ============================================================
+# [TB] Firmware loaded.
+# [TB] Reset active.
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_cpu_soc_ram_top.dut.tpu.u_axis_nn.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# [95000] [TB] Reset released.
+# 
+# [135000][CPU-READ ] addr=00000000 data=00010137
+# [175000][CPU-READ ] addr=00000004 data=00001197
+# [215000][CPU-READ ] addr=00000008 data=9dc18193
+# [255000][CPU-READ ] addr=0000000c data=00000413
+# [295000][CPU-READ ] addr=00000010 data=01c000ef
+# [335000][CPU-READ ] addr=0000002c data=fe010113
+# [375000][CPU-READ ] addr=00000030 data=00812c23
+# [415000][CPU-READ ] addr=00000034 data=01212823
+# [445000][CPU-WRITE] addr=0000fff8 data=00000000 strb=f
+# [445000][RAM-WRITE] addr=0000fff8 data=00000000 strb=f
+# [485000][CPU-READ ] addr=00000038 data=000017b7
+# [515000][CPU-WRITE] addr=0000fff0 data=xxxxxxxx strb=f
+# [515000][RAM-WRITE] addr=0000fff0 data=xxxxxxxx strb=f
+# [555000][CPU-READ ] addr=0000003c data=00112e23
+# [595000][CPU-READ ] addr=00000040 data=00912a23
+# [625000][CPU-WRITE] addr=0000fffc data=00000014 strb=f
+# [625000][RAM-WRITE] addr=0000fffc data=00000014 strb=f
+# [665000][CPU-READ ] addr=00000044 data=01312623
+# [695000][CPU-WRITE] addr=0000fff4 data=xxxxxxxx strb=f
+# [695000][RAM-WRITE] addr=0000fff4 data=xxxxxxxx strb=f
+# [735000][CPU-READ ] addr=00000048 data=01412423
+# [765000][CPU-WRITE] addr=0000ffec data=xxxxxxxx strb=f
+# [765000][RAM-WRITE] addr=0000ffec data=xxxxxxxx strb=f
+# [805000][CPU-READ ] addr=0000004c data=01512223
+# [835000][CPU-WRITE] addr=0000ffe8 data=xxxxxxxx strb=f
+# [835000][RAM-WRITE] addr=0000ffe8 data=xxxxxxxx strb=f
+# [875000][CPU-READ ] addr=00000050 data=01612023
+# [905000][CPU-WRITE] addr=0000ffe4 data=xxxxxxxx strb=f
+# [905000][RAM-WRITE] addr=0000ffe4 data=xxxxxxxx strb=f
+# [945000][CPU-READ ] addr=00000054 data=2a07a023
+# [975000][CPU-WRITE] addr=0000ffe0 data=xxxxxxxx strb=f
+# [975000][RAM-WRITE] addr=0000ffe0 data=xxxxxxxx strb=f
+# [1015000][CPU-READ ] addr=00000058 data=2a07a223
+# [1045000][CPU-WRITE] addr=000012a0 data=00000000 strb=f
+# [1045000][RAM-WRITE] addr=000012a0 data=00000000 strb=f
+# [1085000][CPU-READ ] addr=0000005c data=2207a823
+# [1115000][CPU-WRITE] addr=000012a4 data=00000000 strb=f
+# [1115000][RAM-WRITE] addr=000012a4 data=00000000 strb=f
+# [1155000][CPU-READ ] addr=00000060 data=2207aa23
+# [1185000][CPU-WRITE] addr=00001230 data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=00001230 data=00000000
+# [1185000][RAM-WRITE] addr=00001230 data=00000000 strb=f
+# [1225000][CPU-READ ] addr=00000064 data=2207ac23
+# [1255000][CPU-WRITE] addr=00001234 data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=00001234 data=00000000
+# [1255000][RAM-WRITE] addr=00001234 data=00000000 strb=f
+# [1295000][CPU-READ ] addr=00000068 data=11111737
+# [1325000][CPU-WRITE] addr=00001238 data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=00001238 data=00000000
+# [1325000][RAM-WRITE] addr=00001238 data=00000000 strb=f
+# [1365000][CPU-READ ] addr=0000006c data=2207ae23
+# [1405000][CPU-READ ] addr=00000070 data=11170713
+# [1435000][CPU-WRITE] addr=0000123c data=00000000 strb=f
+#     [RESULT-RAM-WRITE] addr=0000123c data=00000000
+# [1435000][RAM-WRITE] addr=0000123c data=00000000 strb=f
+# [1475000][CPU-READ ] addr=00000074 data=2ae7a423
+# [1515000][CPU-READ ] addr=00000078 data=fa1ff0ef
+# [1545000][CPU-WRITE] addr=000012a8 data=11111111 strb=f
+# [1545000][FW] START marker 0x11111111
+# [1545000][RAM-WRITE] addr=000012a8 data=11111111 strb=f
+# [1585000][CPU-READ ] addr=00000018 data=c80025f3
+# [1625000][CPU-READ ] addr=0000001c data=c0002573
+# [1665000][CPU-READ ] addr=00000020 data=c80027f3
+# [1705000][CPU-READ ] addr=00000024 data=fef59ae3
+# [1745000][CPU-READ ] addr=00000028 data=00008067
+# [1835000][CPU-READ ] addr=0000007c data=05050737
+# [1875000][CPU-READ ] addr=00000080 data=000147b7
+# [1915000][CPU-READ ] addr=00000084 data=57a70713
+# [1955000][CPU-READ ] addr=00000088 data=00e7a823
+# [1995000][CPU-READ ] addr=0000008c data=0000b737
+# [2015000] NN BUS req=1 write=1 addr=00000010 wdata=0505057a strb=1111 ready=0
+# [2025000] NN BUS req=1 write=1 addr=00000010 wdata=0505057a strb=1111 ready=1
+# [2025000][CPU-WRITE] addr=00014010 data=0505057a strb=f
+#     [TPU-MMIO-WRITE] local=010 data=0505057a
+# [2065000][CPU-READ ] addr=00000090 data=07a70713
+# [2105000][CPU-READ ] addr=00000094 data=00e7aa23
+# [2145000][CPU-READ ] addr=00000098 data=03e10737
+# [2165000] NN BUS req=1 write=1 addr=00000014 wdata=0000b07a strb=1111 ready=0
+# [2175000] NN BUS req=1 write=1 addr=00000014 wdata=0000b07a strb=1111 ready=1
+# [2175000][CPU-WRITE] addr=00014014 data=0000b07a strb=f
+#     [TPU-MMIO-WRITE] local=014 data=0000b07a
+# [2215000][CPU-READ ] addr=0000009c data=31470713
+# [2255000][CPU-READ ] addr=000000a0 data=00e7ac23
+# [2295000][CPU-READ ] addr=000000a4 data=00010737
+# [2315000] NN BUS req=1 write=1 addr=00000018 wdata=03e10314 strb=1111 ready=0
+# [2325000] NN BUS req=1 write=1 addr=00000018 wdata=03e10314 strb=1111 ready=1
+# [2325000][CPU-WRITE] addr=00014018 data=03e10314 strb=f
+#     [TPU-MMIO-WRITE] local=018 data=03e10314
+# [2365000][CPU-READ ] addr=000000a8 data=c6670693
+# [2405000][CPU-READ ] addr=000000ac data=00d7ae23
+# [2445000][CPU-READ ] addr=000000b0 data=028f06b7
+# [2465000] NN BUS req=1 write=1 addr=0000001c wdata=0000fc66 strb=1111 ready=0
+# [2475000] NN BUS req=1 write=1 addr=0000001c wdata=0000fc66 strb=1111 ready=1
+# [2475000][CPU-WRITE] addr=0001401c data=0000fc66 strb=f
+#     [TPU-MMIO-WRITE] local=01c data=0000fc66
+# [2515000][CPU-READ ] addr=000000b4 data=43368693
+# [2555000][CPU-READ ] addr=000000b8 data=02d7a023
+# [2595000][CPU-READ ] addr=000000bc data=c7070713
+# [2615000] NN BUS req=1 write=1 addr=00000020 wdata=028f0433 strb=1111 ready=0
+# [2625000] NN BUS req=1 write=1 addr=00000020 wdata=028f0433 strb=1111 ready=1
+# [2625000][CPU-WRITE] addr=00014020 data=028f0433 strb=f
+#     [TPU-MMIO-WRITE] local=020 data=028f0433
+# [2665000][CPU-READ ] addr=000000c0 data=02e7a223
+# [2705000][CPU-READ ] addr=000000c4 data=fac22737
+# [2725000] NN BUS req=1 write=1 addr=00000024 wdata=0000fc70 strb=1111 ready=0
+# [2735000] NN BUS req=1 write=1 addr=00000024 wdata=0000fc70 strb=1111 ready=1
+# [2735000][CPU-WRITE] addr=00014024 data=0000fc70 strb=f
+#     [TPU-MMIO-WRITE] local=024 data=0000fc70
+# [2775000][CPU-READ ] addr=000000c8 data=87070713
+# [2815000][CPU-READ ] addr=000000cc data=02e7a423
+# [2855000][CPU-READ ] addr=000000d0 data=f5a30737
+# [2875000] NN BUS req=1 write=1 addr=00000028 wdata=fac21870 strb=1111 ready=0
+# [2885000] NN BUS req=1 write=1 addr=00000028 wdata=fac21870 strb=1111 ready=1
+# [2885000][CPU-WRITE] addr=00014028 data=fac21870 strb=f
+#     [TPU-MMIO-WRITE] local=028 data=fac21870
+# [2925000][CPU-READ ] addr=000000d4 data=05170713
+# [2965000][CPU-READ ] addr=000000d8 data=02e7a623
+# [3005000][CPU-READ ] addr=000000dc data=0685e737
+# [3025000] NN BUS req=1 write=1 addr=0000002c wdata=f5a30051 strb=1111 ready=0
+# [3035000] NN BUS req=1 write=1 addr=0000002c wdata=f5a30051 strb=1111 ready=1
+# [3035000][CPU-WRITE] addr=0001402c data=f5a30051 strb=f
+#     [TPU-MMIO-WRITE] local=02c data=f5a30051
+# [3075000][CPU-READ ] addr=000000e0 data=39970713
+# [3115000][CPU-READ ] addr=000000e4 data=02e7a823
+# [3155000][CPU-READ ] addr=000000e8 data=00cc0737
+# [3175000] NN BUS req=1 write=1 addr=00000030 wdata=0685e399 strb=1111 ready=0
+# [3185000] NN BUS req=1 write=1 addr=00000030 wdata=0685e399 strb=1111 ready=1
+# [3185000][CPU-WRITE] addr=00014030 data=0685e399 strb=f
+#     [TPU-MMIO-WRITE] local=030 data=0685e399
+# [3225000][CPU-READ ] addr=000000ec data=7e170713
+# [3265000][CPU-READ ] addr=000000f0 data=02e7aa23
+# [3305000][CPU-READ ] addr=000000f4 data=20002737
+# [3325000] NN BUS req=1 write=1 addr=00000034 wdata=00cc07e1 strb=1111 ready=0
+# [3335000] NN BUS req=1 write=1 addr=00000034 wdata=00cc07e1 strb=1111 ready=1
+# [3335000][CPU-WRITE] addr=00014034 data=00cc07e1 strb=f
+#     [TPU-MMIO-WRITE] local=034 data=00cc07e1
+# [3375000][CPU-READ ] addr=000000f8 data=02e7ac23
+# [3415000][CPU-READ ] addr=000000fc data=14001737
+# [3435000] NN BUS req=1 write=1 addr=00000038 wdata=20002000 strb=1111 ready=0
+# [3445000] NN BUS req=1 write=1 addr=00000038 wdata=20002000 strb=1111 ready=1
+# [3445000][CPU-WRITE] addr=00014038 data=20002000 strb=f
+#     [TPU-MMIO-WRITE] local=038 data=20002000
+# [3485000][CPU-READ ] addr=00000100 data=40070713
+# [3525000][CPU-READ ] addr=00000104 data=02e7ae23
+# [3565000][CPU-READ ] addr=00000108 data=14002737
+# [3585000] NN BUS req=1 write=1 addr=0000003c wdata=14001400 strb=1111 ready=0
+# [3595000] NN BUS req=1 write=1 addr=0000003c wdata=14001400 strb=1111 ready=1
+# [3595000][CPU-WRITE] addr=0001403c data=14001400 strb=f
+#     [TPU-MMIO-WRITE] local=03c data=14001400
+# [3635000][CPU-READ ] addr=0000010c data=04e7a023
+# [3675000][CPU-READ ] addr=00000110 data=04e7a223
+# [3695000] NN BUS req=1 write=1 addr=00000040 wdata=14002000 strb=1111 ready=0
+# [3705000] NN BUS req=1 write=1 addr=00000040 wdata=14002000 strb=1111 ready=1
+# [3705000][CPU-WRITE] addr=00014040 data=14002000 strb=f
+#     [TPU-MMIO-WRITE] local=040 data=14002000
+# [3745000][CPU-READ ] addr=00000114 data=00100713
+# [3765000] NN BUS req=1 write=1 addr=00000044 wdata=14002000 strb=1111 ready=0
+# [3775000] NN BUS req=1 write=1 addr=00000044 wdata=14002000 strb=1111 ready=1
+# [3775000][CPU-WRITE] addr=00014044 data=14002000 strb=f
+#     [TPU-MMIO-WRITE] local=044 data=14002000
+# [3815000][CPU-READ ] addr=00000118 data=00e7a023
+# [3855000][CPU-READ ] addr=0000011c data=000f4737
+# [3875000] NN BUS req=1 write=1 addr=00000000 wdata=00000001 strb=1111 ready=0
+# [3885000] NN BUS req=1 write=1 addr=00000000 wdata=00000001 strb=1111 ready=1
+# [3885000] NN AXIS START busy=0
+# [3885000][CPU-WRITE] addr=00014000 data=00000001 strb=f
+#     [TPU-MMIO-WRITE] local=000 data=00000001
+#     [TPU-CONTROL] write data=00000001 bit0=1
+#     [TPU-START-CMD] CPU START command observed
+# [3885000][TPU-START] cycle=378 axis_start=1
+# [3895000] NN AXIS START busy=1
+# [3895000][AXI-IN ] beat=1 data=0000b07a0505057a tlast=0
+# [3895000][TPU-START] cycle=379 axis_start=1
+# [3895000][TPU-BUSY] cycle=379 axis_busy=1
+# [3905000][AXI-IN ] beat=2 data=0000fc6603e10314 tlast=0
+# [3915000][AXI-IN ] beat=3 data=0000fc70028f0433 tlast=0
+# [3925000][CPU-READ ] addr=00000120 data=00050913
+# [3925000][AXI-IN ] beat=4 data=f5a30051fac21870 tlast=0
+# [3935000][AXI-IN ] beat=5 data=00cc07e10685e399 tlast=0
+# [3945000][AXI-IN ] beat=6 data=1400140020002000 tlast=0
+# [3955000][AXI-IN ] beat=7 data=1400200014002000 tlast=1
+# [3965000][CPU-READ ] addr=00000124 data=00058413
+# [4005000][CPU-READ ] addr=00000128 data=24070713
+# [4045000][CPU-READ ] addr=0000012c data=0047a683
+# [4085000][CPU-READ ] addr=00000130 data=0026f693
+# [4105000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=0
+# [4115000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=1
+# [4115000][CPU-READ ] addr=00014004 data=00000001
+#     [TPU-MMIO-READ] local=004 data=00000001
+#     [TPU-STATUS] BUSY=1 DONE=0
+# [4155000][CPU-READ ] addr=00000134 data=04069063
+# [4195000][CPU-READ ] addr=00000138 data=fff70713
+# [4245000][CPU-READ ] addr=0000013c data=fe0718e3
+# [4285000][CPU-READ ] addr=00000140 data=ed9ff0ef
+# [4325000][CPU-READ ] addr=0000012c data=0047a683
+# [4365000][CPU-READ ] addr=00000130 data=0026f693
+# [4385000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=0
+# [4395000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=1
+# [4395000][CPU-READ ] addr=00014004 data=00000001
+#     [TPU-MMIO-READ] local=004 data=00000001
+#     [TPU-STATUS] BUSY=1 DONE=0
+# [4435000][CPU-READ ] addr=00000134 data=04069063
+# [4445000][AXI-OUT] beat=1 data=0014001c001f02a9 tlast=0
+# [4455000][TPU-RESULT0] value=0014001c001f02a9
+# [4455000][AXI-OUT] beat=2 data=03e803e003dc00ba tlast=1
+# [4465000][TPU-RESULT1] value=03e803e003dc00ba
+# [4475000] NN AXIS DONE
+# [4475000][CPU-READ ] addr=00000138 data=fff70713
+# [4475000][TPU-DONE] cycle=437 START-to-DONE=59
+# [4525000][CPU-READ ] addr=0000013c data=fe0718e3
+# [4565000][CPU-READ ] addr=00000140 data=ed9ff0ef
+# [4605000][CPU-READ ] addr=0000012c data=0047a683
+# [4645000][CPU-READ ] addr=00000130 data=0026f693
+# [4665000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=0
+# [4675000] NN BUS req=1 write=0 addr=00000004 wdata=00000001 strb=0000 ready=1
+# [4675000][CPU-READ ] addr=00014004 data=00000002
+#     [TPU-MMIO-READ] local=004 data=00000002
+#     [TPU-STATUS] BUSY=0 DONE=1
+# [4715000][CPU-READ ] addr=00000134 data=04069063
+# [4755000][CPU-READ ] addr=00000138 data=fff70713
+# [4795000][CPU-READ ] addr=00000174 data=22222737
+# [4835000][CPU-READ ] addr=00000178 data=000014b7
+# [4875000][CPU-READ ] addr=0000017c data=22270713
+# [4915000][CPU-READ ] addr=00000180 data=2ae4a423
+# [4955000][CPU-READ ] addr=00000184 data=0507ab03
+# [4985000][CPU-WRITE] addr=000012a8 data=22222222 strb=f
+# [4985000][FW] WORKLOAD marker 0x22222222
+# [4985000][RAM-WRITE] addr=000012a8 data=22222222 strb=f
+# [5025000][CPU-READ ] addr=00000188 data=0547aa83
+# [5045000] NN BUS req=1 write=0 addr=00000050 wdata=22222222 strb=0000 ready=0
+# [5055000] NN BUS req=1 write=0 addr=00000050 wdata=22222222 strb=0000 ready=1
+# [5055000][CPU-READ ] addr=00014050 data=001f02a9
+#     [TPU-MMIO-READ] local=050 data=001f02a9
+# [5095000][CPU-READ ] addr=0000018c data=0587aa03
+# [5115000] NN BUS req=1 write=0 addr=00000054 wdata=22222222 strb=0000 ready=0
+# [5125000] NN BUS req=1 write=0 addr=00000054 wdata=22222222 strb=0000 ready=1
+# [5125000][CPU-READ ] addr=00014054 data=0014001c
+#     [TPU-MMIO-READ] local=054 data=0014001c
+# [5165000][CPU-READ ] addr=00000190 data=05c7a983
+# [5185000] NN BUS req=1 write=0 addr=00000058 wdata=22222222 strb=0000 ready=0
+# [5195000] NN BUS req=1 write=0 addr=00000058 wdata=22222222 strb=0000 ready=1
+# [5195000][CPU-READ ] addr=00014058 data=03dc00ba
+#     [TPU-MMIO-READ] local=058 data=03dc00ba
+# [5235000][CPU-READ ] addr=00000194 data=e85ff0ef
+# [5255000] NN BUS req=1 write=0 addr=0000005c wdata=22222222 strb=0000 ready=0
+# [5265000] NN BUS req=1 write=0 addr=0000005c wdata=22222222 strb=0000 ready=1
+# [5265000][CPU-READ ] addr=0001405c data=03e803e0
+#     [TPU-MMIO-READ] local=05c data=03e803e0
+# [5305000][CPU-READ ] addr=00000018 data=c80025f3
+# [5345000][CPU-READ ] addr=0000001c data=c0002573
+# [5385000][CPU-READ ] addr=00000020 data=c80027f3
+# [5425000][CPU-READ ] addr=00000024 data=fef59ae3
+# [5465000][CPU-READ ] addr=00000028 data=00008067
+# [5555000][CPU-READ ] addr=00000198 data=41250933
+# [5595000][CPU-READ ] addr=0000019c data=01253533
+# [5645000][CPU-READ ] addr=000001a0 data=408585b3
+# [5695000][CPU-READ ] addr=000001a4 data=2b24a023
+# [5745000][CPU-READ ] addr=000001a8 data=40a585b3
+# [5775000][CPU-WRITE] addr=000012a0 data=00000174 strb=f
+# [5775000][RAM-WRITE] addr=000012a0 data=00000174 strb=f
+# [5815000][CPU-READ ] addr=000001ac data=2ab4a223
+# [5865000][CPU-READ ] addr=000001b0 data=2364a823
+# [5895000][CPU-WRITE] addr=000012a4 data=00000000 strb=f
+# [5895000][RAM-WRITE] addr=000012a4 data=00000000 strb=f
+# [5935000][CPU-READ ] addr=000001b4 data=2354aa23
+# [5965000][CPU-WRITE] addr=00001230 data=001f02a9 strb=f
+#     [RESULT-RAM-WRITE] addr=00001230 data=001f02a9
+# [5965000][RAM-WRITE] addr=00001230 data=001f02a9 strb=f
+# [6005000][CPU-READ ] addr=000001b8 data=2344ac23
+# [6035000][CPU-WRITE] addr=00001234 data=0014001c strb=f
+#     [RESULT-RAM-WRITE] addr=00001234 data=0014001c
+# [6035000][RAM-WRITE] addr=00001234 data=0014001c strb=f
+# [6075000][CPU-READ ] addr=000001bc data=333337b7
+# [6105000][CPU-WRITE] addr=00001238 data=03dc00ba strb=f
+#     [RESULT-RAM-WRITE] addr=00001238 data=03dc00ba
+# [6105000][RAM-WRITE] addr=00001238 data=03dc00ba strb=f
+# [6145000][CPU-READ ] addr=000001c0 data=2334ae23
+# [6185000][CPU-READ ] addr=000001c4 data=33378793
+# [6215000][CPU-WRITE] addr=0000123c data=03e803e0 strb=f
+#     [RESULT-RAM-WRITE] addr=0000123c data=03e803e0
+# [6215000][RAM-WRITE] addr=0000123c data=03e803e0 strb=f
+# [6255000][CPU-READ ] addr=000001c8 data=2af4a423
+# [6295000][CPU-READ ] addr=000001cc data=00000013
+# [6325000][CPU-WRITE] addr=000012a8 data=33333333 strb=f
+# [6325000][FW] COMPLETION marker 0x33333333
+# [6325000][RAM-WRITE] addr=000012a8 data=33333333 strb=f
+# 
+# ============================================================
+# ================ PHASE 5 SUMMARY ===========================
+# ============================================================
+# CPU writes                  = 38
+# CPU reads                   = 125
+# RAM writes                  = 23
+# RAM reads                   = 118
+# TPU MMIO writes             = 15
+# TPU MMIO reads              = 7
+# TPU config writes           = 14
+# AXI input beats             = 7
+# AXI input TLAST             = 1
+# AXI output beats            = 2
+# AXI output TLAST            = 1
+# START event count           = 2
+# BUSY event count            = 1
+# DONE event count            = 1
+# START seen                   = 1
+# BUSY seen                    = 1
+# DONE seen                    = 1
+# START-to-DONE cycles        = 59
+# Firmware done marker         = 1
+# Firmware failure marker      = 0
+# CPU trap seen                = 0
+# CPU cycles                   = 622
+# TPU result0                  = 0014001c001f02a9
+# TPU result1                  = 03e803e003dc00ba
+# ============================================================
+# 
+# ============================================================
+# PHASE 5 RESULT RAM: base=00001230 words=4
+# RAM[1164] addr=00001230 data=001f02a9
+# RAM[1165] addr=00001234 data=0014001c
+# RAM[1166] addr=00001238 data=03dc00ba
+# RAM[1167] addr=0000123c data=03e803e0
+# ============================================================
+# 
+# PHASE 5 PASS: firmware completion marker detected.
+# 
+# ** Note: $finish    : tb_soc_ram_top_with_firmw.sv(855)
+#    Time: 6325 ns  Iteration: 1  Instance: /tb_cpu_soc_ram_top
+# 1
+# Break in Module tb_cpu_soc_ram_top at tb_soc_ram_top_with_firmw.sv line 855
+exec grep -i "174" transcript
+# [1745000][CPU-READ ] addr=00000028 data=00008067
+# [4795000][CPU-READ ] addr=00000174 data=22222737
+# [5775000][CPU-WRITE] addr=000012a0 data=00000174 strb=f
+# [5775000][RAM-WRITE] addr=000012a0 data=00000174 strb=f
+# [1745000][CPU-READ ] addr=00000028 data=00008067
+# [4795000][CPU-READ ] addr=00000174 data=22222737
+# [5775000][CPU-WRITE] addr=000012a0 data=00000174 strb=f
+# [5775000][RAM-WRITE] addr=000012a0 data=00000174 strb=f
+# exec grep -i "174" transcript
+exit
+# End time: 02:46:37 on Sep 13,2026, Elapsed time: 2:10:45
+# Errors: 0, Warnings: 6

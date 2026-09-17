@@ -3,6 +3,7 @@
 +incdir+tb/soc_env
 +incdir+tb/soc_native_if
 
+
 rtl/soc_mem_interconnect.v
 rtl/soc_ram.v
 rtl/gpio_native_slave.v
@@ -27,6 +28,10 @@ rtl/soc_uvm_dut.sv
 +incdir+tb/soc_native_if
 +incdir+tb/soc_ral
 +incdir+tb/soc_coverage
++incdir+tb/soc_scoreboard
++incdir+tb/soc_reference_model
+
+
 
 tb/soc_native_if/soc_native_if.sv
 tb/soc_pkg/soc_uvm_pkg.sv

@@ -65,6 +65,9 @@ package soc_uvm_pkg;
     `include "soc_base_test/soc_coverage_sequence.sv"
     `include "soc_base_test/soc_ral_test.sv"    
     `include "soc_base_test/soc_coverage_test.sv"
+    `include "soc_scoreboard/soc_tpu_scoreboard.sv"
+    // `include "soc_reference_model/soc_reference_model.sv"
+
 
 endpackage
 

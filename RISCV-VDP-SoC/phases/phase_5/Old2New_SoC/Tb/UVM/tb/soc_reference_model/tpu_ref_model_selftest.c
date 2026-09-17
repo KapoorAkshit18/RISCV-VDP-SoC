@@ -26,6 +26,20 @@ int main(void)
 
     tpu_reference(axi, &result0, &result1);
 
+    printf("RESULT0 = 0x%016llX\n",
+       (unsigned long long)result0);
+
+    printf("s0 = 0x%04llX\n",
+        (unsigned long long)((result0 >> 0) & 0xFFFF));
+
+    printf("s1 = 0x%04llX\n",
+        (unsigned long long)((result0 >> 16) & 0xFFFF));
+
+    printf("s2 = 0x%04llX\n",
+        (unsigned long long)((result0 >> 32) & 0xFFFF));
+
+    printf("s3 = 0x%04llX\n",
+        (unsigned long long)((result0 >> 48) & 0xFFFF));
     printf("RESULT0 = 0x%016" PRIx64 "\n", result0);
     printf("RESULT1 = 0x%016" PRIx64 "\n", result1);
 

@@ -74,7 +74,7 @@ compile:
 run:
 	$(VSIM) $(VSIM_OPTS) \
 		$(TOP) \
-		+UVM_TESTNAME=soc_ral_test \
+		+UVM_TESTNAME=soc_tpu_test \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
 

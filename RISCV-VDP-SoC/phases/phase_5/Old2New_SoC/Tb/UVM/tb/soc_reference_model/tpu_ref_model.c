@@ -6,7 +6,7 @@
 /*
  * Convert a 16-bit bit-pattern to int16_t.
  */
-static int16_t bits_to_i16(uint16_t x)
+static int16_t bits_to_i16(uint16_t x)   // what is int16_t here? 
 {
     if (x & 0x8000u)
         return (int16_t)((int32_t)x - 65536);

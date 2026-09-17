@@ -8,8 +8,8 @@ import uvm_pkg::*;
 
 // =============================================================================
 // RISCV-VDP-// // Dependencies
-`include "../soc_agent/soc_sequence_item/soc_sequence_item.sv"
-`include "../soc_native_if/soc_native_if.sv"
+// `include "../soc_agent/soc_sequence_item/soc_sequence_item.sv"
+// `include "../soc_native_if/soc_native_if.sv"
 //SoC
 // TPU UVM Scoreboard
 // =============================================================================

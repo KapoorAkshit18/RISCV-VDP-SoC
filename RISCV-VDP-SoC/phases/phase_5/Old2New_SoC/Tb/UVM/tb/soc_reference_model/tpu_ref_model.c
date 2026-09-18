@@ -81,11 +81,16 @@ void tpu_input_clear(tpu_input_t *in)
 }
 
 /*
- * Compute one four-lane systolic result for one moving word.
+ * One 4x4 systolic matrix-vector product for a SINGLE moving word.
  *
  * y[col] = sum(row = 0..3) a[row] * b[row][col]
  *
- * Each accumulation uses the PE fixed-point operation.
+ * This is the full contribution of ONE weight word against the
+ * current stationary matrix -- it is NOT accumulated with any
+ * other weight word's contribution. Confirmed from systolic.v /
+ * nn.v cycle tracing: each weight word entering the array produces
+ * its own independent dot-product-then-sigmoid result; results from
+ * different weight words are never summed together.
  */
 static void systolic_word(const int16_t a[4],
                            const int16_t b[4][4],
@@ -104,79 +109,66 @@ static void systolic_word(const int16_t a[4],
 }
 
 /*
- * Advance one systolic cycle: load the moving word for this cycle
- * (or a zero vector, for sentinel index -1) and accumulate into
- * pass[].
- *
- * The RTL's sys_in_valid window is one cycle wider than its
- * real-weight window in each pass (see nn.v: a0_sel selects real
- * weight data for 3 cycles in pass 1 / 2 cycles in pass 2, but
- * sys_in_valid stays high for 4 cycles in both). The extra cycle(s)
- * push a genuine zero moving-vector through the array rather than
- * repeating the previous weight -- that zero-padding is modeled
- * explicitly here via the -1 sentinel, instead of repeating the
- * last real index.
+ * Run one weight word through the array against the given
+ * stationary matrix and apply sigmoid, lane by lane.
  */
-static void run_pass(tpu_state_t *state,
-                      const tpu_input_t *in,
-                      const int wb_schedule[4],
-                      int16_t pass[4])
+static void run_word(const tpu_input_t *in,
+                      int wb_index,
+                      const int16_t b[4][4],
+                      uint16_t sig_out[4])
 {
+    int16_t a[4];
     int16_t y[4];
     int j;
-    int cycle;
+
+    unpack_word(in->wb[wb_index], a);
+    systolic_word(a, b, y);
 
     for (j = 0; j < 4; ++j) {
-        pass[j] = 0;
-    }
-
-    for (cycle = 0; cycle < 4; ++cycle) {
-        int wb_index = wb_schedule[cycle];
-
-        if (wb_index < 0) {
-            state->a[0] = 0;
-            state->a[1] = 0;
-            state->a[2] = 0;
-            state->a[3] = 0;
-        } else {
-            unpack_word(in->wb[wb_index], state->a);
-        }
-
-        systolic_word(state->a, state->b, y);
-
-        for (j = 0; j < 4; ++j) {
-            pass[j] = (int16_t)(uint16_t)(
-                (int32_t)pass[j] + (int32_t)y[j]
-            );
-        }
+        sig_out[j] = tpu_sigmoid(i16_to_bits(y[j]));
     }
 }
 
 /*
  * Execute the behavioral TPU reference model.
  *
- * First moving-word schedule:
- *     wb[0], wb[1], wb[2], zero
+ * Architecture (derived from systolic.v pipeline tracing against
+ * nn.v's cnt_main_reg schedule -- see debugging notes):
  *
- * Second moving-word schedule:
- *     wb[3], wb[4], zero, zero
+ *   Pass 1 stationary matrix:
+ *       row0 = input0, row1 = input1, row2 = 1.0 (Q6.10), row3 = 0
+ *       (row3 is 0, NOT 1.0 -- b30_reg only becomes bias starting
+ *        cnt=17, i.e. after pass 1 has already completed)
  *
- * (-1 = zero vector, matching the extra sys_in_valid cycle(s) in
- * nn.v that carry no real weight data -- NOT a repeat of the last
- * weight.)
+ *   Pass 1: weight0, weight1, weight2 each independently multiply
+ *   against the pass-1 matrix and are independently sigmoided.
+ *   These three per-weight sigmoid results feed rows 0, 1, 2 of the
+ *   pass-2 matrix (NOT summed together, NOT broadcast identically).
+ *
+ *   Pass 2 stationary matrix:
+ *       row0 = sigmoid(weight0 . pass1_matrix)
+ *       row1 = sigmoid(weight1 . pass1_matrix)
+ *       row2 = sigmoid(weight2 . pass1_matrix)
+ *       row3 = 1.0 (Q6.10)
+ *
+ *   Pass 2: weight3 and weight4 each independently multiply against
+ *   the pass-2 matrix and are independently sigmoided.
+ *       RESULT0 = sigmoid(weight3 . pass2_matrix)
+ *       RESULT1 = sigmoid(weight4 . pass2_matrix)
  */
 void tpu_run(const tpu_input_t *in, tpu_state_t *state)
 {
     int16_t k0[4];
     int16_t k1[4];
 
-    int16_t pass0[4];
-    int16_t pass1[4];
+    uint16_t fb0[4];
+    uint16_t fb1[4];
+    uint16_t fb2[4];
+
+    uint16_t result0_lanes[4];
+    uint16_t result1_lanes[4];
 
     int j;
-
-    static const int first_pass_wb[4]  = { 0, 1, 2, -1 };
-    static const int second_pass_wb[4] = { 3, 4, -1, -1 };
 
     memset(state, 0, sizeof(*state));
 
@@ -187,76 +179,64 @@ void tpu_run(const tpu_input_t *in, tpu_state_t *state)
     unpack_word(in->k[1], k1);
 
     /*
-     * Initial stationary array.
-     *
-     * Row 0 = k[0]
-     * Row 1 = k[1]
-     * Row 2 = 1.0 in Q6.10
-     * Row 3 = 1.0 in Q6.10
+     * Pass-1 stationary matrix.
      */
     for (j = 0; j < 4; ++j) {
         state->b[0][j] = k0[j];
         state->b[1][j] = k1[j];
         state->b[2][j] = TPU_ONE_Q;
+        state->b[3][j] = 0;
+    }
+
+    /*
+     * Pass 1: three independent weight x matrix products, each
+     * individually sigmoided.
+     */
+    run_word(in, 0, state->b, fb0);
+    run_word(in, 1, state->b, fb1);
+    run_word(in, 2, state->b, fb2);
+
+    /*
+     * Pass-2 stationary matrix: rows 0-2 = the three independent
+     * pass-1 sigmoid results, row3 = bias.
+     */
+    for (j = 0; j < 4; ++j) {
+        state->b[0][j] = bits_to_i16(fb0[j]);
+        state->b[1][j] = bits_to_i16(fb1[j]);
+        state->b[2][j] = bits_to_i16(fb2[j]);
         state->b[3][j] = TPU_ONE_Q;
     }
 
     /*
-     * First pass accumulation.
+     * Pass 2: weight3 -> RESULT0, weight4 -> RESULT1, each an
+     * independent weight x matrix product, independently sigmoided.
      */
-    run_pass(state, in, first_pass_wb, pass0);
+    run_word(in, 3, state->b, result0_lanes);
+    run_word(in, 4, state->b, result1_lanes);
 
-    /*
-     * Apply sigmoid after the first pass.
-     */
     for (j = 0; j < 4; ++j) {
-        pass0[j] = (int16_t)(uint16_t)tpu_sigmoid(i16_to_bits(pass0[j]));
-    }
-
-    /*
-     * Sigmoid feedback.
-     *
-     * Rows 0, 1, and 2 receive the first-pass sigmoid values.
-     * Row 3 remains equal to TPU_ONE_Q.
-     */
-    for (j = 0; j < 4; ++j) {
-        state->b[0][j] = bits_to_i16((uint16_t)pass0[j]);
-        state->b[1][j] = bits_to_i16((uint16_t)pass0[j]);
-        state->b[2][j] = bits_to_i16((uint16_t)pass0[j]);
-        state->b[3][j] = TPU_ONE_Q;
-    }
-
-    /*
-     * Second pass accumulation.
-     */
-    run_pass(state, in, second_pass_wb, pass1);
-
-    /*
-     * Apply sigmoid after the second pass.
-     */
-    for (j = 0; j < 4; ++j) {
-        state->sigmoid[j] = tpu_sigmoid(i16_to_bits(pass1[j]));
+        state->sigmoid[j] = result0_lanes[j];
     }
 
     /*
      * Pack final sigmoid values:
      *
-     * bits [15:0]  = s0
-     * bits [31:16] = s1
-     * bits [47:32] = s2
-     * bits [63:48] = s3
+     * bits [15:0]  = lane 0
+     * bits [31:16] = lane 1
+     * bits [47:32] = lane 2
+     * bits [63:48] = lane 3
      */
     state->result0 =
-          ((uint64_t)state->sigmoid[0] << 0)
-        | ((uint64_t)state->sigmoid[1] << 16)
-        | ((uint64_t)state->sigmoid[2] << 32)
-        | ((uint64_t)state->sigmoid[3] << 48);
+          ((uint64_t)result0_lanes[0] << 0)
+        | ((uint64_t)result0_lanes[1] << 16)
+        | ((uint64_t)result0_lanes[2] << 32)
+        | ((uint64_t)result0_lanes[3] << 48);
 
-    /*
-     * The specification currently does not define the second
-     * output word.
-     */
-    state->result1 = 0;
+    state->result1 =
+          ((uint64_t)result1_lanes[0] << 0)
+        | ((uint64_t)result1_lanes[1] << 16)
+        | ((uint64_t)result1_lanes[2] << 32)
+        | ((uint64_t)result1_lanes[3] << 48);
 }
 
 /*

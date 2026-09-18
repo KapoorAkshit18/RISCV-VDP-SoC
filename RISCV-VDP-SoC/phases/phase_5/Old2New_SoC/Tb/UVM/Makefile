@@ -2,7 +2,7 @@
 # RISCV-VDP-SoC — Questa UVM Makefile
 # ============================================================
 
-TOP      = tb_soc_uvm
+TOP  	 = tb_cpu_soc_ram_top
 OPT_TOP  = tb_uvm_opt
 FILELIST = filelist.f
 

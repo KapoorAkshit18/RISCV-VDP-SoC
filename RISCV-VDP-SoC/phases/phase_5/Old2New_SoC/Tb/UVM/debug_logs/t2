@@ -1,0 +1,485 @@
+# vsim -sv_lib C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/Tb/UVM/tb/soc_scoreboard/tpu_ref -sv_lib tpu_ref -c tb_uvm_opt "+UVM_TESTNAME=soc_tpu_test" "+UVM_VERBOSITY=UVM_MEDIUM" -do "run -all; quit -f" 
+# Start time: 18:03:56 on Sep 18,2026
+# //  Questa Sim-64
+# //  Version 2024.1 win64 Feb  1 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.soc_native_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.soc_uvm_pkg(fast)
+# Loading work.tb_soc_uvm_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.tb_soc_uvm(fast)
+# Loading work.soc_native_if(fast__2)
+# Loading work.soc_uvm_dut(fast)
+# Loading work.soc_mem_interconnect(fast)
+# Loading work.soc_ram(fast)
+# Loading work.gpio_native_slave(fast)
+# Loading work.rf_telemetry_native_slave(fast)
+# Loading work.sensor_status_native_slave(fast)
+# Loading work.vdp_native_slave(fast)
+# Loading work.cdc_reset_sync(fast)
+# Loading work.vga_timing_gen(fast)
+# Loading work.tpu_axis_top(fast)
+# Loading work.nn_axi_wrapper(fast)
+# Loading work.nn_axis_master(fast)
+# Loading work.axis_nn(fast)
+# Loading xpm.xpm_fifo_axis(fast)
+# Loading xpm.xpm_cdc_sync_rst(fast)
+# Loading xpm.xpm_fifo_base(fast)
+# Loading xpm.xpm_fifo_rst(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast)
+# Loading xpm.xpm_counter_updn(fast)
+# Loading xpm.xpm_counter_updn(fast__1)
+# Loading xpm.xpm_counter_updn(fast__2)
+# Loading xpm.xpm_counter_updn(fast__3)
+# Loading xpm.xpm_counter_updn(fast__4)
+# Loading xpm.xpm_memory_base(fast)
+# Loading xpm.xpm_fifo_reg_bit(fast__1)
+# Loading xpm.xpm_counter_updn(fast__5)
+# Loading work.register(fast)
+# Loading work.nn(fast)
+# Loading xpm.xpm_memory_tdpram(fast)
+# Loading xpm.xpm_memory_base(fast__1)
+# Loading xpm.xpm_memory_tdpram(fast__1)
+# Loading xpm.xpm_memory_base(fast__2)
+# Loading work.register(fast__1)
+# Loading work.systolic(fast)
+# Loading work.pe(fast)
+# Loading work.sigmoid(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_soc_uvm/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_wb File: ../../../TPU/nn.v Line: 134
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_soc_uvm/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_wb File: ../../../TPU/nn.v Line: 134
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_soc_uvm/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_k File: ../../../TPU/nn.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_soc_uvm/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_k File: ../../../TPU/nn.v Line: 210
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (32) for port 'web'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8934).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_soc_uvm/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_a File: ../../../TPU/nn.v Line: 499
+# ** Warning: (vsim-3015) [PCDPC] - Port size (64) does not match connection size (32) for port 'dinb'. The port definition is at: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv(8936).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_soc_uvm/dut/tpu/u_axis_nn/nn_0/xpm_memory_tdpram_a File: ../../../TPU/nn.v Line: 499
+# Loading C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/Tb/UVM/tb/soc_scoreboard/tpu_ref.dll
+# Loading .\tpu_ref.dll
+# Loading C:/questasim64_2024.1/uvm-1.1d\win64\uvm_dpi.dll
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test soc_tpu_test...
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(350) @ 0: uvm_test_top.env.tpu_scoreboard [TPU_SCB] TPU scoreboard constructed
+# UVM_INFO tb/soc_env/soc_env.sv(305) @ 0: uvm_test_top.env [RAL_CONNECT] RAL default_map connected to native sequencer
+# UVM_INFO tb/soc_env/soc_env.sv(311) @ 0: uvm_test_top.env [RAL_CONNECT] Monitor connected to RAL predictor
+# UVM_INFO tb/soc_env/soc_env.sv(317) @ 0: uvm_test_top.env [COV_CONNECT] Monitor connected to functional coverage
+# UVM_INFO tb/soc_env/soc_env.sv(323) @ 0: uvm_test_top.env [TPU_CONNECT] Monitor connected to TPU scoreboard
+# UVM_INFO tb/soc_agent/soc_agent.sv(149) @ 0: uvm_test_top.env.native_agent [AGENT] Native bus agent configured as  ACTIVE
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(369) @ 0: uvm_test_top.env.tpu_scoreboard [TPU_SCB] TPU scoreboard connected to native-bus monitor
+# UVM_INFO tb/soc_env/soc_env.sv(342) @ 0: uvm_test_top.env [ENV] RISCV-VDP-SoC UVM environment constructed
+# UVM_INFO tb/soc_env/soc_env.sv(348) @ 0: uvm_test_top.env [ENV] Native bus agent is ACTIVE
+# UVM_INFO tb/soc_env/soc_env.sv(354) @ 0: uvm_test_top.env [ENV] SoC RAL model constructed
+# UVM_INFO tb/soc_env/soc_env.sv(360) @ 0: uvm_test_top.env [ENV] SoC RAL predictor connected to native monitor
+# UVM_INFO tb/soc_env/soc_env.sv(366) @ 0: uvm_test_top.env [ENV] Functional coverage connected to native monitor
+# UVM_INFO tb/soc_env/soc_env.sv(372) @ 0: uvm_test_top.env [ENV] TPU scoreboard connected to native monitor
+# UVM_INFO tb/soc_base_test/soc_tpu_test.sv(65) @ 0: uvm_test_top [TEST_TOPOLOGY] --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               soc_tpu_test            -     @471 
+#   env                      soc_env                 -     @478 
+#     coverage               soc_coverage            -     @492 
+#       analysis_imp         uvm_analysis_imp        -     @499 
+#     native_agent           soc_agent               -     @485 
+#       driver               soc_driver              -     @752 
+#         rsp_port           uvm_analysis_port       -     @767 
+#         seq_item_port      uvm_seq_item_pull_port  -     @759 
+#       monitor              soc_monitor             -     @628 
+#         analysis_port      uvm_analysis_port       -     @635 
+#       sequencer            soc_sequencer           -     @643 
+#         rsp_export         uvm_analysis_export     -     @650 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @744 
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     ral_predictor          soc_reg_predictor       -     @604 
+#       bus_in               uvm_analysis_imp        -     @611 
+#       reg_ap               uvm_analysis_port       -     @619 
+#     tpu_scoreboard         soc_tpu_scoreboard      -     @507 
+#       analysis_imp         uvm_analysis_imp        -     @514 
+# --------------------------------------------------------------
+# 
+# UVM_INFO tb/soc_base_test/soc_tpu_test.sv(79) @ 0: uvm_test_top [TEST] Starting soc_tpu_test...
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_soc_uvm.dut.tpu.u_axis_nn.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.xpm_fifo_axis_0.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_wb.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_k.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# ** Info: [XPM_MEMORY 20-2] MEMORY_INIT_FILE (none), MEMORY_INIT_PARAM together specify no memory initialization. Initial memory contents will be all 0's. tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc 48
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.nn_0.xpm_memory_tdpram_a.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 490
+# ** Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. tb_soc_uvm.dut.tpu.u_axis_nn.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc
+#    Time: 1 ps  Scope: tb_soc_uvm.dut.tpu.u_axis_nn.xpm_fifo_axis_1.xpm_fifo_base_inst.gen_sdpram.xpm_memory_base_inst.config_drc File: C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 488
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 5000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014010 wdata=0x0505057a strb=0xf ready=0 rdata=0x00000000
+# UVM_INFO tb_soc_uvm.sv(133) @ 45000: reporter [TB] System reset released
+# [55000] NN BUS req=1 write=1 addr=00000010 wdata=0505057a strb=1111 ready=0
+# [65000] NN BUS req=1 write=1 addr=00000010 wdata=0505057a strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 65000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014010 wdata=0x0505057a strb=0xf ready=1 rdata=0x0505057a
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(469) @ 65000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W0_LO  <= 0x0505057a
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 65000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014010 wdata=0x0505057a strb=0xf ready=1 rdata=0x0505057a
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 65000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014014 wdata=0x0000b07a strb=0xf ready=0 rdata=0x00000000
+# [85000] NN BUS req=1 write=1 addr=00000014 wdata=0000b07a strb=1111 ready=0
+# [95000] NN BUS req=1 write=1 addr=00000014 wdata=0000b07a strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 95000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014014 wdata=0x0000b07a strb=0xf ready=1 rdata=0x0000b07a
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(490) @ 95000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W0_HI  <= 0x0000b07a
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 95000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014014 wdata=0x0000b07a strb=0xf ready=1 rdata=0x0000b07a
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 95000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014018 wdata=0x03e10314 strb=0xf ready=0 rdata=0x00000000
+# [115000] NN BUS req=1 write=1 addr=00000018 wdata=03e10314 strb=1111 ready=0
+# [125000] NN BUS req=1 write=1 addr=00000018 wdata=03e10314 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 125000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014018 wdata=0x03e10314 strb=0xf ready=1 rdata=0x03e10314
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(511) @ 125000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W1_LO  <= 0x03e10314
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 125000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014018 wdata=0x03e10314 strb=0xf ready=1 rdata=0x03e10314
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 125000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x0001401c wdata=0x0000fc66 strb=0xf ready=0 rdata=0x00000000
+# [145000] NN BUS req=1 write=1 addr=0000001c wdata=0000fc66 strb=1111 ready=0
+# [155000] NN BUS req=1 write=1 addr=0000001c wdata=0000fc66 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 155000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x0001401c wdata=0x0000fc66 strb=0xf ready=1 rdata=0x0000fc66
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(532) @ 155000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W1_HI  <= 0x0000fc66
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 155000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x0001401c wdata=0x0000fc66 strb=0xf ready=1 rdata=0x0000fc66
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 155000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014020 wdata=0x028f0433 strb=0xf ready=0 rdata=0x00000000
+# [175000] NN BUS req=1 write=1 addr=00000020 wdata=028f0433 strb=1111 ready=0
+# [185000] NN BUS req=1 write=1 addr=00000020 wdata=028f0433 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 185000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014020 wdata=0x028f0433 strb=0xf ready=1 rdata=0x028f0433
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(553) @ 185000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W2_LO  <= 0x028f0433
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 185000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014020 wdata=0x028f0433 strb=0xf ready=1 rdata=0x028f0433
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 185000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014024 wdata=0x0000fc70 strb=0xf ready=0 rdata=0x00000000
+# [205000] NN BUS req=1 write=1 addr=00000024 wdata=0000fc70 strb=1111 ready=0
+# [215000] NN BUS req=1 write=1 addr=00000024 wdata=0000fc70 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 215000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014024 wdata=0x0000fc70 strb=0xf ready=1 rdata=0x0000fc70
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(574) @ 215000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W2_HI  <= 0x0000fc70
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 215000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014024 wdata=0x0000fc70 strb=0xf ready=1 rdata=0x0000fc70
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 215000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014028 wdata=0xfac21870 strb=0xf ready=0 rdata=0x00000000
+# [235000] NN BUS req=1 write=1 addr=00000028 wdata=fac21870 strb=1111 ready=0
+# [245000] NN BUS req=1 write=1 addr=00000028 wdata=fac21870 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 245000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014028 wdata=0xfac21870 strb=0xf ready=1 rdata=0xfac21870
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(595) @ 245000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W3_LO  <= 0xfac21870
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 245000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014028 wdata=0xfac21870 strb=0xf ready=1 rdata=0xfac21870
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 245000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x0001402c wdata=0xf5a30051 strb=0xf ready=0 rdata=0x00000000
+# [265000] NN BUS req=1 write=1 addr=0000002c wdata=f5a30051 strb=1111 ready=0
+# [275000] NN BUS req=1 write=1 addr=0000002c wdata=f5a30051 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 275000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x0001402c wdata=0xf5a30051 strb=0xf ready=1 rdata=0xf5a30051
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(616) @ 275000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W3_HI  <= 0xf5a30051
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 275000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x0001402c wdata=0xf5a30051 strb=0xf ready=1 rdata=0xf5a30051
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 275000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014030 wdata=0x0685e399 strb=0xf ready=0 rdata=0x00000000
+# [295000] NN BUS req=1 write=1 addr=00000030 wdata=0685e399 strb=1111 ready=0
+# [305000] NN BUS req=1 write=1 addr=00000030 wdata=0685e399 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 305000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014030 wdata=0x0685e399 strb=0xf ready=1 rdata=0x0685e399
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(637) @ 305000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W4_LO  <= 0x0685e399
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 305000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014030 wdata=0x0685e399 strb=0xf ready=1 rdata=0x0685e399
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 305000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014034 wdata=0x00cc07e1 strb=0xf ready=0 rdata=0x00000000
+# [325000] NN BUS req=1 write=1 addr=00000034 wdata=00cc07e1 strb=1111 ready=0
+# [335000] NN BUS req=1 write=1 addr=00000034 wdata=00cc07e1 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 335000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014034 wdata=0x00cc07e1 strb=0xf ready=1 rdata=0x00cc07e1
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(658) @ 335000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] W4_HI  <= 0x00cc07e1
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 335000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014034 wdata=0x00cc07e1 strb=0xf ready=1 rdata=0x00cc07e1
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 335000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014038 wdata=0x20002000 strb=0xf ready=0 rdata=0x00000000
+# [355000] NN BUS req=1 write=1 addr=00000038 wdata=20002000 strb=1111 ready=0
+# [365000] NN BUS req=1 write=1 addr=00000038 wdata=20002000 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 365000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014038 wdata=0x20002000 strb=0xf ready=1 rdata=0x20002000
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(679) @ 365000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] INPUT0_LO <= 0x20002000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 365000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014038 wdata=0x20002000 strb=0xf ready=1 rdata=0x20002000
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 365000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x0001403c wdata=0x14001400 strb=0xf ready=0 rdata=0x00000000
+# [385000] NN BUS req=1 write=1 addr=0000003c wdata=14001400 strb=1111 ready=0
+# [395000] NN BUS req=1 write=1 addr=0000003c wdata=14001400 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 395000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x0001403c wdata=0x14001400 strb=0xf ready=1 rdata=0x14001400
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(700) @ 395000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] INPUT0_HI <= 0x14001400
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 395000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x0001403c wdata=0x14001400 strb=0xf ready=1 rdata=0x14001400
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 395000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014040 wdata=0x14002000 strb=0xf ready=0 rdata=0x00000000
+# [415000] NN BUS req=1 write=1 addr=00000040 wdata=14002000 strb=1111 ready=0
+# [425000] NN BUS req=1 write=1 addr=00000040 wdata=14002000 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 425000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014040 wdata=0x14002000 strb=0xf ready=1 rdata=0x14002000
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(721) @ 425000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] INPUT1_LO <= 0x14002000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 425000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014040 wdata=0x14002000 strb=0xf ready=1 rdata=0x14002000
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 425000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014044 wdata=0x14002000 strb=0xf ready=0 rdata=0x00000000
+# [445000] NN BUS req=1 write=1 addr=00000044 wdata=14002000 strb=1111 ready=0
+# [455000] NN BUS req=1 write=1 addr=00000044 wdata=14002000 strb=1111 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 455000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014044 wdata=0x14002000 strb=0xf ready=1 rdata=0x14002000
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(742) @ 455000: uvm_test_top.env.tpu_scoreboard [TPU_WRITE] INPUT1_HI <= 0x14002000
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 455000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014044 wdata=0x14002000 strb=0xf ready=1 rdata=0x14002000
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 455000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=1 addr=0x00014000 wdata=0x00000001 strb=0xf ready=0 rdata=0x00000000
+# [475000] NN BUS req=1 write=1 addr=00000000 wdata=00000001 strb=1111 ready=0
+# [485000] NN BUS req=1 write=1 addr=00000000 wdata=00000001 strb=1111 ready=1
+# [485000] NN AXIS START busy=0
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 485000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=1 addr=0x00014000 wdata=0x00000001 strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(782) @ 485000: uvm_test_top.env.tpu_scoreboard [TPU_START] TPU START detected
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1234) @ 485000: uvm_test_top.env.tpu_scoreboard [TPU_REF] Calling C TPU reference model
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1330) @ 485000: uvm_test_top.env.tpu_scoreboard [TPU_REF] Expected RESULT0 = 0x0014001c001f02a9
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1339) @ 485000: uvm_test_top.env.tpu_scoreboard [TPU_REF] Expected RESULT1 = 0x03e803e003dc00ba
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 485000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=1 addr=0x00014000 wdata=0x00000001 strb=0xf ready=1 rdata=0x00000000
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 485000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [495000] NN AXIS START busy=1
+# [505000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [515000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 515000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 515000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 515000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 515000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 515000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #0 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 515000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [535000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [545000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 545000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 545000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 545000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 545000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 545000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #1 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 545000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [565000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [575000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 575000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 575000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 575000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 575000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 575000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #2 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 575000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [595000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [605000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 605000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 605000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 605000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 605000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 605000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #3 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 605000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [625000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [635000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 635000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 635000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 635000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 635000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 635000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #4 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 635000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [655000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [665000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 665000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 665000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 665000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 665000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 665000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #5 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 665000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [685000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [695000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 695000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 695000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 695000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 695000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 695000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #6 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 695000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [715000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [725000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 725000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 725000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 725000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 725000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 725000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #7 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 725000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [745000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [755000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 755000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 755000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 755000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 755000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 755000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #8 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 755000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [775000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [785000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 785000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 785000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 785000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 785000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 785000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #9 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 785000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [805000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [815000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 815000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 815000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 815000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 815000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 815000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #10 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 815000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [835000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [845000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 845000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 845000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 845000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 845000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 845000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #11 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 845000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [865000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [875000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 875000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 875000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 875000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 875000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 875000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #12 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 875000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [895000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [905000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 905000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 905000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 905000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 905000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 905000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #13 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 905000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [925000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [935000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 935000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 935000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 935000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 935000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 935000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #14 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 935000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [955000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [965000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 965000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 965000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 965000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 965000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 965000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #15 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 965000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [985000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [995000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 995000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 995000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 995000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 995000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 995000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #16 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 995000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [1015000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [1025000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 1025000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 1025000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 1025000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 1025000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 1025000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #17 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 1025000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [1045000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [1055000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 1055000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 1055000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=1 DONE=0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1135) @ 1055000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] Reference model complete; DUT has not reported DONE yet
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 1055000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000001
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 1055000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #18 = 0x00000001
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 1055000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [1075000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=0
+# [1075000] NN AXIS DONE
+# [1085000] NN BUS req=1 write=0 addr=00000004 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 1085000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000002
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1102) @ 1085000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] TPU DONE observed
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1115) @ 1085000: uvm_test_top.env.tpu_scoreboard [TPU_STATUS] STATUS: BUSY=0 DONE=1
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 1085000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014004 wdata=0x00000000 strb=0x0 ready=1 rdata=0x00000002
+# UVM_INFO tb/soc_base_test/soc_tpu_directed_sequence.sv(104) @ 1085000: uvm_test_top.env.native_agent.sequencer@@tpu_seq [TPU_SEQ] STATUS poll #19 = 0x00000002
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 1085000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014050 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [1105000] NN BUS req=1 write=0 addr=00000050 wdata=00000000 strb=0000 ready=0
+# [1115000] NN BUS req=1 write=0 addr=00000050 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 1115000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014050 wdata=0x00000000 strb=0x0 ready=1 rdata=0x001f02a9
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1375) @ 1115000: uvm_test_top.env.tpu_scoreboard [TPU_PASS] RESULT0_LO PASS: addr=0x00014050 expected=0x001f02a9 actual=0x001f02a9
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 1115000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014050 wdata=0x00000000 strb=0x0 ready=1 rdata=0x001f02a9
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 1115000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014054 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [1135000] NN BUS req=1 write=0 addr=00000054 wdata=00000000 strb=0000 ready=0
+# [1145000] NN BUS req=1 write=0 addr=00000054 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 1145000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014054 wdata=0x00000000 strb=0x0 ready=1 rdata=0x0014001c
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1375) @ 1145000: uvm_test_top.env.tpu_scoreboard [TPU_PASS] RESULT0_HI PASS: addr=0x00014054 expected=0x0014001c actual=0x0014001c
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 1145000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014054 wdata=0x00000000 strb=0x0 ready=1 rdata=0x0014001c
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 1145000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x00014058 wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [1165000] NN BUS req=1 write=0 addr=00000058 wdata=00000000 strb=0000 ready=0
+# [1175000] NN BUS req=1 write=0 addr=00000058 wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 1175000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x00014058 wdata=0x00000000 strb=0x0 ready=1 rdata=0x03dc00ba
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1375) @ 1175000: uvm_test_top.env.tpu_scoreboard [TPU_PASS] RESULT1_LO PASS: addr=0x00014058 expected=0x03dc00ba actual=0x03dc00ba
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 1175000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x00014058 wdata=0x00000000 strb=0x0 ready=1 rdata=0x03dc00ba
+# UVM_INFO tb/soc_driver/soc_driver.sv(76) @ 1175000: uvm_test_top.env.native_agent.driver [DRIVER] Driving transaction: target=TPU write=0 addr=0x0001405c wdata=0x00000000 strb=0x0 ready=0 rdata=0x00000000
+# [1195000] NN BUS req=1 write=0 addr=0000005c wdata=00000000 strb=0000 ready=0
+# [1205000] NN BUS req=1 write=0 addr=0000005c wdata=00000000 strb=0000 ready=1
+# UVM_INFO tb/soc_driver/soc_driver.sv(157) @ 1205000: uvm_test_top.env.native_agent.driver [DRIVER] Transaction completed: target=TPU write=0 addr=0x0001405c wdata=0x00000000 strb=0x0 ready=1 rdata=0x03e803e0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1375) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_PASS] RESULT1_HI PASS: addr=0x0001405c expected=0x03e803e0 actual=0x03e803e0
+# UVM_INFO tb/soc_monitor/soc_monitor.sv(182) @ 1205000: uvm_test_top.env.native_agent.monitor [MONITOR] Observed transaction: target=TPU write=0 addr=0x0001405c wdata=0x00000000 strb=0x0 ready=1 rdata=0x03e803e0
+# UVM_INFO tb/soc_base_test/soc_tpu_test.sv(87) @ 1205000: uvm_test_top [TEST] soc_tpu_test completed.
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1205000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO tb/soc_coverage/soc_coverage.sv(331) @ 1205000: uvm_test_top.env.coverage [FUNCTIONAL_COVERAGE] SoC Functional Coverage = 36.38%
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1489) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] ============================================================
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1495) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] TPU write transactions : 15
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1504) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] TPU read transactions  : 24
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1513) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] TPU START events       : 1
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1522) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] STATUS reads           : 20
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1531) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] Result comparisons     : 4
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1540) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] Result mismatches      : 0
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1549) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] ============================================================
+# UVM_INFO tb/soc_scoreboard/soc_tpu_scoreboard.sv(1572) @ 1205000: uvm_test_top.env.tpu_scoreboard [TPU_SCB_SUMMARY] TPU SCOREBOARD: ALL RESULT CHECKS PASSED
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  230
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [AGENT]     1
+# [COV_CONNECT]     1
+# [DRIVER]    78
+# [ENV]     6
+# [FUNCTIONAL_COVERAGE]     1
+# [MONITOR]    39
+# [Questa UVM]     2
+# [RAL_CONNECT]     2
+# [RNTST]     1
+# [TB]     1
+# [TEST]     2
+# [TEST_DONE]     1
+# [TEST_TOPOLOGY]     1
+# [TPU_CONNECT]     1
+# [TPU_PASS]     4
+# [TPU_REF]     3
+# [TPU_SCB]     2
+# [TPU_SCB_SUMMARY]     9
+# [TPU_SEQ]    20
+# [TPU_START]     1
+# [TPU_STATUS]    40
+# [TPU_WRITE]    14
+# ** Note: $finish    : C:/questasim64_2024.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 1205 ns  Iteration: 63  Instance: /tb_soc_uvm
+# End time: 18:03:58 on Sep 18,2026, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 6

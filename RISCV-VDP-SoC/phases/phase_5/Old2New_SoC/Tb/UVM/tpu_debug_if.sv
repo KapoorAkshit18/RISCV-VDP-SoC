@@ -1,0 +1,13 @@
+START
+BUSY
+DONE
+in_tvalid
+in_tready
+in_tdata
+in_tlast
+out_tvalid
+out_tready
+out_tdata
+out_tlast
+result0
+result1

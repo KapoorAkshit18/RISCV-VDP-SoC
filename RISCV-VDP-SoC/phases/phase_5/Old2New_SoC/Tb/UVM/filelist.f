@@ -14,8 +14,11 @@
 ../../RTL/cdc_reset_sync.v
 ../../RTL/vga_timing_gen.v
 ../../RTL/vdp_native_slave.v
-
+../../RTL/riscv.v
+../../RTL/riscv_wrapper.v
+../../RTL/cpu_soc_ram_top.v
 ../../RTL/soc_uvm_dut.sv
+../../RTL/cpu_bus_adapter.v
 
 
 // ============================================================
@@ -54,4 +57,5 @@
 
 tb/soc_native_if/soc_native_if.sv
 tb/soc_pkg/soc_uvm_pkg.sv
-tb_soc_uvm.sv
+# tb_soc_uvm.sv
+tb_cpu_soc_ram_top_end_to_end.sv

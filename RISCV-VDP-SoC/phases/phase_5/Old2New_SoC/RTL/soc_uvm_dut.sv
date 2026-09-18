@@ -93,8 +93,29 @@ module soc_uvm_dut #(
 
     output wire [3:0] rgb_r_o,
     output wire [3:0] rgb_g_o,
-    output wire [3:0] rgb_b_o
+    output wire [3:0] rgb_b_o,
+
+    // NN
+
+    input wire                    nn_valid,
+    input wire                    nn_write,
+
+    input wire [11:0]             nn_addr,
+    input wire [DATA_WIDTH-1:0]   nn_wdata,
+    input wire [3:0]   nn_strb,               // parameterized if you are scaling
+
+    output wire                    nn_ready,
+    output wire [DATA_WIDTH-1:0]   nn_rdata,
+    output wire [63:0]              result0,
+    output wire [63:0]              result1
+    
 );
+
+    // =========================================================================
+    // CONSTANTS
+    // =========================================================================
+
+    // localparam integer STRB_WIDTH = DATA_WIDTH / 8;
 
 
     // =========================================================================
@@ -165,6 +186,8 @@ module soc_uvm_dut #(
 
     wire                     vdp_ready;
     wire [DATA_WIDTH-1:0]    vdp_rdata;
+
+// =========================================================================
 
 
     // =========================================================================
@@ -252,7 +275,38 @@ module soc_uvm_dut #(
         .vdp_strb   (vdp_strb),
 
         .vdp_ready  (vdp_ready),
-        .vdp_rdata  (vdp_rdata)
+        .vdp_rdata  (vdp_rdata),
+
+
+      // ---------------------------------------------------------------------
+        // TPU / NN
+        // ---------------------------------------------------------------------
+        //
+        // The interconnect performs the system-to-local address conversion.
+        //
+        // Example:
+        //
+        //     m_addr = 0x0001_4010
+        //
+        // becomes:
+        //
+        //     nn_addr = 12'h010
+        //
+        // ---------------------------------------------------------------------
+
+        .nn_valid (nn_valid),
+        .nn_write (nn_write),
+        .nn_addr  (nn_addr),
+        .nn_wdata (nn_wdata),
+        .nn_strb  (nn_strb),
+
+        .nn_ready (nn_ready),
+        .nn_rdata (nn_rdata)
+
+
+
+
+
     );
 
 
@@ -390,6 +444,30 @@ module soc_uvm_dut #(
         .rgb_r_o    (rgb_r_o),
         .rgb_g_o    (rgb_g_o),
         .rgb_b_o    (rgb_b_o)
+    );
+
+    
+    tpu_axis_top #(
+        .BASE_ADDR (32'h0001_4000)
+    ) tpu (
+
+        .clk      (clk),
+        .rst_n    (resetn),
+
+        // ---------------------------------------------------------------------
+        // Native MMIO interface from SoC interconnect
+        // ---------------------------------------------------------------------
+
+        .nn_valid (nn_valid),
+        .nn_write (nn_write),
+        .nn_addr  (nn_addr),
+        .nn_wdata (nn_wdata),
+        .nn_strb  (nn_strb),
+
+        .nn_ready (nn_ready),
+        .nn_rdata (nn_rdata),
+        .result0   (result0),
+        .result1   (result1)
     );
 
 

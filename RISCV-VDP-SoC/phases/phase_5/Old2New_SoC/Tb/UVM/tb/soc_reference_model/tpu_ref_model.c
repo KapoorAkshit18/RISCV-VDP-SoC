@@ -6,7 +6,7 @@
 /*
  * Convert a 16-bit bit-pattern to int16_t.
  */
-static int16_t bits_to_i16(uint16_t x)   // what is int16_t here? 
+static int16_t bits_to_i16(uint16_t x)
 {
     if (x & 0x8000u)
         return (int16_t)((int32_t)x - 65536);
@@ -40,7 +40,8 @@ static void unpack_word(uint64_t word, int16_t lane[4])
  * scaled  = product >> TPU_Q_FRAC
  * y_out   = 16-bit(y + scaled), with two's-complement wrap
  */
-int16_t tpu_pe_mac(int16_t a, int16_t b, int16_t y){
+int16_t tpu_pe_mac(int16_t a, int16_t b, int16_t y)
+{
     int32_t product;
     int32_t scaled;
     int32_t sum;
@@ -87,8 +88,8 @@ void tpu_input_clear(tpu_input_t *in)
  * Each accumulation uses the PE fixed-point operation.
  */
 static void systolic_word(const int16_t a[4],
-                          const int16_t b[4][4],
-                          int16_t y[4])
+                           const int16_t b[4][4],
+                           int16_t y[4])
 {
     int col;
     int row;
@@ -103,33 +104,79 @@ static void systolic_word(const int16_t a[4],
 }
 
 /*
+ * Advance one systolic cycle: load the moving word for this cycle
+ * (or a zero vector, for sentinel index -1) and accumulate into
+ * pass[].
+ *
+ * The RTL's sys_in_valid window is one cycle wider than its
+ * real-weight window in each pass (see nn.v: a0_sel selects real
+ * weight data for 3 cycles in pass 1 / 2 cycles in pass 2, but
+ * sys_in_valid stays high for 4 cycles in both). The extra cycle(s)
+ * push a genuine zero moving-vector through the array rather than
+ * repeating the previous weight -- that zero-padding is modeled
+ * explicitly here via the -1 sentinel, instead of repeating the
+ * last real index.
+ */
+static void run_pass(tpu_state_t *state,
+                      const tpu_input_t *in,
+                      const int wb_schedule[4],
+                      int16_t pass[4])
+{
+    int16_t y[4];
+    int j;
+    int cycle;
+
+    for (j = 0; j < 4; ++j) {
+        pass[j] = 0;
+    }
+
+    for (cycle = 0; cycle < 4; ++cycle) {
+        int wb_index = wb_schedule[cycle];
+
+        if (wb_index < 0) {
+            state->a[0] = 0;
+            state->a[1] = 0;
+            state->a[2] = 0;
+            state->a[3] = 0;
+        } else {
+            unpack_word(in->wb[wb_index], state->a);
+        }
+
+        systolic_word(state->a, state->b, y);
+
+        for (j = 0; j < 4; ++j) {
+            pass[j] = (int16_t)(uint16_t)(
+                (int32_t)pass[j] + (int32_t)y[j]
+            );
+        }
+    }
+}
+
+/*
  * Execute the behavioral TPU reference model.
  *
  * First moving-word schedule:
- *     wb[0], wb[1], wb[2], wb[2]
+ *     wb[0], wb[1], wb[2], zero
  *
  * Second moving-word schedule:
- *     wb[3], wb[4], wb[4], wb[4]
+ *     wb[3], wb[4], zero, zero
+ *
+ * (-1 = zero vector, matching the extra sys_in_valid cycle(s) in
+ * nn.v that carry no real weight data -- NOT a repeat of the last
+ * weight.)
  */
 void tpu_run(const tpu_input_t *in, tpu_state_t *state)
 {
     int16_t k0[4];
     int16_t k1[4];
 
-    int16_t y[4];
     int16_t pass0[4];
     int16_t pass1[4];
 
     int j;
-    int cycle;
 
-    static const int first_pass_wb[4] = {
-        0, 1, 2, 2
-    };
-
-    static const int second_pass_wb[4] = {
-        3, 4, 4, 4
-    };
+    static const int first_pass_wb[4]  = { 0, 1, 2, -1 };
+    static const int second_pass_wb[4] = { 3, 4, -1, -1 };
 
     memset(state, 0, sizeof(*state));
 
@@ -157,32 +204,13 @@ void tpu_run(const tpu_input_t *in, tpu_state_t *state)
     /*
      * First pass accumulation.
      */
-    for (j = 0; j < 4; ++j) {
-        pass0[j] = 0;
-    }
-
-    for (cycle = 0; cycle < 4; ++cycle) {
-        int wb_index;
-
-        wb_index = first_pass_wb[cycle];
-
-        unpack_word(in->wb[wb_index], state->a);
-        systolic_word(state->a, state->b, y);
-
-        for (j = 0; j < 4; ++j) {
-            pass0[j] = (int16_t)(uint16_t)(
-                (int32_t)pass0[j] + (int32_t)y[j]
-            );
-        }
-    }
+    run_pass(state, in, first_pass_wb, pass0);
 
     /*
      * Apply sigmoid after the first pass.
      */
     for (j = 0; j < 4; ++j) {
-        pass0[j] = (int16_t)(
-            uint16_t)tpu_sigmoid(i16_to_bits(pass0[j])
-        );
+        pass0[j] = (int16_t)(uint16_t)tpu_sigmoid(i16_to_bits(pass0[j]));
     }
 
     /*
@@ -201,31 +229,13 @@ void tpu_run(const tpu_input_t *in, tpu_state_t *state)
     /*
      * Second pass accumulation.
      */
-    for (j = 0; j < 4; ++j) {
-        pass1[j] = 0;
-    }
-
-    for (cycle = 0; cycle < 4; ++cycle) {
-        int wb_index;
-
-        wb_index = second_pass_wb[cycle];
-
-        unpack_word(in->wb[wb_index], state->a);
-        systolic_word(state->a, state->b, y);
-
-        for (j = 0; j < 4; ++j) {
-            pass1[j] = (int16_t)(uint16_t)(
-                (int32_t)pass1[j] + (int32_t)y[j]
-            );
-        }
-    }
+    run_pass(state, in, second_pass_wb, pass1);
 
     /*
      * Apply sigmoid after the second pass.
      */
     for (j = 0; j < 4; ++j) {
-        state->sigmoid[j] =
-            tpu_sigmoid(i16_to_bits(pass1[j]));
+        state->sigmoid[j] = tpu_sigmoid(i16_to_bits(pass1[j]));
     }
 
     /*
@@ -253,8 +263,8 @@ void tpu_run(const tpu_input_t *in, tpu_state_t *state)
  * Top-level reference-model wrapper.
  */
 void tpu_reference(const uint64_t axi_words[7],
-                   uint64_t *result0,
-                   uint64_t *result1)
+                    uint64_t *result0,
+                    uint64_t *result1)
 {
     tpu_input_t in;
     tpu_state_t state;

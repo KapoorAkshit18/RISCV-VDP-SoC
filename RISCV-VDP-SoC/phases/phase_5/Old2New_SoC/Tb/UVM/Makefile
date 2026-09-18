@@ -3,77 +3,90 @@
 # ============================================================
 
 TOP      = tb_soc_uvm
+OPT_TOP  = tb_uvm_opt
 FILELIST = filelist.f
 
 VLOG     = vlog
-VSIM     = vsim
-
-COV_DB = soc_coverage.ucdb
-COV_RPT= coverage_report.txt
-
-#==============================================
-# Functional Coverage
-#==============================================
-
-coverage: compile
-	$(VSIM) -c \
-		$(TOP) \
-		+UVM_TESTNAME=soc_coverage_test \
-		+UVM_VERBOSITY=UVM_MEDIUM \
-		-coverage \
-		-do "coverage save -onexit $(COV_DB); run -all; quit -f"
-
-# ============================================================
-# Coverage Report
-# ============================================================
-
-coverage_report: coverage
-	vcover report $(COV_DB) \
-		-details \
-		-output $(COV_RPT)
-
-# ============================================================
-# Coverage Summary
-# ============================================================
-
-coverage_summary: coverage
-	vcover report $(COV_DB)
+VLIB     = vlib
+VMAP     = vmap
+VOPT     = vopt
+VSIM     = vsim -sv_lib C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/Tb/UVM/tb/soc_scoreboard/tpu_ref 
 
 
-
-
-
-
-
-
+COV_DB  = soc_coverage.ucdb
+COV_RPT = coverage_report.txt
 
 VLOG_OPTS = -sv +acc
 
-VSIM_OPTS = -c \
-            -voptargs=+acc
+# -----------------------------------------------------------------------------
+# Xilinx Vivado 2020.1 — needed for glbl.v (xpm_cdc references glbl.GSR)
+# -----------------------------------------------------------------------------
+
+VIVADO ?= C:/Xilinx/Vivado/2020.1
+GLBL    := $(VIVADO)/data/verilog/src/glbl.v
+
+# -----------------------------------------------------------------------------
+# XPM pre-compiled library
+# -----------------------------------------------------------------------------
+
+XPM_LIB ?= C:/projects/apb/apb.cache/compile_simlib/questa/xpm
+
+VOPT_OPTS = +acc -L xpm
+
+VSIM_OPTS = -c -sv_lib tpu_ref
+
 
 # ============================================================
 # Default
 # ============================================================
 
-all: compile run
+all: run
+
+
+# ============================================================
+# Work library
+# ============================================================
+
+work:
+	@if [ ! -d work ]; then $(VLIB) work; fi
+	$(VMAP) work work
 
 
 # ============================================================
 # Compile
 # ============================================================
 
-compile:
+compile: work
 	$(VLOG) $(VLOG_OPTS) -f $(FILELIST)
+	$(VLOG) $(GLBL)
 
 
 # ============================================================
-# Run smoke test
+# Map XPM library
 # ============================================================
 
-run:
+mapxpm:
+	$(VMAP) xpm "$(XPM_LIB)"
+
+
+# ============================================================
+# Optimize (links xpm + glbl for TPU/AXIS hierarchy)
+# ============================================================
+
+optimize: compile mapxpm
+	$(VOPT) $(VOPT_OPTS) \
+		work.$(TOP) \
+		work.glbl \
+		-o $(OPT_TOP)
+
+
+# ============================================================
+# Run TPU directed test
+# ============================================================
+
+run: optimize
 	$(VSIM) $(VSIM_OPTS) \
-		$(TOP) \
+		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_tpu_test \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
@@ -83,21 +96,40 @@ run:
 # Smoke
 # ============================================================
 
-smoke: compile
+smoke: optimize
 	$(VSIM) $(VSIM_OPTS) \
-		$(TOP) \
+		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_smoke_test \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
 
 
 # ============================================================
-# Debug
+# Functional Coverage
 # ============================================================
 
-debug: compile
-	$(VSIM) \
-		$(TOP) \
+coverage: optimize
+	$(VSIM) $(VSIM_OPTS) \
+		$(OPT_TOP) \
+		+UVM_TESTNAME=soc_coverage_test \
+		+UVM_VERBOSITY=UVM_MEDIUM \
+		-coverage \
+		-do "coverage save -onexit $(COV_DB); run -all; quit -f"
+
+coverage_report: coverage
+	vcover report $(COV_DB) -details -output $(COV_RPT)
+
+coverage_summary: coverage
+	vcover report $(COV_DB)
+
+
+# ============================================================
+# Debug (interactive, no -c)
+# ============================================================
+
+debug: optimize
+	$(VSIM) -voptargs=+acc \
+		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_smoke_test \
 		+UVM_VERBOSITY=UVM_HIGH
 
@@ -111,14 +143,15 @@ clean:
 	rm -rf transcript
 	rm -rf vsim.wlf
 	rm -rf *.log
-	rm -rf modelsim.ini
+	rm -rf *.ucdb
+	rm -f $(COV_RPT)
 
 
 # ============================================================
 # Rebuild
 # ============================================================
 
-rebuild: clean compile
+rebuild: clean run
 
 
-.PHONY: all compile run smoke debug clean rebuild
+.PHONY: all work compile mapxpm optimize run smoke coverage coverage_report coverage_summary debug clean rebuild

@@ -35,6 +35,23 @@
 +incdir+tb/soc_scoreboard
 +incdir+tb/soc_reference_model
 
+
+# -----------------------------------------------------------------------------
+# TPU
+# -----------------------------------------------------------------------------
+
+../../../TPU/pe.v
+../../../TPU/register.v
+../../../TPU/sigmoid.v
+../../../TPU/systolic.v
+../../../TPU/pe_top.v
+../../../TPU/nn.v
+
+../../../TPU/axis_nn.v
+../../../TPU/nn_axi_wrapper.v
+../../../TPU/nn_axis_master.v
+../../../TPU/tpu_axis_top.v
+
 tb/soc_native_if/soc_native_if.sv
 tb/soc_pkg/soc_uvm_pkg.sv
 tb_soc_uvm.sv

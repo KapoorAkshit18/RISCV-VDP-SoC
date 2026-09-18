@@ -88,6 +88,19 @@ module tb_soc_uvm;
     wire [3:0] rgb_g_o;
     wire [3:0] rgb_b_o;
 
+// =========================================================================
+// NN
+
+    wire                    nn_valid;
+    wire                    nn_write;
+
+    wire [11:0]             nn_addr;
+    wire [DATA_WIDTH-1:0]   nn_wdata;
+    wire [(DATA_WIDTH/8)-1:0] nn_strb;
+    wire                    nn_ready;
+    wire [DATA_WIDTH-1:0]   nn_rdata;
+    wire [63:0]              result0;
+    wire [63:0]              result1;
 
     // =========================================================================
     // Clock generation
@@ -197,7 +210,38 @@ module tb_soc_uvm;
 
         .rgb_r_o   (rgb_r_o),
         .rgb_g_o   (rgb_g_o),
-        .rgb_b_o   (rgb_b_o)
+        .rgb_b_o   (rgb_b_o),
+
+        
+      // ---------------------------------------------------------------------
+        // TPU / NN
+        // ---------------------------------------------------------------------
+        //
+        // The interconnect performs the system-to-local address conversion.
+        //
+        // Example:
+        //
+        //     m_addr = 0x0001_4010
+        //
+        // becomes:
+        //
+        //     nn_addr = 12'h010
+        //
+        // ---------------------------------------------------------------------
+
+        .nn_valid (nn_valid),
+        .nn_write (nn_write),
+        .nn_addr  (nn_addr),
+        .nn_wdata (nn_wdata),
+        .nn_strb  (nn_strb),
+
+        .nn_ready (nn_ready),
+        .nn_rdata (nn_rdata)
+
+
+
+
+
 
     );
 

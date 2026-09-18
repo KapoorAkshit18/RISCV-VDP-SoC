@@ -8,7 +8,7 @@ import uvm_pkg::*;
 
 // =============================================================================
 // RISCV-VDP-// // Dependencies
-// `include "../soc_agent/soc_sequence_item/soc_sequence_item.sv"
+`include "../soc_agent/soc_sequence_item/soc_sequence_item.sv"
 // `include "../soc_native_if/soc_native_if.sv"
 //SoC
 // TPU UVM Scoreboard
@@ -148,7 +148,7 @@ class soc_tpu_scoreboard extends uvm_scoreboard;
     // Non-TPU transactions are ignored.
     //
 
-    uvm_analysis_imp #(soc_sequence_item, soc_tpu_scoreboard) analysis_imp;
+    uvm_analysis_imp #(soc_sequence_item, soc_tpu_scoreboard) analysis_imp;  
 
 
     // =========================================================================

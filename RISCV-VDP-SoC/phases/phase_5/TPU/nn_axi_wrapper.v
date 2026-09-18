@@ -163,6 +163,7 @@ module nn_axi_wrapper #(
 
             input0 <= 64'd0;
             input1 <= 64'd0;
+            done_latched <= 1'b0; // new change is it matters?
         end
 
         else begin

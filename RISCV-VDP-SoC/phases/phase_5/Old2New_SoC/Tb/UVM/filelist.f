@@ -37,7 +37,11 @@
 +incdir+tb/soc_coverage
 +incdir+tb/soc_scoreboard
 +incdir+tb/soc_reference_model
++incdir+tb/tpu_monitor
 
+
+#  soc_pkg
+tb/soc_pkg/soc_uvm_pkg.sv
 
 # -----------------------------------------------------------------------------
 # TPU
@@ -55,7 +59,4 @@
 ../../../TPU/nn_axis_master.v
 ../../../TPU/tpu_axis_top.v
 
-tb/soc_native_if/soc_native_if.sv
-tb/soc_pkg/soc_uvm_pkg.sv
-# tb_soc_uvm.sv
 tb_cpu_soc_ram_top_end_to_end.sv

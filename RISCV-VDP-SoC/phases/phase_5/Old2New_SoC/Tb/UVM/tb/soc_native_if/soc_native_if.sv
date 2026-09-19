@@ -18,6 +18,7 @@ interface soc_native_if #(
     logic [ADDR_WIDTH-1:0]       m_addr;
     logic [DATA_WIDTH-1:0]       m_wdata;
     logic [DATA_WIDTH/8-1:0]     m_strb;
+    // logic resetn;
 
     // ================================================================
     // Native interconnect -> master

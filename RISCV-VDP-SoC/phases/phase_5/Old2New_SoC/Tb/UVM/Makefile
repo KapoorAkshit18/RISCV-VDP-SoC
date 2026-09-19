@@ -80,9 +80,9 @@ optimize: compile mapxpm
 		-o $(OPT_TOP)
 
 
-# ============================================================
-# Run TPU directed test
-# ============================================================
+# # ============================================================
+# # Run TPU directed test
+# # ============================================================
 
 run: optimize
 	$(VSIM) $(VSIM_OPTS) \
@@ -151,7 +151,7 @@ clean:
 # Rebuild
 # ============================================================
 
-rebuild: clean run
+rebuild: clean all
 
 
 .PHONY: all work compile mapxpm optimize run smoke coverage coverage_report coverage_summary debug clean rebuild

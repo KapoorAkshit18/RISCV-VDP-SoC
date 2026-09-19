@@ -36,14 +36,15 @@
 //   This top intentionally contains NO procedural verification monitors,
 //   counters, $finish conditions, scoreboard logic, or UVM phase control.
 // =============================================================================
-
-`include "soc_native_if.sv"
-`include "tpu_debug_if.sv"
-
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
 import soc_uvm_pkg::*;
+
+`include "soc_native_if.sv"
+`include "tpu_debug_if.sv"
+
+
 
 
 // =============================================================================
@@ -190,15 +191,16 @@ module tb_cpu_soc_ram_top;
     // The interface does not drive the DUT bus.
     // It only exposes the DUT bus to the UVM monitor.
     // =========================================================================
+    // CPU/SoC native bus -> passive UVM monitor
+    assign native_if.m_valid = dut.m_valid;
+    assign native_if.m_write = dut.m_write;
+    assign native_if.m_addr  = dut.m_addr;
+    assign native_if.m_wdata = dut.m_wdata;
+    assign native_if.m_strb  = dut.m_strb;
 
-    assign native_if.valid = dut.m_valid;
-    assign native_if.ready = dut.m_ready;
-    assign native_if.write = dut.m_write;
-
-    assign native_if.addr  = dut.m_addr;
-    assign native_if.wdata = dut.m_wdata;
-    assign native_if.strb  = dut.m_strb;
-    assign native_if.rdata = dut.m_rdata;
+    assign native_if.m_ready = dut.m_ready;
+    assign native_if.m_rdata = dut.m_rdata;
+    // assign native_if.resetn = resetn;
 
 
     // =========================================================================
@@ -224,7 +226,7 @@ module tb_cpu_soc_ram_top;
     assign tpu_if.result0    = dut.tpu.result0;
     assign tpu_if.result1    = dut.tpu.result1;
 
-    assign tpu_if.trap       = trap;
+    // assign tpu_if.trap       = trap;
 
 
     // =========================================================================
@@ -303,6 +305,8 @@ module tb_cpu_soc_ram_top;
     initial begin
 
         resetn = 1'b0;
+        repeat (10) @(posedge clk);  // 10 clock cycles
+        resetn = 1'b1;
 
     end
 
@@ -325,7 +329,7 @@ module tb_cpu_soc_ram_top;
         $display("[TB] Loading firmware...");
 
         $readmemh(
-            "../firmware_test03/firmware.hex",
+            "../../firmware_test03/firmware.hex",
             dut.ram.mem
         );
 
@@ -398,11 +402,26 @@ module tb_cpu_soc_ram_top;
     // The UVM test controls simulation through objections.
     // =========================================================================
 
-    initial begin
+
+        initial begin
+
+    uvm_config_db#(virtual tpu_debug_if)::set(
+        null,
+        "uvm_test_top.env.tpu_monitor",
+        "tpu_vif",
+        tpu_if
+    );
+
+                uvm_config_db#(bit)::set(
+        null,
+        "uvm_test_top.env",
+        "e2e_mode",
+        1'b1
+    );
 
         run_test("soc_e2e_test");
 
-    end
+        end
 
 
 endmodule

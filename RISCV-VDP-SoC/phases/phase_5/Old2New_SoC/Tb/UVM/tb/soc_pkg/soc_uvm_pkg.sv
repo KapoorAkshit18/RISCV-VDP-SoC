@@ -54,8 +54,9 @@ package soc_uvm_pkg;
 
     `include "soc_scoreboard/soc_tpu_scoreboard.sv"
 
-
-
+// TPU Monitor
+    `include "tpu_monitor/tpu_debug_transaction.sv"
+    `include "tpu_monitor/tpu_monitor.sv"
 
     // ------------------------------------------------------------
     // Environment
@@ -75,6 +76,8 @@ package soc_uvm_pkg;
     // `include "soc_reference_model/soc_reference_model.sv"
     `include "soc_base_test/soc_tpu_directed_sequence.sv"
     `include "soc_base_test/soc_tpu_test.sv"
+
+    
 
 endpackage
 

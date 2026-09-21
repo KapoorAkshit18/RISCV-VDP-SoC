@@ -1,0 +1,54 @@
+{
+    "/home/vsduser/f4pga-examples/xc7/counter_test/counter.v": {
+        "synth": 3546111305
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35": {
+        "synth": 0,
+        "place": 0
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/arty.xdc": {
+        "synth": 2538785957
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.eblif": {
+        "fasm": 464895290,
+        "pack": 464895290,
+        "place": 464895290,
+        "place_constraints": 464895290,
+        "ioplace": 464895290,
+        "route": 464895290
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/xc7a50t_test_sdc.sdc": {
+        "pack": 83763840,
+        "place": 83763840,
+        "route": 83763840,
+        "fasm": 83763840
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.net": {
+        "fasm": 861463953,
+        "place_constraints": 861463953,
+        "ioplace": 861463953
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.ioplace": {
+        "place_constraints": 1142199640,
+        "place": 1142199640
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.preplace": {
+        "place": 544253931
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.place": {
+        "fasm": 1263743830,
+        "route": 1263743830
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.route": {
+        "fasm": 1810163497
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top_fasm_extra.fasm": {
+        "fasm": 1
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.fasm": {
+        "bitstream": 3985546840
+    },
+    "/home/vsduser/f4pga-examples/xc7/counter_test/build/arty_35/top.bit": {
+        "__target": 3682963630
+    }
+}

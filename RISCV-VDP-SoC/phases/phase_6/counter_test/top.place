@@ -1,0 +1,20 @@
+Netlist_File: top.net Netlist_ID: SHA256:3402091bc8b6e36936dcf5794453c2a2d31749cf92a12abc8f436d3c04aafe84
+Array size: 117 x 162 logic blocks
+
+#block name	x	y	subblk	block number
+#----------	--	--	------	------------
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4	85	119	1	#0
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4	85	118	1	#1
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4	85	117	1	#2
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4	85	116	1	#3
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4	85	115	1	#4
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4	85	120	1	#5
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4	85	114	1	#6
+bufgctrl	61	106	0	#7
+$iopadmap$top.led.genblk1.t_inv	114	104	0	#8
+$iopadmap$top.led_1.genblk1.t_inv	114	106	0	#9
+$iopadmap$top.led_2.genblk1.t_inv	2	156	0	#10
+$iopadmap$top.led_3.genblk1.t_inv	2	157	0	#11
+clk		114	78	0	#12
+$false		2	1	0	#13
+$true		1	1	0	#14

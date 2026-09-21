@@ -1,0 +1,7 @@
+#Block Name x   y   z    pcf_line
+#---------- --  --  -    ----
+$iopadmap$top.led.genblk1.t_inv  114  104  0  # set_property LOC H5 [get_ports {led[0]}]
+clk         114  78  0  # set_property LOC E3 [get_ports {clk}]
+$iopadmap$top.led_2.genblk1.t_inv   2  156  0  # set_property LOC T9 [get_ports {led[2]}]
+$iopadmap$top.led_1.genblk1.t_inv  114  106  0  # set_property LOC J5 [get_ports {led[1]}]
+$iopadmap$top.led_3.genblk1.t_inv   2  157  0  # set_property LOC T10 [get_ports {led[3]}]

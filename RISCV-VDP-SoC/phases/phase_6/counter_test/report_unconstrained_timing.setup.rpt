@@ -1,0 +1,11 @@
+#Unconstrained setup timing startpoint/endpoint
+
+timing_node_id node_type node_name
+-------------- --------- ---------
+0 .input clk.inpad[0]
+298 .output out:led[0].outpad[0]
+299 .output out:led[1].outpad[0]
+300 .output out:led[2].outpad[0]
+301 .output out:led[3].outpad[0]
+
+#End of unconstrained setup startpoint/endpoint report

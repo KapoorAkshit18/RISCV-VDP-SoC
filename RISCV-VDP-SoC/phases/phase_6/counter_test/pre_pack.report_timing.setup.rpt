@@ -1,0 +1,1151 @@
+#Timing report of worst 26 path(s)
+# Unit scale: 1e-09 seconds
+# Output precision: 3
+
+#Path 1
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2063.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    25.400
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    27.580
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    27.580
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    29.760
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    29.874
+$techmap2329$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    32.054
+$techmap2329$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    32.054
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    34.234
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.O1[0] (CARRY4_VPR)                                                                   0.334    34.568
+$auto$ff.cc:266:slice$2063.D[0] (FDRE_ZINI)                                                                                                                2.180    36.748
+data arrival time                                                                                                                                                   36.748
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2063.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -36.748
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -24.522
+
+
+#Path 2
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2062.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    25.400
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    27.580
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    27.580
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    29.760
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    29.874
+$techmap2329$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    32.054
+$techmap2329$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    32.054
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    34.234
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[6].genblk1.carry4.O0[0] (CARRY4_VPR)                                                                   0.222    34.456
+$auto$ff.cc:266:slice$2062.D[0] (FDRE_ZINI)                                                                                                                2.180    36.636
+data arrival time                                                                                                                                                   36.636
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2062.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -36.636
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -24.410
+
+
+#Path 3
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2059.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    25.400
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    27.580
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    27.580
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    29.760
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.O1[0] (CARRY4_VPR)                                                                   0.334    30.094
+$auto$ff.cc:266:slice$2059.D[0] (FDRE_ZINI)                                                                                                                2.180    32.274
+data arrival time                                                                                                                                                   32.274
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2059.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -32.274
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -20.048
+
+
+#Path 4
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2061.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    25.400
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    27.580
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    27.580
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    29.760
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.O3[0] (CARRY4_VPR)                                                                   0.313    30.073
+$auto$ff.cc:266:slice$2061.D[0] (FDRE_ZINI)                                                                                                                2.180    32.253
+data arrival time                                                                                                                                                   32.253
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2061.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -32.253
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -20.027
+
+
+#Path 5
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2060.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    25.400
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    27.580
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    27.580
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    29.760
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.O2[0] (CARRY4_VPR)                                                                   0.239    29.999
+$auto$ff.cc:266:slice$2060.D[0] (FDRE_ZINI)                                                                                                                2.180    32.179
+data arrival time                                                                                                                                                   32.179
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2060.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -32.179
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -19.953
+
+
+#Path 6
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2058.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    25.400
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    27.580
+$techmap2328$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    27.580
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    29.760
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[5].genblk1.carry4.O0[0] (CARRY4_VPR)                                                                   0.222    29.982
+$auto$ff.cc:266:slice$2058.D[0] (FDRE_ZINI)                                                                                                                2.180    32.162
+data arrival time                                                                                                                                                   32.162
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2058.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -32.162
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -19.936
+
+
+#Path 7
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2055.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.O1[0] (CARRY4_VPR)                                                                   0.334    25.620
+$auto$ff.cc:266:slice$2055.D[0] (FDRE_ZINI)                                                                                                                2.180    27.800
+data arrival time                                                                                                                                                   27.800
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2055.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -27.800
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -15.574
+
+
+#Path 8
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2057.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.O3[0] (CARRY4_VPR)                                                                   0.313    25.599
+$auto$ff.cc:266:slice$2057.D[0] (FDRE_ZINI)                                                                                                                2.180    27.779
+data arrival time                                                                                                                                                   27.779
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2057.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -27.779
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -15.553
+
+
+#Path 9
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2056.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.O2[0] (CARRY4_VPR)                                                                   0.239    25.525
+$auto$ff.cc:266:slice$2056.D[0] (FDRE_ZINI)                                                                                                                2.180    27.705
+data arrival time                                                                                                                                                   27.705
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2056.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -27.705
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -15.479
+
+
+#Path 10
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2054.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    20.926
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    23.106
+$techmap2327$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    23.106
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    25.286
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[4].genblk1.carry4.O0[0] (CARRY4_VPR)                                                                   0.222    25.508
+$auto$ff.cc:266:slice$2054.D[0] (FDRE_ZINI)                                                                                                                2.180    27.688
+data arrival time                                                                                                                                                   27.688
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2054.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -27.688
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -15.462
+
+
+#Path 11
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2051.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.O1[0] (CARRY4_VPR)                                                                   0.334    21.146
+$auto$ff.cc:266:slice$2051.D[0] (FDRE_ZINI)                                                                                                                2.180    23.326
+data arrival time                                                                                                                                                   23.326
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2051.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -23.326
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -11.100
+
+
+#Path 12
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2053.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.O3[0] (CARRY4_VPR)                                                                   0.313    21.125
+$auto$ff.cc:266:slice$2053.D[0] (FDRE_ZINI)                                                                                                                2.180    23.305
+data arrival time                                                                                                                                                   23.305
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2053.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -23.305
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -11.079
+
+
+#Path 13
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2052.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.O2[0] (CARRY4_VPR)                                                                   0.239    21.051
+$auto$ff.cc:266:slice$2052.D[0] (FDRE_ZINI)                                                                                                                2.180    23.231
+data arrival time                                                                                                                                                   23.231
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2052.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -23.231
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -11.005
+
+
+#Path 14
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2050.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    16.452
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    18.632
+$techmap2326$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    18.632
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    20.812
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[3].genblk1.carry4.O0[0] (CARRY4_VPR)                                                                   0.222    21.034
+$auto$ff.cc:266:slice$2050.D[0] (FDRE_ZINI)                                                                                                                2.180    23.214
+data arrival time                                                                                                                                                   23.214
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2050.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -23.214
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                   -10.988
+
+
+#Path 15
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2047.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.O1[0] (CARRY4_VPR)                                                                   0.334    16.672
+$auto$ff.cc:266:slice$2047.D[0] (FDRE_ZINI)                                                                                                                2.180    18.852
+data arrival time                                                                                                                                                   18.852
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2047.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -18.852
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -6.626
+
+
+#Path 16
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2049.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.O3[0] (CARRY4_VPR)                                                                   0.313    16.651
+$auto$ff.cc:266:slice$2049.D[0] (FDRE_ZINI)                                                                                                                2.180    18.831
+data arrival time                                                                                                                                                   18.831
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2049.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -18.831
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -6.605
+
+
+#Path 17
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2048.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.O2[0] (CARRY4_VPR)                                                                   0.239    16.577
+$auto$ff.cc:266:slice$2048.D[0] (FDRE_ZINI)                                                                                                                2.180    18.757
+data arrival time                                                                                                                                                   18.757
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2048.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -18.757
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -6.531
+
+
+#Path 18
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2046.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.114    11.977
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180    14.157
+$techmap2325$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000    14.157
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    16.338
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[2].genblk1.carry4.O0[0] (CARRY4_VPR)                                                                   0.222    16.560
+$auto$ff.cc:266:slice$2046.D[0] (FDRE_ZINI)                                                                                                                2.180    18.740
+data arrival time                                                                                                                                                   18.740
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2046.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -18.740
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -6.514
+
+
+#Path 19
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2043.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.O1[0] (CARRY4_VPR)                                                                   0.334    12.197
+$auto$ff.cc:266:slice$2043.D[0] (FDRE_ZINI)                                                                                                                2.180    14.377
+data arrival time                                                                                                                                                   14.377
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2043.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -14.377
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -2.151
+
+
+#Path 20
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2045.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.O3[0] (CARRY4_VPR)                                                                   0.313    12.176
+$auto$ff.cc:266:slice$2045.D[0] (FDRE_ZINI)                                                                                                                2.180    14.356
+data arrival time                                                                                                                                                   14.356
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2045.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -14.356
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -2.130
+
+
+#Path 21
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2044.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.O2[0] (CARRY4_VPR)                                                                   0.239    12.102
+$auto$ff.cc:266:slice$2044.D[0] (FDRE_ZINI)                                                                                                                2.180    14.282
+data arrival time                                                                                                                                                   14.282
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2044.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -14.282
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -2.056
+
+
+#Path 22
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2042.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                                                                       Incr      Path
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                                                                     0.000     0.000
+clock source latency                                                                                                                                       0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                                                                2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                                                              0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                                                                  2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                                                                 0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                                                                   2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.CO3[0] (CARRY4_VPR)                                                                  0.508     7.503
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.CIN[0] (CARRY_COUT_PLUG)                        2.180     9.683
+$techmap2324$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.genblk2.genblk1.cin_plug.COUT[0] (CARRY_COUT_PLUG)                       0.000     9.683
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.CIN[0] (CARRY4_VPR)                                                                  2.180    11.863
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[1].genblk1.carry4.O0[0] (CARRY4_VPR)                                                                   0.222    12.085
+$auto$ff.cc:266:slice$2042.D[0] (FDRE_ZINI)                                                                                                                2.180    14.265
+data arrival time                                                                                                                                                   14.265
+
+clock bufg (rise edge)                                                                                                                                    10.000    10.000
+clock source latency                                                                                                                                       0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                                                               0.000    10.000
+$auto$ff.cc:266:slice$2042.C[0] (FDRE_ZINI)                                                                                                                2.180    12.180
+clock uncertainty                                                                                                                                          0.000    12.180
+cell setup time                                                                                                                                            0.046    12.226
+data required time                                                                                                                                                  12.226
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                                                                  12.226
+data arrival time                                                                                                                                                  -14.265
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slack (VIOLATED)                                                                                                                                                    -2.039
+
+
+#Path 23
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2041.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                           Incr      Path
+------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                         0.000     0.000
+clock source latency                                                                                           0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                    2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                  0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                      2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                     0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                       2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.O3[0] (CARRY4_VPR)                       0.582     7.577
+$auto$ff.cc:266:slice$2041.D[0] (FDRE_ZINI)                                                                    2.180     9.757
+data arrival time                                                                                                        9.757
+
+clock bufg (rise edge)                                                                                        10.000    10.000
+clock source latency                                                                                           0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000    10.000
+$auto$ff.cc:266:slice$2041.C[0] (FDRE_ZINI)                                                                    2.180    12.180
+clock uncertainty                                                                                              0.000    12.180
+cell setup time                                                                                                0.046    12.226
+data required time                                                                                                      12.226
+------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                      12.226
+data arrival time                                                                                                       -9.757
+------------------------------------------------------------------------------------------------------------------------------
+slack (MET)                                                                                                              2.469
+
+
+#Path 24
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2040.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                           Incr      Path
+------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                         0.000     0.000
+clock source latency                                                                                           0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                    2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                  0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                      2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                     0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                       2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.O2[0] (CARRY4_VPR)                       0.523     7.518
+$auto$ff.cc:266:slice$2040.D[0] (FDRE_ZINI)                                                                    2.180     9.698
+data arrival time                                                                                                        9.698
+
+clock bufg (rise edge)                                                                                        10.000    10.000
+clock source latency                                                                                           0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000    10.000
+$auto$ff.cc:266:slice$2040.C[0] (FDRE_ZINI)                                                                    2.180    12.180
+clock uncertainty                                                                                              0.000    12.180
+cell setup time                                                                                                0.046    12.226
+data required time                                                                                                      12.226
+------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                      12.226
+data arrival time                                                                                                       -9.698
+------------------------------------------------------------------------------------------------------------------------------
+slack (MET)                                                                                                              2.528
+
+
+#Path 25
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2039.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                           Incr      Path
+------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                         0.000     0.000
+clock source latency                                                                                           0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                    2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                  0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                      2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                     0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                       2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.O1[0] (CARRY4_VPR)                       0.400     7.395
+$auto$ff.cc:266:slice$2039.D[0] (FDRE_ZINI)                                                                    2.180     9.575
+data arrival time                                                                                                        9.575
+
+clock bufg (rise edge)                                                                                        10.000    10.000
+clock source latency                                                                                           0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000    10.000
+$auto$ff.cc:266:slice$2039.C[0] (FDRE_ZINI)                                                                    2.180    12.180
+clock uncertainty                                                                                              0.000    12.180
+cell setup time                                                                                                0.046    12.226
+data required time                                                                                                      12.226
+------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                      12.226
+data arrival time                                                                                                       -9.575
+------------------------------------------------------------------------------------------------------------------------------
+slack (MET)                                                                                                              2.651
+
+
+#Path 26
+Startpoint: $auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI clocked by bufg)
+Endpoint  : $auto$ff.cc:266:slice$2038.D[0] (FDRE_ZINI clocked by bufg)
+Path Type : setup
+
+Point                                                                                                           Incr      Path
+------------------------------------------------------------------------------------------------------------------------------
+clock bufg (rise edge)                                                                                         0.000     0.000
+clock source latency                                                                                           0.000     0.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000     0.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                    2.180     2.180
+$auto$ff.cc:266:slice$2038.Q[0] (FDRE_ZINI) [clock-to-output]                                                  0.303     2.483
+$auto$alumacc.cc:485:replace_alu$1615.X[0].in[0] (.names)                                                      2.180     4.663
+$auto$alumacc.cc:485:replace_alu$1615.X[0].out[0] (.names)                                                     0.152     4.815
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.S0[0] (CARRY4_VPR)                       2.180     6.995
+$auto$alumacc.cc:485:replace_alu$1615.genblk1.slice[0].genblk1.carry4.O0[0] (CARRY4_VPR)                       0.223     7.218
+$auto$ff.cc:266:slice$2038.D[0] (FDRE_ZINI)                                                                    2.180     9.398
+data arrival time                                                                                                        9.398
+
+clock bufg (rise edge)                                                                                        10.000    10.000
+clock source latency                                                                                           0.000    10.000
+bufgctrl.O[0] (BUFGCTRL_VPR)                                                                                   0.000    10.000
+$auto$ff.cc:266:slice$2038.C[0] (FDRE_ZINI)                                                                    2.180    12.180
+clock uncertainty                                                                                              0.000    12.180
+cell setup time                                                                                                0.046    12.226
+data required time                                                                                                      12.226
+------------------------------------------------------------------------------------------------------------------------------
+data required time                                                                                                      12.226
+data arrival time                                                                                                       -9.398
+------------------------------------------------------------------------------------------------------------------------------
+slack (MET)                                                                                                              2.828
+
+
+#End of timing report

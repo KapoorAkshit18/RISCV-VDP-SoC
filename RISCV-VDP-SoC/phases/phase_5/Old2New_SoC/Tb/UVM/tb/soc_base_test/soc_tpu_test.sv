@@ -74,15 +74,17 @@ class soc_tpu_test extends uvm_test;
         soc_tpu_directed_sequence tpu_seq;
 
         // 1. Raise objection to keep simulation alive
-        phase.raise_objection(this, "Starting TPU directed sequence");
+        // phase.raise_objection(this, "Starting TPU directed sequence");
+         phase.raise_objection(this, "Starting TPU firmware sequence");
 
-        `uvm_info("TEST", "Starting soc_tpu_test...", UVM_LOW)
+        @env.tpu_mon.tpu_done_event;
+        // `uvm_info("TEST", "Starting soc_tpu_test...", UVM_LOW)
 
-        // 2. Create the sequence through the UVM factory
-        tpu_seq = soc_tpu_directed_sequence::type_id::create("tpu_seq");
+        // // 2. Create the sequence through the UVM factory
+        // tpu_seq = soc_tpu_directed_sequence::type_id::create("tpu_seq");
 
-        // 3. Start the sequence on the native agent's sequencer
-        tpu_seq.start(env.native_agent.sequencer);
+        // // 3. Start the sequence on the native agent's sequencer
+        // tpu_seq.start(env.native_agent.sequencer);
 
         `uvm_info("TEST", "soc_tpu_test completed.", UVM_LOW)
 

@@ -31,7 +31,7 @@ module adc_rnm #(
         // ADC quantization
         else begin
             scaled_code = (analog_voltage / VREF) * MAX_CODE;
-            quantized_code = $rtoi(scaled_code);
+            quantized_code = $rtoi(scaled_code); // real to integers
         end
 
         adc_code = quantized_code[ADC_BITS-1:0];

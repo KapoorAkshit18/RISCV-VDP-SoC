@@ -9,11 +9,17 @@ interface sensor_rnm_if #(
     input logic clk
 );
 
-    // Analog/RNM domain
+    // ============================================================
+    // RNM / analog-domain signals
+    // ============================================================
+
     real temperature;
     real sensor_voltage;
 
-    // Digital ADC output
+    // ============================================================
+    // ADC digital output
+    // ============================================================
+
     logic [ADC_BITS-1:0] adc_code;
 
 endinterface

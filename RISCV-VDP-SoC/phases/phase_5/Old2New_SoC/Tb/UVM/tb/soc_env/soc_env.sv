@@ -110,6 +110,11 @@ class soc_env extends uvm_env;
     // =========================================================================
 
     soc_tpu_scoreboard tpu_scoreboard;
+    bit e2e_mode;
+    
+    // 
+
+    tpu_monitor tpu_mon;
 
     // =========================================================================
     // Constructor
@@ -143,7 +148,19 @@ class soc_env extends uvm_env;
         // The environment actively drives the DUT.
         // ---------------------------------------------------------------------
 
-        native_agent.is_active = UVM_ACTIVE;
+  
+
+        if (!uvm_config_db#(bit)::get(
+                this,
+                "",
+                "e2e_mode",
+                e2e_mode
+            )) begin
+            e2e_mode = 0;
+        end
+
+        native_agent.is_active =
+            e2e_mode ? UVM_PASSIVE : UVM_ACTIVE;
 
         // =====================================================================
         // Functional coverage
@@ -169,6 +186,16 @@ class soc_env extends uvm_env;
             "tpu_scoreboard",
             this
         );
+
+        // tpu monitor
+
+            tpu_mon = tpu_monitor::type_id::create(
+                "tpu_mon",
+                this
+            );
+
+
+
 
         // =====================================================================
         // RAL model
@@ -249,6 +276,10 @@ class soc_env extends uvm_env;
             tpu_scoreboard.analysis_imp
         );
 
+
+        tpu_mon.analysis_port.connect(
+        tpu_scoreboard.tpu_analysis_imp
+         );
         // =====================================================================
         // RAL FRONTDOOR CONNECTION
         // =====================================================================
@@ -269,10 +300,14 @@ class soc_env extends uvm_env;
         //
         // =====================================================================
 
-        ral_model.default_map.set_sequencer(
-            native_agent.sequencer,
-            ral_adapter
-        );
+        if (!e2e_mode) begin
+
+            ral_model.default_map.set_sequencer(
+                native_agent.sequencer,
+                ral_adapter
+            );
+
+        end
 
         // =====================================================================
         // RAL PREDICTOR CONNECTION

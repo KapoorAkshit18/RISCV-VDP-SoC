@@ -36,14 +36,15 @@
 //   This top intentionally contains NO procedural verification monitors,
 //   counters, $finish conditions, scoreboard logic, or UVM phase control.
 // =============================================================================
-
-`include "soc_native_if.sv"
-`include "tpu_debug_if.sv"
-
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
 import soc_uvm_pkg::*;
+
+`include "soc_native_if.sv"
+`include "tpu_debug_if.sv"
+
+
 
 
 // =============================================================================
@@ -78,7 +79,7 @@ module tb_cpu_soc_ram_top;
 
     logic [7:0]  battery_percent_i;
     logic [15:0] battery_voltage_mv_i;
-    logic [15:0] temperature_tenthsC_i;
+    // logic [15:0] temperature_tenthsC_i;/
     logic        sensor_valid_i;
 
     logic [7:0]  rssi_dbm_i;
@@ -122,6 +123,42 @@ module tb_cpu_soc_ram_top;
         .clk(clk)
     );
 
+    // 
+    // RNM Model for sensor status only
+    // 
+    real temperature;
+    real sensor_voltage;
+
+    logic [11:0] adc_code;
+
+    logic signed [15:0] temperature_tenthsC;
+    logic sensor_valid;
+
+    // RNM Chain 
+
+        temp_sensor_rnm #(
+            .ENABLE_NOISE(1'b0)
+        ) u_temp_sensor (
+            .temperature   (temperature),
+            .sensor_voltage(sensor_voltage)
+        );
+
+        adc_rnm #(
+            .ADC_BITS(12),
+            .VREF(1.8)
+        ) u_adc (
+            .analog_voltage(sensor_voltage),
+            .adc_code      (adc_code)
+        );
+
+        sensor_adc_rnm #(
+            .ADC_BITS(12),
+            .VREF(1.8)
+        ) u_sensor_adc (
+            .adc_code           (adc_code),
+            .temperature_tenthsC(temperature_tenthsC),
+            .sensor_valid       (sensor_valid)
+        );
 
     // =========================================================================
     // TPU DEBUG / OBSERVATION INTERFACE
@@ -152,8 +189,8 @@ module tb_cpu_soc_ram_top;
 
         .battery_percent_i     (battery_percent_i),
         .battery_voltage_mv_i  (battery_voltage_mv_i),
-        .temperature_tenthsC_i (temperature_tenthsC_i),
-        .sensor_valid_i        (sensor_valid_i),
+        .temperature_tenthsC_i (temperature_tenthsC),
+        .sensor_valid_i        (sensor_valid),
 
         .rssi_dbm_i            (rssi_dbm_i),
         .link_up_i             (link_up_i),
@@ -190,15 +227,16 @@ module tb_cpu_soc_ram_top;
     // The interface does not drive the DUT bus.
     // It only exposes the DUT bus to the UVM monitor.
     // =========================================================================
+    // CPU/SoC native bus -> passive UVM monitor
+    assign native_if.m_valid = dut.m_valid;
+    assign native_if.m_write = dut.m_write;
+    assign native_if.m_addr  = dut.m_addr;
+    assign native_if.m_wdata = dut.m_wdata;
+    assign native_if.m_strb  = dut.m_strb;
 
-    assign native_if.valid = dut.m_valid;
-    assign native_if.ready = dut.m_ready;
-    assign native_if.write = dut.m_write;
-
-    assign native_if.addr  = dut.m_addr;
-    assign native_if.wdata = dut.m_wdata;
-    assign native_if.strb  = dut.m_strb;
-    assign native_if.rdata = dut.m_rdata;
+    assign native_if.m_ready = dut.m_ready;
+    assign native_if.m_rdata = dut.m_rdata;
+    // assign native_if.resetn = resetn;
 
 
     // =========================================================================
@@ -224,7 +262,7 @@ module tb_cpu_soc_ram_top;
     assign tpu_if.result0    = dut.tpu.result0;
     assign tpu_if.result1    = dut.tpu.result1;
 
-    assign tpu_if.trap       = trap;
+    // assign tpu_if.trap       = trap;
 
 
     // =========================================================================
@@ -268,9 +306,9 @@ module tb_cpu_soc_ram_top;
 
         battery_percent_i     = 8'd80;
         battery_voltage_mv_i  = 16'd3700;
-        temperature_tenthsC_i = 16'd250;
+        // temperature_tenthsC_i = 16'd250;
+        temperature = 79.9;
         sensor_valid_i        = 1'b1;
-
         rssi_dbm_i            = 8'd50;
         link_up_i             = 1'b1;
         link_error_i          = 1'b0;
@@ -303,6 +341,8 @@ module tb_cpu_soc_ram_top;
     initial begin
 
         resetn = 1'b0;
+        repeat (10) @(posedge clk);  // 10 clock cycles
+        resetn = 1'b1;
 
     end
 
@@ -325,7 +365,7 @@ module tb_cpu_soc_ram_top;
         $display("[TB] Loading firmware...");
 
         $readmemh(
-            "../firmware_test03/firmware.hex",
+            "../../firmware_test03/firmware.hex",
             dut.ram.mem
         );
 
@@ -398,11 +438,26 @@ module tb_cpu_soc_ram_top;
     // The UVM test controls simulation through objections.
     // =========================================================================
 
-    initial begin
+
+        initial begin
+
+    uvm_config_db#(virtual tpu_debug_if)::set(
+        null,
+        "uvm_test_top.env.tpu_monitor",
+        "tpu_vif",
+        tpu_if
+    );
+
+                uvm_config_db#(bit)::set(
+        null,
+        "uvm_test_top.env",
+        "e2e_mode",
+        1'b1
+    );
 
         run_test("soc_e2e_test");
 
-    end
+        end
 
 
 endmodule

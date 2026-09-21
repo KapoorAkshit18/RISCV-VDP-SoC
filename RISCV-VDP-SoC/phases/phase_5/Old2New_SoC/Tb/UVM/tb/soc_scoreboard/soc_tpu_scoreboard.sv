@@ -3,12 +3,12 @@
 
 `timescale 1ns/1ps
 
-import uvm_pkg::*;
-`include "uvm_macros.svh"
+// import uvm_pkg::*;
+// `include "uvm_macros.svh"
 
 // =============================================================================
 // RISCV-VDP-// // Dependencies
-`include "../soc_agent/soc_sequence_item/soc_sequence_item.sv"
+// `include "../soc_agent/soc_sequence_item/soc_sequence_item.sv"
 // `include "../soc_native_if/soc_native_if.sv"
 //SoC
 // TPU UVM Scoreboard
@@ -125,7 +125,7 @@ import "DPI-C" function void tpu_reference(
     output longint unsigned result0,
     output longint unsigned result1
 );
-
+`uvm_analysis_imp_decl(_tpu) // overriding default analysis port 
 
 // =============================================================================
 // SCOREBOARD CLASS
@@ -134,7 +134,7 @@ import "DPI-C" function void tpu_reference(
 class soc_tpu_scoreboard extends uvm_scoreboard;
 
     `uvm_component_utils(soc_tpu_scoreboard)
-
+     uvm_analysis_imp_tpu #(tpu_debug_transaction, soc_tpu_scoreboard) tpu_analysis_imp;
 
     // =========================================================================
     // Analysis implementation
@@ -319,6 +319,7 @@ class soc_tpu_scoreboard extends uvm_scoreboard;
 
         // Create analysis implementation.
         analysis_imp = new("analysis_imp", this);
+        tpu_analysis_imp = new("tpu_analysis_imp", this);
 
         // Initialize statistics.
         tpu_write_count      = 0;
@@ -435,7 +436,88 @@ class soc_tpu_scoreboard extends uvm_scoreboard;
         else
             process_tpu_read(tr);
 
+    if (tr.addr == 32'h0000_12A8 && tr.write) begin
+
+    case (tr.wdata)
+
+        32'h1111_1111:
+            `uvm_info("FW_MARKER", "Firmware marker: TPU START", UVM_LOW)
+
+        32'h2222_2222:
+            `uvm_info("FW_MARKER", "Firmware marker: TPU DONE", UVM_LOW)
+
+        32'h3333_3333:
+            `uvm_info("FW_MARKER", "Firmware marker: SUCCESS", UVM_LOW)
+
+        32'hDEAD_0001:
+            `uvm_error("FW_MARKER", "Firmware marker: ERROR")
+
+        default:
+            `uvm_info(
+                "FW_MARKER",
+                $sformatf("Unknown firmware marker: 0x%08h", tr.wdata),
+                UVM_LOW
+            )
+
+    endcase
+
+end
+
     endfunction
+
+    function void write_tpu(tpu_debug_transaction tr);
+
+    if (tr.event_type != tpu_debug_transaction::TPU_DONE)
+        return;
+
+    if (!reference_model_valid) begin
+
+        `uvm_error(
+            "TPU_SCOREBOARD",
+            "TPU_DONE received but reference model is not valid"
+        )
+
+        return;
+
+    end
+
+    result_compare_count++;
+
+    if ((tr.result0 !== expected_result0) ||
+        (tr.result1 !== expected_result1)) begin
+
+        result_error_count++;
+
+        `uvm_error(
+            "TPU_RESULT_MISMATCH",
+            $sformatf(
+                "TPU result mismatch: ACTUAL R0=%016h R1=%016h | EXPECTED R0=%016h R1=%016h",
+                tr.result0,
+                tr.result1,
+                expected_result0,
+                expected_result1
+            )
+        )
+
+    end
+    else begin
+
+        `uvm_info(
+            "TPU_RESULT_PASS",
+            $sformatf(
+                "TPU result MATCH: R0=%016h R1=%016h",
+                tr.result0,
+                tr.result1
+            ),
+            UVM_LOW
+        )
+
+    end
+
+    done_seen = 1'b1;
+
+endfunction
+
 
 
     // =========================================================================

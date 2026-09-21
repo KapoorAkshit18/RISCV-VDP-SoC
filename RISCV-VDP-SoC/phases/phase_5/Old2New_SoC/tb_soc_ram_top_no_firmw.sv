@@ -238,8 +238,8 @@ module tbn_cpu_soc_ram_top;
 
     reg [7:0]  battery_percent_i;
     reg [15:0] battery_voltage_mv_i;
-    reg [15:0] temperature_tenthsC_i;
-    reg        sensor_valid_i;
+    // reg [15:0] temperature_tenthsC_i;
+    // reg        sensor_valid_i;
 
     reg [7:0]  rssi_dbm_i;
     reg        link_up_i;
@@ -268,7 +268,44 @@ module tbn_cpu_soc_ram_top;
     wire [3:0] rgb_b_o;
 
     wire trap;
+    
+    // 
+    // RNM Model for sensor status only
+    // 
+    
+    real temperature;
+    real sensor_voltage;
 
+    logic [11:0] adc_code;
+
+    logic signed [15:0] temperature_tenthsC;
+    logic sensor_valid;
+
+    // RNM Chain 
+
+        temp_sensor_rnm #(
+            .ENABLE_NOISE(1'b0)
+        ) u_temp_sensor (
+            .temperature   (temperature),
+            .sensor_voltage(sensor_voltage)
+        );
+
+        adc_rnm #(
+            .ADC_BITS(12),
+            .VREF(1.8)
+        ) u_adc (
+            .analog_voltage(sensor_voltage),
+            .adc_code      (adc_code)
+        );
+
+        sensor_adc_rnm #(
+            .ADC_BITS(12),
+            .VREF(1.8)
+        ) u_sensor_adc (
+            .adc_code           (adc_code),
+            .temperature_tenthsC(temperature_tenthsC),
+            .sensor_valid       (sensor_valid)
+        );
     // =========================================================================
     // DUT
     // =========================================================================
@@ -285,8 +322,8 @@ module tbn_cpu_soc_ram_top;
 
         .battery_percent_i     (battery_percent_i),
         .battery_voltage_mv_i  (battery_voltage_mv_i),
-        .temperature_tenthsC_i (temperature_tenthsC_i),
-        .sensor_valid_i        (sensor_valid_i),
+        .temperature_tenthsC_i (temperature_tenthsC),
+        .sensor_valid_i        (sensor_valid),
 
         .rssi_dbm_i            (rssi_dbm_i),
         .link_up_i             (link_up_i),
@@ -313,6 +350,9 @@ module tbn_cpu_soc_ram_top;
 
         .trap                  (trap)
     );
+
+  
+
 
     // =========================================================================
     // TESTBENCH MASTER BUS
@@ -939,91 +979,185 @@ module tbn_cpu_soc_ram_top;
 
         end
     endtask
+    // TEST: with RNM
 
-    // =========================================================================
-    // TEST: SENSOR
-    // =========================================================================
 
     task automatic test_sensor;
 
-        begin
+    begin
 
-            $display("");
-            $display("============================================================");
-            $display("TEST 5 : SENSOR STATUS");
-            $display("============================================================");
+        $display("");
+        $display("============================================================");
+        $display("TEST 5 : SENSOR STATUS + RNM");
+        $display("============================================================");
 
-            // Values intentionally selected so no alarm is active.
-            //
-            // battery = 80%
-            // voltage = 3700 mV
-            // temperature = 250 tenths C = 25.0 C
-            //
-            battery_percent_i     = 8'd80;
-            battery_voltage_mv_i  = 16'd3700;
-            temperature_tenthsC_i = 16'sd250;
-            sensor_valid_i        = 1'b1;
+        // RNM temperature stimulus.
+        // RNM chain:
+        // temperature
+        //    -> temp_sensor_rnm
+        //    -> adc_rnm
+        //    -> sensor_adc_rnm
+        //    -> temperature_tenthsC
+        //    -> sensor_status_native_slave
 
-            // Two-stage synchronizers.
-            repeat (3)
-                @(posedge clk);
+        temperature = 79.9;
+        battery_percent_i    = 8'd80;
+        battery_voltage_mv_i = 16'd3700;
 
-            check_read(
-                "Sensor battery percentage",
-                SENSOR_BASE + SENSOR_BATT_PCT,
-                32'h0000_0050
-            );
+        // sensor_valid_i and temperature_tenths must NOT be
+        // manually driven here. They come from the RNM chain.
 
-            check_read(
-                "Sensor battery voltage",
-                SENSOR_BASE + SENSOR_BATT_VOLT,
-                32'h0000_0E74
-            );
+        // Allow RNM + two-stage synchronizers to settle.
+        repeat (3)
+            @(posedge clk);
 
-            check_read(
-                "Sensor temperature",
-                SENSOR_BASE + SENSOR_TEMP,
-                32'h0000_00FA
-            );
+        check_read(
+            "Sensor battery percentage",
+            SENSOR_BASE + SENSOR_BATT_PCT,
+            32'h0000_0050
+        );
 
-            // status:
-            //
-            // bit0 sensor_valid = 1
-            // bit1 battery_low  = 0
-            // bit2 temp_alarm   = 0
-            //
-            // => 0x1
-            //
-            check_read(
-                "Sensor status",
-                SENSOR_BASE + SENSOR_STATUS,
-                32'h0000_0001
-            );
+        check_read(
+            "Sensor battery voltage",
+            SENSOR_BASE + SENSOR_BATT_VOLT,
+            32'h0000_0E74
+        );
 
-            // -----------------------------------------------------------------
-            // Battery-low threshold test.
-            // Threshold is <= 15%.
-            // -----------------------------------------------------------------
+        // 79.9 C -> approximately 799 tenths C.
+        // Allow small ADC quantization variation.
+        check_read(
+            "Sensor temperature",
+            SENSOR_BASE + SENSOR_TEMP,
+            32'h0000_031F
+        );
 
-            battery_percent_i = 8'd10;
+        // status:
+        // bit0 sensor_valid = 1
+        // bit1 battery_low  = 0
+        // bit2 temp_alarm   = 0
+        //
+        // Expected status = 0x1
 
-            repeat (3)
-                @(posedge clk);
+        check_read(
+            "Sensor status",
+            SENSOR_BASE + SENSOR_STATUS,
+            32'h0000_0001
+        );
 
-            check_read(
-                "Sensor battery-low alarm",
-                SENSOR_BASE + SENSOR_STATUS,
-                32'h0000_0003
-            );
+        // -----------------------------------------------------------------
+        // Battery-low threshold test.
+        // -----------------------------------------------------------------
 
-            // Restore nominal value.
-            battery_percent_i = 8'd80;
+        battery_percent_i = 8'd10;
 
-            repeat (3)
-                @(posedge clk);
+        repeat (3)
+            @(posedge clk);
 
-        end
-    endtask
+        check_read(
+            "Sensor battery-low alarm",
+            SENSOR_BASE + SENSOR_STATUS,
+            32'h0000_0003
+        );
+
+        // Restore nominal battery value.
+        battery_percent_i = 8'd80;
+
+        repeat (3)
+            @(posedge clk);
+
+    end
+
+endtask
+
+
+
+
+
+
+    // =========================================================================
+    // TEST: SENSOR wo rnm
+    // =========================================================================
+
+    // task automatic test_sensor;
+
+    //     begin
+
+    //         $display("");
+    //         $display("============================================================");
+    //         $display("TEST 5 : SENSOR STATUS");
+    //         $display("============================================================");
+
+    //         // Values intentionally selected so no alarm is active.
+    //         //
+    //         // battery = 80%
+    //         // voltage = 3700 mV
+    //         // temperature = 250 tenths C = 25.0 C
+    //         //
+    //         // battery_percent_i     = 8'd80;
+    //         // battery_voltage_mv_i  = 16'd3700;
+    //         temperature_tenths    = 79.9;
+    //         sensor_valid_i        = 1'b1;
+
+    //         // Two-stage synchronizers.
+    //         repeat (3)
+    //             @(posedge clk);
+
+    //         check_read(
+    //             "Sensor battery percentage",
+    //             SENSOR_BASE + SENSOR_BATT_PCT,
+    //             32'h0000_0050
+    //         );
+
+    //         check_read(
+    //             "Sensor battery voltage",
+    //             SENSOR_BASE + SENSOR_BATT_VOLT,
+    //             32'h0000_0E74
+    //         );
+
+    //         check_read(
+    //             "Sensor temperature",
+    //             SENSOR_BASE + SENSOR_TEMP,
+    //             32'h0000_00FA
+    //         );
+
+    //         // status:
+    //         //
+    //         // bit0 sensor_valid = 1
+    //         // bit1 battery_low  = 0
+    //         // bit2 temp_alarm   = 0
+    //         //
+    //         // => 0x1
+    //         //
+    //         check_read(
+    //             "Sensor status",
+    //             SENSOR_BASE + SENSOR_STATUS,
+    //             32'h0000_0001
+    //         );
+
+    //         // -----------------------------------------------------------------
+    //         // Battery-low threshold test.
+    //         // Threshold is <= 15%.
+    //         // -----------------------------------------------------------------
+
+    //         battery_percent_i = 8'd10;
+
+    //         repeat (3)
+    //             @(posedge clk);
+
+    //         check_read(
+    //             "Sensor battery-low alarm",
+    //             SENSOR_BASE + SENSOR_STATUS,
+    //             32'h0000_0003
+    //         );
+
+    //         // Restore nominal value.
+    //         battery_percent_i = 8'd80;
+
+    //         repeat (3)
+    //             @(posedge clk);
+
+    //     end
+    // endtask
 
     // =========================================================================
     // TEST: VDP
@@ -1675,8 +1809,8 @@ module tbn_cpu_soc_ram_top;
 
         battery_percent_i     = 8'd0;
         battery_voltage_mv_i  = 16'd0;
-        temperature_tenthsC_i = 16'd0;
-        sensor_valid_i        = 1'b0;
+        temperature           = 79.9;
+        // sensor_valid_i        = 1'b0;
 
         rssi_dbm_i       = 8'd0;
         link_up_i        = 1'b0;
@@ -1787,8 +1921,8 @@ module tbn_cpu_soc_ram_top;
     // =========================================================================
 
     initial begin
-        $dumpfile("waveform_phase_5_wo_firmw.vcd");
-        $dumpvars(0, tb_cpu_soc_ram_top);
+        $dumpfile("waveform_phase_5_wo_firmw_with_RNM.vcd");
+        $dumpvars(0, tbn_cpu_soc_ram_top);
     end
 
     // =========================================================================

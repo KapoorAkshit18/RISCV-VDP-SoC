@@ -409,7 +409,63 @@ class soc_tpu_scoreboard extends uvm_scoreboard;
         end
 
 
- function void write_tpu(tpu_debug_transaction tr);
+        // ---------------------------------------------------------------------
+        // Ignore all non-TPU accesses.
+        // ---------------------------------------------------------------------
+
+        if (tr.target != "TPU")
+            return;
+
+
+        // ---------------------------------------------------------------------
+        // Update transaction statistics.
+        // ---------------------------------------------------------------------
+
+        if (tr.write)
+            tpu_write_count++;
+        else
+            tpu_read_count++;
+
+
+        // ---------------------------------------------------------------------
+        // Dispatch according to transaction direction.
+        // ---------------------------------------------------------------------
+
+        if (tr.write)
+            process_tpu_write(tr);
+        else
+            process_tpu_read(tr);
+
+    if (tr.addr == 32'h0000_12A8 && tr.write) begin
+
+    case (tr.wdata)
+
+        32'h1111_1111:
+            `uvm_info("FW_MARKER", "Firmware marker: TPU START", UVM_LOW)
+
+        32'h2222_2222:
+            `uvm_info("FW_MARKER", "Firmware marker: TPU DONE", UVM_LOW)
+
+        32'h3333_3333:
+            `uvm_info("FW_MARKER", "Firmware marker: SUCCESS", UVM_LOW)
+
+        32'hDEAD_0001:
+            `uvm_error("FW_MARKER", "Firmware marker: ERROR")
+
+        default:
+            `uvm_info(
+                "FW_MARKER",
+                $sformatf("Unknown firmware marker: 0x%08h", tr.wdata),
+                UVM_LOW
+            )
+
+    endcase
+
+end
+
+    endfunction
+
+    function void write_tpu(tpu_debug_transaction tr);
 
     if (tr.event_type != tpu_debug_transaction::TPU_DONE)
         return;
@@ -462,35 +518,6 @@ class soc_tpu_scoreboard extends uvm_scoreboard;
 
 endfunction
 
-
-        // ---------------------------------------------------------------------
-        // Ignore all non-TPU accesses.
-        // ---------------------------------------------------------------------
-
-        if (tr.target != "TPU")
-            return;
-
-
-        // ---------------------------------------------------------------------
-        // Update transaction statistics.
-        // ---------------------------------------------------------------------
-
-        if (tr.write)
-            tpu_write_count++;
-        else
-            tpu_read_count++;
-
-
-        // ---------------------------------------------------------------------
-        // Dispatch according to transaction direction.
-        // ---------------------------------------------------------------------
-
-        if (tr.write)
-            process_tpu_write(tr);
-        else
-            process_tpu_read(tr);
-
-    endfunction
 
 
     // =========================================================================

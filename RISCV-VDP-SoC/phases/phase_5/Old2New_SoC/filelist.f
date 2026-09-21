@@ -39,6 +39,12 @@ RTL/sensor_status_native.v
 RTL/vdp_native_slave.v
 RTL/vga_timing_gen.v
 
+# RNM
+tb/RNM/temp_sensor_rnm.sv
+tb/RNM/adc_rnm.sv
+tb/RNM/sensor_adc_rnm.sv
+
+
 
 # -----------------------------------------------------------------------------
 # TPU

@@ -20,6 +20,10 @@
 ../../RTL/soc_uvm_dut.sv
 ../../RTL/cpu_bus_adapter.v
 
+# RNM
+../RNM/temp_sensor_rnm.sv
+../RNM/adc_rnm.sv
+../RNM/sensor_adc_rnm.sv
 
 // ============================================================
 // UVM testbench sources

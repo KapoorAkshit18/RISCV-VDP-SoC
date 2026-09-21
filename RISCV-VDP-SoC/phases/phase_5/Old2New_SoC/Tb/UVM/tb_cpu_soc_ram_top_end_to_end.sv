@@ -79,7 +79,7 @@ module tb_cpu_soc_ram_top;
 
     logic [7:0]  battery_percent_i;
     logic [15:0] battery_voltage_mv_i;
-    logic [15:0] temperature_tenthsC_i;
+    // logic [15:0] temperature_tenthsC_i;/
     logic        sensor_valid_i;
 
     logic [7:0]  rssi_dbm_i;
@@ -123,6 +123,42 @@ module tb_cpu_soc_ram_top;
         .clk(clk)
     );
 
+    // 
+    // RNM Model for sensor status only
+    // 
+    real temperature;
+    real sensor_voltage;
+
+    logic [11:0] adc_code;
+
+    logic signed [15:0] temperature_tenthsC;
+    logic sensor_valid;
+
+    // RNM Chain 
+
+        temp_sensor_rnm #(
+            .ENABLE_NOISE(1'b0)
+        ) u_temp_sensor (
+            .temperature   (temperature),
+            .sensor_voltage(sensor_voltage)
+        );
+
+        adc_rnm #(
+            .ADC_BITS(12),
+            .VREF(1.8)
+        ) u_adc (
+            .analog_voltage(sensor_voltage),
+            .adc_code      (adc_code)
+        );
+
+        sensor_adc_rnm #(
+            .ADC_BITS(12),
+            .VREF(1.8)
+        ) u_sensor_adc (
+            .adc_code           (adc_code),
+            .temperature_tenthsC(temperature_tenthsC),
+            .sensor_valid       (sensor_valid)
+        );
 
     // =========================================================================
     // TPU DEBUG / OBSERVATION INTERFACE
@@ -153,8 +189,8 @@ module tb_cpu_soc_ram_top;
 
         .battery_percent_i     (battery_percent_i),
         .battery_voltage_mv_i  (battery_voltage_mv_i),
-        .temperature_tenthsC_i (temperature_tenthsC_i),
-        .sensor_valid_i        (sensor_valid_i),
+        .temperature_tenthsC_i (temperature_tenthsC),
+        .sensor_valid_i        (sensor_valid),
 
         .rssi_dbm_i            (rssi_dbm_i),
         .link_up_i             (link_up_i),
@@ -270,9 +306,9 @@ module tb_cpu_soc_ram_top;
 
         battery_percent_i     = 8'd80;
         battery_voltage_mv_i  = 16'd3700;
-        temperature_tenthsC_i = 16'd250;
+        // temperature_tenthsC_i = 16'd250;
+        temperature = 79.9;
         sensor_valid_i        = 1'b1;
-
         rssi_dbm_i            = 8'd50;
         link_up_i             = 1'b1;
         link_error_i          = 1'b0;

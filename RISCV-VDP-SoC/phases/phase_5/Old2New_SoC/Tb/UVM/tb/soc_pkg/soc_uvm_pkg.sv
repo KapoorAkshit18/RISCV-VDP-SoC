@@ -50,13 +50,14 @@ package soc_uvm_pkg;
       `include "soc_coverage/soc_coverage.sv"
            
 
+// TPU Monitor
+    `include "tpu_monitor/tpu_debug_transaction.sv"
+    `include "tpu_monitor/tpu_monitor.sv"
+    
 //  TPU Scoreboard
 
     `include "soc_scoreboard/soc_tpu_scoreboard.sv"
 
-// TPU Monitor
-    `include "tpu_monitor/tpu_debug_transaction.sv"
-    `include "tpu_monitor/tpu_monitor.sv"
 
     // ------------------------------------------------------------
     // Environment

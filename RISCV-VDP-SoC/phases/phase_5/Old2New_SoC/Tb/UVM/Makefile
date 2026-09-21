@@ -89,17 +89,17 @@ run: optimize
 		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_tpu_test \
 		+UVM_VERBOSITY=UVM_MEDIUM \
-		-do "run -all; quit -f"
+		-do "run -all;"
 
 
 # ============================================================
-# Smoke
+# gui tpu
 # ============================================================
 
-smoke: optimize
+tpu: optimize
 	$(VSIM) $(VSIM_OPTS) \
 		$(OPT_TOP) \
-		+UVM_TESTNAME=soc_smoke_test \
+		+UVM_TESTNAME=soc_tpu_test \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
 
@@ -131,7 +131,7 @@ debug: optimize
 	$(VSIM) -voptargs=+acc \
 		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_smoke_test \
-		+UVM_VERBOSITY=UVM_HIGH
+		+UVM_VERBOSITY=UVM_HIGH -do run.do
 
 
 # ============================================================

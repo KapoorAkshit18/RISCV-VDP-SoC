@@ -36,7 +36,7 @@ VSIM ?= vsim
 # Project configuration
 # -----------------------------------------------------------------------------
 
-TOP      := tb_cpu_soc_ram_top
+TOP      := tbn_cpu_soc_ram_top
 OPT_TOP  := tb_opt
 
 WORK     := work

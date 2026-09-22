@@ -1,31 +1,30 @@
 # ============================================================
-# RISCV-VDP-SoC
-# CPU -> Adapter -> Memory Interconnect -> RAM
+# RISCV-VDP-SoC (Phase 1 Baseline)
+# Canonical RTL reference: Design_Dir/RTL
 # ============================================================
 
++incdir+../../../Design_Dir/RTL
 +incdir+./hdl_interconnect
 +incdir+./RAM
 +incdir+./riscv
 
-
-
 # ------------------------------------------------------------
-# RTL: Memory Interconnect
+# RTL: Memory Interconnect (Canonical Design_Dir/RTL)
 # ------------------------------------------------------------
-./hdl_interconnect/soc_mem_interconnect.v
+../../../Design_Dir/RTL/soc_mem_interconnect.v
 
 # ------------------------------------------------------------
-# RTL: RAM
+# RTL: RAM (Canonical Design_Dir/RTL)
 # ------------------------------------------------------------
-./RAM/soc_ram.v
+../../../Design_Dir/RTL/soc_ram.v
 
 # ------------------------------------------------------------
-# RTL: RISC-V subsystem
+# RTL: RISC-V subsystem (Canonical Design_Dir/RTL)
 # ------------------------------------------------------------
-./riscv/rtl/riscv.v
-./riscv/rtl/cpu_bus_adapter.v
-./riscv/rtl/cpu_soc_ram_top.v
-./riscv/rtl/riscv_wrapper.sv
+../../../Design_Dir/RTL/riscv.v
+../../../Design_Dir/RTL/cpu_bus_adapter.v
+../../../Design_Dir/RTL/cpu_soc_ram_top.v
+../../../Design_Dir/RTL/riscv_wrapper.v
 
 # ------------------------------------------------------------
 # Testbench

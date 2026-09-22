@@ -3,7 +3,7 @@
 // GPIO peripheral using PicoRV32's NATIVE memory bus (mem_valid/mem_ready/
 // mem_addr/mem_wdata/mem_wstrb/mem_rdata) instead of AXI4-Lite. Supersedes
 // gpio_axi_slave.v (now deprecated) per explicit request.
-//
+// =============================================================================
 // PROTOCOL (PicoRV32 native memory interface, slave side):
 //   - mem_valid is asserted by the interconnect/top-level address decoder
 //     ONLY when the CPU's current bus cycle falls in GPIO's address region

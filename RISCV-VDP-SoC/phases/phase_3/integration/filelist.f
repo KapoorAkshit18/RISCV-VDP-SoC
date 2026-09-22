@@ -1,43 +1,45 @@
 // ============================================================
-// RISCV-VDP-SoC RTL FILELIST
+// RISCV-VDP-SoC RTL FILELIST (Phase 3 Integration)
+// Canonical RTL reference: Design_Dir/RTL
 // ============================================================
 
-// ------------------------------------------------------------
-// Basic / support RTL
-// ------------------------------------------------------------
-./rtl/cdc_reset_sync.v
-./rtl/riscv.v
-./rtl/riscv_wrapper.sv
++incdir+../../../../Design_Dir/RTL
 
 // ------------------------------------------------------------
-// CPU bus / memory subsystem
+// Basic / support RTL (Canonical Design_Dir/RTL)
 // ------------------------------------------------------------
-./rtl/cpu_bus_adapter.v
-./rtl/soc_ram.v
-./rtl/soc_mem_interconnect.v
-./rtl/cpu_ram_subsystem.v
+../../../../Design_Dir/RTL/cdc_reset_sync.v
+../../../../Design_Dir/RTL/riscv.v
+../../../../Design_Dir/RTL/riscv_wrapper.v
 
 // ------------------------------------------------------------
-// Native peripherals
+// CPU bus / memory subsystem (Canonical Design_Dir/RTL)
 // ------------------------------------------------------------
-./rtl/gpio_native_slave.v
-./rtl/sensor_status_native.v
-./rtl/rf_telemetry_native.v
+../../../../Design_Dir/RTL/cpu_bus_adapter.v
+../../../../Design_Dir/RTL/soc_ram.v
+../../../../Design_Dir/RTL/soc_mem_interconnect.v
+../../../../Design_Dir/RTL/cpu_ram_subsystem.v
 
 // ------------------------------------------------------------
-// VDP / VGA
+// Native peripherals (Canonical Design_Dir/RTL)
 // ------------------------------------------------------------
-./rtl/vga_timing_gen.v
-./rtl/vdp_native_slave.v
+../../../../Design_Dir/RTL/gpio_native_slave.v
+../../../../Design_Dir/RTL/sensor_status_native.v
+../../../../Design_Dir/RTL/rf_telemetry_native.v
 
 // ------------------------------------------------------------
-// SoC top-level
+// VDP / VGA (Canonical Design_Dir/RTL)
 // ------------------------------------------------------------
-./rtl/cpu_soc_ram_top.v
+../../../../Design_Dir/RTL/vga_timing_gen.v
+../../../../Design_Dir/RTL/vdp_native_slave.v
+
+// ------------------------------------------------------------
+// SoC top-level (Canonical Design_Dir/RTL)
+// ------------------------------------------------------------
+../../../../Design_Dir/RTL/cpu_soc_ram_top.v
 
 // ------------------------------------------------------------
 // Testbench
 // ------------------------------------------------------------
 ./tb/directed/tb_soc_ram_top_sigmoid.sv
 ./tb/directed/tb_soc_ram_top_relu.sv
-

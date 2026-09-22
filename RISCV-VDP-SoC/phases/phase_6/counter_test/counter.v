@@ -4,7 +4,7 @@ module top (
 );
 
   localparam BITS = 4;
-  localparam LOG2DELAY = 22;
+  localparam LOG2DELAY = 25;
 
   wire bufg;
   BUFG bufgctrl (

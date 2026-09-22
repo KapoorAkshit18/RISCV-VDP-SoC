@@ -1,12 +1,12 @@
 # =============================================================================
-# UVM + RTL filelist for RISCV-VDP-SoC
+# UVM + RTL filelist for RISCV-VDP-SoC (Phase 4)
+# Canonical RTL reference: Design_Dir/RTL
 # =============================================================================
 
 # -----------------------------------------------------------------------------
 # Include paths
 # -----------------------------------------------------------------------------
-
-+incdir+rtl
++incdir+../../../../Design_Dir/RTL
 +incdir+tb
 +incdir+tb/soc_pkg
 +incdir+tb/soc_agent
@@ -19,42 +19,38 @@
 +incdir+tb/soc_base_test
 +incdir+tb/soc_ral
 +incdir+tb/soc_coverage
-# -----------------------------------------------------------------------------
-# RTL sources
-# -----------------------------------------------------------------------------
 
-rtl/cdc_reset_sync.v
-rtl/cpu_bus_adapter.v
-rtl/cpu_ram_subsystem.v
-rtl/cpu_soc_ram_top.v
-rtl/cpu_soc_ram_top_smoke.v
-rtl/gpio_native_slave.v
-rtl/rf_telemetry_native.v
-rtl/riscv.v
-rtl/sensor_status_native.v
-rtl/soc_mem_interconnect.v
-rtl/soc_ram.v
-rtl/soc_uvm_dut.sv
-rtl/vdp_native_slave.v
-rtl/vga_timing_gen.v
+# -----------------------------------------------------------------------------
+# RTL sources (Canonical Design_Dir/RTL)
+# -----------------------------------------------------------------------------
+../../../../Design_Dir/RTL/cdc_reset_sync.v
+../../../../Design_Dir/RTL/cpu_bus_adapter.v
+../../../../Design_Dir/RTL/cpu_ram_subsystem.v
+../../../../Design_Dir/RTL/cpu_soc_ram_top.v
+../../../../Design_Dir/RTL/gpio_native_slave.v
+../../../../Design_Dir/RTL/rf_telemetry_native.v
+../../../../Design_Dir/RTL/riscv.v
+../../../../Design_Dir/RTL/sensor_status_native.v
+../../../../Design_Dir/RTL/soc_mem_interconnect.v
+../../../../Design_Dir/RTL/soc_ram.v
+../../../../Design_Dir/RTL/soc_uvm_dut.sv
+../../../../Design_Dir/RTL/vdp_native_slave.v
+../../../../Design_Dir/RTL/vga_timing_gen.v
 
 
 # -----------------------------------------------------------------------------
 # UVM support and interface
 # -----------------------------------------------------------------------------
-
 soc_native_if.sv
 
 
 # -----------------------------------------------------------------------------
 # UVM package + classes
 # -----------------------------------------------------------------------------
-
 tb/soc_pkg/soc_uvm_pkg.sv
 
 
 # -----------------------------------------------------------------------------
 # Top-level UVM testbench
 # -----------------------------------------------------------------------------
-
 tb_soc_uvm.sv

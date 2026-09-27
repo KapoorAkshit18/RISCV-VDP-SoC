@@ -70,28 +70,51 @@ class soc_tpu_test extends uvm_test;
     // Run phase
     // =========================================================================
 
-    virtual task run_phase(uvm_phase phase);
-        soc_tpu_directed_sequence tpu_seq;
+    // virtual task run_phase(uvm_phase phase);
+    //     soc_tpu_directed_sequence tpu_seq;
 
-        // 1. Raise objection to keep simulation alive
-        // phase.raise_objection(this, "Starting TPU directed sequence");
-         phase.raise_objection(this, "Starting TPU firmware sequence");
+    //     // 1. Raise objection to keep simulation alive
+    //     // phase.raise_objection(this, "Starting TPU directed sequence");
+    //      phase.raise_objection(this, "Starting TPU firmware sequence");
 
-        @env.tpu_mon.tpu_done_event;
-        // `uvm_info("TEST", "Starting soc_tpu_test...", UVM_LOW)
+    //     @env.tpu_mon.tpu_done_event;
+    //     // `uvm_info("TEST", "Starting soc_tpu_test...", UVM_LOW)
 
-        // // 2. Create the sequence through the UVM factory
-        // tpu_seq = soc_tpu_directed_sequence::type_id::create("tpu_seq");
+    //     // // 2. Create the sequence through the UVM factory
+    //     // tpu_seq = soc_tpu_directed_sequence::type_id::create("tpu_seq");
 
-        // // 3. Start the sequence on the native agent's sequencer
-        // tpu_seq.start(env.native_agent.sequencer);
+    //     // // 3. Start the sequence on the native agent's sequencer
+    //     // tpu_seq.start(env.native_agent.sequencer);
 
-        `uvm_info("TEST", "soc_tpu_test completed.", UVM_LOW)
+    //     `uvm_info("TEST", "soc_tpu_test completed.", UVM_LOW)
 
-        // 4. Drop objection to allow simulation to finish gracefully
-        phase.drop_objection(this, "Finished TPU directed sequence");
+    //     // 4. Drop objection to allow simulation to finish gracefully
+    //     phase.drop_objection(this, "Finished TPU directed sequence");
 
-    endtask
+    // endtask
+
+virtual task run_phase(uvm_phase phase);
+
+    phase.raise_objection(this, "Starting TPU firmware sequence");
+
+    fork
+        begin
+            @env.tpu_mon.tpu_done_event;
+            `uvm_info("TEST", "TPU DONE event received.", UVM_LOW)
+        end
+
+        begin
+            #(90000ns);
+            `uvm_info("TEST", "90,000 ns reached.", UVM_LOW)
+        end
+    join
+
+    `uvm_info("TEST", "Both TPU DONE and 90,000 ns conditions completed.", UVM_LOW)
+
+    phase.drop_objection(this, "Finished TPU firmware sequence");
+
+endtask
+
 
 endclass
 

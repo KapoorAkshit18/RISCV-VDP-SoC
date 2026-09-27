@@ -132,7 +132,7 @@ class soc_monitor extends uvm_monitor;
 
         @(vif.monitor_cb);
 
-
+        `uvm_info("DEBUG_VIF", $sformatf("valid=%0b ready=%0b", vif.monitor_cb.m_valid, vif.monitor_cb.m_ready), UVM_LOW)
         // ------------------------------------------------------------
         // A transaction completes only when both VALID and READY
         // are asserted.

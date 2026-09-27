@@ -111,7 +111,7 @@ tpu: optimize
 coverage: optimize
 	$(VSIM) $(VSIM_OPTS) \
 		$(OPT_TOP) \
-		+UVM_TESTNAME=soc_coverage_test \
+		+UVM_TESTNAME=soc_tpu_test \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-coverage \
 		-do "coverage save -onexit $(COV_DB); run -all; quit -f"

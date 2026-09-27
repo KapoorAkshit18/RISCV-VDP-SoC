@@ -125,7 +125,6 @@ module sensor_status_native_slave (
     wire [31:0] status_word;
 
     assign battery_low = (batt_pct_sync <= BATT_LOW_THRESH);
-
     assign temp_alarm =
         ($signed(temp_sync) > TEMP_ALARM_HIGH);     // useful boundary check
 

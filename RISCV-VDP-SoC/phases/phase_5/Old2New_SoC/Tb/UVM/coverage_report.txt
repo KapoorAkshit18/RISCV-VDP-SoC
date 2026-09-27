@@ -1,0 +1,218 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /soc_uvm_pkg
+=== Design Unit: work.soc_uvm_pkg
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na    46.20%
+        Coverpoints/Crosses          8        na        na        na
+            Covergroup Bins         52        17        35    32.69%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /soc_uvm_pkg/soc_coverage/soc_cg                 46.20%        100          -    Uncovered            
+    covered/total bins:                                    17         52          -                      
+    missing/total bins:                                    35         52          -                      
+    % Hit:                                             32.69%        100          -                      
+    Coverpoint cp_write                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin READ                                         2216          1          -    Covered              
+        bin WRITE                                          38          1          -    Covered              
+    Coverpoint cp_target                               28.57%        100          -    Uncovered            
+        covered/total bins:                                 2          7          -                      
+        missing/total bins:                                 5          7          -                      
+        % Hit:                                         28.57%        100          -                      
+        bin RAM                                          2232          1          -    Covered              
+        bin GPIO                                            0          1          -    ZERO                 
+        bin RF                                              0          1          -    ZERO                 
+        bin SENSOR                                          0          1          -    ZERO                 
+        bin VDP                                             0          1          -    ZERO                 
+        bin TPU                                            22          1          -    Covered              
+        bin UNMAPPED                                        0          1          -    ZERO                 
+    Coverpoint cp_strb                                 25.00%        100          -    Uncovered            
+        covered/total bins:                                 2          8          -                      
+        missing/total bins:                                 6          8          -                      
+        % Hit:                                         25.00%        100          -                      
+        bin READ_STRB                                    2216          1          -    Covered              
+        bin BYTE0                                           0          1          -    ZERO                 
+        bin BYTE1                                           0          1          -    ZERO                 
+        bin BYTE2                                           0          1          -    ZERO                 
+        bin BYTE3                                           0          1          -    ZERO                 
+        bin HALFWORD_LOW                                    0          1          -    ZERO                 
+        bin HALFWORD_HIGH                                   0          1          -    ZERO                 
+        bin FULL_WORD                                      38          1          -    Covered              
+        default bin OTHER                                   0                     -    ZERO                 
+    Coverpoint cp_addr                                 37.50%        100          -    Uncovered            
+        covered/total bins:                                 3          8          -                      
+        missing/total bins:                                 5          8          -                      
+        % Hit:                                         37.50%        100          -                      
+        bin RAM_BASE                                        1          1          -    Covered              
+        bin RAM_LOW                                        67          1          -    Covered              
+        bin GPIO_BASE                                       0          1          -    ZERO                 
+        bin RF_BASE                                         0          1          -    ZERO                 
+        bin SENSOR_BASE                                     0          1          -    ZERO                 
+        bin VDP_BASE                                        0          1          -    ZERO                 
+        bin TPU_BASE                                        1          1          -    Covered              
+        bin UNMAPPED                                        0          1          -    ZERO                 
+    Coverpoint cp_wdata                                25.00%        100          -    Uncovered            
+        covered/total bins:                                 1          4          -                      
+        missing/total bins:                                 3          4          -                      
+        % Hit:                                         25.00%        100          -                      
+        bin ZERO                                           14          1          -    Covered              
+        bin ONES                                            0          1          -    ZERO                 
+        bin AA                                              0          1          -    ZERO                 
+        bin FIVE                                            0          1          -    ZERO                 
+        default bin OTHER                                  24                     -    Occurred             
+    Coverpoint cp_ready                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin READY                                        2254          1          -    Covered              
+    Cross cross_rw_target                              28.57%        100          -    Uncovered            
+        covered/total bins:                                 4         14          -                      
+        missing/total bins:                                10         14          -                      
+        % Hit:                                         28.57%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <WRITE,TPU>                                15          1          -    Covered              
+            bin <READ,TPU>                                  7          1          -    Covered              
+            bin <WRITE,RAM>                                23          1          -    Covered              
+            bin <READ,RAM>                               2209          1          -    Covered              
+            bin <*,UNMAPPED>                                0          1          2    ZERO                 
+            bin <*,VDP>                                     0          1          2    ZERO                 
+            bin <*,SENSOR>                                  0          1          2    ZERO                 
+            bin <*,RF>                                      0          1          2    ZERO                 
+            bin <*,GPIO>                                    0          1          2    ZERO                 
+    Cross cross_write_strb                             25.00%        100          -    Uncovered            
+        covered/total bins:                                 2          8          -                      
+        missing/total bins:                                 6          8          -                      
+        % Hit:                                         25.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <WRITE,FULL_WORD>                          38          1          -    Covered              
+            bin <READ,READ_STRB>                         2216          1          -    Covered              
+            bin <*,HALFWORD_HIGH>                           0          1          1    ZERO                 
+            bin <*,HALFWORD_LOW>                            0          1          1    ZERO                 
+            bin <*,BYTE3>                                   0          1          1    ZERO                 
+            bin <*,BYTE2>                                   0          1          1    ZERO                 
+            bin <*,BYTE1>                                   0          1          1    ZERO                 
+            bin <*,BYTE0>                                   0          1          1    ZERO                 
+        Illegal and Ignore Bins:
+            ignore_bin write_read_strb                      0                     -    ZERO                 
+            ignore_bin read_full_word                       0                     -    ZERO                 
+            ignore_bin read_halfword_high                   0                     -    ZERO                 
+            ignore_bin read_halfword_low                    0                     -    ZERO                 
+            ignore_bin read_byte3                           0                     -    ZERO                 
+            ignore_bin read_byte2                           0                     -    ZERO                 
+            ignore_bin read_byte1                           0                     -    ZERO                 
+            ignore_bin read_byte0                           0                     -    ZERO                 
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /soc_uvm_pkg/soc_coverage/soc_cg                 46.20%        100          -    Uncovered            
+    covered/total bins:                                    17         52          -                      
+    missing/total bins:                                    35         52          -                      
+    % Hit:                                             32.69%        100          -                      
+    Coverpoint cp_write                               100.00%        100          -    Covered              
+        covered/total bins:                                 2          2          -                      
+        missing/total bins:                                 0          2          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin READ                                         2216          1          -    Covered              
+        bin WRITE                                          38          1          -    Covered              
+    Coverpoint cp_target                               28.57%        100          -    Uncovered            
+        covered/total bins:                                 2          7          -                      
+        missing/total bins:                                 5          7          -                      
+        % Hit:                                         28.57%        100          -                      
+        bin RAM                                          2232          1          -    Covered              
+        bin GPIO                                            0          1          -    ZERO                 
+        bin RF                                              0          1          -    ZERO                 
+        bin SENSOR                                          0          1          -    ZERO                 
+        bin VDP                                             0          1          -    ZERO                 
+        bin TPU                                            22          1          -    Covered              
+        bin UNMAPPED                                        0          1          -    ZERO                 
+    Coverpoint cp_strb                                 25.00%        100          -    Uncovered            
+        covered/total bins:                                 2          8          -                      
+        missing/total bins:                                 6          8          -                      
+        % Hit:                                         25.00%        100          -                      
+        bin READ_STRB                                    2216          1          -    Covered              
+        bin BYTE0                                           0          1          -    ZERO                 
+        bin BYTE1                                           0          1          -    ZERO                 
+        bin BYTE2                                           0          1          -    ZERO                 
+        bin BYTE3                                           0          1          -    ZERO                 
+        bin HALFWORD_LOW                                    0          1          -    ZERO                 
+        bin HALFWORD_HIGH                                   0          1          -    ZERO                 
+        bin FULL_WORD                                      38          1          -    Covered              
+        default bin OTHER                                   0                     -    ZERO                 
+    Coverpoint cp_addr                                 37.50%        100          -    Uncovered            
+        covered/total bins:                                 3          8          -                      
+        missing/total bins:                                 5          8          -                      
+        % Hit:                                         37.50%        100          -                      
+        bin RAM_BASE                                        1          1          -    Covered              
+        bin RAM_LOW                                        67          1          -    Covered              
+        bin GPIO_BASE                                       0          1          -    ZERO                 
+        bin RF_BASE                                         0          1          -    ZERO                 
+        bin SENSOR_BASE                                     0          1          -    ZERO                 
+        bin VDP_BASE                                        0          1          -    ZERO                 
+        bin TPU_BASE                                        1          1          -    Covered              
+        bin UNMAPPED                                        0          1          -    ZERO                 
+    Coverpoint cp_wdata                                25.00%        100          -    Uncovered            
+        covered/total bins:                                 1          4          -                      
+        missing/total bins:                                 3          4          -                      
+        % Hit:                                         25.00%        100          -                      
+        bin ZERO                                           14          1          -    Covered              
+        bin ONES                                            0          1          -    ZERO                 
+        bin AA                                              0          1          -    ZERO                 
+        bin FIVE                                            0          1          -    ZERO                 
+        default bin OTHER                                  24                     -    Occurred             
+    Coverpoint cp_ready                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin READY                                        2254          1          -    Covered              
+    Cross cross_rw_target                              28.57%        100          -    Uncovered            
+        covered/total bins:                                 4         14          -                      
+        missing/total bins:                                10         14          -                      
+        % Hit:                                         28.57%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <WRITE,TPU>                                15          1          -    Covered              
+            bin <READ,TPU>                                  7          1          -    Covered              
+            bin <WRITE,RAM>                                23          1          -    Covered              
+            bin <READ,RAM>                               2209          1          -    Covered              
+            bin <*,UNMAPPED>                                0          1          2    ZERO                 
+            bin <*,VDP>                                     0          1          2    ZERO                 
+            bin <*,SENSOR>                                  0          1          2    ZERO                 
+            bin <*,RF>                                      0          1          2    ZERO                 
+            bin <*,GPIO>                                    0          1          2    ZERO                 
+    Cross cross_write_strb                             25.00%        100          -    Uncovered            
+        covered/total bins:                                 2          8          -                      
+        missing/total bins:                                 6          8          -                      
+        % Hit:                                         25.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin <WRITE,FULL_WORD>                          38          1          -    Covered              
+            bin <READ,READ_STRB>                         2216          1          -    Covered              
+            bin <*,HALFWORD_HIGH>                           0          1          1    ZERO                 
+            bin <*,HALFWORD_LOW>                            0          1          1    ZERO                 
+            bin <*,BYTE3>                                   0          1          1    ZERO                 
+            bin <*,BYTE2>                                   0          1          1    ZERO                 
+            bin <*,BYTE1>                                   0          1          1    ZERO                 
+            bin <*,BYTE0>                                   0          1          1    ZERO                 
+        Illegal and Ignore Bins:
+            ignore_bin write_read_strb                      0                     -    ZERO                 
+            ignore_bin read_full_word                       0                     -    ZERO                 
+            ignore_bin read_halfword_high                   0                     -    ZERO                 
+            ignore_bin read_halfword_low                    0                     -    ZERO                 
+            ignore_bin read_byte3                           0                     -    ZERO                 
+            ignore_bin read_byte2                           0                     -    ZERO                 
+            ignore_bin read_byte1                           0                     -    ZERO                 
+            ignore_bin read_byte0                           0                     -    ZERO                 
+
+TOTAL COVERGROUP COVERAGE: 46.20%  COVERGROUP TYPES: 1
+
+Total Coverage By Instance (filtered view): 46.20%
+

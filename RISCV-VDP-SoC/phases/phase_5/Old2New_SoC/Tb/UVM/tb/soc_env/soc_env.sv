@@ -113,7 +113,7 @@ class soc_env extends uvm_env;
     bit e2e_mode;
     
     // 
-
+    sensor_monitor sensor_mon; 
     tpu_monitor tpu_mon;
 
     // =========================================================================

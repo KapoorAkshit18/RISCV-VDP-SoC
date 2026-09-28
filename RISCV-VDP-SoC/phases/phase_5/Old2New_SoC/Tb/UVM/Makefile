@@ -103,7 +103,16 @@ tpu: optimize
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
 
+# ============================================================
+# gui tpu
+# ============================================================
 
+sensor: optimize
+	$(VSIM) $(VSIM_OPTS) \
+		$(OPT_TOP) \
+		+UVM_TESTNAME=soc_sensor_test \
+		+UVM_VERBOSITY=UVM_MEDIUM \
+		-do "run -all; quit -f"
 # ============================================================
 # Functional Coverage
 # ============================================================

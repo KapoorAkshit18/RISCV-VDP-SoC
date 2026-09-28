@@ -137,6 +137,8 @@ MEMORY
   ```bash
   python3 ~/riscv_workshop_collaterals/firmware/makehex.py \
   firmware.bin 256 > firmware.hex
+
+  riscv32-unknown-elf-objdump -d firmware.elf > firmware_dump.txt
   ```
 
 * Compile SoC:

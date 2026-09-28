@@ -14,7 +14,7 @@
 #   2. vlog -sv -f filelist.f
 #   3. vlog Vivado glbl.v
 #   4. vmap xpm <compile_simlib path>
-#   5. vopt +acc -L xpm work.tb_cpu_soc_ram_top work.glbl -o tb_opt
+#   5. vopt +acc -L xpm work.tbn_cpu_soc_ram_top work.glbl -o tb_opt
 #   6. vsim tb_opt
 #   7. execute run.do
 #

@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-
+//  Note: this file is without cpu it uses uvm dut
 // =============================================================================
 // tb_cpu_soc_ram_top.sv
 //

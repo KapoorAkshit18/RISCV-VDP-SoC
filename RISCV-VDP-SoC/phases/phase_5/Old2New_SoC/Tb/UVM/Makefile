@@ -10,10 +10,8 @@ VLOG     = vlog
 VLIB     = vlib
 VMAP     = vmap
 VOPT     = vopt
-VSIM     = vsim -sv_lib C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/Tb/UVM/tb/soc_scoreboard/tpu_ref 
+VSIM     = vsim -sv_lib C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_5/Old2New_SoC/Tb/UVM/tb/soc_scoreboard/tpu_ref
 
-
-COV_DB  = soc_coverage.ucdb
 COV_RPT = coverage_report.txt
 
 VLOG_OPTS = -sv +acc
@@ -34,6 +32,27 @@ XPM_LIB ?= C:/projects/apb/apb.cache/compile_simlib/questa/xpm
 VOPT_OPTS = +acc -L xpm
 
 VSIM_OPTS = -c -sv_lib tpu_ref
+
+# -----------------------------------------------------------------------------
+# Per-test overrides (defaults are the sensor test's values)
+#
+#   make run   TEST=soc_sensor_test FW=<sensor>.hex BATT=10 TEMP_C=85.0
+#   make run   TEST=soc_tpu_test    FW=<tpu>.hex
+#
+# TOP module reads FW via +FW_HEX; falls back to its own hardcoded default
+# if FW is left empty here.
+# -----------------------------------------------------------------------------
+
+TEST    ?= soc_sensor_test
+FW      ?=
+BATT    ?= 10
+TEMP_C  ?= 85.0
+COV_DB  ?= $(TEST).ucdb
+
+FW_ARG  = $(if $(FW),+FW_HEX=$(FW),)
+
+TEST_ARGS = +UVM_TESTNAME=$(TEST) $(FW_ARG) +BATT=$(BATT) +TEMP_C=$(TEMP_C) \
+            +UVM_VERBOSITY=UVM_MEDIUM
 
 
 # ============================================================
@@ -80,56 +99,98 @@ optimize: compile mapxpm
 		-o $(OPT_TOP)
 
 
-# # ============================================================
-# # Run TPU directed test
-# # ============================================================
+# ============================================================
+# Run Test — generic, uses TEST/FW/BATT/TEMP_C above
+# ============================================================
 
 run: optimize
 	$(VSIM) $(VSIM_OPTS) \
 		$(OPT_TOP) \
-		+UVM_TESTNAME=soc_tpu_test \
-		+UVM_VERBOSITY=UVM_MEDIUM \
-		-do "run -all;"
+		$(TEST_ARGS) \
+		-do "run -all; quit -f"
 
 
 # ============================================================
-# gui tpu
+# TPU-focused test
 # ============================================================
 
 tpu: optimize
 	$(VSIM) $(VSIM_OPTS) \
 		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_tpu_test \
+		$(if $(FW),+FW_HEX=$(FW),) \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
 
+
 # ============================================================
-# gui tpu
+# SENSOR-focused test
 # ============================================================
 
 sensor: optimize
 	$(VSIM) $(VSIM_OPTS) \
 		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_sensor_test \
+		$(if $(FW),+FW_HEX=$(FW),) \
+		+BATT=$(BATT) +TEMP_C=$(TEMP_C) \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
+
+
 # ============================================================
-# Functional Coverage
+# Functional Coverage — per test, own UCDB so runs don't clobber
+# each other; use coverage_tpu / coverage_sensor, or coverage
+# with TEST=<name> for anything else.
 # ============================================================
 
 coverage: optimize
 	$(VSIM) $(VSIM_OPTS) \
 		$(OPT_TOP) \
-		+UVM_TESTNAME=soc_tpu_test \
-		+UVM_VERBOSITY=UVM_MEDIUM \
+		$(TEST_ARGS) \
 		-coverage \
 		-do "coverage save -onexit $(COV_DB); run -all; quit -f"
+
+coverage_tpu: optimize
+	$(VSIM) $(VSIM_OPTS) \
+		$(OPT_TOP) \
+		+UVM_TESTNAME=soc_tpu_test \
+		$(if $(FW),+FW_HEX=$(FW),) \
+		+UVM_VERBOSITY=UVM_MEDIUM \
+		-coverage \
+		-do "coverage save -onexit soc_tpu_test.ucdb; run -all; quit -f"
+
+coverage_sensor: optimize
+	$(VSIM) $(VSIM_OPTS) \
+		$(OPT_TOP) \
+		+UVM_TESTNAME=soc_sensor_test \
+		$(if $(FW),+FW_HEX=$(FW),) \
+		+BATT=$(BATT) +TEMP_C=$(TEMP_C) \
+		+UVM_VERBOSITY=UVM_MEDIUM \
+		-coverage \
+		-do "coverage save -onexit soc_sensor_test.ucdb; run -all; quit -f"
 
 coverage_report: coverage
 	vcover report $(COV_DB) -details -output $(COV_RPT)
 
 coverage_summary: coverage
 	vcover report $(COV_DB)
+
+
+# ============================================================
+# Merge coverage across tests (run coverage_tpu + coverage_sensor
+# first, or any other *.ucdb you've saved)
+# ============================================================
+
+MERGED_DB = merged.ucdb
+
+merge:
+	vcover merge $(MERGED_DB) soc_tpu_test.ucdb soc_sensor_test.ucdb
+
+merge_report: merge
+	vcover report $(MERGED_DB) -details -output merged_$(COV_RPT)
+
+merge_summary: merge
+	vcover report $(MERGED_DB)
 
 
 # ============================================================
@@ -153,7 +214,7 @@ clean:
 	rm -rf vsim.wlf
 	rm -rf *.log
 	rm -rf *.ucdb
-	rm -f $(COV_RPT)
+	rm -f $(COV_RPT) merged_$(COV_RPT)
 
 
 # ============================================================
@@ -163,4 +224,6 @@ clean:
 rebuild: clean all
 
 
-.PHONY: all work compile mapxpm optimize run smoke coverage coverage_report coverage_summary debug clean rebuild
+.PHONY: all work compile mapxpm optimize run tpu sensor \
+        coverage coverage_tpu coverage_sensor coverage_report coverage_summary \
+        merge merge_report merge_summary debug clean rebuild

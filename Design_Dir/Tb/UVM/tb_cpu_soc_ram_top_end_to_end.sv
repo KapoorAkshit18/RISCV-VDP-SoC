@@ -455,7 +455,7 @@ module tb_cpu_soc_ram_top;
         1'b1
     );
 
-        run_test("soc_e2e_test");
+//        run_test("soc_e2e_test");
 
         end
 

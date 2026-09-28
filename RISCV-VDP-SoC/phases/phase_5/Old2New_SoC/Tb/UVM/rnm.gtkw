@@ -1,0 +1,77 @@
+[*]
+[*] GTKWave Analyzer v3.3.128 (w)1999-2026 BSI
+[*] Mon Sep 28 18:04:07 2026
+[*]
+[dumpfile] "C:\RISCV-VDP-SoC\RISCV-VDP-SoC\phases\phase_5\Old2New_SoC\Tb\UVM\waveform_phase_5_uvm_post_rnm.vcd"
+[dumpfile_mtime] "Mon Sep 28 17:49:58 2026"
+[dumpfile_size] 3274995776
+[savefile] "C:\RISCV-VDP-SoC\RISCV-VDP-SoC\phases\phase_5\Old2New_SoC\Tb\UVM\rnm.gtkw"
+[timestart] 1520100
+[size] 1920 1023
+[pos] -159 -156
+*-17.173853 1626500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_cpu_soc_ram_top.
+[treeopen] tb_cpu_soc_ram_top.dut.
+[treeopen] tb_cpu_soc_ram_top.dut.u_cpu.
+[sst_width] 343
+[signals_width] 639
+[sst_expanded] 1
+[sst_vpaned_height] 299
+@420
+tb_cpu_soc_ram_top.ADDR_WIDTH
+tb_cpu_soc_ram_top.DATA_WIDTH
+tb_cpu_soc_ram_top.GPIO_WIDTH
+tb_cpu_soc_ram_top.RAM_ADDR_WIDTH
+tb_cpu_soc_ram_top.RAM_DEPTH
+@22
+tb_cpu_soc_ram_top.adc_code[11:0]
+tb_cpu_soc_ram_top.battery_percent_i[7:0]
+tb_cpu_soc_ram_top.battery_voltage_mv_i[15:0]
+@28
+tb_cpu_soc_ram_top.carrier_detect_i
+tb_cpu_soc_ram_top.clk
+@22
+tb_cpu_soc_ram_top.gpio_in[31:0]
+tb_cpu_soc_ram_top.gpio_oe[31:0]
+tb_cpu_soc_ram_top.gpio_out[31:0]
+@28
+tb_cpu_soc_ram_top.hsync_o
+tb_cpu_soc_ram_top.link_error_i
+tb_cpu_soc_ram_top.link_up_i
+tb_cpu_soc_ram_top.pixel_clk
+@22
+tb_cpu_soc_ram_top.pixel_x_o[11:0]
+tb_cpu_soc_ram_top.pixel_y_o[11:0]
+@28
+tb_cpu_soc_ram_top.resetn
+tb_cpu_soc_ram_top.rf_enable_o
+@22
+tb_cpu_soc_ram_top.rgb_b_o[3:0]
+tb_cpu_soc_ram_top.rgb_g_o[3:0]
+tb_cpu_soc_ram_top.rgb_r_o[3:0]
+tb_cpu_soc_ram_top.rssi_dbm_i[7:0]
+@28
+tb_cpu_soc_ram_top.sensor_valid
+tb_cpu_soc_ram_top.sensor_valid_i
+tb_cpu_soc_ram_top.u_sensor_adc.temperature_degC
+@29
+tb_cpu_soc_ram_top.sensor_voltage
+@28
+tb_cpu_soc_ram_top.temperature
+@22
+tb_cpu_soc_ram_top.temperature_tenthsC[15:0]
+@28
+tb_cpu_soc_ram_top.trap
+tb_cpu_soc_ram_top.vsync_o
+@22
+#{tb_cpu_soc_ram_top.dut.m_addr[31:0]} tb_cpu_soc_ram_top.dut.m_addr[31] tb_cpu_soc_ram_top.dut.m_addr[30] tb_cpu_soc_ram_top.dut.m_addr[29] tb_cpu_soc_ram_top.dut.m_addr[28] tb_cpu_soc_ram_top.dut.m_addr[27] tb_cpu_soc_ram_top.dut.m_addr[26] tb_cpu_soc_ram_top.dut.m_addr[25] tb_cpu_soc_ram_top.dut.m_addr[24] tb_cpu_soc_ram_top.dut.m_addr[23] tb_cpu_soc_ram_top.dut.m_addr[22] tb_cpu_soc_ram_top.dut.m_addr[21] tb_cpu_soc_ram_top.dut.m_addr[20] tb_cpu_soc_ram_top.dut.m_addr[19] tb_cpu_soc_ram_top.dut.m_addr[18] tb_cpu_soc_ram_top.dut.m_addr[17] tb_cpu_soc_ram_top.dut.m_addr[16] tb_cpu_soc_ram_top.dut.m_addr[15] tb_cpu_soc_ram_top.dut.m_addr[14] tb_cpu_soc_ram_top.dut.m_addr[13] tb_cpu_soc_ram_top.dut.m_addr[12] tb_cpu_soc_ram_top.dut.m_addr[11] tb_cpu_soc_ram_top.dut.m_addr[10] tb_cpu_soc_ram_top.dut.m_addr[9] tb_cpu_soc_ram_top.dut.m_addr[8] tb_cpu_soc_ram_top.dut.m_addr[7] tb_cpu_soc_ram_top.dut.m_addr[6] tb_cpu_soc_ram_top.dut.m_addr[5] tb_cpu_soc_ram_top.dut.m_addr[4] tb_cpu_soc_ram_top.dut.m_addr[3] tb_cpu_soc_ram_top.dut.m_addr[2] tb_cpu_soc_ram_top.dut.m_addr[1] tb_cpu_soc_ram_top.dut.m_addr[0]
+#{tb_cpu_soc_ram_top.dut.m_rdata[31:0]} tb_cpu_soc_ram_top.dut.m_rdata[31] tb_cpu_soc_ram_top.dut.m_rdata[30] tb_cpu_soc_ram_top.dut.m_rdata[29] tb_cpu_soc_ram_top.dut.m_rdata[28] tb_cpu_soc_ram_top.dut.m_rdata[27] tb_cpu_soc_ram_top.dut.m_rdata[26] tb_cpu_soc_ram_top.dut.m_rdata[25] tb_cpu_soc_ram_top.dut.m_rdata[24] tb_cpu_soc_ram_top.dut.m_rdata[23] tb_cpu_soc_ram_top.dut.m_rdata[22] tb_cpu_soc_ram_top.dut.m_rdata[21] tb_cpu_soc_ram_top.dut.m_rdata[20] tb_cpu_soc_ram_top.dut.m_rdata[19] tb_cpu_soc_ram_top.dut.m_rdata[18] tb_cpu_soc_ram_top.dut.m_rdata[17] tb_cpu_soc_ram_top.dut.m_rdata[16] tb_cpu_soc_ram_top.dut.m_rdata[15] tb_cpu_soc_ram_top.dut.m_rdata[14] tb_cpu_soc_ram_top.dut.m_rdata[13] tb_cpu_soc_ram_top.dut.m_rdata[12] tb_cpu_soc_ram_top.dut.m_rdata[11] tb_cpu_soc_ram_top.dut.m_rdata[10] tb_cpu_soc_ram_top.dut.m_rdata[9] tb_cpu_soc_ram_top.dut.m_rdata[8] tb_cpu_soc_ram_top.dut.m_rdata[7] tb_cpu_soc_ram_top.dut.m_rdata[6] tb_cpu_soc_ram_top.dut.m_rdata[5] tb_cpu_soc_ram_top.dut.m_rdata[4] tb_cpu_soc_ram_top.dut.m_rdata[3] tb_cpu_soc_ram_top.dut.m_rdata[2] tb_cpu_soc_ram_top.dut.m_rdata[1] tb_cpu_soc_ram_top.dut.m_rdata[0]
+@820
+tb_cpu_soc_ram_top.dut.u_cpu.prv.dbg_ascii_instr[63:0]
+@22
+tb_cpu_soc_ram_top.dut.u_cpu.prv.mem_wdata[31:0]
+@28
+tb_cpu_soc_ram_top.dut.u_cpu.prv.mem_ready
+tb_cpu_soc_ram_top.dut.u_cpu.prv.mem_valid
+[pattern_trace] 1
+[pattern_trace] 0

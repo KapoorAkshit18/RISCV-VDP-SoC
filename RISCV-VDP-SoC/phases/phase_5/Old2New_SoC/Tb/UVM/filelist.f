@@ -43,6 +43,7 @@
 +incdir+tb/soc_scoreboard
 +incdir+tb/soc_reference_model
 +incdir+tb/tpu_monitor
++incdir+tb/sensor_monitor
 
 #  soc_pkg
 tb/soc_pkg/soc_uvm_pkg.sv

@@ -1,5 +1,6 @@
 `ifndef TEMP_SENSOR_RNM_SV
 `define TEMP_SENSOR_RNM_SV
+`timescale 1ns/1ps
 
 module temp_sensor_rnm #(
     parameter real V_OFFSET = 0.5,
@@ -13,7 +14,7 @@ module temp_sensor_rnm #(
 
     real noise;
 
-    always @(*)
+    always_comb
     
     begin
 
@@ -25,13 +26,12 @@ else
         if (temperature < -40.0 || temperature > 125.0)
             $error("Temperature out of range: %f", temperature);
 
-        noise = (($urandom % 10001) / 10000.0) * 0.01 - 0.005;
-
         sensor_voltage = V_OFFSET
                        + (V_PER_DEG * temperature)
                        + noise;
 
     end
+initial $display("SENSORLOG,%0t,%0d,%m", $time, sensor_voltage);
 
 endmodule
 

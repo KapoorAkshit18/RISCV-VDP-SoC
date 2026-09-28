@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 // =============================================================================
-// RISCV-VDP-SoC - PHASE 5 COMPLETE TESTBENCH
+// RISCV-VDP-SoC - PHASE 5 COMPLETE TESTBENCH (directed, non-UVM)
 //
 // Observes:
 //   1. Firmware loading
@@ -15,36 +15,21 @@
 //   9. Firmware completion/failure markers
 //  10. CPU trap
 //
-// DUT hierarchy expected:
-//   dut.m_valid
-//   dut.m_ready
-//   dut.m_write
-//   dut.m_addr
-//   dut.m_wdata
-//   dut.m_strb
-//   dut.m_rdata
+// Plusargs (all optional):
+//   +FW_HEX=<path>   firmware hex file (default: ./firmware_test03/firmware.hex)
+//   +TEMP_C=<real>   sensor temperature in degC, fed through the RNM chain
+//                    (default: 79.9)
+//   +BATT=<int>      battery percent (default: 80)
 //
-//   dut.ram_valid
-//   dut.ram_ready
-//   dut.ram_write
-//   dut.ram_addr
-//   dut.ram_wdata
-//   dut.ram_strb
-//   dut.ram.mem
-//
-//   dut.tpu.axis_start
-//   dut.tpu.axis_busy
-//   dut.tpu.axis_done
-//   dut.tpu.in_tvalid
-//   dut.tpu.in_tready
-//   dut.tpu.in_tdata
-//   dut.tpu.in_tlast
-//   dut.tpu.out_tvalid
-//   dut.tpu.out_tready
-//   dut.tpu.out_tdata
-//   dut.tpu.out_tlast
-//   dut.tpu.result0
-//   dut.tpu.result1
+// IMPORTANT - firmware completion markers differ by firmware image:
+//   TPU firmware   (as originally written for this TB): completion = 0x33333333,
+//                  failure = 0xDEAD0001
+//   SENSOR firmware (from the sensor test C source): the *intermediate* status-ok
+//                  marker also happens to be 0x33333333, but the actual
+//                  end-of-test success marker is 0x55555555, failure 0xDEAD0001.
+//   This TB now treats BOTH 0x33333333 and 0x55555555 as "done" so it works
+//   with either image, and reports which one it saw. If you add a third
+//   firmware image with its own marker convention, extend the check below.
 // =============================================================================
 
 module tb_cpu_soc_ram_top;
@@ -55,9 +40,12 @@ module tb_cpu_soc_ram_top;
 
     localparam integer TIMEOUT_CYCLES = 1_000_000;
 
-    // localparam string FIRMWARE_FILE = "firmware.hex";
-
     localparam [31:0] FIRMWARE_MARKER_ADDR = 32'h0000_12A8;
+    localparam [31:0] FIRMWARE_ERROR_ADDR  = 32'h0000_12AC;
+
+    localparam [31:0] MARK_STATUS_OK_OR_TPU_DONE = 32'h3333_3333; // TPU completion / sensor intermediate
+    localparam [31:0] MARK_SENSOR_SUCCESS        = 32'h5555_5555; // sensor final success
+    localparam [31:0] MARK_FAIL                  = 32'hDEAD_0001;
 
     localparam [31:0] RESULT_BASE  = 32'h0000_1230;
     localparam integer RESULT_WORDS = 4;
@@ -94,6 +82,9 @@ module tb_cpu_soc_ram_top;
     localparam [31:0] TPU_RESULT1_L = TPU_BASE + 32'h0058;
     localparam [31:0] TPU_RESULT1_H = TPU_BASE + 32'h005C;
 
+    // Sensor MMIO window (matches SENSOR_BASE in the sensor firmware / soc_coverage)
+    localparam [31:0] SENSOR_BASE = 32'h0001_2000;
+
     // =========================================================================
     // CLOCKS
     // =========================================================================
@@ -104,12 +95,12 @@ module tb_cpu_soc_ram_top;
 
     initial begin
         clk = 1'b0;
-        forever #5 clk = ~clk;  // 10 ns 
+        forever #5 clk = ~clk;  // 10 ns
     end
 
     initial begin
         pixel_clk = 1'b0;
-        forever #20 pixel_clk = ~pixel_clk;  // can be made more accurate
+        forever #20 pixel_clk = ~pixel_clk;
     end
 
     // =========================================================================
@@ -118,8 +109,7 @@ module tb_cpu_soc_ram_top;
 
     reg [7:0]  battery_percent_i;
     reg [15:0] battery_voltage_mv_i;
-    reg [15:0] temperature_tenthsC_i;
-    reg        sensor_valid_i;
+    reg        sensor_valid_i;   // unused; DUT is driven by the RNM chain below
 
     reg [7:0]  rssi_dbm_i;
     reg        link_up_i;
@@ -127,6 +117,46 @@ module tb_cpu_soc_ram_top;
     reg        carrier_detect_i;
 
     reg [31:0] gpio_in;
+
+    // =========================================================================
+    // RNM SENSOR CHAIN
+    //
+    // temperature (degC, real) -> sensor_voltage -> adc_code -> temperature_tenthsC
+    //
+    // temperature_tenthsC / sensor_valid feed the DUT directly, replacing the
+    // old static temperature_tenthsC_i reg.
+    // =========================================================================
+
+    real temperature;
+    real sensor_voltage;
+
+    logic [11:0]        adc_code;
+    logic signed [15:0] temperature_tenthsC;
+    logic                sensor_valid;
+
+    temp_sensor_rnm #(
+        .ENABLE_NOISE(1'b0)
+    ) u_temp_sensor (
+        .temperature   (temperature),
+        .sensor_voltage(sensor_voltage)
+    );
+
+    adc_rnm #(
+        .ADC_BITS(12),
+        .VREF(1.8)
+    ) u_adc (
+        .analog_voltage(sensor_voltage),
+        .adc_code      (adc_code)
+    );
+
+    sensor_adc_rnm #(
+        .ADC_BITS(12),
+        .VREF(1.8)
+    ) u_sensor_adc (
+        .adc_code           (adc_code),
+        .temperature_tenthsC(temperature_tenthsC),
+        .sensor_valid       (sensor_valid)
+    );
 
     // =========================================================================
     // DUT OUTPUTS
@@ -158,8 +188,8 @@ module tb_cpu_soc_ram_top;
 
         .battery_percent_i       (battery_percent_i),
         .battery_voltage_mv_i    (battery_voltage_mv_i),
-        .temperature_tenthsC_i   (temperature_tenthsC_i),
-        .sensor_valid_i          (sensor_valid_i),
+        .temperature_tenthsC_i   (temperature_tenthsC),
+        .sensor_valid_i          (sensor_valid),
 
         .rssi_dbm_i              (rssi_dbm_i),
         .link_up_i               (link_up_i),
@@ -203,6 +233,9 @@ module tb_cpu_soc_ram_top;
     integer tpu_read_count;
     integer tpu_config_write_count;
 
+    integer sensor_write_count;
+    integer sensor_read_count;
+
     integer axis_input_count;
     integer axis_output_count;
 
@@ -222,6 +255,8 @@ module tb_cpu_soc_ram_top;
 
     reg firmware_done;
     reg firmware_fail;
+    reg [31:0] firmware_done_marker;
+    reg [31:0] firmware_error_code;
     reg trap_seen;
     reg timeout_hit;
 
@@ -242,15 +277,30 @@ module tb_cpu_soc_ram_top;
     reg result1_low_read_seen;
     reg result1_high_read_seen;
 
+    // Plusarg-driven firmware/stimulus selection
+    string fw_hex;
+    real   temp_c;
+    integer batt_pct;
+
     // =========================================================================
     // INITIALIZATION AND FIRMWARE LOAD
     // =========================================================================
 
     initial begin
-        battery_percent_i     = 8'd80;
+
+        if (!$value$plusargs("FW_HEX=%s", fw_hex))
+            fw_hex = "./firmware_test03/firmware.hex";
+
+        if (!$value$plusargs("TEMP_C=%f", temp_c))
+            temp_c = 79.9;
+
+        if (!$value$plusargs("BATT=%d", batt_pct))
+            batt_pct = 80;
+
+        battery_percent_i     = batt_pct[7:0];
         battery_voltage_mv_i  = 16'd3700;
-        temperature_tenthsC_i = 16'd250;
-        sensor_valid_i        = 1'b1;
+        sensor_valid_i        = 1'b1;   // unused, DUT driven by RNM
+        temperature            = temp_c;
 
         rssi_dbm_i            = 8'd50;
         link_up_i             = 1'b1;
@@ -273,6 +323,9 @@ module tb_cpu_soc_ram_top;
         tpu_read_count        = 0;
         tpu_config_write_count = 0;
 
+        sensor_write_count    = 0;
+        sensor_read_count     = 0;
+
         axis_input_count      = 0;
         axis_output_count     = 0;
 
@@ -290,10 +343,12 @@ module tb_cpu_soc_ram_top;
         busy_seen  = 1'b0;
         done_seen  = 1'b0;
 
-        firmware_done = 1'b0;
-        firmware_fail = 1'b0;
-        trap_seen     = 1'b0;
-        timeout_hit   = 1'b0;
+        firmware_done        = 1'b0;
+        firmware_fail        = 1'b0;
+        firmware_done_marker = 32'd0;
+        firmware_error_code  = 32'd0;
+        trap_seen            = 1'b0;
+        timeout_hit          = 1'b0;
 
         previous_axis_start = 1'b0;
         previous_axis_busy  = 1'b0;
@@ -312,10 +367,9 @@ module tb_cpu_soc_ram_top;
         result1_low_read_seen  = 1'b0;
         result1_high_read_seen = 1'b0;
 
-            // =========================================================================
-    // WAVEFORM DUMP
-    // =========================================================================
-
+        // =====================================================================
+        // WAVEFORM DUMP
+        // =====================================================================
 
         $dumpfile("waveform_phase_5_with_firmw.vcd");
         $dumpvars(0, tb_cpu_soc_ram_top);
@@ -323,12 +377,11 @@ module tb_cpu_soc_ram_top;
         $display("");
         $display("============================================================");
         $display("PHASE 5 TESTBENCH START");
-        $display("Loading firmware: ");
+        $display("Loading firmware: %s", fw_hex);
+        $display("TEMP_C=%0.2f  BATT=%0d", temp_c, batt_pct);
         $display("============================================================");
 
-
-
-        $readmemh("./firmware_test03/firmware.hex", dut.ram.mem);
+        $readmemh(fw_hex, dut.ram.mem);
 
         $display("[TB] Firmware loaded.");
         $display("[TB] Reset active.");
@@ -373,35 +426,56 @@ module tb_cpu_soc_ram_top;
 
                 // -------------------------------------------------------------
                 // Firmware marker detection
+                //
+                // 0x11111111 / 0x22222222 : progress markers (informational)
+                // 0x33333333               : TPU completion, OR sensor
+                //                             intermediate "status ok" marker
+                // 0x55555555               : sensor final success marker
+                // 0xDEAD0001                : failure, for either firmware
                 // -------------------------------------------------------------
 
-                if ((dut.m_addr == FIRMWARE_MARKER_ADDR) &&
-                    dut.m_strb[0]) begin
+                if (dut.m_addr == FIRMWARE_MARKER_ADDR) begin
 
                     if (dut.m_wdata == 32'h1111_1111) begin
-                        $display(
-                            "[%0t][FW] START marker 0x11111111",
-                            $time
-                        );
+                        $display("[%0t][FW] START marker 0x11111111", $time);
                     end
 
                     if (dut.m_wdata == 32'h2222_2222) begin
+                        $display("[%0t][FW] WORKLOAD/READS marker 0x22222222", $time);
+                    end
+
+                    if (dut.m_wdata == MARK_STATUS_OK_OR_TPU_DONE) begin
                         $display(
-                            "[%0t][FW] WORKLOAD marker 0x22222222",
+                            "[%0t][FW] 0x33333333 seen (TPU completion, or sensor STATUS_OK - not final for sensor)",
+                            $time
+                        );
+                        // Treat as done only if nothing further arrives; TPU
+                        // firmware has no later marker, sensor firmware does
+                        // (0x55555555), so don't finish here - just record it
+                        // and let the sensor case override below if it comes.
+                        if (!firmware_done) begin
+                            firmware_done        = 1'b1;
+                            firmware_done_marker = 32'h3333_3333;
+                        end
+                    end
+
+                    if (dut.m_wdata == 32'h4444_4444) begin
+                        $display("[%0t][FW] sensor RO_OK marker 0x44444444", $time);
+                    end
+
+                    if (dut.m_wdata == MARK_SENSOR_SUCCESS) begin
+                        // Final marker for sensor firmware - always wins over
+                        // an earlier 0x33333333 status-ok marker.
+                        firmware_done        = 1'b1;
+                        firmware_done_marker = MARK_SENSOR_SUCCESS;
+
+                        $display(
+                            "[%0t][FW] sensor SUCCESS marker 0x55555555",
                             $time
                         );
                     end
 
-                    if (dut.m_wdata == 32'h3333_3333) begin
-                        firmware_done = 1'b1;
-
-                        $display(
-                            "[%0t][FW] COMPLETION marker 0x33333333",
-                            $time
-                        );
-                    end
-
-                    if (dut.m_wdata == 32'hDEAD_0001) begin
+                    if (dut.m_wdata == MARK_FAIL) begin
                         firmware_fail = 1'b1;
 
                         $display(
@@ -409,6 +483,10 @@ module tb_cpu_soc_ram_top;
                             $time
                         );
                     end
+                end
+
+                if (dut.m_addr == FIRMWARE_ERROR_ADDR) begin
+                    firmware_error_code = dut.m_wdata;
                 end
 
                 // -------------------------------------------------------------
@@ -432,10 +510,6 @@ module tb_cpu_soc_ram_top;
                         tpu_config_write_count =
                             tpu_config_write_count + 1;
                     end
-             
-                    // ---------------------------------------------------------
-                    // Explicit CONTROL write monitor
-                    // ---------------------------------------------------------
 
                     if (dut.m_addr == TPU_CTRL) begin
 
@@ -451,6 +525,23 @@ module tb_cpu_soc_ram_top;
                             );
                         end
                     end
+                end
+
+                // -------------------------------------------------------------
+                // SENSOR MMIO writes (window is read-only by spec; a write
+                // reaching here means the firmware's RO-write probe fired)
+                // -------------------------------------------------------------
+
+                if ((dut.m_addr >= SENSOR_BASE) &&
+                    (dut.m_addr < SENSOR_BASE + 32'h1000)) begin
+
+                    sensor_write_count = sensor_write_count + 1;
+
+                    $display(
+                        "    [SENSOR-WRITE] local=%03h data=%08h (window is RO by spec)",
+                        dut.m_addr[11:0],
+                        dut.m_wdata
+                    );
                 end
 
                 // -------------------------------------------------------------
@@ -524,6 +615,22 @@ module tb_cpu_soc_ram_top;
                 end
 
                 // -------------------------------------------------------------
+                // SENSOR MMIO reads
+                // -------------------------------------------------------------
+
+                if ((dut.m_addr >= SENSOR_BASE) &&
+                    (dut.m_addr < SENSOR_BASE + 32'h1000)) begin
+
+                    sensor_read_count = sensor_read_count + 1;
+
+                    $display(
+                        "    [SENSOR-READ] local=%03h data=%08h",
+                        dut.m_addr[11:0],
+                        dut.m_rdata
+                    );
+                end
+
+                // -------------------------------------------------------------
                 // Result RAM read monitor
                 // -------------------------------------------------------------
 
@@ -570,17 +677,10 @@ module tb_cpu_soc_ram_top;
 
     // =========================================================================
     // TPU INTERNAL START/BUSY/DONE MONITOR
-    //
-    // Every event is latched and timestamped.
-    // This prevents a one-cycle pulse from being missed in the waveform/log.
     // =========================================================================
 
     always @(posedge clk) begin
         if (resetn) begin
-
-            // -------------------------------------------------------------
-            // START pulse
-            // -------------------------------------------------------------
 
             if (dut.tpu.axis_start) begin
 
@@ -599,10 +699,6 @@ module tb_cpu_soc_ram_top;
                 );
             end
 
-            // -------------------------------------------------------------
-            // BUSY assertion
-            // -------------------------------------------------------------
-
             if (dut.tpu.axis_busy && !previous_axis_busy) begin
 
                 busy_event_count = busy_event_count + 1;
@@ -614,10 +710,6 @@ module tb_cpu_soc_ram_top;
                     cycle_count
                 );
             end
-
-            // -------------------------------------------------------------
-            // DONE assertion
-            // -------------------------------------------------------------
 
             if (dut.tpu.axis_done && !previous_axis_done) begin
 
@@ -635,10 +727,6 @@ module tb_cpu_soc_ram_top;
                     cycle_count - start_cycle
                 );
             end
-
-            // -------------------------------------------------------------
-            // Previous-state update
-            // -------------------------------------------------------------
 
             previous_axis_start = dut.tpu.axis_start;
             previous_axis_busy  = dut.tpu.axis_busy;
@@ -761,8 +849,8 @@ module tb_cpu_soc_ram_top;
             for (i = 0; i < RESULT_WORDS; i = i + 1) begin
                 $display(
                     "RAM[%0d] addr=%08h data=%08h",
-                    (RESULT_BASE >> 2) + i,  // to get the index 
-                    RESULT_BASE + i * 4,  // byte addressing
+                    (RESULT_BASE >> 2) + i,
+                    RESULT_BASE + i * 4,
                     dut.ram.mem[(RESULT_BASE >> 2) + i]
                 );
             end
@@ -782,6 +870,9 @@ module tb_cpu_soc_ram_top;
             $display("================ PHASE 5 SUMMARY ===========================");
             $display("============================================================");
 
+            $display("Firmware                    = %s", fw_hex);
+            $display("TEMP_C / BATT                = %0.2f / %0d", temp_c, batt_pct);
+
             $display("CPU writes                  = %0d", cpu_write_count);
             $display("CPU reads                   = %0d", cpu_read_count);
 
@@ -792,6 +883,9 @@ module tb_cpu_soc_ram_top;
             $display("TPU MMIO reads              = %0d", tpu_read_count);
             $display("TPU config writes           = %0d",
                      tpu_config_write_count);
+
+            $display("SENSOR MMIO writes           = %0d", sensor_write_count);
+            $display("SENSOR MMIO reads            = %0d", sensor_read_count);
 
             $display("AXI input beats             = %0d",
                      axis_input_count);
@@ -821,10 +915,10 @@ module tb_cpu_soc_ram_top;
                 );
             end
 
-            $display("Firmware done marker         = %0d",
-                     firmware_done);
-            $display("Firmware failure marker      = %0d",
-                     firmware_fail);
+            $display("Firmware done marker         = %0d (value=0x%08h)",
+                     firmware_done, firmware_done_marker);
+            $display("Firmware failure marker      = %0d (error_code=%0d)",
+                     firmware_fail, firmware_error_code);
             $display("CPU trap seen                = %0d",
                      trap_seen);
             $display("CPU cycles                   = %0d",
@@ -843,15 +937,10 @@ module tb_cpu_soc_ram_top;
     // END-OF-SIMULATION CONTROL
     //
     // Firmware marker has priority over timeout.
-    // The intentional infinite loop in main.c is therefore accepted.
     // =========================================================================
 
     always @(posedge clk) begin
         if (resetn) begin
-
-            // -------------------------------------------------------------
-            // Successful firmware completion
-            // -------------------------------------------------------------
 
             if (firmware_done) begin
 
@@ -859,15 +948,12 @@ module tb_cpu_soc_ram_top;
                 show_output_ram();
 
                 $display("");
-                $display("PHASE 5 PASS: firmware completion marker detected.");
+                $display("PHASE 5 PASS: firmware completion marker detected (0x%08h).",
+                         firmware_done_marker);
                 $display("");
 
                 $finish;
             end
-
-            // -------------------------------------------------------------
-            // Firmware failure marker
-            // -------------------------------------------------------------
 
             if (firmware_fail) begin
 
@@ -875,15 +961,12 @@ module tb_cpu_soc_ram_top;
                 show_output_ram();
 
                 $display("");
-                $display("PHASE 5 FAIL: firmware failure marker detected.");
+                $display("PHASE 5 FAIL: firmware failure marker detected (error_code=%0d).",
+                         firmware_error_code);
                 $display("");
 
                 $finish;
             end
-
-            // -------------------------------------------------------------
-            // Timeout
-            // -------------------------------------------------------------
 
             if (cycle_count >= TIMEOUT_CYCLES) begin
 
@@ -904,6 +987,5 @@ module tb_cpu_soc_ram_top;
             end
         end
     end
-    
 
 endmodule

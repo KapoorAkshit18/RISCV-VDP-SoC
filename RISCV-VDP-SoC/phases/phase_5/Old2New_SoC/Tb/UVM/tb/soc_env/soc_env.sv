@@ -113,7 +113,7 @@ class soc_env extends uvm_env;
     bit e2e_mode;
     
     // 
-    sensor_monitor sensor_mon; 
+    sensor_monitor sensor_mon;
     tpu_monitor tpu_mon;
 
     // =========================================================================
@@ -194,6 +194,7 @@ class soc_env extends uvm_env;
                 this
             );
 
+            sensor_mon = sensor_monitor::type_id::create("sensor_mon", this);           // build_phase
 
 
 
@@ -276,7 +277,9 @@ class soc_env extends uvm_env;
             tpu_scoreboard.analysis_imp
         );
 
-
+        native_agent.monitor.analysis_port.connect(
+        sensor_mon.analysis_export);     // connect_phase
+        
         tpu_mon.analysis_port.connect(
         tpu_scoreboard.tpu_analysis_imp
          );

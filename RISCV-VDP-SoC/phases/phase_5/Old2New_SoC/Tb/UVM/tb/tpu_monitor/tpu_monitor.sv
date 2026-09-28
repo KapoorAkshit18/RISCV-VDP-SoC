@@ -224,17 +224,6 @@ class tpu_monitor extends uvm_monitor;
         UVM_MEDIUM
             )
 
-            `uvm_info(
-                "TPU_DONE",
-                $sformatf(
-                    "cycle=%0d result0=%016h result1=%016h",
-                    cycle_count,
-                    vif.result0,
-                    vif.result1
-                ),
-                UVM_MEDIUM
-            )
-
         end
 
         previous_done = vif.axis_done;

@@ -27,6 +27,7 @@ import soc_uvm_pkg::*;
 
 
 module tb_cpu_soc_ram_top;
+    import uvm_pkg::*;
 
     // =========================================================================
     // PARAMETERS
@@ -185,17 +186,41 @@ module tb_cpu_soc_ram_top;
 
 
     // =========================================================================
-    // NATIVE BUS CONNECTION (DUT -> passive UVM interface)
+    // NATIVE BUS CONNECTION (DUT <-> UVM interface depending on mode)
     // =========================================================================
 
-    assign native_if.m_valid = dut.m_valid;
-    assign native_if.m_write = dut.m_write;
-    assign native_if.m_addr  = dut.m_addr;
-    assign native_if.m_wdata = dut.m_wdata;
-    assign native_if.m_strb  = dut.m_strb;
+    string uvm_mode = "FIRMWARE";
 
-    assign native_if.m_ready = dut.m_ready;
-    assign native_if.m_rdata = dut.m_rdata;
+    initial begin
+        void'($value$plusargs("UVM_MODE=%s", uvm_mode));
+        
+        if (uvm_mode == "ACTIVE") begin
+            $display("[TB] ACTIVE UVM MODE: Disabling CPU and forcing bus from native_if");
+            
+            // Hold CPU in reset so it does not fetch instructions or drive the bus
+            // force dut.u_cpu.resetn = 1'b0; // REMOVED: This forces the global resetn net!
+            
+            // Force the interconnect inputs directly (avoids vopt collapsing internal nets)
+            force dut.u_interconnect.m_valid = native_if.m_valid;
+            force dut.u_interconnect.m_write = native_if.m_write;
+            force dut.u_interconnect.m_addr  = native_if.m_addr;
+            force dut.u_interconnect.m_wdata = native_if.m_wdata;
+            force dut.u_interconnect.m_strb  = native_if.m_strb;
+        end else begin
+            $display("[TB] FIRMWARE UVM MODE: CPU drives the bus. UVM is passive.");
+            
+            // CPU drives interconnect; UVM interface is passive monitor
+            force native_if.m_valid = dut.u_interconnect.m_valid;
+            force native_if.m_write = dut.u_interconnect.m_write;
+            force native_if.m_addr  = dut.u_interconnect.m_addr;
+            force native_if.m_wdata = dut.u_interconnect.m_wdata;
+            force native_if.m_strb  = dut.u_interconnect.m_strb;
+        end
+    end
+
+    // Slave responses are always routed back to the UVM interface
+    assign native_if.m_ready = dut.u_interconnect.m_ready;
+    assign native_if.m_rdata = dut.u_interconnect.m_rdata;
 
 
     // =========================================================================
@@ -332,10 +357,13 @@ module tb_cpu_soc_ram_top;
             null, "*", "tpu_vif", tpu_if
         );
 
-        // Firmware drives the bus: native agent must be passive
-        uvm_config_db#(bit)::set(
-            null, "uvm_test_top.env", "e2e_mode", 1'b1
-        );
+        // In ACTIVE mode, UVM drives the bus natively.
+        // In FIRMWARE mode, CPU drives it and UVM is passive (e2e_mode=1).
+        if (uvm_mode == "ACTIVE") begin
+            uvm_config_db#(bit)::set(null, "uvm_test_top.env", "e2e_mode", 1'b0);
+        end else begin
+            uvm_config_db#(bit)::set(null, "uvm_test_top.env", "e2e_mode", 1'b1);
+        end
 
         run_test("soc_e2e_test");
 

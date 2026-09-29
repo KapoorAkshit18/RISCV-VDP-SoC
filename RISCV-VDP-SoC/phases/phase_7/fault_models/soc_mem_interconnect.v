@@ -218,8 +218,11 @@ module soc_mem_interconnect #(
         ((m_addr & PERIPH_MASK) == RF_BASE);
 
 
+    // GOLDEN: assign sensor_sel = ((m_addr & PERIPH_MASK) == SENSOR_BASE);
+    // BUG M08: Intentional mutation — incorrect peripheral address-window decode.
+    // Sensor decode compares against VDP_BASE instead of SENSOR_BASE.
     assign sensor_sel =
-        ((m_addr & PERIPH_MASK) == SENSOR_BASE);
+        ((m_addr & PERIPH_MASK) == VDP_BASE);
 
 
     assign vdp_sel =

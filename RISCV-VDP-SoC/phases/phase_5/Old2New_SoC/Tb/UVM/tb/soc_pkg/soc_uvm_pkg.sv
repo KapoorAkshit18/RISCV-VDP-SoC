@@ -81,8 +81,18 @@ package soc_uvm_pkg;
     `include "soc_base_test/soc_tpu_directed_sequence.sv"
     `include "soc_base_test/soc_tpu_test.sv"
     `include "soc_sensor_test.sv"
+    `include "soc_base_test/soc_active_sensor_test.sv"
+    `include "soc_base_test/soc_active_vdp_ral_test.sv"
+    `include "soc_base_test/soc_active_sensor_ral_test.sv"
+    `include "soc_base_test/soc_active_sensor_unmapped_test.sv"
     
-
+    `include "soc_base_test/soc_active_rf_id_test.sv"
+    `include "soc_base_test/soc_active_tpu_decode_test.sv"
+    `include "soc_base_test/soc_active_gpio_ready_test.sv"
+    `include "soc_base_test/soc_active_ram_strobe_test.sv"
+    `include "soc_base_test/soc_active_unmapped_hang_test.sv"
+    `include "soc_base_test/soc_active_sensor_status_test.sv"
 endpackage
+
 
 `endif

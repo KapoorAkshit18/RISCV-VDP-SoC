@@ -40,6 +40,7 @@ package soc_uvm_pkg;
       `include "soc_ral/rf_reg_block.sv"
       `include "soc_ral/sensor_reg_block.sv"
       `include "soc_ral/vdp_reg_block.sv"
+      `include "soc_ral/tpu_reg_block.sv"
       `include "soc_ral/soc_reg_block.sv"
       `include "soc_ral/soc_reg_adapter.sv" 
       `include "soc_ral/soc_reg_predictor.sv"
@@ -83,6 +84,7 @@ package soc_uvm_pkg;
     `include "soc_sensor_test.sv"
     `include "soc_base_test/soc_active_sensor_test.sv"
     `include "soc_base_test/soc_active_vdp_ral_test.sv"
+    `include "soc_base_test/soc_active_tpu_ral_test.sv"
     `include "soc_base_test/soc_active_sensor_ral_test.sv"
     `include "soc_base_test/soc_active_sensor_unmapped_test.sv"
     

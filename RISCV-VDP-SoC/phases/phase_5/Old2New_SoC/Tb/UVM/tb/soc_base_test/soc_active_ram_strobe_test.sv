@@ -82,3 +82,4 @@ class soc_active_ram_strobe_test extends uvm_test;
 endclass
 
 `endif
+

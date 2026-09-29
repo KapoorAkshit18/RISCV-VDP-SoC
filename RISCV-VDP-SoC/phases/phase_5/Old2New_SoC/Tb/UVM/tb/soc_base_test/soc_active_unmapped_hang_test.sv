@@ -66,3 +66,4 @@ class soc_active_unmapped_hang_test extends uvm_test;
 endclass
 
 `endif
+

@@ -65,3 +65,4 @@ class soc_active_sensor_status_test extends uvm_test;
 endclass
 
 `endif
+

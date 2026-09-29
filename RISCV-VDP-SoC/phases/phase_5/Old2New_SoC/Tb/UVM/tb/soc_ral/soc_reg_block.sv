@@ -35,6 +35,7 @@ class soc_reg_block extends uvm_reg_block;
     rf_reg_block     rf;
     sensor_reg_block sensor;
     vdp_reg_block    vdp;
+    tpu_reg_block    tpu;
 
     // --------------------------------------------------------
     // Top-level address map
@@ -97,6 +98,15 @@ class soc_reg_block extends uvm_reg_block;
 
 
         // ====================================================
+        // Create TPU RAL block
+        // ====================================================
+
+        tpu = tpu_reg_block::type_id::create("tpu");
+        tpu.configure(this);
+        tpu.build();
+
+
+        // ====================================================
         // Create top-level SoC address map
         //
         // Base address = 0x0000_0000
@@ -151,6 +161,15 @@ class soc_reg_block extends uvm_reg_block;
             32'h0001_3000
         );
 
+
+
+        // TPU
+        // 0x0001_4000 - 0x0001_4FFF
+
+        default_map.add_submap(
+            tpu.default_map,
+            32'h0001_4000
+        );
 
         // ====================================================
         // Lock complete RAL model

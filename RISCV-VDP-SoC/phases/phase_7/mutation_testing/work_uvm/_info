@@ -53,6 +53,27 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
 !s11f vlog 2024.1 2024.02, Feb  1 2024
 13
 !s112 1.1
@@ -64,7 +85,7 @@ Z1 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing
 vadc_rnm
 Z2 2../fault_models/soc_mem_interconnect.v|../fault_models/soc_ram.v|../fault_models/gpio_native_slave.v|../fault_models/rf_telemetry_native.v|../fault_models/sensor_status_native.v|../fault_models/cdc_reset_sync.v|../fault_models/vga_timing_gen.v|../fault_models/vdp_native_slave.v|../fault_models/riscv.v|../fault_models/riscv_wrapper.v|../fault_models/cpu_soc_ram_top.v|../fault_models/cpu_bus_adapter.v|../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_pkg/soc_uvm_pkg.sv|../fault_models/pe.v|../fault_models/register.v|../fault_models/sigmoid.v|../fault_models/systolic.v|../fault_models/pe_top.v|../fault_models/nn.v|../fault_models/axis_nn.v|../fault_models/nn_axi_wrapper.v|../fault_models/nn_axis_master.v|../fault_models/tpu_axis_top.v|../../phase_5/Old2New_SoC/Tb/UVM/tb_cpu_soc_ram_top_end_to_end.sv
 Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z4 !s110 1790677731
+Z4 !s110 1790687189
 !i10b 1
 !s100 z7E=7g;7Ld]DKzh:aa:>k3
 ImgmXmK_^CdU@S?D5bhKYa1
@@ -73,15 +94,15 @@ R1
 w1789871385
 8../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv
 F../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv
-!i122 60
+!i122 84
 L0 6 36
 Z5 VDg1SIo80bB@j0V0VzS_@n1
 Z6 OL;L;2024.1;79
 r1
 !s85 0
 31
-Z7 !s108 1790677730.000000
-Z8 !s107 ../../phase_5/Old2New_SoC/Tb/UVM/tpu_debug_if.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_native_if/soc_native_if.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_status_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_unmapped_hang_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_ram_strobe_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_gpio_ready_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_tpu_decode_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_rf_id_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_unmapped_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_ral_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_vdp_ral_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_sensor_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_tpu_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_pkg/../soc_agent/soc_sequence_item/soc_sequence_item.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_tpu_directed_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_coverage_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_ral_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_coverage_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_smoke_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_smoke_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_ral_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_base_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_env/soc_env.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_scoreboard/soc_tpu_scoreboard.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/sensor_monitor/sensor_monitor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/tpu_monitor/tpu_monitor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/tpu_monitor/tpu_debug_transaction.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_coverage/soc_coverage.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_predictor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_adapter.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/vdp_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/sensor_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/rf_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/gpio_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_agent.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_monitor/soc_monitor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_driver/soc_driver.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_sequencer/soc_sequencer.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_sequence_item/soc_sequence_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|../../phase_5/Old2New_SoC/Tb/UVM/tb_cpu_soc_ram_top_end_to_end.sv|../fault_models/tpu_axis_top.v|../fault_models/nn_axis_master.v|../fault_models/nn_axi_wrapper.v|../fault_models/axis_nn.v|../fault_models/nn.v|../fault_models/pe_top.v|../fault_models/systolic.v|../fault_models/sigmoid.v|../fault_models/register.v|../fault_models/pe.v|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_pkg/soc_uvm_pkg.sv|../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv|../fault_models/cpu_bus_adapter.v|../fault_models/cpu_soc_ram_top.v|../fault_models/riscv_wrapper.v|../fault_models/riscv.v|../fault_models/vdp_native_slave.v|../fault_models/vga_timing_gen.v|../fault_models/cdc_reset_sync.v|../fault_models/sensor_status_native.v|../fault_models/rf_telemetry_native.v|../fault_models/gpio_native_slave.v|../fault_models/soc_ram.v|../fault_models/soc_mem_interconnect.v|
+Z7 !s108 1790687189.000000
+Z8 !s107 ../../phase_5/Old2New_SoC/Tb/UVM/tpu_debug_if.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_native_if/soc_native_if.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_status_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_unmapped_hang_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_ram_strobe_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_gpio_ready_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_tpu_decode_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_rf_id_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_unmapped_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_ral_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_tpu_ral_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_vdp_ral_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_sensor_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_tpu_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_pkg/../soc_agent/soc_sequence_item/soc_sequence_item.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_tpu_directed_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_coverage_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_ral_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_coverage_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_smoke_test.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_smoke_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_ral_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_base_sequence.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_env/soc_env.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_scoreboard/soc_tpu_scoreboard.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/sensor_monitor/sensor_monitor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/tpu_monitor/tpu_monitor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/tpu_monitor/tpu_debug_transaction.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_coverage/soc_coverage.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_predictor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_adapter.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/tpu_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/vdp_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/sensor_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/rf_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/gpio_reg_block.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_agent.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_monitor/soc_monitor.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_driver/soc_driver.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_sequencer/soc_sequencer.sv|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_sequence_item/soc_sequence_item.sv|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|C:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|../../phase_5/Old2New_SoC/Tb/UVM/tb_cpu_soc_ram_top_end_to_end.sv|../fault_models/tpu_axis_top.v|../fault_models/nn_axis_master.v|../fault_models/nn_axi_wrapper.v|../fault_models/axis_nn.v|../fault_models/nn.v|../fault_models/pe_top.v|../fault_models/systolic.v|../fault_models/sigmoid.v|../fault_models/register.v|../fault_models/pe.v|../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_pkg/soc_uvm_pkg.sv|../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv|../fault_models/cpu_bus_adapter.v|../fault_models/cpu_soc_ram_top.v|../fault_models/riscv_wrapper.v|../fault_models/riscv.v|../fault_models/vdp_native_slave.v|../fault_models/vga_timing_gen.v|../fault_models/cdc_reset_sync.v|../fault_models/sensor_status_native.v|../fault_models/rf_telemetry_native.v|../fault_models/gpio_native_slave.v|../fault_models/soc_ram.v|../fault_models/soc_mem_interconnect.v|
 Z9 !s90 -sv|+acc|-work|work_uvm|-f|filelist_uvm.f|
 !i113 0
 Z10 o-sv +acc -work work_uvm -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
@@ -90,7 +111,7 @@ Z12 tCvgOpt 0
 vaxis_nn
 R2
 R3
-Z13 !s110 1790677732
+Z13 !s110 1790687190
 !i10b 1
 !s100 beDk=0Y5N52R1>EoSomoZ3
 I70Tm]6@S0FX^NafbT;n592
@@ -99,7 +120,7 @@ R1
 w1788500172
 8../fault_models/axis_nn.v
 F../fault_models/axis_nn.v
-!i122 60
+!i122 84
 L0 5 309
 R5
 R6
@@ -125,7 +146,7 @@ R1
 w1786352845
 8../fault_models/cdc_reset_sync.v
 F../fault_models/cdc_reset_sync.v
-!i122 60
+!i122 84
 L0 20 21
 R5
 R6
@@ -151,7 +172,7 @@ R1
 w1785880707
 8../fault_models/cpu_bus_adapter.v
 F../fault_models/cpu_bus_adapter.v
-!i122 60
+!i122 84
 L0 4 47
 R5
 R6
@@ -177,7 +198,7 @@ R1
 w1789053959
 8../fault_models/cpu_soc_ram_top.v
 F../fault_models/cpu_soc_ram_top.v
-!i122 60
+!i122 84
 L0 97 671
 R5
 R6
@@ -193,7 +214,7 @@ R11
 R12
 vglbl
 2C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
-!s110 1790666780
+R13
 !i10b 1
 !s100 TL<1YD8i05Z]RjCH=O^Cf3
 IcR0]Ll=a[W7cBHGKGQ`@n3
@@ -201,14 +222,14 @@ R1
 w1590624368
 8C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
 FC:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
-!i122 20
+!i122 85
 L0 6 78
 R5
 R6
 r1
 !s85 0
 31
-!s108 1790666779.000000
+!s108 1790687190.000000
 !s107 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
 !s90 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|-work|work_uvm|
 !i113 0
@@ -217,7 +238,7 @@ R12
 vgpio_native_slave
 R2
 R3
-Z14 !s110 1790677730
+R4
 !i10b 1
 !s100 i3Mbl9H=:UV383HI[lmdT2
 IE?;E9gn<4X=h>TNSRYlDG1
@@ -226,7 +247,7 @@ R1
 w1790055939
 8../fault_models/gpio_native_slave.v
 F../fault_models/gpio_native_slave.v
-!i122 60
+!i122 84
 L0 38 96
 R5
 R6
@@ -252,7 +273,7 @@ R1
 w1788365285
 8../fault_models/nn.v
 F../fault_models/nn.v
-!i122 60
+!i122 84
 L0 4 529
 R5
 R6
@@ -267,30 +288,29 @@ R10
 R11
 R12
 vnn_axi_wrapper
-R2
+2../fault_models/nn_axi_wrapper.v
 R3
-R13
+!s110 1790687233
 !i10b 1
-!s100 ?AZRMK?_>>];elMMCVJ9J3
-I0EKcE>SUGJ>EBYgS:P>H93
+!s100 :Zch8GNE^;G6HVPh2]Rn@1
+I4BNXoNd_Q`SLXQC2McB5T3
 S1
 R1
-w1789240987
+w1790687164
 8../fault_models/nn_axi_wrapper.v
 F../fault_models/nn_axi_wrapper.v
-!i122 60
-L0 53 394
+!i122 91
+L0 53 396
 R5
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+!s108 1790687233.000000
+!s107 ../fault_models/nn_axi_wrapper.v|
+!s90 -sv|+acc|-work|work_uvm|../fault_models/nn_axi_wrapper.v|
 !i113 0
 R10
-R11
 R12
 vnn_axis_master
 R2
@@ -304,7 +324,7 @@ R1
 w1788493383
 8../fault_models/nn_axis_master.v
 F../fault_models/nn_axis_master.v
-!i122 60
+!i122 84
 L0 47 428
 R5
 R6
@@ -330,7 +350,7 @@ R1
 w1788364919
 8../fault_models/pe.v
 F../fault_models/pe.v
-!i122 60
+!i122 84
 L0 3 20
 R5
 R6
@@ -356,7 +376,7 @@ R1
 w1788365540
 8../fault_models/pe_top.v
 F../fault_models/pe_top.v
-!i122 60
+!i122 84
 L0 4 150
 R5
 R6
@@ -379,10 +399,10 @@ R4
 INl:_afRF6_nT8kGSD9EJ93
 S1
 R1
-Z15 w1789048917
-Z16 8../fault_models/riscv.v
-Z17 F../fault_models/riscv.v
-!i122 60
+Z14 w1789048917
+Z15 8../fault_models/riscv.v
+Z16 F../fault_models/riscv.v
+!i122 84
 L0 2445 208
 R5
 R6
@@ -405,10 +425,10 @@ R4
 IDDPADS<cQcOl;=Em<lHLo0
 S1
 R1
+R14
 R15
 R16
-R17
-!i122 60
+!i122 84
 L0 2659 78
 R5
 R6
@@ -431,10 +451,10 @@ R4
 I:H:Iie>7EDN<UbF0::YiT0
 S1
 R1
+R14
 R15
 R16
-R17
-!i122 60
+!i122 84
 L0 2348 91
 R5
 R6
@@ -457,10 +477,10 @@ R4
 I0:Sc9?<F_nc3?nmb6Te413
 S1
 R1
+R14
 R15
 R16
-R17
-!i122 60
+!i122 84
 L0 2246 96
 R5
 R6
@@ -483,10 +503,10 @@ R4
 IYzN0F0J6eg3zzWSdoL0_33
 S1
 R1
+R14
 R15
 R16
-R17
-!i122 60
+!i122 84
 L0 2125 120
 R5
 R6
@@ -509,10 +529,10 @@ R4
 I6H433fCSbIDYaY09]Lh:g1
 S1
 R1
+R14
 R15
 R16
-R17
-!i122 60
+!i122 84
 L0 2102 17
 R5
 R6
@@ -535,10 +555,10 @@ R4
 I_]F0[6>BL8NHgb`D3nfL53
 S1
 R1
+R14
 R15
 R16
-R17
-!i122 60
+!i122 84
 L0 2743 235
 R5
 R6
@@ -561,10 +581,10 @@ R4
 Il9BO9cI>>BWHgzchJD6KF1
 S1
 R1
+R14
 R15
 R16
-R17
-!i122 60
+!i122 84
 L0 57 2039
 R5
 R6
@@ -590,7 +610,7 @@ R1
 w1788375491
 8../fault_models/riscv_wrapper.v
 F../fault_models/riscv_wrapper.v
-!i122 60
+!i122 84
 L0 2 84
 R5
 R6
@@ -616,7 +636,7 @@ R1
 w1788364991
 8../fault_models/register.v
 F../fault_models/register.v
-!i122 60
+!i122 84
 L0 3 26
 R5
 R6
@@ -642,7 +662,7 @@ R1
 w1785936182
 8../fault_models/rf_telemetry_native.v
 F../fault_models/rf_telemetry_native.v
-!i122 60
+!i122 84
 L0 31 241
 R5
 R6
@@ -668,7 +688,7 @@ R1
 w1789893072
 8../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv
 F../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv
-!i122 60
+!i122 84
 L0 6 68
 R5
 R6
@@ -694,7 +714,7 @@ R1
 w1790318362
 8../fault_models/sensor_status_native.v
 F../fault_models/sensor_status_native.v
-!i122 60
+!i122 84
 L0 40 198
 R5
 R6
@@ -720,7 +740,7 @@ R1
 w1788365063
 8../fault_models/sigmoid.v
 F../fault_models/sigmoid.v
-!i122 60
+!i122 84
 L0 14 313
 R5
 R6
@@ -737,17 +757,17 @@ R12
 vsoc_mem_interconnect
 R2
 R3
-R14
+R4
 !i10b 1
-!s100 zL^=?zS@kEFziFHg@XW>d0
-II4l0j>eHJPb7;IMKXeRAL1
+!s100 8m0PPee;zb0ddP?b``[mz3
+IkiV0Y==BG8F=fD3Sd5PPJ2
 S1
 R1
-w1790627547
+w1788145990
 8../fault_models/soc_mem_interconnect.v
 F../fault_models/soc_mem_interconnect.v
-!i122 60
-L0 47 410
+!i122 84
+L0 47 407
 R5
 R6
 r1
@@ -763,9 +783,9 @@ R12
 Ysoc_native_if
 R2
 R3
-Z18 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
-Z19 DXx4 work 11 soc_uvm_pkg 0 22 baU4T5f323PJ5WD4aD82n1
-Z20 DXx4 work 37 tb_cpu_soc_ram_top_end_to_end_sv_unit 0 22 7O0?QbU6Q`cNN8N`Z<Ma60
+Z17 DXx6 mtiUvm 7 uvm_pkg 0 22 MiVhEBb9cnBN5^J=<XBKI2
+Z18 DXx4 work 11 soc_uvm_pkg 0 22 6A1@=jC9[<X[3bQd8FmUi0
+Z19 DXx4 work 37 tb_cpu_soc_ram_top_end_to_end_sv_unit 0 22 7O0?QbU6Q`cNN8N`Z<Ma60
 R13
 R5
 r1
@@ -773,14 +793,14 @@ r1
 !i10b 1
 !s100 kE3:=EO8zRR1;<h3bEIl>3
 I5eZT;`MDc9@01VD48P8X_0
-Z21 !s105 tb_cpu_soc_ram_top_end_to_end_sv_unit
+Z20 !s105 tb_cpu_soc_ram_top_end_to_end_sv_unit
 S1
 R1
-Z22 w1789813352
-Z23 8../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_native_if/soc_native_if.sv
-Z24 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_native_if/soc_native_if.sv
-!i122 60
-Z25 L0 6 0
+Z21 w1789813352
+Z22 8../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_native_if/soc_native_if.sv
+Z23 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_native_if/soc_native_if.sv
+!i122 84
+Z24 L0 6 0
 R6
 31
 R7
@@ -793,7 +813,7 @@ R12
 vsoc_ram
 R2
 R3
-R14
+R4
 !i10b 1
 !s100 g4b?8h];NhA9Fo`GTd`Zf0
 IXe0kPHieQbzK=lDO0jzXh3
@@ -802,7 +822,7 @@ R1
 w1785847180
 8../fault_models/soc_ram.v
 F../fault_models/soc_ram.v
-!i122 60
+!i122 84
 L0 4 64
 R5
 R6
@@ -818,32 +838,38 @@ R11
 R12
 Xsoc_uvm_pkg
 !i114 1
+!i114 1
+!i114 1
+!i114 1
+!i114 1
+!i114 1
+!i114 1
 R2
 !s115 tpu_debug_if
 !s115 soc_native_if
 R3
-R18
+R17
 R13
 !i10b 1
-!s100 nfj7IX@omfEJ]J<B@moQc3
-IbaU4T5f323PJ5WD4aD82n1
+!s100 P:oMTaA]7N1GHacFMZ=NW3
+I6A1@=jC9[<X[3bQd8FmUi0
 S1
 R1
-w1790677678
+w1790686764
 8../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_pkg/soc_uvm_pkg.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_pkg/soc_uvm_pkg.sv
-Z26 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
-Z27 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
-Z28 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
-Z29 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
-Z30 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
-Z31 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
-Z32 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
-Z33 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
-Z34 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
-Z35 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
-Z36 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
-Z37 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+Z25 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z26 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z27 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z28 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z29 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z30 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z31 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z32 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z33 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z34 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z35 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z36 FC:/questasim64_2024.1/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_sequence_item/soc_sequence_item.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_agent/soc_sequencer/soc_sequencer.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_driver/soc_driver.sv
@@ -853,6 +879,7 @@ F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/gpio_reg_block.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/rf_reg_block.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/sensor_reg_block.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/vdp_reg_block.sv
+F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/tpu_reg_block.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_block.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_adapter.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_ral/soc_reg_predictor.sv
@@ -875,6 +902,7 @@ F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_tpu_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_sensor_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_vdp_ral_test.sv
+F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_tpu_ral_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_ral_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_unmapped_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_rf_id_test.sv
@@ -883,9 +911,9 @@ F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_gpio_ready_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_ram_strobe_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_unmapped_hang_test.sv
 F../../phase_5/Old2New_SoC/Tb/UVM/tb/soc_base_test/soc_active_sensor_status_test.sv
-!i122 60
-R25
-VbaU4T5f323PJ5WD4aD82n1
+!i122 84
+R24
+V6A1@=jC9[<X[3bQd8FmUi0
 R6
 r1
 !s85 0
@@ -909,7 +937,7 @@ R1
 w1788364995
 8../fault_models/systolic.v
 F../fault_models/systolic.v
-!i122 60
+!i122 84
 L0 5 172
 R5
 R6
@@ -926,9 +954,9 @@ R12
 vtb_cpu_soc_ram_top
 R2
 R3
+R17
 R18
 R19
-R20
 R13
 R5
 r1
@@ -936,15 +964,15 @@ r1
 !i10b 1
 !s100 LkI:H@GlE[@?J[Z[khh>W2
 Ib^@k;B4[9IfTMzTYIjI6i2
-R21
+R20
 S1
 R1
-Z38 w1790668885
-Z39 8../../phase_5/Old2New_SoC/Tb/UVM/tb_cpu_soc_ram_top_end_to_end.sv
-Z40 F../../phase_5/Old2New_SoC/Tb/UVM/tb_cpu_soc_ram_top_end_to_end.sv
+Z37 w1790668885
+Z38 8../../phase_5/Old2New_SoC/Tb/UVM/tb_cpu_soc_ram_top_end_to_end.sv
+Z39 F../../phase_5/Old2New_SoC/Tb/UVM/tb_cpu_soc_ram_top_end_to_end.sv
+R22
 R23
-R24
-!i122 60
+!i122 84
 L0 29 344
 R6
 31
@@ -958,8 +986,8 @@ R12
 Xtb_cpu_soc_ram_top_end_to_end_sv_unit
 R2
 R3
+R17
 R18
-R19
 R13
 V7O0?QbU6Q`cNN8N`Z<Ma60
 r1
@@ -970,9 +998,10 @@ I7O0?QbU6Q`cNN8N`Z<Ma60
 !i103 1
 S1
 R1
+R37
 R38
 R39
-R40
+R25
 R26
 R27
 R28
@@ -984,10 +1013,9 @@ R33
 R34
 R35
 R36
-R37
-R24
-Z41 F../../phase_5/Old2New_SoC/Tb/UVM/tpu_debug_if.sv
-!i122 60
+R23
+Z40 F../../phase_5/Old2New_SoC/Tb/UVM/tpu_debug_if.sv
+!i122 84
 L0 20 0
 R6
 31
@@ -999,35 +1027,35 @@ R10
 R11
 R12
 Ttb_uvm_opt_active
-Z42 !s11d soc_uvm_pkg C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm 2 soc_native_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm tpu_debug_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm 
-Z43 !s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 2 soc_native_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm tpu_debug_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm 
-!s110 1790677736
-VL3A0?Og5Oc=7F^OVU7SeJ1
-Z44 04 18 4 work tb_cpu_soc_ram_top fast 0
-Z45 04 4 4 work glbl fast 0
+Z41 !s11d soc_uvm_pkg C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm 2 soc_native_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm tpu_debug_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm 
+Z42 !s11d uvm_pkg C:/questasim64_2024.1/uvm-1.1d 2 soc_native_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm tpu_debug_if 1 C:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/work_uvm 
+!s110 1790687238
+V0mj<I7X^QzQ@<TAT9ko:n2
+Z43 04 18 4 work tb_cpu_soc_ram_top fast 0
+Z44 04 4 4 work glbl fast 0
 R0
-Z46 !s12f OEM100
-Z47 !s12b OEM100
-Z48 !s124 OEM100
-Z49 o+acc -L xpm -work work_uvm
+Z45 !s12f OEM100
+Z46 !s12b OEM100
+Z47 !s124 OEM100
+Z48 o+acc -L xpm -work work_uvm
 R12
 ntb_uvm_opt_active
-Z50 OL;O;2024.1;79
+Z49 OL;O;2024.1;79
 Ttb_uvm_opt_mut
+R41
 R42
+!s110 1790687193
+VkhgFXjjZO_iS>Dk65hZ_=0
 R43
-!s110 1790666783
-VGP3DZcB;Dcc^^`8<8A9d72
 R44
-R45
 R0
+R45
 R46
 R47
 R48
-R49
 R12
 ntb_uvm_opt_mut
-R50
+R49
 R1
 vtemp_sensor_rnm
 R2
@@ -1041,7 +1069,7 @@ R1
 w1790623164
 8../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv
 F../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv
-!i122 60
+!i122 84
 L0 5 32
 R5
 R6
@@ -1067,7 +1095,7 @@ R1
 w1788495424
 8../fault_models/tpu_axis_top.v
 F../fault_models/tpu_axis_top.v
-!i122 60
+!i122 84
 L0 38 220
 R5
 R6
@@ -1084,9 +1112,9 @@ R12
 Ytpu_debug_if
 R2
 R3
+R17
 R18
 R19
-R20
 R13
 R5
 r1
@@ -1094,13 +1122,13 @@ r1
 !i10b 1
 !s100 1=4GFTO=3b<W]5BBRf36o2
 IMMj7D0HFazFWGY6bIX[iS2
-R21
+R20
 S1
 R1
-R22
-R41
-R24
-!i122 60
+R21
+R40
+R23
+!i122 84
 L0 4 0
 R6
 31
@@ -1123,7 +1151,7 @@ R1
 w1786352939
 8../fault_models/vdp_native_slave.v
 F../fault_models/vdp_native_slave.v
-!i122 60
+!i122 84
 L0 61 721
 R5
 R6
@@ -1149,7 +1177,7 @@ R1
 w1786353546
 8../fault_models/vga_timing_gen.v
 F../fault_models/vga_timing_gen.v
-!i122 60
+!i122 84
 L0 16 91
 R5
 R6

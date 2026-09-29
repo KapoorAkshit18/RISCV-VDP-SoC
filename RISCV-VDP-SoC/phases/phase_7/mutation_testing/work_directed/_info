@@ -1,0 +1,941 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing
+vadc_rnm
+Z2 2../fault_models/soc_mem_interconnect.v|../fault_models/soc_ram.v|../fault_models/gpio_native_slave.v|../fault_models/rf_telemetry_native.v|../fault_models/sensor_status_native.v|../fault_models/cdc_reset_sync.v|../fault_models/vga_timing_gen.v|../fault_models/vdp_native_slave.v|../fault_models/riscv.v|../fault_models/riscv_wrapper.v|../fault_models/cpu_soc_ram_top.v|../fault_models/cpu_bus_adapter.v|../fault_models/pe.v|../fault_models/register.v|../fault_models/sigmoid.v|../fault_models/systolic.v|../fault_models/pe_top.v|../fault_models/nn.v|../fault_models/axis_nn.v|../fault_models/nn_axi_wrapper.v|../fault_models/nn_axis_master.v|../fault_models/tpu_axis_top.v|../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv|../../phase_5/Old2New_SoC/tb_soc_ram_top_with_firmw.sv
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z4 !s110 1790647207
+!i10b 1
+!s100 z7E=7g;7Ld]DKzh:aa:>k3
+IGiS=UQXLWDPhGEG[W7R9=0
+S1
+R1
+w1789871385
+8../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv
+F../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv
+!i122 13
+L0 6 36
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2024.1;79
+r1
+!s85 0
+31
+Z7 !s108 1790647207.000000
+Z8 !s107 ../../phase_5/Old2New_SoC/tb_soc_ram_top_with_firmw.sv|../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/adc_rnm.sv|../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv|../fault_models/tpu_axis_top.v|../fault_models/nn_axis_master.v|../fault_models/nn_axi_wrapper.v|../fault_models/axis_nn.v|../fault_models/nn.v|../fault_models/pe_top.v|../fault_models/systolic.v|../fault_models/sigmoid.v|../fault_models/register.v|../fault_models/pe.v|../fault_models/cpu_bus_adapter.v|../fault_models/cpu_soc_ram_top.v|../fault_models/riscv_wrapper.v|../fault_models/riscv.v|../fault_models/vdp_native_slave.v|../fault_models/vga_timing_gen.v|../fault_models/cdc_reset_sync.v|../fault_models/sensor_status_native.v|../fault_models/rf_telemetry_native.v|../fault_models/gpio_native_slave.v|../fault_models/soc_ram.v|../fault_models/soc_mem_interconnect.v|
+Z9 !s90 -sv|+acc|-work|work_directed|-f|filelist_directed.f|
+!i113 0
+Z10 o-sv +acc -work work_directed -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 !s92 -sv +acc -work work_directed +incdir+../fault_models -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 tCvgOpt 0
+vaxis_nn
+R2
+R3
+R4
+!i10b 1
+!s100 beDk=0Y5N52R1>EoSomoZ3
+I5nYDW4nj@g^MK3GYS2SZ21
+S1
+R1
+w1788500172
+8../fault_models/axis_nn.v
+F../fault_models/axis_nn.v
+!i122 13
+L0 5 309
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vcdc_reset_sync
+R2
+R3
+R4
+!i10b 1
+!s100 lSToRGeC_T=V94RLQ5INV1
+I_d?b3RE1U_F14fO6C]kcY2
+S1
+R1
+w1786352845
+8../fault_models/cdc_reset_sync.v
+F../fault_models/cdc_reset_sync.v
+!i122 13
+L0 20 21
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vcpu_bus_adapter
+R2
+R3
+R4
+!i10b 1
+!s100 8VLATC53]@c]iKaj@5lNS3
+I5W_C3]PDd6=;Vg7NcXG7S2
+S1
+R1
+w1785880707
+8../fault_models/cpu_bus_adapter.v
+F../fault_models/cpu_bus_adapter.v
+!i122 13
+L0 4 47
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vcpu_soc_ram_top
+R2
+R3
+R4
+!i10b 1
+!s100 l[L5XGd7OFjUKLD=aC0AZ0
+IRNlfX7TCiK?b=QAgjW5G@1
+S1
+R1
+w1789053959
+8../fault_models/cpu_soc_ram_top.v
+F../fault_models/cpu_soc_ram_top.v
+!i122 13
+L0 97 671
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vglbl
+2C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+R4
+!i10b 1
+!s100 TL<1YD8i05Z]RjCH=O^Cf3
+IhgKmb^h[Xjl:jf?ckZ=lI0
+R1
+w1590624368
+8C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+FC:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v
+!i122 14
+L0 6 78
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|
+!s90 C:/Xilinx/Vivado/2020.1/data/verilog/src/glbl.v|-work|work_directed|
+!i113 0
+o-work work_directed -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R12
+vgpio_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 i3Mbl9H=:UV383HI[lmdT2
+IkKULPCcl1YokAjEmXCb=Q3
+S1
+R1
+w1790055939
+8../fault_models/gpio_native_slave.v
+F../fault_models/gpio_native_slave.v
+!i122 13
+L0 38 96
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vnn
+R2
+R3
+R4
+!i10b 1
+!s100 LmeJCoY^4Q>oRM^5O60G?0
+IZEh9<ohmW4=Sk[CK[nInF0
+S1
+R1
+w1788365285
+8../fault_models/nn.v
+F../fault_models/nn.v
+!i122 13
+L0 4 529
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vnn_axi_wrapper
+R2
+R3
+R4
+!i10b 1
+!s100 ?AZRMK?_>>];elMMCVJ9J3
+IS8OA:SUM3YeiiIf@N82[U3
+S1
+R1
+w1789240987
+8../fault_models/nn_axi_wrapper.v
+F../fault_models/nn_axi_wrapper.v
+!i122 13
+L0 53 394
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vnn_axis_master
+R2
+R3
+R4
+!i10b 1
+!s100 fXH@J@<2MczV4hWFKKgNS1
+II`i99LTf=JQ7THh_c8AOa0
+S1
+R1
+w1788493383
+8../fault_models/nn_axis_master.v
+F../fault_models/nn_axis_master.v
+!i122 13
+L0 47 428
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpe
+R2
+R3
+R4
+!i10b 1
+!s100 K;:R77^iLZ2fEXPz<]K;L3
+IAaElV^5:1lAe<5IgbV3cc1
+S1
+R1
+w1788364919
+8../fault_models/pe.v
+F../fault_models/pe.v
+!i122 13
+L0 3 20
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpe_top
+R2
+R3
+R4
+!i10b 1
+!s100 69AbE:R:Da;7lJAboWlh[3
+IV5Oo:BjINHi_MGd71:zZ12
+S1
+R1
+w1788365540
+8../fault_models/pe_top.v
+F../fault_models/pe_top.v
+!i122 13
+L0 4 150
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_axi
+R2
+R3
+R4
+!i10b 1
+!s100 o5b`9ZQH=X6QEELG8iTS>0
+IG4`<k?mg<MnhFUL3jIXL_0
+S1
+R1
+Z13 w1789048917
+Z14 8../fault_models/riscv.v
+Z15 F../fault_models/riscv.v
+!i122 13
+L0 2445 208
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_axi_adapter
+R2
+R3
+R4
+!i10b 1
+!s100 `FL;[1HUc[91R9AHH=T^W2
+Ij91Ih6`O?HJOo^3?JbL`z3
+S1
+R1
+R13
+R14
+R15
+!i122 13
+L0 2659 78
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_pcpi_div
+R2
+R3
+R4
+!i10b 1
+!s100 ZFMmNnO]ZSzQOlfCV55Q;0
+IZeAlEKKbPRnd^224DlU_b1
+S1
+R1
+R13
+R14
+R15
+!i122 13
+L0 2348 91
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_pcpi_fast_mul
+R2
+R3
+R4
+!i10b 1
+!s100 QAbQFhfOc5D`3]KP[A]VM2
+IclK?Doe>LVbSZ[]JgLS>k0
+S1
+R1
+R13
+R14
+R15
+!i122 13
+L0 2246 96
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_pcpi_mul
+R2
+R3
+R4
+!i10b 1
+!s100 eFXeYD5aC45MI7S`BcT:K0
+I@1gKJ8HOfJMV65b[zn8Od3
+S1
+R1
+R13
+R14
+R15
+!i122 13
+L0 2125 120
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_regs
+R2
+R3
+R4
+!i10b 1
+!s100 ISVaoocHmB7ZT1efM@aZ31
+I^IE]WKLcYXJe8YU7DjCzk0
+S1
+R1
+R13
+R14
+R15
+!i122 13
+L0 2102 17
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32_wb
+R2
+R3
+R4
+!i10b 1
+!s100 DM`5HY`TV1nY]`6mK2]@l0
+I:CeDR]SCQhja6b1Ul6If61
+S1
+R1
+R13
+R14
+R15
+!i122 13
+L0 2743 235
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vpicorv32a
+R2
+R3
+R4
+!i10b 1
+!s100 WE1]XfHW>^V5RcTiAceZc2
+I5Mg>INZSb5]<@O3iLfUoa3
+S1
+R1
+R13
+R14
+R15
+!i122 13
+L0 57 2039
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vptb
+R2
+R3
+R4
+!i10b 1
+!s100 OE9:3G`?NK>Ra_E?BzhaI2
+I;SDGZV;?a_2@_[e3nYRHR3
+S1
+R1
+w1788375491
+8../fault_models/riscv_wrapper.v
+F../fault_models/riscv_wrapper.v
+!i122 13
+L0 2 84
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vregister
+R2
+R3
+R4
+!i10b 1
+!s100 8ike_QJWg35zhg[I?X;<A3
+IZCIU5zWobF5edZ_l8cocM0
+S1
+R1
+w1788364991
+8../fault_models/register.v
+F../fault_models/register.v
+!i122 13
+L0 3 26
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vrf_telemetry_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 0OK<^Q6G211TXf9^UMnC;3
+ITnjb_O6hidMK4nV81=IL20
+S1
+R1
+w1785936182
+8../fault_models/rf_telemetry_native.v
+F../fault_models/rf_telemetry_native.v
+!i122 13
+L0 31 241
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsensor_adc_rnm
+R2
+R3
+R4
+!i10b 1
+!s100 4>d0RURPNzOW2zIAc8KJK0
+Ij_Yz_L[iA9JEaU>C:8[D<0
+S1
+R1
+w1789893072
+8../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv
+F../../phase_5/Old2New_SoC/Tb/RNM/sensor_adc_rnm.sv
+!i122 13
+L0 6 68
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsensor_status_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 khS@E9z=I6RLzSf<EYhG>3
+IkGD`6VM2g]leB0h;XXSf62
+S1
+R1
+w1790318362
+8../fault_models/sensor_status_native.v
+F../fault_models/sensor_status_native.v
+!i122 13
+L0 40 198
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsigmoid
+R2
+R3
+R4
+!i10b 1
+!s100 88M<E?LbcL^7oa`=Ulh``2
+ISQ22[hj_=ORf_MjOf:XWb2
+S1
+R1
+w1788365063
+8../fault_models/sigmoid.v
+F../fault_models/sigmoid.v
+!i122 13
+L0 14 313
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsoc_mem_interconnect
+R2
+R3
+R4
+!i10b 1
+!s100 O^bz`?Qk63OHR3OM7SiQI2
+I_7id^fDf@^Wf>=iP9?PR91
+S1
+R1
+w1790627547
+8../fault_models/soc_mem_interconnect.v
+F../fault_models/soc_mem_interconnect.v
+!i122 13
+L0 47 410
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsoc_ram
+R2
+R3
+R4
+!i10b 1
+!s100 g4b?8h];NhA9Fo`GTd`Zf0
+I4BUU;MO=oP[05AikZkT8h3
+S1
+R1
+w1785847180
+8../fault_models/soc_ram.v
+F../fault_models/soc_ram.v
+!i122 13
+L0 4 64
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vsystolic
+R2
+R3
+R4
+!i10b 1
+!s100 2=nWR>AKz6DAn4[075Pbk3
+I^i:lNY]jWJ0`C5UiA2Q]E0
+S1
+R1
+w1788364995
+8../fault_models/systolic.v
+F../fault_models/systolic.v
+!i122 13
+L0 5 172
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vtb_cpu_soc_ram_top
+R2
+R3
+R4
+!i10b 1
+!s100 lbS^OQLZ8<j`ibPZWXG[:1
+I@bLni?EUKDX8hPKUK=BIg3
+S1
+R1
+w1790626481
+8../../phase_5/Old2New_SoC/tb_soc_ram_top_with_firmw.sv
+F../../phase_5/Old2New_SoC/tb_soc_ram_top_with_firmw.sv
+!i122 13
+L0 35 957
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+Ttb_dir_opt_golden_fw2
+!s110 1790646282
+VW5PF^6J7X5@?LiV^N1PA72
+Z16 04 18 4 work tb_cpu_soc_ram_top fast 0
+Z17 04 4 4 work glbl fast 0
+R0
+Z18 !s12f OEM100
+Z19 !s12b OEM100
+Z20 !s124 OEM100
+Z21 o+acc -L xpm -work work_directed
+R12
+ntb_dir_opt_golden_fw2
+Z22 OL;O;2024.1;79
+R1
+Ttb_dir_opt_m01_fw2
+!s110 1790645763
+VdDLGei>VGckAZZnd^KZe71
+R16
+R17
+R0
+R18
+R19
+R20
+R21
+R12
+ntb_dir_opt_m01_fw2
+R22
+R1
+Ttb_dir_opt_mut
+!s110 1790647208
+VCA>fRFbO6maD;IDW9d=Zz2
+R16
+R17
+R0
+R18
+R19
+R20
+R21
+R12
+ntb_dir_opt_mut
+R22
+vtemp_sensor_rnm
+R2
+R3
+R4
+!i10b 1
+!s100 LI]V6LR`5nGnegN^JAbZI3
+I`U:hWzW=VDKzSKK[8FIFL1
+S1
+R1
+w1790623164
+8../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv
+F../../phase_5/Old2New_SoC/Tb/RNM/temp_sensor_rnm.sv
+!i122 13
+L0 5 32
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vtpu_axis_top
+R2
+R3
+R4
+!i10b 1
+!s100 Y]k9adV0IKc6FH5[A9ndD0
+Ib<o_53Q>Q:4e>dGoo1lbW1
+S1
+R1
+w1788495424
+8../fault_models/tpu_axis_top.v
+F../fault_models/tpu_axis_top.v
+!i122 13
+L0 38 220
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vvdp_native_slave
+R2
+R3
+R4
+!i10b 1
+!s100 MVYPNH9g^^Lm>34J7L3@^2
+IA8HdcXWRo7Lg5QcXYM;^:1
+S1
+R1
+w1786352939
+8../fault_models/vdp_native_slave.v
+F../fault_models/vdp_native_slave.v
+!i122 13
+L0 61 721
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12
+vvga_timing_gen
+R2
+R3
+R4
+!i10b 1
+!s100 TGjmDf_j3i;UGG:T>]05D3
+IRM7h[RKMDn7QIBo]M6WcB0
+S1
+R1
+w1786353546
+8../fault_models/vga_timing_gen.v
+F../fault_models/vga_timing_gen.v
+!i122 13
+L0 16 91
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+R12

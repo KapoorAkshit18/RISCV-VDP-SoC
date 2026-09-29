@@ -15,6 +15,9 @@ interface sensor_rnm_if #(
 
     real temperature;
     real sensor_voltage;
+      // in temp_sensor_rnm.sv, or set via config_db from the TB top
+        bit noise_on;
+        initial void'($value$plusargs("NOISE_ON=%d", noise_on));
 
     // ============================================================
     // ADC digital output

@@ -40,7 +40,7 @@ This strict methodology guarantees that Active UVM's detection capabilities are 
 |---|---|---|---|---|---|
 | **M01** | TPU Base-Address Decode | **DETECTED** | **DETECTED** | **DETECTED** | TPU writes go to unmapped space. TPU decode test writes known value to TPU and reads back. Golden returns value, mutant returns 0x0 (unmapped). |
 | **M02** | Sensor Local-Addr Bit 11=0 | **ESCAPED** | **ESCAPED** | **DETECTED** | Sensor unmapped test reads 0x0001_2800. Golden returns 0x0. Mutant translates to 0x0000 (Battery Pct) returning 0x50. |
-| **M03** | GPIO Ready from RF | `UNOBSERVABLE` | `UNOBSERVABLE` | **DETECTED** | GPIO test writes to GPIO DIR. Golden completes in N+1 cycles. Mutant receives RF ready (idle), hanging the bus (`UVM_FATAL` timeout). |
+| **M03** | GPIO Ready from RF | `UNOBSERVABLE` | `UNOBSERVABLE` | **DETECTED** | GPIO test writes to GPIO DIR (0x0001_0008). Golden completes in N+1 cycles. Mutant routes RF ready (idle/0), hanging the bus causing a 500-cycle `UVM_FATAL` timeout. |
 | **M04** | RF RData from Sensor | `UNOBSERVABLE` | `UNOBSERVABLE` | **DETECTED** | RF ID test reads RF ID register. Golden returns 0x5246_5430. Mutant routes Sensor RData returning 0x0000_0000. |
 | **M05** | VDP Write Stuck 0 | `UNOBSERVABLE` | `UNOBSERVABLE` | `UNOBSERVABLE` | **Equivalent Mutant**. VDP Native slave relies entirely on byte strobes and ignores `mem_write`. |
 | **M06** | RAM Strobe always 4'hF | **ESCAPED** | **ESCAPED** | **DETECTED** | RAM strobe test writes Word, then selectively writes Byte. Golden preserves word correctly. Mutant forces all strobes, overwriting the word. |

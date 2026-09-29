@@ -42,11 +42,11 @@ This strict methodology guarantees that Active UVM's detection capabilities are 
 | **M02** | Sensor Local-Addr Bit 11=0 | **ESCAPED** | **ESCAPED** | **DETECTED** | Sensor unmapped test reads 0x0001_2800. Golden returns 0x0. Mutant translates to 0x0000 (Battery Pct) returning 0x50. |
 | **M03** | GPIO Ready from RF | `UNOBSERVABLE` | `UNOBSERVABLE` | **DETECTED** | GPIO test writes to GPIO DIR (0x0001_0008). Golden completes in N+1 cycles. Mutant routes RF ready (idle/0), hanging the bus causing a 500-cycle `UVM_FATAL` timeout. |
 | **M04** | RF RData from Sensor | `UNOBSERVABLE` | `UNOBSERVABLE` | **DETECTED** | RF ID test reads RF ID register. Golden returns 0x5246_5430. Mutant routes Sensor RData returning 0x0000_0000. |
-| **M05** | VDP Write Stuck 0 | `UNOBSERVABLE` | `UNOBSERVABLE` | `UNOBSERVABLE` | **Equivalent Mutant**. VDP Native slave relies entirely on byte strobes and ignores `mem_write`. |
+| **M05** | VDP Write Stuck 0 | UNOBSERVABLE | UNOBSERVABLE | **EQUIVALENT** | **Equivalent Mutant**. VDP Native slave relies entirely on byte strobes and ignores mem_write. |
 | **M06** | RAM Strobe always 4'hF | **ESCAPED** | **ESCAPED** | **DETECTED** | RAM strobe test writes Word, then selectively writes Byte. Golden preserves word correctly. Mutant forces all strobes, overwriting the word. |
 | **M07** | RF Valid Stuck 0 | `UNOBSERVABLE` | `UNOBSERVABLE` | **DETECTED** | RF ID test attempts RF access. Golden completes. Mutant forces valid low, causing `UVM_FATAL` timeout from slave non-response. |
 | **M08** | Sensor uses VDP_BASE | **DETECTED** | **DETECTED** | **DETECTED** | Sensor Status test reads Sensor BATT_PCT (0x0001_2000). Golden routes to sensor (returns 0x50). Mutant compares vs VDP_BASE, falls to unmapped (0x0). |
-| **M09** | RAM Addr LSBs zeroed | **ESCAPED** | **ESCAPED** | `UNOBSERVABLE` | **Equivalent Mutant**. RAM natively drops LSBs and relies on byte strobes for sub-word alignment. |
+| **M09** | RAM Addr LSBs zeroed | **ESCAPED** | **ESCAPED** | **EQUIVALENT** | **Equivalent Mutant**. RAM natively drops LSBs and relies on byte strobes for sub-word alignment. |
 | **M10** | Unmapped Ready Stuck 0 | `UNOBSERVABLE` | `UNOBSERVABLE` | **DETECTED** | Unmapped hang test reads 0x0001_F000. Golden completes immediately with 0x0. Mutant sets ready=0, causing `UVM_FATAL` timeout. |
 
 ### Key Takeaways for Research Paper

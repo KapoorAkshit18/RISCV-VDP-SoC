@@ -51,14 +51,24 @@ for logfile in sorted(glob.glob("run_*.log")):
         else ""
     )
 
-    # ALARM,expected,actual
+    # ALARM,TEMP,expected,actual  and  ALARM,BATT,expected,actual
+    # Two real model-vs-RTL comparisons (not just bus-passthrough sanity
+    # checks like temp_read_tenths/adc_code, which are trivially ~1.0).
     m = re.search(
-        r"ALARM,\s*([^,\s]+),\s*([^,\s]+)",
+        r"ALARM,TEMP,\s*([^,\s]+),\s*([^,\s]+)",
         text
     )
+    # for grouping 
+    
+    temp_alarm_exp = m.group(1) if m else ""
+    temp_alarm_act = m.group(2) if m else ""
 
-    alarm_exp = m.group(1) if m else ""
-    alarm_act = m.group(2) if m else ""
+    m = re.search(
+        r"ALARM,BATT,\s*([^,\s]+),\s*([^,\s]+)",
+        text
+    )
+    batt_alarm_exp = m.group(1) if m else ""
+    batt_alarm_act = m.group(2) if m else ""
 
     # Final result
     matches = re.findall(
@@ -78,8 +88,10 @@ for logfile in sorted(glob.glob("run_*.log")):
         temp_read_tenths,
         ideal_tenths,
         error,
-        alarm_exp,
-        alarm_act,
+        temp_alarm_exp,
+        temp_alarm_act,
+        batt_alarm_exp,
+        batt_alarm_act,
         result
     ])
 
@@ -98,8 +110,10 @@ with open("results.csv", "w", newline="") as f:
         "temp_read_tenths",
         "ideal_tenths",
         "error",
-        "alarm_exp",
-        "alarm_act",
+        "temp_alarm_exp",
+        "temp_alarm_act",
+        "batt_alarm_exp",
+        "batt_alarm_act",
         "result"
     ])
 

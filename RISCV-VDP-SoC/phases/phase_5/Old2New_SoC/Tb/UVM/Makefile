@@ -253,6 +253,27 @@ sweep_temp: optimize
 # keep the lists short, this grows fast.
 # ============================================================
 
+sweep_full: optimize
+	@for t in $(TEMP_LIST); do \
+		for s in $(SEED_LIST); do \
+			for b in $(BATT_LIST); do \
+				for n in $(NOISE_LIST); do \
+					tag="t$${t}_seed$${s}_batt$${b}_noise$${n}"; \
+					if [ "$$n" = "1" ]; then noise_flag="+NOISE_ON"; else noise_flag=""; fi; \
+					echo "=== TEMP_C=$$t seed=$$s BATT=$$b NOISE=$$n ==="; \
+					$(VSIM) $(VSIM_OPTS) -sv_seed $$s \
+						$(OPT_TOP) \
+						+UVM_TESTNAME=soc_sensor_test \
+						$(if $(FW),+FW_HEX=$(FW),) \
+						+BATT=$$b +TEMP_C=$$t $$noise_flag \
+						+UVM_VERBOSITY=UVM_MEDIUM \
+						-coverage \
+						-do "coverage save -onexit run_$${tag}.ucdb; run -all; quit -f" \
+						| tee run_$${tag}.log; \
+				done; \
+			done; \
+		done; \
+	done
 
 
 # ============================================================
@@ -315,14 +336,14 @@ clean:
 	rm -rf *.vstf
 	rm -f $(COV_RPT) merged_$(COV_RPT)
 	rm -f results.csv
-	rm -f rnm_correlation.png
+	rm -f rnm_correlation*.png
 
 clean_sweep:
 	rm -f run_*.log
 	rm -f run_*.ucdb
 	rm -f $(MERGED_DB) $(SWEEP_DB)
 	rm -f results.csv
-	rm -f rnm_correlation.png
+	rm -f rnm_correlation*.png
 	rm -f merged_$(COV_RPT)
 
 

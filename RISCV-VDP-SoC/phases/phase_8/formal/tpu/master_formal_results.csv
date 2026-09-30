@@ -1,0 +1,68 @@
+experiment,property,boundary,depth,result,runtime_sec,mutation,counterexample,notes
+Decomposition,TPU_P01,tpu_axis_checker,1,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P01,tpu_axis_checker,2,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P01,tpu_axis_checker,4,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P01,tpu_axis_checker,6,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P01,tpu_axis_checker,8,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P01,tpu_axis_checker,10,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P02,tpu_axis_checker,1,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P02,tpu_axis_checker,2,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P02,tpu_axis_checker,4,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P02,tpu_axis_checker,6,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P02,tpu_axis_checker,8,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P02,tpu_axis_checker,10,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P03,tpu_axis_checker,1,ERROR,2,NO,NO,SBY exit code 16
+Decomposition,TPU_P03,tpu_axis_checker,2,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P03,tpu_axis_checker,4,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P03,tpu_axis_checker,6,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P03,tpu_axis_checker,8,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P03,tpu_axis_checker,10,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P04,tpu_axis_checker,1,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P04,tpu_axis_checker,2,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P04,tpu_axis_checker,4,ERROR,0,NO,NO,SBY exit code 16
+Decomposition,TPU_P04,tpu_axis_checker,6,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P04,tpu_axis_checker,8,ERROR,2,NO,NO,SBY exit code 16
+Decomposition,TPU_P04,tpu_axis_checker,10,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P06,tpu_axis_checker,1,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P06,tpu_axis_checker,2,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P06,tpu_axis_checker,4,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P06,tpu_axis_checker,6,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P06,tpu_axis_checker,8,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P06,tpu_axis_checker,10,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P05,tpu_mmio_checker,1,ERROR,1,NO,NO,SBY exit code 16
+Decomposition,TPU_P05,tpu_mmio_checker,2,ERROR,1,NO,NO,SBY exit code 16
+Control_Boundary,P05.1,tpu_p05_control_wrapper,1,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.1,tpu_p05_control_wrapper,2,PASS,1,NO,NO,Completed successfully
+Control_Boundary,P05.1,tpu_p05_control_wrapper,4,PASS,1,NO,NO,Completed successfully
+Control_Boundary,P05.1,tpu_p05_control_wrapper,6,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.1,tpu_p05_control_wrapper,8,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.1,tpu_p05_control_wrapper,10,PASS,3,NO,NO,Completed successfully
+Control_Boundary,P05.2,tpu_p05_control_wrapper,1,PASS,1,NO,NO,Completed successfully
+Control_Boundary,P05.2,tpu_p05_control_wrapper,2,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.2,tpu_p05_control_wrapper,4,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.2,tpu_p05_control_wrapper,6,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.2,tpu_p05_control_wrapper,8,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.2,tpu_p05_control_wrapper,10,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.3,tpu_p05_control_wrapper,1,PASS,3,NO,NO,Completed successfully
+Control_Boundary,P05.3,tpu_p05_control_wrapper,2,PASS,4,NO,NO,Completed successfully
+Control_Boundary,P05.3,tpu_p05_control_wrapper,4,PASS,3,NO,NO,Completed successfully
+Control_Boundary,P05.3,tpu_p05_control_wrapper,6,PASS,4,NO,NO,Completed successfully
+Control_Boundary,P05.3,tpu_p05_control_wrapper,8,PASS,3,NO,NO,Completed successfully
+Control_Boundary,P05.3,tpu_p05_control_wrapper,10,PASS,3,NO,NO,Completed successfully
+Control_Boundary,P05.4,tpu_p05_control_wrapper,1,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.4,tpu_p05_control_wrapper,2,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.4,tpu_p05_control_wrapper,4,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.4,tpu_p05_control_wrapper,6,PASS,1,NO,NO,Completed successfully
+Control_Boundary,P05.4,tpu_p05_control_wrapper,8,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.4,tpu_p05_control_wrapper,10,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.5,tpu_p05_control_wrapper,1,PASS,1,NO,NO,Completed successfully
+Control_Boundary,P05.5,tpu_p05_control_wrapper,2,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.5,tpu_p05_control_wrapper,4,PASS,1,NO,NO,Completed successfully
+Control_Boundary,P05.5,tpu_p05_control_wrapper,6,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.5,tpu_p05_control_wrapper,8,PASS,2,NO,NO,Completed successfully
+Control_Boundary,P05.5,tpu_p05_control_wrapper,10,PASS,2,NO,NO,Completed successfully
+Mutation_Testing,TPU_P02,tpu_interface_formal,10,FAIL,,M01,YES,Caught by property
+Mutation_Testing,TPU_P04,tpu_interface_formal,10,FAIL,,M02,YES,Caught by property
+Mutation_Testing,TPU_P03,tpu_interface_formal,10,FAIL,,M03,YES,Caught by property
+Control_Mutation,P05.4,tpu_p05_control_wrapper,10,FAIL,2,M05,YES,Caught by property
+Control_Mutation,P05.2,tpu_p05_control_wrapper,10,FAIL,2,M06,YES,Caught by property

@@ -1,0 +1,14 @@
+SBY  6:38:06 [decomposition/out_prop_6_depth_10] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_6_depth_10'.
+SBY  6:38:06 [decomposition/out_prop_6_depth_10] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_6_depth_10/src/nn_axis_master.v'.
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_6_depth_10/src/nn_axi_wrapper.v'.
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_axis_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_6_depth_10/src/tpu_axis_checker.sv'.
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] engine_0: smtbmc z3
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] base: starting process "cd decomposition/out_prop_6_depth_10/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] base: ERROR: Can't open input file `../../../phase_7/fault_models/nn_axis_master.v' for reading: No such file or directory
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] base: finished (returncode=1)
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] base: task failed. ERROR.
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] summary: engine_0 (smtbmc z3) did not return a status
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] summary: engine_0 did not produce any traces
+SBY  6:38:07 [decomposition/out_prop_6_depth_10] DONE (ERROR, rc=16)

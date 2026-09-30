@@ -1,0 +1,8 @@
+# running in test_master/src/
+read_verilog -formal nn_axis_master.v
+prep -top nn_axis_master
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

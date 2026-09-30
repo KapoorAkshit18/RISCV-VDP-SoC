@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T06:37:46" hostname="Envy" package="prop_2_depth_8" id="0" name="default" tests="1" errors="1" failures="0" time="0" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="ERROR"/>
+</properties>
+<testcase classname="default" name="default" time="0">
+<error type="ERROR"/>
+</testcase>
+<system-out>SBY  6:37:45 [decomposition/out_prop_2_depth_8] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_2_depth_8'.
+SBY  6:37:45 [decomposition/out_prop_2_depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_2_depth_8/src/nn_axis_master.v'.
+SBY  6:37:45 [decomposition/out_prop_2_depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_2_depth_8/src/nn_axi_wrapper.v'.
+SBY  6:37:45 [decomposition/out_prop_2_depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_axis_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/decomposition/out_prop_2_depth_8/src/tpu_axis_checker.sv'.
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] engine_0: smtbmc z3
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] base: starting process &quot;cd decomposition/out_prop_2_depth_8/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] base: ERROR: Can't open input file `../../../phase_7/fault_models/nn_axis_master.v' for reading: No such file or directory
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] base: finished (returncode=1)
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] base: task failed. ERROR.
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] summary: engine_0 (smtbmc z3) did not return a status
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] summary: engine_0 did not produce any traces
+SBY  6:37:46 [decomposition/out_prop_2_depth_8] DONE (ERROR, rc=16)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

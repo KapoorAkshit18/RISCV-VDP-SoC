@@ -1,0 +1,667 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "sensor_interface_formal",
+        "cell_sorts": [
+          {
+            "type": "sensor_status_native_slave",
+            "ports": [
+                {
+                  "name": "battery_percent_i",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "battery_voltage_mv_i",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_addr",
+                  "direction": "io",
+                  "range": [12, 0]
+                },
+                {
+                  "name": "mem_instr",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_rdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "mem_ready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_wdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "mem_wstrb",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "resetn",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "sensor_valid_i",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "temperature_tenthsC_i",
+                  "direction": "io",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "dut",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:101.32-115.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "top": "00000000000000000000000000000001",
+            "src": "sensor_interface_formal.sv:86.1-116.10"
+        }
+      },
+      {
+        "name": "sensor_status_native_slave",
+        "cell_sorts": [
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [12, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$174_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$175_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$176_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [64, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$173",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000100",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$226",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$227",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$228",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$229",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$230",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$231",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$232",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$233",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$234",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$235",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$236",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$237",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$169",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$178",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:183.21-183.41|sensor_status_native.v:183.17-232.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$180",
+                  "attributes": {
+                    "src": "sensor_status_native.v:176.22-176.31|sensor_status_native.v:176.18-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$183",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:168.17-168.32|sensor_status_native.v:168.13-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$186",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$188",
+                  "attributes": {
+                    "src": "sensor_status_native.v:176.22-176.31|sensor_status_native.v:176.18-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$191",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:168.17-168.32|sensor_status_native.v:168.13-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$194",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$197",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:168.17-168.32|sensor_status_native.v:168.13-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$200",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$203",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$206",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$209",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$212",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$215",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$218",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$221",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$224",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$le",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$le$sensor_status_native.v:127$3",
+                  "attributes": {
+                    "src": "sensor_status_native.v:127.27-127.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$gt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [11, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$gt$sensor_status_native.v:130$4",
+                  "attributes": {
+                    "src": "sensor_status_native.v:130.10-130.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000001011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$sensor_status_native.v:183$7",
+                  "attributes": {
+                    "src": "sensor_status_native.v:183.21-183.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$177_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "sensor_status_native.v:40.1-237.10"
+        }
+      }
+  ]
+}

@@ -1,0 +1,786 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "nn_axis_master",
+        "cell_sorts": [
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$132_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$156_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$121",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:469.13-469.35|nn_axis_master.v:469.9-470.34"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$137",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$142",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:392.13-392.33|nn_axis_master.v:392.9-447.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$145",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:392.13-392.33|nn_axis_master.v:392.9-447.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$148",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:392.13-392.33|nn_axis_master.v:392.9-447.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$154",
+                  "attributes": {
+                    "src": "nn_axis_master.v:198.29-198.39|nn_axis_master.v:198.25-216.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$157",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$161",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:293.33-293.56|nn_axis_master.v:293.29-319.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$163",
+                  "attributes": {
+                    "src": "nn_axis_master.v:291.29-291.59|nn_axis_master.v:291.25-321.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$168",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:244.33-244.49|nn_axis_master.v:244.29-256.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$170",
+                  "attributes": {
+                    "src": "nn_axis_master.v:238.29-238.59|nn_axis_master.v:238.25-258.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$178",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:244.33-244.49|nn_axis_master.v:244.29-256.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$180",
+                  "attributes": {
+                    "src": "nn_axis_master.v:238.29-238.59|nn_axis_master.v:238.25-258.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$189",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:293.33-293.56|nn_axis_master.v:293.29-319.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$191",
+                  "attributes": {
+                    "src": "nn_axis_master.v:291.29-291.59|nn_axis_master.v:291.25-321.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$195",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:244.33-244.49|nn_axis_master.v:244.29-256.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$197",
+                  "attributes": {
+                    "src": "nn_axis_master.v:238.29-238.59|nn_axis_master.v:238.25-258.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$200",
+                  "attributes": {
+                    "src": "nn_axis_master.v:198.29-198.39|nn_axis_master.v:198.25-216.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$205",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:293.33-293.56|nn_axis_master.v:293.29-319.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$207",
+                  "attributes": {
+                    "src": "nn_axis_master.v:291.29-291.59|nn_axis_master.v:291.25-321.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$211",
+                  "attributes": {
+                    "src": "nn_axis_master.v:198.29-198.39|nn_axis_master.v:198.25-216.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$216",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:293.33-293.56|nn_axis_master.v:293.29-319.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$218",
+                  "attributes": {
+                    "src": "nn_axis_master.v:291.29-291.59|nn_axis_master.v:291.25-321.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$222",
+                  "attributes": {
+                    "src": "nn_axis_master.v:198.29-198.39|nn_axis_master.v:198.25-216.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$225",
+                  "attributes": {
+                    "src": "nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$226",
+                  "attributes": {
+                    "src": "nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$227",
+                  "attributes": {
+                    "src": "nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0000000000000000000000000000000000000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procdff$228",
+                  "attributes": {
+                    "src": "nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0000000000000000000000000000000000000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procdff$229",
+                  "attributes": {
+                    "src": "nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$230",
+                  "attributes": {
+                    "src": "nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procdff$231",
+                  "attributes": {
+                    "src": "nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$nn_axis_master.v:238$3",
+                  "attributes": {
+                    "src": "nn_axis_master.v:238.29-238.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$nn_axis_master.v:291$6",
+                  "attributes": {
+                    "src": "nn_axis_master.v:291.29-291.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$nn_axis_master.v:244$4",
+                  "attributes": {
+                    "src": "nn_axis_master.v:244.33-244.49"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$nn_axis_master.v:392$9",
+                  "attributes": {
+                    "src": "nn_axis_master.v:392.13-392.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$nn_axis_master.v:469$11",
+                  "attributes": {
+                    "src": "nn_axis_master.v:469.13-469.35"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$127_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$128_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$129_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$130_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$131_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$151_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$auto$opt_reduce.cc:128:opt_pmux$232",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [64, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [448, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [7, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [64, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$125",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:396.13-445.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000111",
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$150",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$165",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$182",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$186",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000100",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$209",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procmux$220",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$nn_axis_master.v:254$5",
+                  "attributes": {
+                    "src": "nn_axis_master.v:254.45-254.60"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "top": "00000000000000000000000000000001",
+            "src": "nn_axis_master.v:47.1-474.10"
+        }
+      }
+  ]
+}

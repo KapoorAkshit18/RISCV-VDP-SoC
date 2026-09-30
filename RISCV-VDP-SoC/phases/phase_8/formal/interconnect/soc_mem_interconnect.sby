@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal soc_mem_interconnect.v
+read_verilog -sv soc_mem_interconnect_formal.sv
+prep -top soc_mem_interconnect
+
+[files]
+../../../phase_7/fault_models/soc_mem_interconnect.v
+soc_mem_interconnect_formal.sv
+

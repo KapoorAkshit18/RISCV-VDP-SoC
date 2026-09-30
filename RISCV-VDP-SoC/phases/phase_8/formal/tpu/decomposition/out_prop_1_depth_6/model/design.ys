@@ -1,0 +1,11 @@
+# running in decomposition/out_prop_1_depth_6/src/
+read_verilog -formal ../../../phase_7/fault_models/nn_axis_master.v
+read_verilog -formal ../../../phase_7/fault_models/nn_axi_wrapper.v
+read_verilog -sv tpu_axis_checker.sv
+chparam -set PROP 1 tpu_axis_checker
+prep -top tpu_axis_checker -flatten
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

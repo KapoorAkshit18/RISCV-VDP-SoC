@@ -1,0 +1,32 @@
+{
+  "format": "Yosys Witness Trace",
+  "generator": "smtbmc",
+  "clocks": [
+    {"path": ["\\clk"], "edge": "posedge", "offset": 0}
+  ],
+  "signals": [
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_239"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_241"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_243"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_245"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\axis_start"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\clk"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\data_in"], "width": 64, "offset": 0, "init_only": false},
+    {"path": ["\\m_axis_tready"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\rst_n"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_master__procdff_224"], "width": 2, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_master__procdff_225"], "width": 3, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_212"], "width": 64, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_215"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_216"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_217"], "width": 64, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_218"], "width": 1, "offset": 0, "init_only": true}
+  ],
+  "steps": [
+    {"bits": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000"},
+    {"bits": "100000000000000000000000000000000000000000000000000000000000000000010001"},
+    {"bits": "100000000000000000000000000000000000000000000000000000000000000000000010"},
+    {"bits": "110000000000000000000000000000000000000000000000000000000000000000000000"},
+    {"bits": "000000000000000000000000000000000000000000000000000100000000000000000000"}
+  ]
+}

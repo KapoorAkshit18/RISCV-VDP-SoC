@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 5
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal nn_axis_master.v
+read_verilog -sv -DPROP=1 tpu_axis_checker.sv
+chparam -set PROP 1 tpu_axis_checker
+prep -top tpu_axis_checker
+
+[files]
+../../../phase_7/fault_models/nn_axis_master.v
+tpu_axis_checker.sv

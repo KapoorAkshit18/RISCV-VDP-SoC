@@ -1,0 +1,7 @@
+depth,result,runtime_seconds,solver,timeout_seconds,assertions,covers,counterexample,exit_status,notes
+1,TIMEOUT,300,Z3,300,1,3,NO,124,Solver exceeded 300s budget
+2,TIMEOUT,300,Z3,300,1,3,NO,124,Solver exceeded 300s budget
+4,TIMEOUT,300,Z3,300,1,3,NO,124,Solver exceeded 300s budget
+6,TIMEOUT,300,Z3,300,1,3,NO,124,Solver exceeded 300s budget
+8,TIMEOUT,300,Z3,300,1,3,NO,124,Solver exceeded 300s budget
+10,TIMEOUT,300,Z3,300,1,3,NO,124,Solver exceeded 300s budget

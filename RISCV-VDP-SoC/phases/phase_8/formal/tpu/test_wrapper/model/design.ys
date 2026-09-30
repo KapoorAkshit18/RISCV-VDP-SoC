@@ -1,0 +1,8 @@
+# running in test_wrapper/src/
+read_verilog -formal nn_axi_wrapper.v
+prep -top nn_axi_wrapper
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

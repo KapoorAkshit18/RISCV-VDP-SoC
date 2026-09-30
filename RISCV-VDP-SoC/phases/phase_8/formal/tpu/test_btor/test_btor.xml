@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T06:24:52" hostname="Envy" package="test_btor" id="0" name="default" tests="1" errors="1" failures="0" time="0" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="ERROR"/>
+</properties>
+<testcase classname="default" name="default" time="0">
+<error type="ERROR"/>
+</testcase>
+<system-out>SBY  6:24:51 [test_btor] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_btor'.
+SBY  6:24:51 [test_btor] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_btor/src/nn_axis_master.v'.
+SBY  6:24:51 [test_btor] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_btor/src/tpu_checker.sv'.
+SBY  6:24:51 [test_btor] engine_0: btor btormc
+SBY  6:24:51 [test_btor] base: starting process &quot;cd test_btor/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  6:24:51 [test_btor] base: finished (returncode=0)
+SBY  6:24:52 [test_btor] prep: starting process &quot;cd test_btor/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  6:24:52 [test_btor] prep: finished (returncode=0)
+SBY  6:24:52 [test_btor] btor: starting process &quot;cd test_btor/model; yosys -ql design_btor.log design_btor.ys&quot;
+SBY  6:24:52 [test_btor] btor: finished (returncode=0)
+SBY  6:24:52 [test_btor] engine_0: starting process &quot;cd test_btor; btormc --stop-first 1 -v 1 -kmax 4 model/design_btor.btor&quot;
+SBY  6:24:52 [test_btor] engine_0: finished (returncode=127)
+SBY  6:24:52 [test_btor] engine_0: COMMAND NOT FOUND. ERROR.
+SBY  6:24:52 [test_btor] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  6:24:52 [test_btor] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:24:52 [test_btor] summary: engine_0 (btor btormc) did not return a status
+SBY  6:24:52 [test_btor] summary: engine_0 did not produce any traces
+SBY  6:24:52 [test_btor] DONE (ERROR, rc=16)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

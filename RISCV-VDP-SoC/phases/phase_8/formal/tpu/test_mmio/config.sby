@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 5
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal nn_axi_wrapper.v
+read_verilog -sv tpu_mmio_checker.sv
+prep -top tpu_mmio_checker
+
+[files]
+../../../phase_7/fault_models/nn_axi_wrapper.v
+tpu_mmio_checker.sv

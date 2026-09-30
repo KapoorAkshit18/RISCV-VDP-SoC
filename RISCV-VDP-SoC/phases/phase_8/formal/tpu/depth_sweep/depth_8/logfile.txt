@@ -1,0 +1,16 @@
+SBY  6:07:56 [depth_8] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/depth_sweep/depth_8'.
+SBY  6:07:56 [depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/depth_sweep/../../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/depth_sweep/depth_8/src/nn_axi_wrapper.v'.
+SBY  6:07:56 [depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/depth_sweep/../../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/depth_sweep/depth_8/src/nn_axis_master.v'.
+SBY  6:07:56 [depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/depth_sweep/../tpu_interface_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/depth_sweep/depth_8/src/tpu_interface_formal.sv'.
+SBY  6:07:56 [depth_8] engine_0: smtbmc z3
+SBY  6:07:57 [depth_8] base: starting process "cd depth_8/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:07:57 [depth_8] base: finished (returncode=0)
+SBY  6:07:57 [depth_8] prep: starting process "cd depth_8/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:07:58 [depth_8] prep: finished (returncode=0)
+SBY  6:07:58 [depth_8] smt2: starting process "cd depth_8/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:07:58 [depth_8] smt2: finished (returncode=0)
+SBY  6:07:58 [depth_8] engine_0: starting process "cd depth_8; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:07:58 [depth_8] engine_0: ##   0:00:00  Solver: z3
+SBY  6:08:22 [depth_8] engine_0: ##   0:00:23  Checking assumptions in step 0..
+SBY  6:09:22 [depth_8] engine_0: ##   0:01:23  waiting for solver (1 minute)
+SBY  6:12:56 [depth_8] engine_0: terminating process

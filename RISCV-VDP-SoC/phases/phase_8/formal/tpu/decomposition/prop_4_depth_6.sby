@@ -1,0 +1,18 @@
+[options]
+mode bmc
+depth 6
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal ../../../phase_7/fault_models/nn_axis_master.v
+read_verilog -formal ../../../phase_7/fault_models/nn_axi_wrapper.v
+read_verilog -sv tpu_axis_checker.sv
+chparam -set PROP 4 tpu_axis_checker
+prep -top tpu_axis_checker -flatten
+
+[files]
+../../../phase_7/fault_models/nn_axis_master.v
+../../../phase_7/fault_models/nn_axi_wrapper.v
+tpu_axis_checker.sv

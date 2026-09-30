@@ -1,0 +1,13 @@
+[options]
+mode bmc
+depth 5
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal nn_axis_master.v
+prep -top nn_axis_master
+
+[files]
+../../../phase_7/fault_models/nn_axis_master.v

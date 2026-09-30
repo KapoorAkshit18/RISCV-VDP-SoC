@@ -1,0 +1,22 @@
+SBY  4:20:48 [soc_mem_interconnect] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/interconnect/soc_mem_interconnect'.
+SBY  4:20:48 [soc_mem_interconnect] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/interconnect/../../../phase_7/fault_models/soc_mem_interconnect.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/interconnect/soc_mem_interconnect/src/soc_mem_interconnect.v'.
+SBY  4:20:48 [soc_mem_interconnect] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/interconnect/soc_mem_interconnect_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/interconnect/soc_mem_interconnect/src/soc_mem_interconnect_formal.sv'.
+SBY  4:20:48 [soc_mem_interconnect] engine_0: smtbmc z3
+SBY  4:20:48 [soc_mem_interconnect] base: starting process "cd soc_mem_interconnect/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  4:20:49 [soc_mem_interconnect] base: finished (returncode=0)
+SBY  4:20:49 [soc_mem_interconnect] prep: starting process "cd soc_mem_interconnect/model; yosys -ql design_prep.log design_prep.ys"
+SBY  4:20:49 [soc_mem_interconnect] prep: finished (returncode=0)
+SBY  4:20:49 [soc_mem_interconnect] smt2: starting process "cd soc_mem_interconnect/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  4:20:49 [soc_mem_interconnect] smt2: finished (returncode=0)
+SBY  4:20:49 [soc_mem_interconnect] engine_0: starting process "cd soc_mem_interconnect; yosys-smtbmc -s z3 --presat --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  4:20:50 [soc_mem_interconnect] engine_0: ##   0:00:00  Solver: z3
+SBY  4:20:50 [soc_mem_interconnect] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  4:20:50 [soc_mem_interconnect] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  4:20:50 [soc_mem_interconnect] engine_0: ##   0:00:00  Status: passed
+SBY  4:20:50 [soc_mem_interconnect] engine_0: finished (returncode=0)
+SBY  4:20:50 [soc_mem_interconnect] engine_0: Status returned by engine: pass
+SBY  4:20:50 [soc_mem_interconnect] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  4:20:50 [soc_mem_interconnect] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  4:20:50 [soc_mem_interconnect] summary: engine_0 (smtbmc z3) returned pass
+SBY  4:20:50 [soc_mem_interconnect] summary: engine_0 did not produce any traces
+SBY  4:20:50 [soc_mem_interconnect] DONE (PASS, rc=0)

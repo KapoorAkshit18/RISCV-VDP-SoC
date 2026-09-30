@@ -1,0 +1,10 @@
+# running in test_axis/src/
+read_verilog -formal nn_axis_master.v
+read_verilog -sv -DPROP=1 tpu_axis_checker.sv
+chparam -set PROP 1 tpu_axis_checker
+prep -top tpu_axis_checker
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

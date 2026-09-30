@@ -1,0 +1,12 @@
+SBY  6:20:41 [test_wrapper] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_wrapper'.
+SBY  6:20:41 [test_wrapper] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_wrapper/src/nn_axi_wrapper.v'.
+SBY  6:20:41 [test_wrapper] engine_0: smtbmc z3
+SBY  6:20:41 [test_wrapper] base: starting process "cd test_wrapper/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:20:41 [test_wrapper] base: finished (returncode=0)
+SBY  6:20:41 [test_wrapper] prep: starting process "cd test_wrapper/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:20:42 [test_wrapper] prep: finished (returncode=0)
+SBY  6:20:42 [test_wrapper] smt2: starting process "cd test_wrapper/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:20:42 [test_wrapper] smt2: finished (returncode=0)
+SBY  6:20:42 [test_wrapper] engine_0: starting process "cd test_wrapper; yosys-smtbmc -s z3 --presat --noprogress -t 5  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:20:42 [test_wrapper] engine_0: ##   0:00:00  Solver: z3
+SBY  6:20:50 [test_wrapper] engine_0: terminating process

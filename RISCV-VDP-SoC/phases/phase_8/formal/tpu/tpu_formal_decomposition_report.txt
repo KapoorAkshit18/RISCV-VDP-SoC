@@ -1,0 +1,39 @@
+TPU Formal Verification - Interface Decomposition & Mutation Report
+===================================================================
+
+1. Root Cause of Full TPU Property Intractability
+-------------------------------------------------
+The original full TPU formal target encountered a zero-state (Step 0) intractability bottleneck because it instantiated both `nn_axi_wrapper` and `nn_axis_master` together. SMT modeling of the `nn_axi_wrapper` module generates an exceedingly dense combinational multiplexer mapping for 448 bits of byte-enabled payload inputs to the master interface. When provided to the Z3 solver even under strict boundary constraints, this single-step combinational complexity completely exhausts the 300-second budget during initialization, preventing any temporal exploration.
+
+2. Tractability via Property Decomposition
+-------------------------------tpu_formal_decomposition_report.txt-----------
+By structurally decoupling the interface and targeting the abstract AXI Stream master interface (`nn_axis_master`) directly, the state space is radically simplified. The payload initialization constraints allow Yosys `prep` to statically prune the unmapped combinational depth. 
+The following properties were demonstrated to be independently tractable using bounded model checking:
+- TPU_P01 (VALID stability) -> PASS within BMC bound
+- TPU_P02 (Payload stability) -> PASS within BMC bound
+- TPU_P03 (Transfer qualification) -> PASS within BMC bound
+- TPU_P04 (TLAST behavior) -> PASS within BMC bound
+- TPU_P06 (BUSY/DONE sequencing) -> PASS within BMC bound
+
+Conversely, properties that intrinsically require the `nn_axi_wrapper` data paths remain intractable:
+- TPU_P05 (START behavior) -> NOT PROVEN — TIMEOUT (solver initialization bottleneck)
+
+3. Runtime versus BMC Depth
+---------------------------
+For the tractable subset (P01, P02, P03, P04, P06), solver initialization completes almost instantly, and runtime scales linearly and trivially across depth bounds (Depth 1 to Depth 10 evaluate extremely fast). There is no observable depth-dependent state-space explosion on the unrolled AXI-stream handshake logic.
+
+4. Mutation Fault Detection
+---------------------------
+To verify that the tractable bounded proofs successfully constrain actual specification requirements, three structural RTL faults were injected into the golden `nn_axis_master`.
+- M01 (Payload mutation during stall): Detected. TPU_P02 successfully produced a counterexample demonstrating the payload violation.
+- M02 (TLAST beat assertion error): Detected. TPU_P04 successfully produced a counterexample demonstrating premature TLAST generation.
+- M03 (Unqualified handshake transfer): Detected. TPU_P03 successfully produced a counterexample when the transfer occurred without READY.
+
+5. Verification Limitations
+---------------------------
+While the AXI stream interface semantics are exhaustively proven within the evaluated BMC bounds, the MMIO peripheral address decode, byte-enable qualification, and START trigger routing (TPU_P05) fundamentally exceed the capacity of the current SMT BMC methodology due to combinational density. Consequently, validation of the MMIO boundary and data-path loading still strictly requires the UVM dynamic simulation environment, though structural regression faults within the Stream master control plane are now formally covered.
+
+Conclusion
+----------
+The evidence confirms that the formal verification bottleneck is explicitly localized to the MMIO configuration layer mapping. By replacing the overarching functional property with smaller, interface-specific specifications directed at the decoupled submodules, the fundamental transfer behavior (VALID, payload stability, READY qualification, and TLAST) can be rigorously and efficiently verified using the existing bounded model checker.
+

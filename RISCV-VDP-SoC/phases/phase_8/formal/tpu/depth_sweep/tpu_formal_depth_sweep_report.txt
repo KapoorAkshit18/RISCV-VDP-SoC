@@ -1,0 +1,28 @@
+TPU Formal Verification - BMC Depth Sweep Report
+================================================
+
+Environment
+-----------
+- RTL files used: `nn_axi_wrapper.v`, `nn_axis_master.v`
+- Formal top: `tpu_interface_formal`
+- Property ID: `TPU_A01` (Master VALID/READY stability)
+- Solver: `smtbmc z3`
+- Timeout: 300 seconds per run
+- Engine/Version: Yosys 0.33, SBY v0.67
+
+Results
+-------
+| Depth | Result  | Runtime | Assertions | Covers | Counterexample |
+| ----: | ------- | ------: | ---------: | -----: | -------------- |
+|     1 | TIMEOUT |    300s |          1 |      3 |             NO |
+|     2 | TIMEOUT |    300s |          1 |      3 |             NO |
+|     4 | TIMEOUT |    300s |          1 |      3 |             NO |
+|     6 | TIMEOUT |    300s |          1 |      3 |             NO |
+|     8 | TIMEOUT |    300s |          1 |      3 |             NO |
+|    10 | TIMEOUT |    300s |          1 |      3 |             NO |
+
+Interpretation
+--------------
+The TPU interface property was evaluated using bounded model checking at depths 1, 2, 4, 6, 8, and 10 with a 300-second per-run computational budget. The property remained computationally intractable within the configured 300-second budget, including at shallow bounds. The solver consistently terminated via the external timeout mechanism while evaluating the step 0 assumption state. 
+
+Because the runtime budget is entirely exhausted during the initial combinatorial parsing phase across all depth configurations, the evidence does not establish depth-dependent state-space complexity growth; rather, the dominant complexity is present fundamentally at depth 1. The TPU target is not formally verified, and no counterexamples were found.

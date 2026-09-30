@@ -1,0 +1,9 @@
+# running in test_mmio/src/
+read_verilog -formal nn_axi_wrapper.v
+read_verilog -sv tpu_mmio_checker.sv
+prep -top tpu_mmio_checker
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,9 @@
+# running in test_checker/src/
+read_verilog -formal nn_axis_master.v
+read_verilog -sv -DPROP=1 tpu_checker.sv
+prep -top tpu_checker
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

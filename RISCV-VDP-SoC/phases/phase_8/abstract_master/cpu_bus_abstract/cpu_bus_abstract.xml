@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T02:39:59" hostname="Envy" package="cpu_bus_abstract" id="0" name="default" tests="22" errors="0" failures="0" time="28" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:107.40-109.42" time="0" type="ASSERT" location="cpu_bus_formal.sv:107.40-109.42" id="$assert$cpu_bus_formal.sv:107$246">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:42.61-43.42" time="0" type="ASSERT" location="cpu_bus_formal.sv:42.61-43.42" id="$assert$cpu_bus_formal.sv:42$225">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:43.43-44.53" time="0" type="ASSERT" location="cpu_bus_formal.sv:43.43-44.53" id="$assert$cpu_bus_formal.sv:43$226">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:44.54-45.54" time="0" type="ASSERT" location="cpu_bus_formal.sv:44.54-45.54" id="$assert$cpu_bus_formal.sv:44$227">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:45.55-46.54" time="0" type="ASSERT" location="cpu_bus_formal.sv:45.55-46.54" id="$assert$cpu_bus_formal.sv:45$228">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:46.55-47.54" time="0" type="ASSERT" location="cpu_bus_formal.sv:46.55-47.54" id="$assert$cpu_bus_formal.sv:46$229">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:55.26-56.41" time="0" type="ASSERT" location="cpu_bus_formal.sv:55.26-56.41" id="$assert$cpu_bus_formal.sv:55$230">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:56.42-57.44" time="0" type="ASSERT" location="cpu_bus_formal.sv:56.42-57.44" id="$assert$cpu_bus_formal.sv:56$231">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:57.45-58.40" time="0" type="ASSERT" location="cpu_bus_formal.sv:57.45-58.40" id="$assert$cpu_bus_formal.sv:57$232">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:58.41-59.41" time="0" type="ASSERT" location="cpu_bus_formal.sv:58.41-59.41" id="$assert$cpu_bus_formal.sv:58$233">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:59.42-60.41" time="0" type="ASSERT" location="cpu_bus_formal.sv:59.42-60.41" id="$assert$cpu_bus_formal.sv:59$234">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:60.42-61.41" time="0" type="ASSERT" location="cpu_bus_formal.sv:60.42-61.41" id="$assert$cpu_bus_formal.sv:60$235">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:61.42-62.41" time="0" type="ASSERT" location="cpu_bus_formal.sv:61.42-62.41" id="$assert$cpu_bus_formal.sv:61$236">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:76.41-78.42" time="0" type="ASSERT" location="cpu_bus_formal.sv:76.41-78.42" id="$assert$cpu_bus_formal.sv:76$237">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:78.43-79.45" time="0" type="ASSERT" location="cpu_bus_formal.sv:78.43-79.45" id="$assert$cpu_bus_formal.sv:78$238">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:79.46-80.45" time="0" type="ASSERT" location="cpu_bus_formal.sv:79.46-80.45" id="$assert$cpu_bus_formal.sv:79$239">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:80.46-82.43" time="0" type="ASSERT" location="cpu_bus_formal.sv:80.46-82.43" id="$assert$cpu_bus_formal.sv:80$240">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:82.44-83.45" time="0" type="ASSERT" location="cpu_bus_formal.sv:82.44-83.45" id="$assert$cpu_bus_formal.sv:82$241">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:83.46-84.43" time="0" type="ASSERT" location="cpu_bus_formal.sv:83.46-84.43" id="$assert$cpu_bus_formal.sv:83$242">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:85.27-87.42" time="0" type="ASSERT" location="cpu_bus_formal.sv:85.27-87.42" id="$assert$cpu_bus_formal.sv:85$243">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:95.99-97.40" time="0" type="ASSERT" location="cpu_bus_formal.sv:95.99-97.40" id="$assert$cpu_bus_formal.sv:95$244">
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/u_checker at cpu_bus_formal.sv:97.41-98.41" time="0" type="ASSERT" location="cpu_bus_formal.sv:97.41-98.41" id="$assert$cpu_bus_formal.sv:97$245">
+</testcase>
+<system-out>SBY  2:39:29 [cpu_bus_abstract] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_abstract'.
+SBY  2:39:30 [cpu_bus_abstract] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/../../phase_7/fault_models/cpu_bus_adapter.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_abstract/src/cpu_bus_adapter.v'.
+SBY  2:39:30 [cpu_bus_abstract] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/../../phase_7/fault_models/soc_mem_interconnect.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_abstract/src/soc_mem_interconnect.v'.
+SBY  2:39:30 [cpu_bus_abstract] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/../../phase_7/fault_models/soc_ram.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_abstract/src/soc_ram.v'.
+SBY  2:39:30 [cpu_bus_abstract] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/formal_cpu_master.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_abstract/src/formal_cpu_master.sv'.
+SBY  2:39:30 [cpu_bus_abstract] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_abstract/src/cpu_bus_formal.sv'.
+SBY  2:39:30 [cpu_bus_abstract] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_ram_subsystem_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/abstract_master/cpu_bus_abstract/src/cpu_ram_subsystem_formal.sv'.
+SBY  2:39:30 [cpu_bus_abstract] engine_0: smtbmc z3
+SBY  2:39:30 [cpu_bus_abstract] base: starting process &quot;cd cpu_bus_abstract/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Resizing cell port cpu_ram_subsystem_formal.u_interconnect.gpio_addr from 32 bits to 12 bits.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [3] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [2] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [1] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [0] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [31] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [30] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [29] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [28] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [27] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [26] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [25] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [24] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [23] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [22] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [21] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [20] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [19] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [18] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [17] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [16] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [15] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [14] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [13] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [12] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [11] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [10] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [9] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [8] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [7] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [6] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [5] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [4] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [3] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [2] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [1] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [0] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_valid is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_instr is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [31] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [30] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [29] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [28] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [27] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [26] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [25] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [24] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [23] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [22] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [21] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [20] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [19] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [18] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [17] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [16] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [15] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [14] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [13] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [12] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [11] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [10] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [9] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [8] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [7] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [6] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [5] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [4] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [3] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [2] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [1] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\f_addr [0] is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: Warning: Wire cpu_ram_subsystem_formal.\resetn is used but has no driver.
+SBY  2:39:30 [cpu_bus_abstract] base: finished (returncode=0)
+SBY  2:39:30 [cpu_bus_abstract] prep: starting process &quot;cd cpu_bus_abstract/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [3] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [2] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [1] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wstrb [0] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [31] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [30] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [29] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [28] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [27] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [26] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [25] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [24] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [23] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [22] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [21] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [20] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [19] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [18] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [17] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [16] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [15] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [14] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [13] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [12] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [11] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [10] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [9] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [8] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [7] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [6] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [5] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [4] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [3] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [2] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [1] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_wdata [0] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_valid is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_instr is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [31] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [30] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [29] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [28] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [27] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [26] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [25] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [24] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [23] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [22] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [21] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [20] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [19] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [18] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [17] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [16] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [15] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [14] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [13] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [12] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [11] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [10] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [9] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [8] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [7] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [6] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [5] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [4] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [3] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [2] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [1] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\f_addr [0] is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: Warning: Wire cpu_ram_subsystem_formal.\resetn is used but has no driver.
+SBY  2:39:31 [cpu_bus_abstract] prep: finished (returncode=0)
+SBY  2:39:31 [cpu_bus_abstract] smt2: starting process &quot;cd cpu_bus_abstract/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  2:39:31 [cpu_bus_abstract] smt2: finished (returncode=0)
+SBY  2:39:31 [cpu_bus_abstract] engine_0: starting process &quot;cd cpu_bus_abstract; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  2:39:31 [cpu_bus_abstract] engine_0: ##   0:00:00  Solver: z3
+SBY  2:39:31 [cpu_bus_abstract] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  2:39:32 [cpu_bus_abstract] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  2:39:32 [cpu_bus_abstract] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  2:39:32 [cpu_bus_abstract] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  2:39:32 [cpu_bus_abstract] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  2:39:32 [cpu_bus_abstract] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  2:39:32 [cpu_bus_abstract] engine_0: ##   0:00:01  Checking assumptions in step 3..
+SBY  2:39:32 [cpu_bus_abstract] engine_0: ##   0:00:01  Checking assertions in step 3..
+SBY  2:39:33 [cpu_bus_abstract] engine_0: ##   0:00:01  Checking assumptions in step 4..
+SBY  2:39:33 [cpu_bus_abstract] engine_0: ##   0:00:01  Checking assertions in step 4..
+SBY  2:39:33 [cpu_bus_abstract] engine_0: ##   0:00:01  Checking assumptions in step 5..
+SBY  2:39:35 [cpu_bus_abstract] engine_0: ##   0:00:03  Checking assertions in step 5..
+SBY  2:39:36 [cpu_bus_abstract] engine_0: ##   0:00:04  Checking assumptions in step 6..
+SBY  2:39:39 [cpu_bus_abstract] engine_0: ##   0:00:08  Checking assertions in step 6..
+SBY  2:39:40 [cpu_bus_abstract] engine_0: ##   0:00:08  Checking assumptions in step 7..
+SBY  2:39:42 [cpu_bus_abstract] engine_0: ##   0:00:11  Checking assertions in step 7..
+SBY  2:39:43 [cpu_bus_abstract] engine_0: ##   0:00:11  Checking assumptions in step 8..
+SBY  2:39:51 [cpu_bus_abstract] engine_0: ##   0:00:20  Checking assertions in step 8..
+SBY  2:39:54 [cpu_bus_abstract] engine_0: ##   0:00:22  Checking assumptions in step 9..
+SBY  2:39:55 [cpu_bus_abstract] engine_0: ##   0:00:23  Checking assertions in step 9..
+SBY  2:39:59 [cpu_bus_abstract] engine_0: ##   0:00:27  Status: passed
+SBY  2:39:59 [cpu_bus_abstract] engine_0: finished (returncode=0)
+SBY  2:39:59 [cpu_bus_abstract] engine_0: Status returned by engine: pass
+SBY  2:39:59 [cpu_bus_abstract] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:29 (29)
+SBY  2:39:59 [cpu_bus_abstract] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:28 (28)
+SBY  2:39:59 [cpu_bus_abstract] summary: engine_0 (smtbmc z3) returned pass
+SBY  2:39:59 [cpu_bus_abstract] summary: engine_0 did not produce any traces
+SBY  2:39:59 [cpu_bus_abstract] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

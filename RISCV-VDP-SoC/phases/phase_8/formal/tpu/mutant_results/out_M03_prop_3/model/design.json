@@ -1,0 +1,682 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "tpu_axis_checker",
+        "cell_sorts": [
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$206",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:60.5-60.40"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$207",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:63.5-68.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000001000000"
+                  }
+                },
+                {
+                  "name": "$procdff$208",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:63.5-68.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$209",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:63.5-68.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$210",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:70.5-107.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$211",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:70.5-107.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$212",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:70.5-107.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$213",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:70.5-107.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$214",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:70.5-107.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$tpu_axis_checker.sv:64$64",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:64.13-64.27"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_axis_checker.sv:88$75",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:88.21-88.66"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_master.$procmux$166_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:181.13-361.20|M03_nn_axis_master.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$tpu_axis_checker.sv:61$58",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:61.34-61.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$tpu_axis_checker.sv:64$63",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:64.13-64.18"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$tpu_axis_checker.sv:88$74",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:88.45-88.66"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_master.$procmux$129",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:392.9-447.12|M03_nn_axis_master.v:392.13-392.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procmux$159",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:244.29-256.32|M03_nn_axis_master.v:244.33-244.49"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procmux$161",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:238.25-258.28|M03_nn_axis_master.v:238.29-238.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procmux$176",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:244.29-256.32|M03_nn_axis_master.v:244.33-244.49"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procmux$178",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:238.25-258.28|M03_nn_axis_master.v:238.29-238.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procmux$181",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:198.25-216.28|M03_nn_axis_master.v:198.29-198.39"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$85",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:61.17-61.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$87",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:61.17-61.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$89",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:64.9-67.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$91",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:64.9-67.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$93",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:88.17-90.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$95",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:71.9-106.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$97",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:88.17-90.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$99",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:71.9-106.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [2, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_master.$procdff$219",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procdff$220",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:144.5-365.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_master.$procmux$163",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:181.13-361.20|M03_nn_axis_master.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procmux$167",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:181.13-361.20|M03_nn_axis_master.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_master.$add$M03_nn_axis_master.v:254$4",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:254.45-254.60"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [64, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [64, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$tpu_axis_checker.sv:66$65",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:66.20-66.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000001000000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000001000000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$tpu_axis_checker.sv:89$76",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:89.28-89.73"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$eq$M03_nn_axis_master.v:244$3",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:244.33-244.49"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$eq$M03_nn_axis_master.v:392$8",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:392.13-392.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_master.$procmux$168_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_axis_checker.sv:34.20-57.6|M03_nn_axis_master.v:181.13-361.20|M03_nn_axis_master.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assume",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assume$tpu_axis_checker.sv:61$77",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:61.26-61.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$tpu_axis_checker.sv:64$78",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:64.34-66.46"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assert",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assert$tpu_axis_checker.sv:88$79",
+                  "attributes": {
+                    "src": "tpu_axis_checker.sv:88.73-89.74"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "tpu_axis_checker.sv:1.1-109.10",
+            "top": "00000000000000000000000000000001",
+            "hdlname": "\\tpu_axis_checker"
+        }
+      }
+  ]
+}

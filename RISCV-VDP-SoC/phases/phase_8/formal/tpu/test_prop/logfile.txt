@@ -1,0 +1,14 @@
+SBY  6:22:31 [test_prop] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_prop'.
+SBY  6:22:31 [test_prop] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_prop/src/nn_axi_wrapper.v'.
+SBY  6:22:31 [test_prop] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_prop/src/nn_axis_master.v'.
+SBY  6:22:31 [test_prop] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_formal_top.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_prop/src/tpu_formal_top.sv'.
+SBY  6:22:31 [test_prop] engine_0: smtbmc z3
+SBY  6:22:31 [test_prop] base: starting process "cd test_prop/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:22:33 [test_prop] base: finished (returncode=0)
+SBY  6:22:33 [test_prop] prep: starting process "cd test_prop/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:22:34 [test_prop] prep: finished (returncode=0)
+SBY  6:22:34 [test_prop] smt2: starting process "cd test_prop/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:22:34 [test_prop] smt2: finished (returncode=0)
+SBY  6:22:34 [test_prop] engine_0: starting process "cd test_prop; yosys-smtbmc -s z3 --presat --noprogress -t 5  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:22:34 [test_prop] engine_0: ##   0:00:00  Solver: z3
+SBY  6:22:45 [test_prop] engine_0: terminating process

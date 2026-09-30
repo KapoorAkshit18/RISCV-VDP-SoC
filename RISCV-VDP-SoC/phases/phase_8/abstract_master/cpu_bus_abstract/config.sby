@@ -1,0 +1,23 @@
+[options]
+mode bmc
+depth 10
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal cpu_bus_adapter.v
+read_verilog -formal soc_mem_interconnect.v
+read_verilog -formal soc_ram.v
+read_verilog -sv formal_cpu_master.sv
+read_verilog -sv cpu_bus_formal.sv
+read_verilog -sv cpu_ram_subsystem_formal.sv
+prep -top cpu_ram_subsystem_formal
+
+[files]
+../../phase_7/fault_models/cpu_bus_adapter.v
+../../phase_7/fault_models/soc_mem_interconnect.v
+../../phase_7/fault_models/soc_ram.v
+formal_cpu_master.sv
+cpu_bus_formal.sv
+cpu_ram_subsystem_formal.sv

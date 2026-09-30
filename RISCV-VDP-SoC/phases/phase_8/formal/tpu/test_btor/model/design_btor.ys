@@ -1,0 +1,13 @@
+# running in test_btor/model/
+read_rtlil design_prep.il
+hierarchy -simcheck
+delete */t:$print
+formalff -assume
+flatten
+setundef -undriven -anyseq
+opt -fast
+delete -output
+dffunmap
+stat
+write_btor -i design_btor.info -ywmap design_btor.ywb design_btor.btor
+write_btor -s -i design_btor_single.info -ywmap design_btor_single.ywb design_btor_single.btor

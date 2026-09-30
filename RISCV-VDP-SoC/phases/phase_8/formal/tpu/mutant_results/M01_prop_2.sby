@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 10
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal M01_nn_axis_master.v
+read_verilog -sv tpu_axis_checker.sv
+chparam -set PROP 2 tpu_axis_checker
+prep -top tpu_axis_checker -flatten
+
+[files]
+mutants/M01_nn_axis_master.v
+tpu_axis_checker.sv

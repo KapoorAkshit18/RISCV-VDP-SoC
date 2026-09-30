@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T04:24:45" hostname="Envy" package="tpu_interface" id="0" name="default" tests="0" errors="1" failures="0" time="2" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="ERROR"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<error type="ERROR"/>
+</testcase>
+<system-out>SBY  4:24:07 [tpu_interface] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_interface'.
+SBY  4:24:07 [tpu_interface] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_interface/src/nn_axi_wrapper.v'.
+SBY  4:24:07 [tpu_interface] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_interface/src/nn_axis_master.v'.
+SBY  4:24:07 [tpu_interface] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_interface_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_interface/src/tpu_interface_formal.sv'.
+SBY  4:24:07 [tpu_interface] engine_0: smtbmc z3
+SBY  4:24:07 [tpu_interface] base: starting process &quot;cd tpu_interface/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  4:24:09 [tpu_interface] base: finished (returncode=0)
+SBY  4:24:09 [tpu_interface] prep: starting process &quot;cd tpu_interface/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  4:24:10 [tpu_interface] prep: finished (returncode=0)
+SBY  4:24:10 [tpu_interface] smt2: starting process &quot;cd tpu_interface/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  4:24:10 [tpu_interface] smt2: finished (returncode=0)
+SBY  4:24:10 [tpu_interface] engine_0: starting process &quot;cd tpu_interface; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  4:24:10 [tpu_interface] engine_0: ##   0:00:00  Solver: z3
+SBY  4:24:45 [tpu_interface] engine_0: finished (returncode=-9)
+SBY  4:24:45 [tpu_interface] ERROR: engine_0: Engine terminated without status.
+SBY  4:24:45 [tpu_interface] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:38 (38)
+SBY  4:24:45 [tpu_interface] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  4:24:45 [tpu_interface] summary: engine_0 (smtbmc z3) did not return a status
+SBY  4:24:45 [tpu_interface] summary: engine_0 did not produce any traces
+SBY  4:24:45 [tpu_interface] DONE (ERROR, rc=16)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T06:39:26" hostname="Envy" package="M01_prop_2" id="0" name="default" tests="1" errors="0" failures="2" time="0" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in tpu_axis_checker at tpu_axis_checker.sv:81.73-82.64" time="0" type="ASSERT" location="tpu_axis_checker.sv:81.73-82.64" id="$assert$tpu_axis_checker.sv:81$84" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in tpu_axis_checker at tpu_axis_checker.sv:81.73-82.64 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<system-out>SBY  6:39:24 [mutant_results/out_M01_prop_2] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/mutant_results/out_M01_prop_2'.
+SBY  6:39:24 [mutant_results/out_M01_prop_2] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/mutants/M01_nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/mutant_results/out_M01_prop_2/src/M01_nn_axis_master.v'.
+SBY  6:39:24 [mutant_results/out_M01_prop_2] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_axis_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/mutant_results/out_M01_prop_2/src/tpu_axis_checker.sv'.
+SBY  6:39:24 [mutant_results/out_M01_prop_2] engine_0: smtbmc z3
+SBY  6:39:24 [mutant_results/out_M01_prop_2] base: starting process &quot;cd mutant_results/out_M01_prop_2/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  6:39:25 [mutant_results/out_M01_prop_2] base: finished (returncode=0)
+SBY  6:39:25 [mutant_results/out_M01_prop_2] prep: starting process &quot;cd mutant_results/out_M01_prop_2/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  6:39:25 [mutant_results/out_M01_prop_2] prep: finished (returncode=0)
+SBY  6:39:25 [mutant_results/out_M01_prop_2] smt2: starting process &quot;cd mutant_results/out_M01_prop_2/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  6:39:25 [mutant_results/out_M01_prop_2] smt2: finished (returncode=0)
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: starting process &quot;cd mutant_results/out_M01_prop_2; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Solver: z3
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  BMC failed!
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Assert failed in tpu_axis_checker: tpu_axis_checker.sv:81.73-82.64 ($assert$tpu_axis_checker.sv:81$84)
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: ##   0:00:00  Status: failed
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: finished (returncode=1)
+SBY  6:39:25 [mutant_results/out_M01_prop_2] engine_0: Status returned by engine: FAIL
+SBY  6:39:25 [mutant_results/out_M01_prop_2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  6:39:25 [mutant_results/out_M01_prop_2] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:39:25 [mutant_results/out_M01_prop_2] summary: engine_0 (smtbmc z3) returned FAIL
+SBY  6:39:25 [mutant_results/out_M01_prop_2] summary: counterexample trace: mutant_results/out_M01_prop_2/engine_0/trace.vcd
+SBY  6:39:25 [mutant_results/out_M01_prop_2] summary:   failed assertion tpu_axis_checker.$assert$tpu_axis_checker.sv:81$84 at tpu_axis_checker.sv:81.73-82.64 step 4
+SBY  6:39:26 [mutant_results/out_M01_prop_2] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

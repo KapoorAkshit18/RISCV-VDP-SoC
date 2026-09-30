@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 10
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal sensor_status_native.v
+read_verilog -sv sensor_interface_formal.sv
+prep -top sensor_interface_formal
+
+[files]
+../../../phase_7/fault_models/sensor_status_native.v
+sensor_interface_formal.sv

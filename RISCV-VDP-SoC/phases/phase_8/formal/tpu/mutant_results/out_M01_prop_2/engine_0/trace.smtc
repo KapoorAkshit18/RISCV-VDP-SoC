@@ -1,0 +1,45 @@
+initial
+assume (= [$formal$tpu_axis_checker.sv:81$58_EN] false)
+assume (= [_witness_.anyinit_flatten_u_master__procdff_224] #b01)
+assume (= [_witness_.anyinit_flatten_u_master__procdff_225] #b000)
+assume (= [_witness_.anyinit_procdff_212] #x0000000000000000)
+assume (= [_witness_.anyinit_procdff_215] false)
+assume (= [_witness_.anyinit_procdff_216] false)
+assume (= [_witness_.anyinit_procdff_217] #x0000000000000000)
+assume (= [_witness_.anyinit_procdff_218] false)
+assume (= [init] true)
+
+state 0
+assume (= [axis_start] false)
+assume (= [clk] false)
+assume (= [data_in] #x0000000000000000)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] false)
+
+state 1
+assume (= [axis_start] true)
+assume (= [clk] false)
+assume (= [data_in] #x0000000000000000)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] true)
+
+state 2
+assume (= [axis_start] false)
+assume (= [clk] false)
+assume (= [data_in] #x0000000000000000)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] true)
+
+state 3
+assume (= [axis_start] false)
+assume (= [clk] false)
+assume (= [data_in] #x0000000000000000)
+assume (= [m_axis_tready] true)
+assume (= [rst_n] true)
+
+state 4
+assume (= [axis_start] false)
+assume (= [clk] false)
+assume (= [data_in] #x0000000000004000)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] false)

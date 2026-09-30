@@ -1,0 +1,11 @@
+# running in test_prop/src/
+read_verilog -formal nn_axi_wrapper.v
+read_verilog -formal nn_axis_master.v
+read_verilog -sv tpu_formal_top.sv
+chparam -set PROP 1 tpu_formal_top
+prep -top tpu_formal_top
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

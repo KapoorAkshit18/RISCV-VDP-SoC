@@ -1,0 +1,19 @@
+SBY  6:31:45 [test_mmio] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_mmio'.
+SBY  6:31:46 [test_mmio] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_mmio/src/nn_axi_wrapper.v'.
+SBY  6:31:46 [test_mmio] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_mmio_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_mmio/src/tpu_mmio_checker.sv'.
+SBY  6:31:46 [test_mmio] engine_0: smtbmc z3
+SBY  6:31:46 [test_mmio] base: starting process "cd test_mmio/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:31:47 [test_mmio] base: finished (returncode=0)
+SBY  6:31:47 [test_mmio] prep: starting process "cd test_mmio/model; yosys -ql design_prep.log design_prep.ys"
+SBY  6:31:48 [test_mmio] prep: finished (returncode=0)
+SBY  6:31:48 [test_mmio] smt2: starting process "cd test_mmio/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  6:31:48 [test_mmio] smt2: finished (returncode=0)
+SBY  6:31:48 [test_mmio] engine_0: starting process "cd test_mmio; yosys-smtbmc -s z3 --presat --noprogress -t 5  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  6:31:48 [test_mmio] engine_0: ##   0:00:00  Solver: z3
+SBY  6:32:25 [test_mmio] engine_0: finished (returncode=-9)
+SBY  6:32:25 [test_mmio] ERROR: engine_0: Engine terminated without status.
+SBY  6:32:25 [test_mmio] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:39 (39)
+SBY  6:32:25 [test_mmio] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  6:32:25 [test_mmio] summary: engine_0 (smtbmc z3) did not return a status
+SBY  6:32:25 [test_mmio] summary: engine_0 did not produce any traces
+SBY  6:32:25 [test_mmio] DONE (ERROR, rc=16)

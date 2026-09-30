@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T06:32:25" hostname="Envy" package="test_mmio" id="0" name="default" tests="1" errors="1" failures="0" time="2" skipped="1">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="ERROR"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<error type="ERROR"/>
+</testcase>
+<testcase classname="default" name="Property ASSERT in tpu_mmio_checker at tpu_mmio_checker.sv:70.114-71.47" time="0" type="ASSERT" location="tpu_mmio_checker.sv:70.114-71.47" id="$assert$tpu_mmio_checker.sv:70$67">
+<skipped />
+</testcase>
+<system-out>SBY  6:31:45 [test_mmio] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_mmio'.
+SBY  6:31:46 [test_mmio] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_mmio/src/nn_axi_wrapper.v'.
+SBY  6:31:46 [test_mmio] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_mmio_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_mmio/src/tpu_mmio_checker.sv'.
+SBY  6:31:46 [test_mmio] engine_0: smtbmc z3
+SBY  6:31:46 [test_mmio] base: starting process &quot;cd test_mmio/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  6:31:47 [test_mmio] base: finished (returncode=0)
+SBY  6:31:47 [test_mmio] prep: starting process &quot;cd test_mmio/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  6:31:48 [test_mmio] prep: finished (returncode=0)
+SBY  6:31:48 [test_mmio] smt2: starting process &quot;cd test_mmio/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  6:31:48 [test_mmio] smt2: finished (returncode=0)
+SBY  6:31:48 [test_mmio] engine_0: starting process &quot;cd test_mmio; yosys-smtbmc -s z3 --presat --noprogress -t 5  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  6:31:48 [test_mmio] engine_0: ##   0:00:00  Solver: z3
+SBY  6:32:25 [test_mmio] engine_0: finished (returncode=-9)
+SBY  6:32:25 [test_mmio] ERROR: engine_0: Engine terminated without status.
+SBY  6:32:25 [test_mmio] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:39 (39)
+SBY  6:32:25 [test_mmio] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  6:32:25 [test_mmio] summary: engine_0 (smtbmc z3) did not return a status
+SBY  6:32:25 [test_mmio] summary: engine_0 did not produce any traces
+SBY  6:32:25 [test_mmio] DONE (ERROR, rc=16)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

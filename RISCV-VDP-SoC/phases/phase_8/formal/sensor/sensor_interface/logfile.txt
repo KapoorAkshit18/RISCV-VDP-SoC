@@ -1,0 +1,40 @@
+SBY  3:16:41 [sensor_interface] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_interface'.
+SBY  3:16:41 [sensor_interface] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/../../../phase_7/fault_models/sensor_status_native.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_interface/src/sensor_status_native.v'.
+SBY  3:16:41 [sensor_interface] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_interface_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_interface/src/sensor_interface_formal.sv'.
+SBY  3:16:41 [sensor_interface] engine_0: smtbmc z3
+SBY  3:16:41 [sensor_interface] base: starting process "cd sensor_interface/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  3:16:41 [sensor_interface] base: finished (returncode=0)
+SBY  3:16:41 [sensor_interface] prep: starting process "cd sensor_interface/model; yosys -ql design_prep.log design_prep.ys"
+SBY  3:16:41 [sensor_interface] prep: finished (returncode=0)
+SBY  3:16:41 [sensor_interface] smt2: starting process "cd sensor_interface/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  3:16:41 [sensor_interface] smt2: finished (returncode=0)
+SBY  3:16:41 [sensor_interface] engine_0: starting process "cd sensor_interface; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Solver: z3
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY  3:16:42 [sensor_interface] engine_0: ##   0:00:00  Status: passed
+SBY  3:16:42 [sensor_interface] engine_0: finished (returncode=0)
+SBY  3:16:42 [sensor_interface] engine_0: Status returned by engine: pass
+SBY  3:16:42 [sensor_interface] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  3:16:42 [sensor_interface] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  3:16:42 [sensor_interface] summary: engine_0 (smtbmc z3) returned pass
+SBY  3:16:42 [sensor_interface] summary: engine_0 did not produce any traces
+SBY  3:16:42 [sensor_interface] DONE (PASS, rc=0)

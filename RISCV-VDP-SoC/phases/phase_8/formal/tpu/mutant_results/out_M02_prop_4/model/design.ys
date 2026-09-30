@@ -1,0 +1,10 @@
+# running in mutant_results/out_M02_prop_4/src/
+read_verilog -formal M02_nn_axis_master.v
+read_verilog -sv tpu_axis_checker.sv
+chparam -set PROP 4 tpu_axis_checker
+prep -top tpu_axis_checker -flatten
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

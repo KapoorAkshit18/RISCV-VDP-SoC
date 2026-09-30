@@ -1,0 +1,12 @@
+target,property_id,property_description,engine,depth,result,runtime_seconds,solver,counterexample,notes
+CPU/RAM,ABS_A01,Abstract CPU bus protocol and decoding,smtbmc,10,PASS,28,z3,None,"Verified in previous session. Memory map decoding and bus stability proven."
+Sensor,SEN_AS01,Reset initialization,smtbmc,10,PASS,1,z3,None,"Standard formal initialization."
+Sensor,SEN_A01,Read-only behavior and write ignoring,smtbmc,10,PASS,1,z3,None,"Writes to RO registers return mem_ready=1 and rdata=0."
+Sensor,SEN_A02,Battery low logic threshold correctness,smtbmc,10,PASS,1,z3,None,"Validates BATT_LOW_THRESH=15 triggers battery_low bit."
+Sensor,SEN_A03,Temperature alarm logic threshold,smtbmc,10,PASS,1,z3,None,"Validates TEMP_ALARM_HIGH=800 signed triggers temp_alarm bit."
+Sensor,SEN_A04,Unmapped access read behavior,smtbmc,10,PASS,1,z3,None,"Addresses outside valid offset map return 0 safely."
+Sensor,SEN_C01_C08,Boundary value coverages,smtbmc,10,PASS,1,z3,None,"Battery boundary, temp boundary, unmapped reachability all covered."
+Interconnect,IC_AS01,Reset initialization,smtbmc,10,TIMEOUT,>120,z3,None,"Z3 solver hangs indefinitely at 'Checking assumptions in step 0'. Severe state-space bottleneck likely due to unconstrained parallel slave interfaces or toolchain bug."
+Interconnect,IC_A01_A05,Target selection and isolation,smtbmc,10,TIMEOUT,>120,z3,None,"Unable to prove due to Step 0 Z3 freeze."
+TPU,TPU_AS01,Reset initialization,smtbmc,10,TIMEOUT,>120,z3,None,"Z3 solver hangs indefinitely at 'Solver: z3'. Similar bottleneck as Interconnect target."
+TPU,TPU_A01_A04,START/BUSY and AXI-Stream interface,smtbmc,10,TIMEOUT,>120,z3,None,"Unable to prove due to Z3 freeze."

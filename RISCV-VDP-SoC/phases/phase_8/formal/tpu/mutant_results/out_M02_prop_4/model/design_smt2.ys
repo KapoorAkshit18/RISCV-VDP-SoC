@@ -1,0 +1,8 @@
+# running in mutant_results/out_M02_prop_4/model/
+read_rtlil design_prep.il
+hierarchy -smtcheck
+delete */t:$print
+formalff -assume
+dffunmap
+stat
+write_smt2 -wires design_smt2.smt2

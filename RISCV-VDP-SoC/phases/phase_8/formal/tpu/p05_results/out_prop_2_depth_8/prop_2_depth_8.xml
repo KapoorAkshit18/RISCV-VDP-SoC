@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T11:14:16" hostname="Envy" package="prop_2_depth_8" id="0" name="default" tests="3" errors="0" failures="0" time="1" skipped="2">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property COVER in tpu_p05_control_checker at tpu_p05_control_checker.sv:100.34-101.30" time="0" type="COVER" location="tpu_p05_control_checker.sv:100.34-101.30" id="$cover$tpu_p05_control_checker.sv:100$159">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in tpu_p05_control_checker at tpu_p05_control_checker.sv:101.31-102.33" time="0" type="COVER" location="tpu_p05_control_checker.sv:101.31-102.33" id="$cover$tpu_p05_control_checker.sv:101$160">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in tpu_p05_control_checker at tpu_p05_control_checker.sv:69.59-70.46" time="0" type="ASSERT" location="tpu_p05_control_checker.sv:69.59-70.46" id="$assert$tpu_p05_control_checker.sv:69$158">
+</testcase>
+<system-out>SBY 11:14:14 [p05_results/out_prop_2_depth_8] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_2_depth_8'.
+SBY 11:14:14 [p05_results/out_prop_2_depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_2_depth_8/src/nn_axi_wrapper.v'.
+SBY 11:14:14 [p05_results/out_prop_2_depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_2_depth_8/src/nn_axis_master.v'.
+SBY 11:14:14 [p05_results/out_prop_2_depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_wrapper.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_2_depth_8/src/tpu_p05_control_wrapper.sv'.
+SBY 11:14:14 [p05_results/out_prop_2_depth_8] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_2_depth_8/src/tpu_p05_control_checker.sv'.
+SBY 11:14:14 [p05_results/out_prop_2_depth_8] engine_0: smtbmc z3
+SBY 11:14:14 [p05_results/out_prop_2_depth_8] base: starting process &quot;cd p05_results/out_prop_2_depth_8/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] base: finished (returncode=0)
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] prep: starting process &quot;cd p05_results/out_prop_2_depth_8/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] prep: finished (returncode=0)
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] smt2: starting process &quot;cd p05_results/out_prop_2_depth_8/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] smt2: finished (returncode=0)
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] engine_0: starting process &quot;cd p05_results/out_prop_2_depth_8; yosys-smtbmc -s z3 --presat --noprogress -t 8  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Solver: z3
+SBY 11:14:15 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: ##   0:00:00  Status: passed
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: finished (returncode=0)
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] engine_0: Status returned by engine: pass
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] summary: engine_0 (smtbmc z3) returned pass
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] summary: engine_0 did not produce any traces
+SBY 11:14:16 [p05_results/out_prop_2_depth_8] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

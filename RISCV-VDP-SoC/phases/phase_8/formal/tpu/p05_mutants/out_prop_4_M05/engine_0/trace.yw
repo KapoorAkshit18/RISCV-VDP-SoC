@@ -1,0 +1,44 @@
+{
+  "format": "Yosys Witness Trace",
+  "generator": "smtbmc",
+  "clocks": [
+    {"path": ["\\clk"], "edge": "posedge", "offset": 0}
+  ],
+  "signals": [
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2188"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2190"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2192"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2194"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2196"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2198"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2200"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2202"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_2204"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\bus_addr"], "width": 32, "offset": 0, "init_only": false},
+    {"path": ["\\bus_req"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\bus_strb_0"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\bus_wdata_0"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\bus_write"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\clk"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\m_axis_tready"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\rst_n"], "width": 1, "offset": 0, "init_only": false},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_wrapper__u_master__procdff_2141"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_wrapper__u_master__procdff_2142"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_wrapper__u_master__procdff_2145"], "width": 2, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_wrapper__u_master__procdff_2146"], "width": 3, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_wrapper__u_wrapper__procdff_2148"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_flatten_u_wrapper__u_wrapper__procdff_2149"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_2128"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_2129"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_2130"], "width": 1, "offset": 0, "init_only": true},
+    {"path": ["\\_witness_", "\\anyinit_procdff_2135"], "width": 1, "offset": 0, "init_only": true}
+  ],
+  "steps": [
+    {"bits": "0001000000101000000000000000000000000000000000000000000000001"},
+    {"bits": "100111100000000000000000000000000000000000000001"},
+    {"bits": "100011000000000000000000000000010000000000000001"},
+    {"bits": "100111100000000000000000000000000000000000000001"},
+    {"bits": "100000000000000000000000000000000000000000000001"},
+    {"bits": "100011000000000000000000000000000000000000000001"}
+  ]
+}

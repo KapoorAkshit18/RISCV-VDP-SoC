@@ -1,0 +1,34 @@
+SBY 11:13:38 [p05_results/out_prop_1_depth_6_new] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_1_depth_6_new'.
+SBY 11:13:38 [p05_results/out_prop_1_depth_6_new] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_1_depth_6_new/src/nn_axi_wrapper.v'.
+SBY 11:13:38 [p05_results/out_prop_1_depth_6_new] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_1_depth_6_new/src/nn_axis_master.v'.
+SBY 11:13:38 [p05_results/out_prop_1_depth_6_new] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_wrapper.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_1_depth_6_new/src/tpu_p05_control_wrapper.sv'.
+SBY 11:13:38 [p05_results/out_prop_1_depth_6_new] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_results/out_prop_1_depth_6_new/src/tpu_p05_control_checker.sv'.
+SBY 11:13:38 [p05_results/out_prop_1_depth_6_new] engine_0: smtbmc z3
+SBY 11:13:38 [p05_results/out_prop_1_depth_6_new] base: starting process "cd p05_results/out_prop_1_depth_6_new/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] base: finished (returncode=0)
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] prep: starting process "cd p05_results/out_prop_1_depth_6_new/model; yosys -ql design_prep.log design_prep.ys"
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] prep: finished (returncode=0)
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] smt2: starting process "cd p05_results/out_prop_1_depth_6_new/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] smt2: finished (returncode=0)
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] engine_0: starting process "cd p05_results/out_prop_1_depth_6_new; yosys-smtbmc -s z3 --presat --noprogress -t 6  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Solver: z3
+SBY 11:13:39 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: ##   0:00:00  Status: passed
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: finished (returncode=0)
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] engine_0: Status returned by engine: pass
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] summary: engine_0 (smtbmc z3) returned pass
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] summary: engine_0 did not produce any traces
+SBY 11:13:40 [p05_results/out_prop_1_depth_6_new] DONE (PASS, rc=0)

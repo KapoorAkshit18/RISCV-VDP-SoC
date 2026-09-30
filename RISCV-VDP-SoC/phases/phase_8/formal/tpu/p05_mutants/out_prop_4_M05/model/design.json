@@ -1,0 +1,1260 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "tpu_p05_control_checker",
+        "cell_sorts": [
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$2126",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:43.5-43.40"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2127",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:46.5-46.46"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2128",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2129",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2130",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2131",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2132",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2133",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2135",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2136",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:51.5-96.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2137",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:99.5-104.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2138",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:99.5-104.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$2139",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:99.5-104.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assert",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assert$tpu_p05_control_checker.sv:84$162",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:84.98-85.47"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assume",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assume$tpu_p05_control_checker.sv:48$158",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:48.26-48.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$tpu_p05_control_checker.sv:49$159",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:49.27-49.41"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$tpu_p05_control_checker.sv:55$160",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:55.31-56.48"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$tpu_p05_control_checker.sv:56$161",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:56.49-57.47"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$eq$nn_axis_master.v:244$30",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:244.33-244.49|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$eq$nn_axis_master.v:392$35",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:392.13-392.33|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$250_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$251_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$auto$opt_reduce.cc:128:opt_pmux$2160",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$tpu_p05_control_checker.sv:85$150",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:85.28-85.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$cover",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$cover$tpu_p05_control_checker.sv:100$163",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:100.34-101.30"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$cover$tpu_p05_control_checker.sv:101$164",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:101.31-102.33"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$print",
+            "ports": [
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [71, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$display$M05_nn_axi_wrapper.v:427$22",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:427.9-434.29|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000001000111",
+                    "FORMAT": "[{0:>0t}] NN BUS req={1:>01bu} write={1:>01bu} addr={32:>08hu} wdata={32:>08hu} strb={4:>04bu} ready={1:>01bu}\n",
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$display$M05_nn_axi_wrapper.v:438$24",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:438.9-438.67|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000001",
+                    "FORMAT": "[{0:>0t}] NN AXIS START busy={1:>01bu}\n",
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$display$M05_nn_axi_wrapper.v:442$26",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:442.9-442.47|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FORMAT": "[{0:>0t}] NN AXIS DONE\n",
+                    "PRIORITY": "11111111111111111111111111111101",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$tpu_p05_control_checker.sv:39$118",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:39.28-39.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$tpu_p05_control_checker.sv:56$145",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:56.24-56.47"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000011000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$255_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$tpu_p05_control_checker.sv:100$156",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:100.13-100.18"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$tpu_p05_control_checker.sv:48$128",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:48.34-48.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$add$nn_axis_master.v:254$31",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:254.45-254.60|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$249",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$281",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$285",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$logic_and$nn_axis_master.v:238$29",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:238.29-238.59|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$logic_and$M05_nn_axi_wrapper.v:204$4",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:204.29-205.41|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$logic_and$M05_nn_axi_wrapper.v:426$21",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:426.9-426.25|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$logic_and$M05_nn_axi_wrapper.v:437$23",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:437.9-437.28|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$logic_and$M05_nn_axi_wrapper.v:441$25",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:441.9-441.27|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:100$157",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:100.13-100.27"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:40$119",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:40.26-40.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:40$120",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:40.26-40.64"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:40$121",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:40.26-40.78"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:40$122",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:40.26-40.93"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:84$147",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:84.21-84.47"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:84$148",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:84.21-84.71"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$tpu_p05_control_checker.sv:84$149",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:84.21-84.91"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procdff$2141",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:144.5-365.8|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procdff$2142",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:144.5-365.8|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procdff$2145",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:144.5-365.8|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procdff$2146",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:144.5-365.8|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procdff$2148",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:150.5-370.8|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procdff$2149",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:150.5-370.8|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "0",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$247",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:392.13-392.33|nn_axis_master.v:392.9-447.12|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$253",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:198.29-198.39|nn_axis_master.v:198.25-216.28|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$256",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:0.0-0.0|nn_axis_master.v:181.13-361.20|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$277",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:244.33-244.49|nn_axis_master.v:244.29-256.32|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$279",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:238.29-238.59|nn_axis_master.v:238.25-258.28|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$294",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:244.33-244.49|nn_axis_master.v:244.29-256.32|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$296",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:238.29-238.59|nn_axis_master.v:238.25-258.28|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_master.$procmux$299",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|nn_axis_master.v:198.29-198.39|nn_axis_master.v:198.25-216.28|tpu_p05_control_wrapper.sv:55.20-83.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$1931",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:185.17-185.24|M05_nn_axi_wrapper.v:185.13-368.16|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$2118",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:204.29-205.41|M05_nn_axi_wrapper.v:204.25-210.28|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$2120",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:202.25-202.53|M05_nn_axi_wrapper.v:202.21-365.24|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$2122",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:190.21-190.30|M05_nn_axi_wrapper.v:190.17-367.20|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$2124",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:185.17-185.24|M05_nn_axi_wrapper.v:185.13-368.16|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$324",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:441.9-441.27|M05_nn_axi_wrapper.v:441.5-443.8|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$326",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:437.9-437.28|M05_nn_axi_wrapper.v:437.5-439.8|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\u_wrapper.\\u_wrapper.$procmux$328",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:24.29-36.6|M05_nn_axi_wrapper.v:426.9-426.25|M05_nn_axi_wrapper.v:426.5-435.8|tpu_p05_control_wrapper.sv:28.20-53.6"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$177",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:48.17-48.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$179",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:48.17-48.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$181",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:49.17-49.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$183",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:49.17-49.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$187",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:52.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$189",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:55.13-58.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$191",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:52.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$197",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:55.13-58.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$199",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:52.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$201",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:84.17-86.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$204",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:52.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$206",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:84.17-86.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$209",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:52.9-95.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$211",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:100.9-103.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$213",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:100.9-103.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$217",
+                  "attributes": {
+                    "src": "tpu_p05_control_checker.sv:100.9-103.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "tpu_p05_control_checker.sv:1.1-106.10",
+            "top": "00000000000000000000000000000001",
+            "hdlname": "\\tpu_p05_control_checker"
+        }
+      }
+  ]
+}

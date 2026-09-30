@@ -1,0 +1,12 @@
+# running in p05_results/out_prop_1_depth_10/src/
+read_verilog -formal nn_axi_wrapper.v
+read_verilog -formal nn_axis_master.v
+read_verilog -sv tpu_p05_control_wrapper.sv
+read_verilog -sv tpu_p05_control_checker.sv
+chparam -set PROP 1 tpu_p05_control_checker
+prep -top tpu_p05_control_checker -flatten
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

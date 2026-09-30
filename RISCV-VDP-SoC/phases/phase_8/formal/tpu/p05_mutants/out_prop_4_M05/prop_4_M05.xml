@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T11:18:21" hostname="Envy" package="prop_4_M05" id="0" name="default" tests="3" errors="0" failures="2" time="1" skipped="2">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in tpu_p05_control_checker at tpu_p05_control_checker.sv:84.98-85.47" time="0" type="ASSERT" location="tpu_p05_control_checker.sv:84.98-85.47" id="$assert$tpu_p05_control_checker.sv:84$162" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in tpu_p05_control_checker at tpu_p05_control_checker.sv:84.98-85.47 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<testcase classname="default" name="Property COVER in tpu_p05_control_checker at tpu_p05_control_checker.sv:100.34-101.30" time="0" type="COVER" location="tpu_p05_control_checker.sv:100.34-101.30" id="$cover$tpu_p05_control_checker.sv:100$163">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in tpu_p05_control_checker at tpu_p05_control_checker.sv:101.31-102.33" time="0" type="COVER" location="tpu_p05_control_checker.sv:101.31-102.33" id="$cover$tpu_p05_control_checker.sv:101$164">
+<skipped />
+</testcase>
+<system-out>SBY 11:18:19 [p05_mutants/out_prop_4_M05] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_mutants/out_prop_4_M05'.
+SBY 11:18:19 [p05_mutants/out_prop_4_M05] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/mutation_testing/mutants/tpu_control/M05_nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_mutants/out_prop_4_M05/src/M05_nn_axi_wrapper.v'.
+SBY 11:18:19 [p05_mutants/out_prop_4_M05] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_mutants/out_prop_4_M05/src/nn_axis_master.v'.
+SBY 11:18:19 [p05_mutants/out_prop_4_M05] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_wrapper.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_mutants/out_prop_4_M05/src/tpu_p05_control_wrapper.sv'.
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_mutants/out_prop_4_M05/src/tpu_p05_control_checker.sv'.
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] engine_0: smtbmc z3
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] base: starting process &quot;cd p05_mutants/out_prop_4_M05/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] base: finished (returncode=0)
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] prep: starting process &quot;cd p05_mutants/out_prop_4_M05/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] prep: finished (returncode=0)
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] smt2: starting process &quot;cd p05_mutants/out_prop_4_M05/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] smt2: finished (returncode=0)
+SBY 11:18:20 [p05_mutants/out_prop_4_M05] engine_0: starting process &quot;cd p05_mutants/out_prop_4_M05; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Solver: z3
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  BMC failed!
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Assert failed in tpu_p05_control_checker: tpu_p05_control_checker.sv:84.98-85.47 ($assert$tpu_p05_control_checker.sv:84$162)
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: ##   0:00:00  Status: failed
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: finished (returncode=1)
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] engine_0: Status returned by engine: FAIL
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] summary: counterexample trace: p05_mutants/out_prop_4_M05/engine_0/trace.vcd
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] summary:   failed assertion tpu_p05_control_checker.$assert$tpu_p05_control_checker.sv:84$162 at tpu_p05_control_checker.sv:84.98-85.47 step 5
+SBY 11:18:21 [p05_mutants/out_prop_4_M05] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

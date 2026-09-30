@@ -1,0 +1,6 @@
+read_verilog -formal ../../../phase_7/fault_models/nn_axi_wrapper.v
+read_verilog -formal ../../../phase_7/fault_models/nn_axis_master.v
+read_verilog -sv tpu_p05_control_wrapper.sv
+prep -top tpu_p05_control_wrapper -flatten
+opt -full
+stat

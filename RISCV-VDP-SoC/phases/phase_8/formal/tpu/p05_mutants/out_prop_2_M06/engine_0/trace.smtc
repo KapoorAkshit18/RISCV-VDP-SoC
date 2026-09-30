@@ -1,0 +1,62 @@
+initial
+assume (= [$formal$tpu_p05_control_checker.sv:69$115_EN] false)
+assume (= [_witness_.anyinit_flatten_u_wrapper__u_master__procdff_2134] false)
+assume (= [_witness_.anyinit_flatten_u_wrapper__u_master__procdff_2135] false)
+assume (= [_witness_.anyinit_flatten_u_wrapper__u_master__procdff_2138] #b00)
+assume (= [_witness_.anyinit_flatten_u_wrapper__u_master__procdff_2139] #b000)
+assume (= [_witness_.anyinit_flatten_u_wrapper__u_wrapper__procdff_2141] false)
+assume (= [_witness_.anyinit_flatten_u_wrapper__u_wrapper__procdff_2142] false)
+assume (= [_witness_.anyinit_procdff_2123] false)
+assume (= [_witness_.anyinit_procdff_2128] false)
+assume (= [init] true)
+assume (= [past_valid] false)
+
+state 0
+assume (= [bus_addr] #x00000000)
+assume (= [bus_req] false)
+assume (= [bus_strb_0] true)
+assume (= [bus_wdata_0] true)
+assume (= [bus_write] true)
+assume (= [clk] false)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] false)
+
+state 1
+assume (= [bus_addr] #x00000000)
+assume (= [bus_req] true)
+assume (= [bus_strb_0] true)
+assume (= [bus_wdata_0] true)
+assume (= [bus_write] true)
+assume (= [clk] false)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] true)
+
+state 2
+assume (= [bus_addr] #x00000000)
+assume (= [bus_req] false)
+assume (= [bus_strb_0] true)
+assume (= [bus_wdata_0] true)
+assume (= [bus_write] true)
+assume (= [clk] false)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] true)
+
+state 3
+assume (= [bus_addr] #x00000000)
+assume (= [bus_req] false)
+assume (= [bus_strb_0] true)
+assume (= [bus_wdata_0] true)
+assume (= [bus_write] true)
+assume (= [clk] false)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] true)
+
+state 4
+assume (= [bus_addr] #x00000000)
+assume (= [bus_req] false)
+assume (= [bus_strb_0] true)
+assume (= [bus_wdata_0] true)
+assume (= [bus_write] true)
+assume (= [clk] false)
+assume (= [m_axis_tready] false)
+assume (= [rst_n] true)

@@ -1,0 +1,7 @@
+# running in test_oomr/src/
+read_verilog -formal test_oomr.sv
+prep -top tb
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

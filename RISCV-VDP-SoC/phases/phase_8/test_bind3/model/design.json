@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "dut",
+        "cell_sorts": [
+
+        ],
+        "attributes": {
+            "top": "00000000000000000000000000000001",
+            "src": "test_bind3.sv:1.1-3.10"
+        }
+      }
+  ]
+}

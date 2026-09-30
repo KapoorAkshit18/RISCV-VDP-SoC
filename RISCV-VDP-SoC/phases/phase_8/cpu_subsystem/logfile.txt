@@ -1,0 +1,33 @@
+SBY  1:47:35 [cpu_subsystem] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem'.
+SBY  1:47:35 [cpu_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/../phase_7/fault_models/riscv.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem/src/riscv.v'.
+SBY  1:47:35 [cpu_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/../phase_7/fault_models/riscv_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem/src/riscv_wrapper.v'.
+SBY  1:47:35 [cpu_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/../phase_7/fault_models/cpu_bus_adapter.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem/src/cpu_bus_adapter.v'.
+SBY  1:47:35 [cpu_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/../phase_7/fault_models/soc_mem_interconnect.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem/src/soc_mem_interconnect.v'.
+SBY  1:47:35 [cpu_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/../phase_7/fault_models/soc_ram.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem/src/soc_ram.v'.
+SBY  1:47:36 [cpu_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/../phase_7/fault_models/cpu_ram_subsystem.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem/src/cpu_ram_subsystem.v'.
+SBY  1:47:36 [cpu_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_ram_subsystem_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/cpu_subsystem/src/cpu_ram_subsystem_formal.sv'.
+SBY  1:47:36 [cpu_subsystem] engine_0: smtbmc z3
+SBY  1:47:36 [cpu_subsystem] base: starting process "cd cpu_subsystem/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  1:47:37 [cpu_subsystem] base: Warning: Resizing cell port $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem.u_interconnect.gpio_addr from 32 bits to 12 bits.
+SBY  1:47:38 [cpu_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  1:47:38 [cpu_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\resetn is used but has no driver.
+SBY  1:47:41 [cpu_subsystem] base: finished (returncode=0)
+SBY  1:47:41 [cpu_subsystem] prep: starting process "cd cpu_subsystem/model; yosys -ql design_prep.log design_prep.ys"
+SBY  1:47:42 [cpu_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  1:47:42 [cpu_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\resetn is used but has no driver.
+SBY  1:47:43 [cpu_subsystem] prep: finished (returncode=0)
+SBY  1:47:43 [cpu_subsystem] smt2: starting process "cd cpu_subsystem/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  1:47:44 [cpu_subsystem] smt2: finished (returncode=0)
+SBY  1:47:44 [cpu_subsystem] engine_0: starting process "cd cpu_subsystem; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  1:47:44 [cpu_subsystem] engine_0: ##   0:00:00  Solver: z3
+SBY  1:47:44 [cpu_subsystem] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  1:48:44 [cpu_subsystem] engine_0: ##   0:01:00  waiting for solver (1 minute)
+SBY  1:52:44 [cpu_subsystem] engine_0: ##   0:05:00  waiting for solver (5 minutes)
+SBY  1:57:44 [cpu_subsystem] engine_0: <SIGTERM>
+SBY  1:57:44 [cpu_subsystem] engine_0: finished (returncode=1)
+SBY  1:57:44 [cpu_subsystem] ERROR: engine_0: Engine terminated without status.
+SBY  1:57:44 [cpu_subsystem] summary: Elapsed clock time [H:MM:SS (secs)]: 0:10:08 (608)
+SBY  1:57:44 [cpu_subsystem] summary: Elapsed process time [H:MM:SS (secs)]: 0:10:06 (606)
+SBY  1:57:44 [cpu_subsystem] summary: engine_0 (smtbmc z3) did not return a status
+SBY  1:57:44 [cpu_subsystem] summary: engine_0 did not produce any traces
+SBY  1:57:44 [cpu_subsystem] DONE (ERROR, rc=16)

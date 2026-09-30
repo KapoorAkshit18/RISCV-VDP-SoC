@@ -57,9 +57,9 @@
 ; yosys-smt2-wire addr 32
 ; yosys-smt2-witness {"offset": 0, "path": ["\\addr"], "smtname": "addr", "smtoffset": 0, "type": "input", "width": 32}
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_n addr| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#10| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#1| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#9| state))))
-(define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#11| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (bvnot (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#8| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5174
-; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5175
-(define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_u 0| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) Bool (or (= ((_ extract 0 0) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#11| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5175
+(define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#11| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (bvnot (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#8| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5165
+; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5166
+(define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_u 0| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) Bool (or (= ((_ extract 0 0) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#11| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5166
 ; yosys-smt2-memory mem 8 32 1 4 sync
 ; yosys-smt2-witness {"path": ["\\mem"], "rom": false, "size": 256, "smtname": "mem", "statebv": false, "type": "mem", "uninitialized": [{"offset": 0, "width": 8192}], "width": 32}
 (declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#0| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (Array (_ BitVec 8) (_ BitVec 32))) ; mem
@@ -72,37 +72,37 @@
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#16| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) #b00000000000000000000000000000000 (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#15| state))) ; $0\rdata[31:0]
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#17| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) #b1 #b0)) ; $procmux$1724_Y
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#18| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) #b0 (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#17| state))) ; $0\ready[0:0]
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#19 8 $auto$setundef.cc:533:execute$4949
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4950"], "smtname": 19, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#19| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4950
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#20 8 $auto$setundef.cc:533:execute$4933
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4934"], "smtname": 20, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#20| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4934
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#21 8 $auto$setundef.cc:533:execute$4917
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4918"], "smtname": 21, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#21| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4918
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#19 8 $auto$setundef.cc:533:execute$4940
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4941"], "smtname": 19, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#19| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4941
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#20 8 $auto$setundef.cc:533:execute$4924
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4925"], "smtname": 20, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#20| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4925
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#21 8 $auto$setundef.cc:533:execute$4908
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4909"], "smtname": 21, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#21| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4909
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#22| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (= ((_ extract 0 0) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#1| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#21| state))) ; $4$memwr$\mem$soc_ram.v:47$1169_ADDR[7:0]$1222
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#23| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#22| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#20| state))) ; $3$memwr$\mem$soc_ram.v:47$1169_ADDR[7:0]$1210
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#24| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#23| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#19| state))) ; $2$memwr$\mem$soc_ram.v:47$1169_ADDR[7:0]$1198
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#25 8 $auto$setundef.cc:533:execute$4965
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4966"], "smtname": 25, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#25| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4966
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#25 8 $auto$setundef.cc:533:execute$4956
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4957"], "smtname": 25, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#25| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4957
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#26| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#25| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#24| state))) ; $0$memwr$\mem$soc_ram.v:47$1169_ADDR[7:0]$1174
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#27 32 $auto$setundef.cc:533:execute$4947
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4948"], "smtname": 27, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#27| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4948
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#28 32 $auto$setundef.cc:533:execute$4931
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4932"], "smtname": 28, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#28| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4932
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#29 32 $auto$setundef.cc:533:execute$4915
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4916"], "smtname": 29, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#29| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4916
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#27 32 $auto$setundef.cc:533:execute$4938
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4939"], "smtname": 27, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#27| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4939
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#28 32 $auto$setundef.cc:533:execute$4922
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4923"], "smtname": 28, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#28| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4923
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#29 32 $auto$setundef.cc:533:execute$4906
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4907"], "smtname": 29, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#29| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4907
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#30| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (concat #b000000000000000000000000 ((_ extract 7 0) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#2| state))) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#29| state))) ; $4$memwr$\mem$soc_ram.v:47$1169_DATA[31:0]$1223
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#31| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#30| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#28| state))) ; $3$memwr$\mem$soc_ram.v:47$1169_DATA[31:0]$1211
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#32| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#31| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#27| state))) ; $2$memwr$\mem$soc_ram.v:47$1169_DATA[31:0]$1199
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#33 32 $auto$setundef.cc:533:execute$4963
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4964"], "smtname": 33, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#33| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4964
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#33 32 $auto$setundef.cc:533:execute$4954
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4955"], "smtname": 33, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#33| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4955
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#34| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#33| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#32| state))) ; $0$memwr$\mem$soc_ram.v:47$1169_DATA[31:0]$1175
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#35| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) #b1 #b0)) ; $4$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1224 [7]
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#36| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#35| state) #b0)) ; $3$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1212 [7]
@@ -112,40 +112,40 @@
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0D mem| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#34| state)) ; $0$memwr$\mem$soc_ram.v:47$1169_DATA[31:0]$1175
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0M mem| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (concat #b000000000000000000000000 (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#38| state)))))))))) ; { 24'000000000000000000000000 $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] $0$memwr$\mem$soc_ram.v:47$1169_EN[31:0]$1176 [7] }
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#1| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (Array (_ BitVec 8) (_ BitVec 32)) (ite (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0M mem| state) #b00000000000000000000000000000000) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#0| state) (store (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0A mem| state) (bvor (bvand (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0D mem| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0M mem| state)) (bvand (select (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0A mem| state)) (bvnot (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W0M mem| state))))))) ; mem
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#39 8 $auto$setundef.cc:533:execute$4945
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4946"], "smtname": 39, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#39| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4946
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#40 8 $auto$setundef.cc:533:execute$4929
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4930"], "smtname": 40, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#40| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4930
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#41 8 $auto$setundef.cc:533:execute$4913
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4914"], "smtname": 41, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#41| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4914
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#39 8 $auto$setundef.cc:533:execute$4936
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4937"], "smtname": 39, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#39| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4937
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#40 8 $auto$setundef.cc:533:execute$4920
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4921"], "smtname": 40, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#40| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4921
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#41 8 $auto$setundef.cc:533:execute$4904
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4905"], "smtname": 41, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#41| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4905
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#42| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (= ((_ extract 1 1) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#1| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#41| state))) ; $4$memwr$\mem$soc_ram.v:50$1170_ADDR[7:0]$1225
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#43| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#42| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#40| state))) ; $3$memwr$\mem$soc_ram.v:50$1170_ADDR[7:0]$1213
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#44| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#43| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#39| state))) ; $2$memwr$\mem$soc_ram.v:50$1170_ADDR[7:0]$1201
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#45 8 $auto$setundef.cc:533:execute$4961
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4962"], "smtname": 45, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#45| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4962
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#45 8 $auto$setundef.cc:533:execute$4952
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4953"], "smtname": 45, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#45| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4953
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#46| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#45| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#44| state))) ; $0$memwr$\mem$soc_ram.v:50$1170_ADDR[7:0]$1177
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#47 32 $auto$setundef.cc:533:execute$4943
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4944"], "smtname": 47, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#47| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4944
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#48 32 $auto$setundef.cc:533:execute$4927
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4928"], "smtname": 48, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#48| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4928
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#49 32 $auto$setundef.cc:533:execute$4909
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4910"], "smtname": 49, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#49| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4910
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#50 8 $auto$setundef.cc:533:execute$4911
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4912"], "smtname": 50, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#50| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4912
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#47 32 $auto$setundef.cc:533:execute$4934
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4935"], "smtname": 47, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#47| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4935
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#48 32 $auto$setundef.cc:533:execute$4918
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4919"], "smtname": 48, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#48| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4919
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#49 32 $auto$setundef.cc:533:execute$4900
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4901"], "smtname": 49, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#49| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4901
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#50 8 $auto$setundef.cc:533:execute$4902
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4903"], "smtname": 50, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#50| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4903
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#51| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (= ((_ extract 1 1) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (concat #b0000000000000000 (concat ((_ extract 15 8) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#2| state)) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#50| state))) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#49| state))) ; $4$memwr$\mem$soc_ram.v:50$1170_DATA[31:0]$1226
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#52| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#51| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#48| state))) ; $3$memwr$\mem$soc_ram.v:50$1170_DATA[31:0]$1214
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#53| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#52| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#47| state))) ; $2$memwr$\mem$soc_ram.v:50$1170_DATA[31:0]$1202
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#54 32 $auto$setundef.cc:533:execute$4959
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4960"], "smtname": 54, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#54| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4960
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#54 32 $auto$setundef.cc:533:execute$4950
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4951"], "smtname": 54, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#54| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4951
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#55| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#54| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#53| state))) ; $0$memwr$\mem$soc_ram.v:50$1170_DATA[31:0]$1178
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#56| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (= ((_ extract 1 1) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) #b1 #b0)) ; $4$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1227 [15]
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#57| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#56| state) #b0)) ; $3$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1215 [15]
@@ -155,40 +155,40 @@
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1D mem| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#55| state)) ; $0$memwr$\mem$soc_ram.v:50$1170_DATA[31:0]$1178
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1M mem| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (concat #b0000000000000000 (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#59| state) #b00000000)))))))))) ; { 16'0000000000000000 $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] $0$memwr$\mem$soc_ram.v:50$1170_EN[31:0]$1179 [15] 8'00000000 }
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#2| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (Array (_ BitVec 8) (_ BitVec 32)) (ite (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1M mem| state) #b00000000000000000000000000000000) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#1| state) (store (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#1| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1A mem| state) (bvor (bvand (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1D mem| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1M mem| state)) (bvand (select (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#1| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1A mem| state)) (bvnot (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W1M mem| state))))))) ; mem
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#60 8 $auto$setundef.cc:533:execute$4941
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4942"], "smtname": 60, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#60| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4942
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#61 8 $auto$setundef.cc:533:execute$4925
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4926"], "smtname": 61, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#61| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4926
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#62 8 $auto$setundef.cc:533:execute$4907
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4908"], "smtname": 62, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#62| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4908
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#60 8 $auto$setundef.cc:533:execute$4932
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4933"], "smtname": 60, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#60| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4933
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#61 8 $auto$setundef.cc:533:execute$4916
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4917"], "smtname": 61, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#61| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4917
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#62 8 $auto$setundef.cc:533:execute$4898
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4899"], "smtname": 62, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#62| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4899
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#63| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (= ((_ extract 2 2) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#1| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#62| state))) ; $4$memwr$\mem$soc_ram.v:53$1171_ADDR[7:0]$1228
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#64| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#63| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#61| state))) ; $3$memwr$\mem$soc_ram.v:53$1171_ADDR[7:0]$1216
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#65| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#64| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#60| state))) ; $2$memwr$\mem$soc_ram.v:53$1171_ADDR[7:0]$1204
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#66 8 $auto$setundef.cc:533:execute$4957
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4958"], "smtname": 66, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#66| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4958
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#66 8 $auto$setundef.cc:533:execute$4948
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4949"], "smtname": 66, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#66| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4949
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#67| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#66| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#65| state))) ; $0$memwr$\mem$soc_ram.v:53$1171_ADDR[7:0]$1180
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#68 32 $auto$setundef.cc:533:execute$4939
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4940"], "smtname": 68, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#68| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4940
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#69 32 $auto$setundef.cc:533:execute$4923
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4924"], "smtname": 69, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#69| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4924
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#70 32 $auto$setundef.cc:533:execute$4903
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4904"], "smtname": 70, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#70| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4904
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#71 16 $auto$setundef.cc:533:execute$4905
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4906"], "smtname": 71, "smtoffset": 0, "type": "seq", "width": 16}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#71| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 16)) ; $auto$rtlil.cc:3201:Anyseq$4906
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#68 32 $auto$setundef.cc:533:execute$4930
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4931"], "smtname": 68, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#68| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4931
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#69 32 $auto$setundef.cc:533:execute$4914
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4915"], "smtname": 69, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#69| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4915
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#70 32 $auto$setundef.cc:533:execute$4894
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4895"], "smtname": 70, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#70| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4895
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#71 16 $auto$setundef.cc:533:execute$4896
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4897"], "smtname": 71, "smtoffset": 0, "type": "seq", "width": 16}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#71| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 16)) ; $auto$rtlil.cc:3201:Anyseq$4897
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#72| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (= ((_ extract 2 2) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (concat #b00000000 (concat ((_ extract 23 16) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#2| state)) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#71| state))) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#70| state))) ; $4$memwr$\mem$soc_ram.v:53$1171_DATA[31:0]$1229
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#73| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#72| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#69| state))) ; $3$memwr$\mem$soc_ram.v:53$1171_DATA[31:0]$1217
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#74| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#73| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#68| state))) ; $2$memwr$\mem$soc_ram.v:53$1171_DATA[31:0]$1205
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#75 32 $auto$setundef.cc:533:execute$4955
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4956"], "smtname": 75, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#75| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4956
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#75 32 $auto$setundef.cc:533:execute$4946
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4947"], "smtname": 75, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#75| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4947
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#76| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#75| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#74| state))) ; $0$memwr$\mem$soc_ram.v:53$1171_DATA[31:0]$1181
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#77| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (= ((_ extract 2 2) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) #b1 #b0)) ; $4$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1230 [23]
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#78| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#77| state) #b0)) ; $3$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1218 [23]
@@ -198,40 +198,40 @@
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2D mem| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#76| state)) ; $0$memwr$\mem$soc_ram.v:53$1171_DATA[31:0]$1181
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2M mem| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (concat #b00000000 (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) (concat (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#80| state) #b0000000000000000)))))))))) ; { 8'00000000 $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] $0$memwr$\mem$soc_ram.v:53$1171_EN[31:0]$1182 [23] 16'0000000000000000 }
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#3| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (Array (_ BitVec 8) (_ BitVec 32)) (ite (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2M mem| state) #b00000000000000000000000000000000) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#2| state) (store (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#2| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2A mem| state) (bvor (bvand (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2D mem| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2M mem| state)) (bvand (select (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#2| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2A mem| state)) (bvnot (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_m:W2M mem| state))))))) ; mem
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#81 8 $auto$setundef.cc:533:execute$4937
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4938"], "smtname": 81, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#81| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4938
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#82 8 $auto$setundef.cc:533:execute$4921
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4922"], "smtname": 82, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#82| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4922
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#83 8 $auto$setundef.cc:533:execute$4901
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4902"], "smtname": 83, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#83| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4902
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#81 8 $auto$setundef.cc:533:execute$4928
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4929"], "smtname": 81, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#81| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4929
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#82 8 $auto$setundef.cc:533:execute$4912
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4913"], "smtname": 82, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#82| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4913
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#83 8 $auto$setundef.cc:533:execute$4892
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4893"], "smtname": 83, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#83| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4893
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#84| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (= ((_ extract 3 3) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#1| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#83| state))) ; $4$memwr$\mem$soc_ram.v:56$1172_ADDR[7:0]$1231
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#85| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#84| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#82| state))) ; $3$memwr$\mem$soc_ram.v:56$1172_ADDR[7:0]$1219
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#86| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#85| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#81| state))) ; $2$memwr$\mem$soc_ram.v:56$1172_ADDR[7:0]$1207
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#87 8 $auto$setundef.cc:533:execute$4953
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4954"], "smtname": 87, "smtoffset": 0, "type": "seq", "width": 8}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#87| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4954
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#87 8 $auto$setundef.cc:533:execute$4944
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4945"], "smtname": 87, "smtoffset": 0, "type": "seq", "width": 8}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#87| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 8)) ; $auto$rtlil.cc:3201:Anyseq$4945
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#88| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 8) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#87| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#86| state))) ; $0$memwr$\mem$soc_ram.v:56$1172_ADDR[7:0]$1183
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#89 32 $auto$setundef.cc:533:execute$4935
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4936"], "smtname": 89, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#89| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4936
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#90 32 $auto$setundef.cc:533:execute$4919
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4920"], "smtname": 90, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#90| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4920
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#91 32 $auto$setundef.cc:533:execute$4897
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4898"], "smtname": 91, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#91| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4898
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#92 24 $auto$setundef.cc:533:execute$4899
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4900"], "smtname": 92, "smtoffset": 0, "type": "seq", "width": 24}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#92| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 24)) ; $auto$rtlil.cc:3201:Anyseq$4900
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#89 32 $auto$setundef.cc:533:execute$4926
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4927"], "smtname": 89, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#89| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4927
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#90 32 $auto$setundef.cc:533:execute$4910
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4911"], "smtname": 90, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#90| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4911
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#91 32 $auto$setundef.cc:533:execute$4888
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4889"], "smtname": 91, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#91| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4889
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#92 24 $auto$setundef.cc:533:execute$4890
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4891"], "smtname": 92, "smtoffset": 0, "type": "seq", "width": 24}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#92| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 24)) ; $auto$rtlil.cc:3201:Anyseq$4891
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#93| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (= ((_ extract 3 3) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) (concat ((_ extract 31 24) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#2| state)) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#92| state)) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#91| state))) ; $4$memwr$\mem$soc_ram.v:56$1172_DATA[31:0]$1232
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#94| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#93| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#90| state))) ; $3$memwr$\mem$soc_ram.v:56$1172_DATA[31:0]$1220
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#95| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#3| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#94| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#89| state))) ; $2$memwr$\mem$soc_ram.v:56$1172_DATA[31:0]$1208
-; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#96 32 $auto$setundef.cc:533:execute$4951
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4952"], "smtname": 96, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#96| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4952
+; yosys-smt2-anyseq $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#96 32 $auto$setundef.cc:533:execute$4942
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4943"], "smtname": 96, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#96| (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$4943
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#97| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 32) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#5| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#96| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#95| state))) ; $0$memwr$\mem$soc_ram.v:56$1172_DATA[31:0]$1184
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#98| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (= ((_ extract 3 3) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#4| state)) #b1) #b1 #b0)) ; $4$memwr$\mem$soc_ram.v:56$1172_EN[31:0]$1233 [31]
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#99| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) (_ BitVec 1) (ite (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#0| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#98| state) #b0)) ; $3$memwr$\mem$soc_ram.v:56$1172_EN[31:0]$1221 [31]
@@ -248,8 +248,8 @@
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_i| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) Bool true)
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_h| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) Bool true)
 (define-fun |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_t| ((state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|) (next_state |$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram_s|)) Bool (and
-  (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#16| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#7| next_state)) ; $procdff$4591 \rdata
-  (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#18| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#6| next_state)) ; $procdff$4590 \ready
+  (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#16| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#7| next_state)) ; $procdff$4582 \rdata
+  (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#18| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#6| next_state)) ; $procdff$4581 \ready
   (= (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#4| state) (|$paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram#12#0| next_state)) ; mem
 )) ; end of module $paramod$7068ac09caa024df265143630f51c7da53a5c1cd/soc_ram
 ; yosys-smt2-module $paramod$73a3980ba8a68177b0617f0f620fd34f6ef3e417/cpu_bus_adapter
@@ -567,9 +567,9 @@
 ; yosys-smt2-register active 2
 ; yosys-smt2-wire active 2
 (define-fun |picorv32_pcpi_fast_mul_n active| ((state |picorv32_pcpi_fast_mul_s|)) (_ BitVec 2) (|picorv32_pcpi_fast_mul#5| state))
-(define-fun |picorv32_pcpi_fast_mul#34| ((state |picorv32_pcpi_fast_mul_s|)) (_ BitVec 1) (bvnot (ite (|picorv32_pcpi_fast_mul#33| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5170
-; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5171
-(define-fun |picorv32_pcpi_fast_mul_u 0| ((state |picorv32_pcpi_fast_mul_s|)) Bool (or (= ((_ extract 0 0) (|picorv32_pcpi_fast_mul#34| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5171
+(define-fun |picorv32_pcpi_fast_mul#34| ((state |picorv32_pcpi_fast_mul_s|)) (_ BitVec 1) (bvnot (ite (|picorv32_pcpi_fast_mul#33| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5161
+; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5162
+(define-fun |picorv32_pcpi_fast_mul_u 0| ((state |picorv32_pcpi_fast_mul_s|)) Bool (or (= ((_ extract 0 0) (|picorv32_pcpi_fast_mul#34| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5162
 (define-fun |picorv32_pcpi_fast_mul#35| ((state |picorv32_pcpi_fast_mul_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32_pcpi_fast_mul#5| state)) #b1) (= ((_ extract 1 1) (|picorv32_pcpi_fast_mul#5| state)) #b1) false false))) ; $logic_not$riscv.v:2307$947_Y
 (define-fun |picorv32_pcpi_fast_mul#36| ((state |picorv32_pcpi_fast_mul_s|)) Bool (and (or  (|picorv32_pcpi_fast_mul#32| state) false) (or  (|picorv32_pcpi_fast_mul#35| state) false))) ; $logic_and$riscv.v:2307$948_Y
 (define-fun |picorv32_pcpi_fast_mul#37| ((state |picorv32_pcpi_fast_mul_s|)) (_ BitVec 1) (ite (|picorv32_pcpi_fast_mul#36| state) #b1 #b0)) ; $procmux$1333_Y
@@ -587,11 +587,11 @@
 (define-fun |picorv32_pcpi_fast_mul_i| ((state |picorv32_pcpi_fast_mul_s|)) Bool true)
 (define-fun |picorv32_pcpi_fast_mul_h| ((state |picorv32_pcpi_fast_mul_s|)) Bool true)
 (define-fun |picorv32_pcpi_fast_mul_t| ((state |picorv32_pcpi_fast_mul_s|) (next_state |picorv32_pcpi_fast_mul_s|)) Bool (and
-  (= (concat (|picorv32_pcpi_fast_mul#39| state) (|picorv32_pcpi_fast_mul#38| state)) (|picorv32_pcpi_fast_mul#5| next_state)) ; $procdff$4584 \active
-  (= (|picorv32_pcpi_fast_mul#40| state) (|picorv32_pcpi_fast_mul#4| next_state)) ; $procdff$4585 \rd
-  (= (|picorv32_pcpi_fast_mul#42| state) (|picorv32_pcpi_fast_mul#2| next_state)) ; $procdff$4581 \rs1
-  (= (|picorv32_pcpi_fast_mul#44| state) (|picorv32_pcpi_fast_mul#1| next_state)) ; $procdff$4582 \rs2
-  (= (ite (|picorv32_pcpi_fast_mul#31| state) #b1 #b0) (|picorv32_pcpi_fast_mul#0| next_state)) ; $procdff$4583 \shift_out
+  (= (concat (|picorv32_pcpi_fast_mul#39| state) (|picorv32_pcpi_fast_mul#38| state)) (|picorv32_pcpi_fast_mul#5| next_state)) ; $procdff$4575 \active
+  (= (|picorv32_pcpi_fast_mul#40| state) (|picorv32_pcpi_fast_mul#4| next_state)) ; $procdff$4576 \rd
+  (= (|picorv32_pcpi_fast_mul#42| state) (|picorv32_pcpi_fast_mul#2| next_state)) ; $procdff$4572 \rs1
+  (= (|picorv32_pcpi_fast_mul#44| state) (|picorv32_pcpi_fast_mul#1| next_state)) ; $procdff$4573 \rs2
+  (= (ite (|picorv32_pcpi_fast_mul#31| state) #b1 #b0) (|picorv32_pcpi_fast_mul#0| next_state)) ; $procdff$4574 \shift_out
 )) ; end of module picorv32_pcpi_fast_mul
 ; yosys-smt2-module picorv32a
 (declare-sort |picorv32a_s| 0)
@@ -1016,27 +1016,27 @@
 ; yosys-smt2-wire mem_ready 1
 ; yosys-smt2-witness {"offset": 0, "path": ["\\mem_ready"], "smtname": "mem_ready", "smtoffset": 0, "type": "input", "width": 1}
 (define-fun |picorv32a_n mem_ready| ((state |picorv32a_s|)) Bool (|picorv32a#127| state))
-; yosys-smt2-anyseq picorv32a#133 32 $auto$setundef.cc:533:execute$5155
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5156"], "smtname": 133, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#133| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5156
-; yosys-smt2-anyseq picorv32a#134 32 $auto$setundef.cc:533:execute$5151
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5152"], "smtname": 134, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#134| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5152
+; yosys-smt2-anyseq picorv32a#133 32 $auto$setundef.cc:533:execute$5146
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5147"], "smtname": 133, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#133| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5147
+; yosys-smt2-anyseq picorv32a#134 32 $auto$setundef.cc:533:execute$5142
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5143"], "smtname": 134, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#134| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5143
 (declare-fun |picorv32a#135| (|picorv32a_s|) (_ BitVec 8)) ; \mem_rdata [31:24]
 (declare-fun |picorv32a#136| (|picorv32a_s|) (_ BitVec 8)) ; \mem_rdata [23:16]
 (declare-fun |picorv32a#137| (|picorv32a_s|) (_ BitVec 8)) ; \mem_rdata [15:8]
 (declare-fun |picorv32a#138| (|picorv32a_s|) (_ BitVec 8)) ; \mem_rdata [7:0]
-(define-fun |picorv32a#139| ((state |picorv32a_s|)) Bool (= ((_ extract 1 0) (|picorv32a#9| state)) #b11)) ; $procmux$4523_CMP
-(define-fun |picorv32a#140| ((state |picorv32a_s|)) Bool (= ((_ extract 1 0) (|picorv32a#9| state)) #b10)) ; $procmux$4524_CMP
-(define-fun |picorv32a#141| ((state |picorv32a_s|)) Bool (= ((_ extract 1 0) (|picorv32a#9| state)) #b01)) ; $procmux$4525_CMP
-(define-fun |picorv32a#142| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#9| state)) #b1) (= ((_ extract 1 1) (|picorv32a#9| state)) #b1)))) ; $procmux$4526_CMP
+(define-fun |picorv32a#139| ((state |picorv32a_s|)) Bool (= ((_ extract 1 0) (|picorv32a#9| state)) #b11)) ; $procmux$4514_CMP
+(define-fun |picorv32a#140| ((state |picorv32a_s|)) Bool (= ((_ extract 1 0) (|picorv32a#9| state)) #b10)) ; $procmux$4515_CMP
+(define-fun |picorv32a#141| ((state |picorv32a_s|)) Bool (= ((_ extract 1 0) (|picorv32a#9| state)) #b01)) ; $procmux$4516_CMP
+(define-fun |picorv32a#142| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#9| state)) #b1) (= ((_ extract 1 1) (|picorv32a#9| state)) #b1)))) ; $procmux$4517_CMP
 (define-fun |picorv32a#143| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#142| state) (concat #b000000000000000000000000 (|picorv32a#138| state)) (ite (|picorv32a#141| state) (concat #b000000000000000000000000 (|picorv32a#137| state)) (ite (|picorv32a#140| state) (concat #b000000000000000000000000 (|picorv32a#136| state)) (ite (|picorv32a#139| state) (concat #b000000000000000000000000 (|picorv32a#135| state)) (|picorv32a#134| state)))))) ; $3\mem_rdata_word[31:0]
-; yosys-smt2-anyseq picorv32a#144 32 $auto$setundef.cc:533:execute$5153
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5154"], "smtname": 144, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#144| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5154
-(define-fun |picorv32a#145| ((state |picorv32a_s|)) (_ BitVec 1) (bvnot ((_ extract 1 1) (|picorv32a#9| state)))) ; $procmux$4533_CMP
+; yosys-smt2-anyseq picorv32a#144 32 $auto$setundef.cc:533:execute$5144
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5145"], "smtname": 144, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#144| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5145
+(define-fun |picorv32a#145| ((state |picorv32a_s|)) (_ BitVec 1) (bvnot ((_ extract 1 1) (|picorv32a#9| state)))) ; $procmux$4524_CMP
 (define-fun |picorv32a#146| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#145| state)) #b1) (concat #b0000000000000000 (concat (|picorv32a#137| state) (|picorv32a#138| state))) (ite (= ((_ extract 1 1) (|picorv32a#9| state)) #b1) (concat #b0000000000000000 (concat (|picorv32a#135| state) (|picorv32a#136| state))) (|picorv32a#144| state)))) ; $2\mem_rdata_word[31:0]
-(define-fun |picorv32a#147| ((state |picorv32a_s|)) Bool (= (|picorv32a#130| state) #b10)) ; $procmux$4528_CMP
+(define-fun |picorv32a#147| ((state |picorv32a_s|)) Bool (= (|picorv32a#130| state) #b10)) ; $procmux$4519_CMP
 (define-fun |picorv32a#148| ((state |picorv32a_s|)) Bool (= (|picorv32a#130| state) #b01)) ; $eq$riscv.v:1901$707_Y
 (define-fun |picorv32a#149| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#130| state)) #b1) (= ((_ extract 1 1) (|picorv32a#130| state)) #b1)))) ; $eq$riscv.v:1894$700_Y
 (define-fun |picorv32a#150| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#149| state) (concat (|picorv32a#135| state) (concat (|picorv32a#136| state) (concat (|picorv32a#137| state) (|picorv32a#138| state)))) (ite (|picorv32a#148| state) (|picorv32a#146| state) (ite (|picorv32a#147| state) (|picorv32a#143| state) (|picorv32a#133| state))))) ; \mem_rdata_word
@@ -1057,9 +1057,9 @@
 ; yosys-smt2-wire mem_rdata 32
 ; yosys-smt2-witness {"offset": 0, "path": ["\\mem_rdata"], "smtname": "mem_rdata", "smtoffset": 0, "type": "input", "width": 32}
 (define-fun |picorv32a_n mem_rdata| ((state |picorv32a_s|)) (_ BitVec 32) (concat (|picorv32a#135| state) (concat (|picorv32a#136| state) (concat (|picorv32a#137| state) (|picorv32a#138| state)))))
-; yosys-smt2-anyseq picorv32a#153 4 $auto$setundef.cc:533:execute$5157
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5158"], "smtname": 153, "smtoffset": 0, "type": "seq", "width": 4}
-(declare-fun |picorv32a#153| (|picorv32a_s|) (_ BitVec 4)) ; $auto$rtlil.cc:3201:Anyseq$5158
+; yosys-smt2-anyseq picorv32a#153 4 $auto$setundef.cc:533:execute$5148
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5149"], "smtname": 153, "smtoffset": 0, "type": "seq", "width": 4}
+(declare-fun |picorv32a#153| (|picorv32a_s|) (_ BitVec 4)) ; $auto$rtlil.cc:3201:Anyseq$5149
 (define-fun |picorv32a#154| ((state |picorv32a_s|)) (_ BitVec 4) (bvshl #b0001 (concat #b00 ((_ extract 1 0) (|picorv32a#9| state))))) ; $shl$riscv.v:402$110_Y
 (define-fun |picorv32a#155| ((state |picorv32a_s|)) (_ BitVec 4) (ite (= ((_ extract 1 1) (|picorv32a#9| state)) #b1) #b1100 #b0011)) ; $ternary$riscv.v:394$109_Y
 (define-fun |picorv32a#156| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#149| state) #b1111 (ite (|picorv32a#148| state) (|picorv32a#155| state) (ite (|picorv32a#147| state) (|picorv32a#154| state) (|picorv32a#153| state))))) ; \mem_la_wstrb
@@ -1075,9 +1075,9 @@
 ; yosys-smt2-output mem_la_write 1
 ; yosys-smt2-wire mem_la_write 1
 (define-fun |picorv32a_n mem_la_write| ((state |picorv32a_s|)) Bool (|picorv32a#160| state))
-; yosys-smt2-anyseq picorv32a#161 32 $auto$setundef.cc:533:execute$5159
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5160"], "smtname": 161, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#161| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5160
+; yosys-smt2-anyseq picorv32a#161 32 $auto$setundef.cc:533:execute$5150
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5151"], "smtname": 161, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#161| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5151
 (define-fun |picorv32a#162| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#149| state) (|picorv32a#8| state) (ite (|picorv32a#148| state) (concat ((_ extract 15 0) (|picorv32a#8| state)) ((_ extract 15 0) (|picorv32a#8| state))) (ite (|picorv32a#147| state) (concat ((_ extract 7 0) (|picorv32a#8| state)) (concat ((_ extract 7 0) (|picorv32a#8| state)) (concat ((_ extract 7 0) (|picorv32a#8| state)) ((_ extract 7 0) (|picorv32a#8| state))))) (|picorv32a#161| state))))) ; \mem_la_wdata
 ; yosys-smt2-output mem_la_wdata 32
 ; yosys-smt2-wire mem_la_wdata 32
@@ -1182,12 +1182,12 @@
 ; yosys-smt2-register latched_stalu 1
 ; yosys-smt2-wire latched_stalu 1
 (define-fun |picorv32a_n latched_stalu| ((state |picorv32a_s|)) Bool (= ((_ extract 0 0) (|picorv32a#196| state)) #b1))
-; yosys-smt2-anyinit picorv32a#197 5 riscv.v:1374.2-1946.5
-; yosys-smt2-witness {"offset": 0, "path": ["\\latched_rd"], "smtname": 197, "smtoffset": 0, "type": "init", "width": 5}
-(declare-fun |picorv32a#197| (|picorv32a_s|) (_ BitVec 5)) ; \latched_rd
-; yosys-smt2-register latched_rd 5
-; yosys-smt2-wire latched_rd 5
-(define-fun |picorv32a_n latched_rd| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#197| state))
+; yosys-smt2-anyinit picorv32a#197 6 riscv.v:1374.2-1946.5
+; yosys-smt2-witness {"offset": 0, "path": ["\\latched_rd"], "smtname": 197, "smtoffset": 0, "type": "init", "width": 6}
+(declare-fun |picorv32a#197| (|picorv32a_s|) (_ BitVec 6)) ; \latched_rd
+; yosys-smt2-register latched_rd 6
+; yosys-smt2-wire latched_rd 6
+(define-fun |picorv32a_n latched_rd| ((state |picorv32a_s|)) (_ BitVec 6) (|picorv32a#197| state))
 ; yosys-smt2-anyinit picorv32a#198 1 riscv.v:1374.2-1946.5
 ; yosys-smt2-witness {"offset": 0, "path": ["\\latched_is_lu"], "smtname": 198, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |picorv32a#198| (|picorv32a_s|) (_ BitVec 1)) ; \latched_is_lu
@@ -1536,28 +1536,28 @@
 ; yosys-smt2-register decoder_pseudo_trigger 1
 ; yosys-smt2-wire decoder_pseudo_trigger 1
 (define-fun |picorv32a_n decoder_pseudo_trigger| ((state |picorv32a_s|)) Bool (= ((_ extract 0 0) (|picorv32a#230| state)) #b1))
-; yosys-smt2-anyinit picorv32a#231 5 riscv.v:839.2-1145.5
-; yosys-smt2-witness {"offset": 0, "path": ["\\decoded_rs2"], "smtname": 231, "smtoffset": 0, "type": "init", "width": 5}
-(declare-fun |picorv32a#231| (|picorv32a_s|) (_ BitVec 5)) ; \decoded_rs2
-; yosys-smt2-register decoded_rs2 5
-; yosys-smt2-wire decoded_rs2 5
-(define-fun |picorv32a_n decoded_rs2| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#231| state))
-; yosys-smt2-anyinit picorv32a#232 5 riscv.v:839.2-1145.5
-; yosys-smt2-witness {"offset": 0, "path": ["\\decoded_rs1"], "smtname": 232, "smtoffset": 0, "type": "init", "width": 5}
-(declare-fun |picorv32a#232| (|picorv32a_s|) (_ BitVec 5)) ; \decoded_rs1
-; yosys-smt2-register decoded_rs1 5
-; yosys-smt2-wire decoded_rs1 5
-(define-fun |picorv32a_n decoded_rs1| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#232| state))
+; yosys-smt2-anyinit picorv32a#231 6 riscv.v:839.2-1145.5
+; yosys-smt2-witness {"offset": 0, "path": ["\\decoded_rs2"], "smtname": 231, "smtoffset": 0, "type": "init", "width": 6}
+(declare-fun |picorv32a#231| (|picorv32a_s|) (_ BitVec 6)) ; \decoded_rs2
+; yosys-smt2-register decoded_rs2 6
+; yosys-smt2-wire decoded_rs2 6
+(define-fun |picorv32a_n decoded_rs2| ((state |picorv32a_s|)) (_ BitVec 6) (|picorv32a#231| state))
+; yosys-smt2-anyinit picorv32a#232 6 riscv.v:839.2-1145.5
+; yosys-smt2-witness {"offset": 0, "path": ["\\decoded_rs1"], "smtname": 232, "smtoffset": 0, "type": "init", "width": 6}
+(declare-fun |picorv32a#232| (|picorv32a_s|) (_ BitVec 6)) ; \decoded_rs1
+; yosys-smt2-register decoded_rs1 6
+; yosys-smt2-wire decoded_rs1 6
+(define-fun |picorv32a_n decoded_rs1| ((state |picorv32a_s|)) (_ BitVec 6) (|picorv32a#232| state))
 (define-fun |picorv32a#233| ((state |picorv32a_s|)) Bool (= (|picorv32a#182| state) #b00010000)) ; $eq$riscv.v:1169$488_Y
-(define-fun |picorv32a#234| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#233| state) (|picorv32a#231| state) (|picorv32a#232| state))) ; \decoded_rs
-; yosys-smt2-wire decoded_rs 5
-(define-fun |picorv32a_n decoded_rs| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#234| state))
-; yosys-smt2-anyinit picorv32a#235 5 riscv.v:839.2-1145.5
-; yosys-smt2-witness {"offset": 0, "path": ["\\decoded_rd"], "smtname": 235, "smtoffset": 0, "type": "init", "width": 5}
-(declare-fun |picorv32a#235| (|picorv32a_s|) (_ BitVec 5)) ; \decoded_rd
-; yosys-smt2-register decoded_rd 5
-; yosys-smt2-wire decoded_rd 5
-(define-fun |picorv32a_n decoded_rd| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#235| state))
+(define-fun |picorv32a#234| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#233| state) (|picorv32a#231| state) (|picorv32a#232| state))) ; \decoded_rs
+; yosys-smt2-wire decoded_rs 6
+(define-fun |picorv32a_n decoded_rs| ((state |picorv32a_s|)) (_ BitVec 6) (|picorv32a#234| state))
+; yosys-smt2-anyinit picorv32a#235 6 riscv.v:839.2-1145.5
+; yosys-smt2-witness {"offset": 0, "path": ["\\decoded_rd"], "smtname": 235, "smtoffset": 0, "type": "init", "width": 6}
+(declare-fun |picorv32a#235| (|picorv32a_s|) (_ BitVec 6)) ; \decoded_rd
+; yosys-smt2-register decoded_rd 6
+; yosys-smt2-wire decoded_rd 6
+(define-fun |picorv32a_n decoded_rd| ((state |picorv32a_s|)) (_ BitVec 6) (|picorv32a#235| state))
 ; yosys-smt2-anyinit picorv32a#236 32 riscv.v:839.2-1145.5
 ; yosys-smt2-witness {"offset": 0, "path": ["\\decoded_imm_uj"], "smtname": 236, "smtoffset": 0, "type": "init", "width": 32}
 (declare-fun |picorv32a#236| (|picorv32a_s|) (_ BitVec 32)) ; \decoded_imm_uj
@@ -1617,21 +1617,21 @@
 ; yosys-smt2-anyinit picorv32a#243 5 riscv.v:759.2-788.5
 ; yosys-smt2-witness {"offset": 0, "path": ["\\cached_insn_rs2"], "smtname": 243, "smtoffset": 0, "type": "init", "width": 5}
 (declare-fun |picorv32a#243| (|picorv32a_s|) (_ BitVec 5)) ; \cached_insn_rs2
-(define-fun |picorv32a#244| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#229| state)) #b1) (|picorv32a#243| state) (|picorv32a#231| state))) ; $2\dbg_insn_rs2[4:0]
+(define-fun |picorv32a#244| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#229| state)) #b1) (|picorv32a#243| state) ((_ extract 4 0) (|picorv32a#231| state)))) ; $2\dbg_insn_rs2[4:0]
 (define-fun |picorv32a#245| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#242| state)) #b1) (|picorv32a#244| state) (|picorv32a#11| state))) ; \dbg_insn_rs2
 ; yosys-smt2-wire dbg_insn_rs2 5
 (define-fun |picorv32a_n dbg_insn_rs2| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#245| state))
 ; yosys-smt2-anyinit picorv32a#246 5 riscv.v:759.2-788.5
 ; yosys-smt2-witness {"offset": 0, "path": ["\\cached_insn_rs1"], "smtname": 246, "smtoffset": 0, "type": "init", "width": 5}
 (declare-fun |picorv32a#246| (|picorv32a_s|) (_ BitVec 5)) ; \cached_insn_rs1
-(define-fun |picorv32a#247| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#229| state)) #b1) (|picorv32a#246| state) (|picorv32a#232| state))) ; $2\dbg_insn_rs1[4:0]
+(define-fun |picorv32a#247| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#229| state)) #b1) (|picorv32a#246| state) ((_ extract 4 0) (|picorv32a#232| state)))) ; $2\dbg_insn_rs1[4:0]
 (define-fun |picorv32a#248| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#242| state)) #b1) (|picorv32a#247| state) (|picorv32a#12| state))) ; \dbg_insn_rs1
 ; yosys-smt2-wire dbg_insn_rs1 5
 (define-fun |picorv32a_n dbg_insn_rs1| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#248| state))
 ; yosys-smt2-anyinit picorv32a#249 5 riscv.v:759.2-788.5
 ; yosys-smt2-witness {"offset": 0, "path": ["\\cached_insn_rd"], "smtname": 249, "smtoffset": 0, "type": "init", "width": 5}
 (declare-fun |picorv32a#249| (|picorv32a_s|) (_ BitVec 5)) ; \cached_insn_rd
-(define-fun |picorv32a#250| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#229| state)) #b1) (|picorv32a#249| state) (|picorv32a#235| state))) ; $2\dbg_insn_rd[4:0]
+(define-fun |picorv32a#250| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#229| state)) #b1) (|picorv32a#249| state) ((_ extract 4 0) (|picorv32a#235| state)))) ; $2\dbg_insn_rd[4:0]
 (define-fun |picorv32a#251| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#242| state)) #b1) (|picorv32a#250| state) (|picorv32a#13| state))) ; \dbg_insn_rd
 ; yosys-smt2-wire dbg_insn_rd 5
 (define-fun |picorv32a_n dbg_insn_rd| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#251| state))
@@ -1667,36 +1667,36 @@
 (define-fun |picorv32a_n dbg_ascii_instr| ((state |picorv32a_s|)) (_ BitVec 64) (|picorv32a#271| state))
 (define-fun |picorv32a#272| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#29| state)) #b1) false))) ; $logic_not$riscv.v:1298$528_Y
 (define-fun |picorv32a#273| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#28| state)) #b1) false) (or  (|picorv32a#272| state) false))) ; $logic_and$riscv.v:1298$529_Y
-(define-fun |picorv32a#274| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#222| state)) #b1) (= ((_ extract 1 1) (|picorv32a#222| state)) #b1) (= ((_ extract 0 0) (|picorv32a#29| state)) #b1) (|picorv32a#273| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4851
+(define-fun |picorv32a#274| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#222| state)) #b1) (= ((_ extract 1 1) (|picorv32a#222| state)) #b1) (= ((_ extract 0 0) (|picorv32a#29| state)) #b1) (|picorv32a#273| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4842
 (define-fun |picorv32a#275| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#274| state) #b1 #b0)) ; $2\cpuregs_write[0:0]
 (define-fun |picorv32a#276| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) (|picorv32a#275| state) #b0)) ; \cpuregs_write
 ; yosys-smt2-wire cpuregs_write 1
 (define-fun |picorv32a_n cpuregs_write| ((state |picorv32a_s|)) Bool (= ((_ extract 0 0) (|picorv32a#276| state)) #b1))
-; yosys-smt2-anyseq picorv32a#277 32 $auto$setundef.cc:533:execute$5091
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5092"], "smtname": 277, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#277| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5092
-; yosys-smt2-anyseq picorv32a#278 32 $auto$setundef.cc:533:execute$5089
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5090"], "smtname": 278, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#278| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5090
+; yosys-smt2-anyseq picorv32a#277 32 $auto$setundef.cc:533:execute$5082
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5083"], "smtname": 277, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#277| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5083
+; yosys-smt2-anyseq picorv32a#278 32 $auto$setundef.cc:533:execute$5080
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5081"], "smtname": 278, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#278| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5081
 (define-fun |picorv32a#279| ((state |picorv32a_s|)) (_ BitVec 32) (bvor (|picorv32a#10| state) (concat #b0000000000000000000000000000000 (|picorv32a#201| state)))) ; $or$riscv.v:1303$532_Y
 ; yosys-smt2-anyinit picorv32a#280 32 riscv.v:1374.2-1946.5
 ; yosys-smt2-witness {"offset": 0, "path": ["\\alu_out_q"], "smtname": 280, "smtoffset": 0, "type": "init", "width": 32}
 (declare-fun |picorv32a#280| (|picorv32a_s|) (_ BitVec 32)) ; \alu_out_q
 (define-fun |picorv32a#281| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#196| state)) #b1) (|picorv32a#280| state) (|picorv32a#7| state))) ; { $and$riscv.v:1478$582_Y [31:1] $ternary$riscv.v:1299$530_Y [0] }
-(define-fun |picorv32a#282| ((state |picorv32a_s|)) (_ BitVec 3) (ite (= ((_ extract 0 0) (|picorv32a#201| state)) #b1) #b010 #b100)) ; $auto$wreduce.cc:461:run$4880 [2:0]
+(define-fun |picorv32a#282| ((state |picorv32a_s|)) (_ BitVec 3) (ite (= ((_ extract 0 0) (|picorv32a#201| state)) #b1) #b010 #b100)) ; $auto$wreduce.cc:461:run$4871 [2:0]
 (define-fun |picorv32a#283| ((state |picorv32a_s|)) (_ BitVec 32) (bvadd (|picorv32a#6| state) (concat #b00000000000000000000000000000 (|picorv32a#282| state)))) ; $add$riscv.v:1295$527_Y
 (define-fun |picorv32a#284| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#29| state)) #b1) (|picorv32a#283| state) (ite (|picorv32a#273| state) (|picorv32a#281| state) (ite (= ((_ extract 0 0) (|picorv32a#222| state)) #b1) (|picorv32a#279| state) (ite (= ((_ extract 1 1) (|picorv32a#222| state)) #b1) (|picorv32a#192| state) (|picorv32a#278| state)))))) ; $2\cpuregs_wrdata[31:0]
 (define-fun |picorv32a#285| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#183| state) (|picorv32a#284| state) (|picorv32a#277| state))) ; \cpuregs_wrdata
 ; yosys-smt2-wire cpuregs_wrdata 32
 (define-fun |picorv32a_n cpuregs_wrdata| ((state |picorv32a_s|)) (_ BitVec 32) (|picorv32a#285| state))
-; yosys-smt2-memory cpuregs 5 32 1 1 sync
-; yosys-smt2-witness {"path": ["\\cpuregs"], "rom": false, "size": 20, "smtname": "cpuregs", "statebv": false, "type": "mem", "uninitialized": [{"offset": 0, "width": 640}], "width": 32}
-(declare-fun |picorv32a#286#0| (|picorv32a_s|) (Array (_ BitVec 5) (_ BitVec 32))) ; cpuregs
-(define-fun |picorv32a_m cpuregs| ((state |picorv32a_s|)) (Array (_ BitVec 5) (_ BitVec 32)) (|picorv32a#286#0| state))
-(define-fun |picorv32a_m:R0A cpuregs| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#234| state)) ; \decoded_rs
+; yosys-smt2-memory cpuregs 6 32 1 1 sync
+; yosys-smt2-witness {"path": ["\\cpuregs"], "rom": false, "size": 36, "smtname": "cpuregs", "statebv": false, "type": "mem", "uninitialized": [{"offset": 0, "width": 1152}], "width": 32}
+(declare-fun |picorv32a#286#0| (|picorv32a_s|) (Array (_ BitVec 6) (_ BitVec 32))) ; cpuregs
+(define-fun |picorv32a_m cpuregs| ((state |picorv32a_s|)) (Array (_ BitVec 6) (_ BitVec 32)) (|picorv32a#286#0| state))
+(define-fun |picorv32a_m:R0A cpuregs| ((state |picorv32a_s|)) (_ BitVec 6) (|picorv32a#234| state)) ; \decoded_rs
 (define-fun |picorv32a#287| ((state |picorv32a_s|)) (_ BitVec 32) (select (|picorv32a#286#0| state) (|picorv32a_m:R0A cpuregs| state))) ; $memrd$\cpuregs$riscv.v:1333$548_DATA
 (define-fun |picorv32a_m:R0D cpuregs| ((state |picorv32a_s|)) (_ BitVec 32) (|picorv32a#287| state))
-(define-fun |picorv32a#288| ((state |picorv32a_s|)) Bool (distinct (|picorv32a#234| state) #b00000)) ; $reduce_bool$riscv.v:1333$549_Y
+(define-fun |picorv32a#288| ((state |picorv32a_s|)) Bool (distinct (|picorv32a#234| state) #b000000)) ; $reduce_bool$riscv.v:1333$549_Y
 (define-fun |picorv32a#289| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#288| state) (|picorv32a#287| state) #b00000000000000000000000000000000)) ; \cpuregs_rs1
 ; yosys-smt2-wire cpuregs_rs2 32
 (define-fun |picorv32a_n cpuregs_rs2| ((state |picorv32a_s|)) (_ BitVec 32) (|picorv32a#289| state))
@@ -1772,9 +1772,9 @@
 ; yosys-smt2-register alu_out_q 32
 ; yosys-smt2-wire alu_out_q 32
 (define-fun |picorv32a_n alu_out_q| ((state |picorv32a_s|)) (_ BitVec 32) (|picorv32a#280| state))
-; yosys-smt2-anyseq picorv32a#298 1 $auto$setundef.cc:533:execute$5095
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5096"], "smtname": 298, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#298| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5096
+; yosys-smt2-anyseq picorv32a#298 1 $auto$setundef.cc:533:execute$5086
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5087"], "smtname": 298, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#298| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5087
 ; yosys-smt2-anyinit picorv32a#299 1 riscv.v:1208.3-1215.6
 ; yosys-smt2-witness {"offset": 0, "path": ["\\alu_ltu"], "smtname": 299, "smtoffset": 0, "type": "init", "width": 1}
 (declare-fun |picorv32a#299| (|picorv32a_s|) (_ BitVec 1)) ; \alu_ltu
@@ -1790,9 +1790,9 @@
 (define-fun |picorv32a#305| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#40| state)) #b1) (|picorv32a#303| state) (ite (= ((_ extract 0 0) (|picorv32a#42| state)) #b1) (ite (|picorv32a#304| state) #b1 #b0) (ite (= ((_ extract 0 0) (|picorv32a#46| state)) #b1) (ite (|picorv32a#302| state) #b1 #b0) (ite (= ((_ extract 0 0) (|picorv32a#50| state)) #b1) (ite (|picorv32a#301| state) #b1 #b0) (ite (= ((_ extract 0 0) (|picorv32a#209| state)) #b1) (|picorv32a#300| state) (ite (= ((_ extract 0 0) (|picorv32a#208| state)) #b1) (|picorv32a#299| state) (|picorv32a#298| state)))))))) ; \alu_out_0
 ; yosys-smt2-wire alu_out_0 1
 (define-fun |picorv32a_n alu_out_0| ((state |picorv32a_s|)) Bool (= ((_ extract 0 0) (|picorv32a#305| state)) #b1))
-; yosys-smt2-anyseq picorv32a#306 32 $auto$setundef.cc:533:execute$5093
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5094"], "smtname": 306, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#306| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5094
+; yosys-smt2-anyseq picorv32a#306 32 $auto$setundef.cc:533:execute$5084
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5085"], "smtname": 306, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#306| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5085
 (define-fun |picorv32a#307| ((state |picorv32a_s|)) (_ BitVec 32) (bvand (|picorv32a#9| state) (|picorv32a#8| state))) ; $and$riscv.v:1257$511_Y
 (define-fun |picorv32a#308| ((state |picorv32a_s|)) (_ BitVec 32) (bvor (|picorv32a#9| state) (|picorv32a#8| state))) ; $or$riscv.v:1255$509_Y
 (define-fun |picorv32a#309| ((state |picorv32a_s|)) (_ BitVec 32) (bvxor (|picorv32a#9| state) (|picorv32a#8| state))) ; $xor$riscv.v:1253$507_Y
@@ -1970,9 +1970,9 @@
 (declare-fun |picorv32a#350| (|picorv32a_s|) (_ BitVec 1)) ; $formal$riscv.v:2079$21_CHECK
 ; yosys-smt2-register $formal$riscv.v:2079$21_CHECK 1
 (define-fun |picorv32a_n $formal$riscv.v:2079$21_CHECK| ((state |picorv32a_s|)) Bool (= ((_ extract 0 0) (|picorv32a#350| state)) #b1))
-(define-fun |picorv32a#351| ((state |picorv32a_s|)) (_ BitVec 1) (bvnot (ite (|picorv32a#293| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5167
-; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5168
-(define-fun |picorv32a_u 0| ((state |picorv32a_s|)) Bool (or (= ((_ extract 0 0) (|picorv32a#351| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5168
+(define-fun |picorv32a#351| ((state |picorv32a_s|)) (_ BitVec 1) (bvnot (ite (|picorv32a#293| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5158
+; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5159
+(define-fun |picorv32a_u 0| ((state |picorv32a_s|)) Bool (or (= ((_ extract 0 0) (|picorv32a#351| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5159
 (define-fun |picorv32a#352| ((state |picorv32a_s|)) Bool (|picorv32a_is| state)) ; $initstate$4_wire
 (define-fun |picorv32a#353| ((state |picorv32a_s|)) Bool (distinct (ite (|picorv32a#4| state) #b1 #b0) (ite (|picorv32a#352| state) #b1 #b0))) ; $ne$riscv.v:2040$737_Y
 ; yosys-smt2-assume 1 $assume$riscv.v:2037$738 riscv.v:2037.66-2040.42
@@ -2025,9 +2025,9 @@
 (define-fun |picorv32a_a 19| ((state |picorv32a_s|)) Bool (or (= ((_ extract 0 0) (|picorv32a#348| state)) #b1) (not (= ((_ extract 0 0) (|picorv32a#349| state)) #b1)))) ; $assert$riscv.v:2080$806
 ; yosys-smt2-assert 20 $assert$riscv.v:2079$805 riscv.v:2079.30-2080.21
 (define-fun |picorv32a_a 20| ((state |picorv32a_s|)) Bool (or (= ((_ extract 0 0) (|picorv32a#350| state)) #b1) (not (= ((_ extract 0 0) (|picorv32a#349| state)) #b1)))) ; $assert$riscv.v:2079$805
-; yosys-smt2-anyseq picorv32a#358 1 $auto$setundef.cc:533:execute$5027
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5028"], "smtname": 358, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#358| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5028
+; yosys-smt2-anyseq picorv32a#358 1 $auto$setundef.cc:533:execute$5018
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5019"], "smtname": 358, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#358| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5019
 (define-fun |picorv32a#359| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#255| state) #b1 #b0)) ; $2\ok[0:0]
 (define-fun |picorv32a#360| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) #b1 (|picorv32a#359| state))) ; $3\ok[0:0]
 (define-fun |picorv32a#361| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#258| state) #b1 (|picorv32a#360| state))) ; $4\ok[0:0]
@@ -2040,12 +2040,12 @@
 (define-fun |picorv32a#368| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) #b1 #b0)) ; $0$formal$riscv.v:2061$20_EN[0:0]$743
 ; yosys-smt2-assert 21 $assert$riscv.v:2061$804 riscv.v:2061.46-2062.15
 (define-fun |picorv32a_a 21| ((state |picorv32a_s|)) Bool (or (= ((_ extract 0 0) (|picorv32a#367| state)) #b1) (not (= ((_ extract 0 0) (|picorv32a#368| state)) #b1)))) ; $assert$riscv.v:2061$804
-; yosys-smt2-anyseq picorv32a#369 1 $auto$setundef.cc:533:execute$5025
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5026"], "smtname": 369, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#369| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5026
-; yosys-smt2-anyseq picorv32a#370 1 $auto$setundef.cc:533:execute$5023
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5024"], "smtname": 370, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#370| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5024
+; yosys-smt2-anyseq picorv32a#369 1 $auto$setundef.cc:533:execute$5016
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5017"], "smtname": 369, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#369| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5017
+; yosys-smt2-anyseq picorv32a#370 1 $auto$setundef.cc:533:execute$5014
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5015"], "smtname": 370, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#370| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5015
 (define-fun |picorv32a#371| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#129| state)) #b1) (= ((_ extract 1 1) (|picorv32a#129| state)) #b1) (= ((_ extract 2 2) (|picorv32a#129| state)) #b1) (= ((_ extract 3 3) (|picorv32a#129| state)) #b1)))) ; $eq$riscv.v:2050$745_Y
 (define-fun |picorv32a#372| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#126| state)) #b1) false) (or  (= ((_ extract 0 0) (|picorv32a#171| state)) #b1) false))) ; $logic_and$riscv.v:2049$744_Y
 (define-fun |picorv32a#373| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#372| state) (ite (|picorv32a#371| state) #b1 #b0) (|picorv32a#370| state))) ; $procmux$1863_Y
@@ -2054,182 +2054,182 @@
 (define-fun |picorv32a#376| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#375| state) #b0)) ; $0$formal$riscv.v:2049$19_EN[0:0]$741
 ; yosys-smt2-assert 22 $assert$riscv.v:2049$803 riscv.v:2049.31-2050.28
 (define-fun |picorv32a_a 22| ((state |picorv32a_s|)) Bool (or (= ((_ extract 0 0) (|picorv32a#374| state)) #b1) (not (= ((_ extract 0 0) (|picorv32a#376| state)) #b1)))) ; $assert$riscv.v:2049$803
-; yosys-smt2-anyseq picorv32a#377 1 $auto$setundef.cc:533:execute$5007
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5008"], "smtname": 377, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#377| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5008
+; yosys-smt2-anyseq picorv32a#377 1 $auto$setundef.cc:533:execute$4998
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4999"], "smtname": 377, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#377| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$4999
 (define-fun |picorv32a#378| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#206| state)) #b1) (|picorv32a#126| state) (|picorv32a#377| state))) ; $0$formal$riscv.v:2079$21_CHECK[0:0]$755
 (define-fun |picorv32a#379| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#206| state)) #b1) #b1 #b0)) ; $0$formal$riscv.v:2079$21_EN[0:0]$756
-; yosys-smt2-anyseq picorv32a#380 1 $auto$setundef.cc:533:execute$5009
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5010"], "smtname": 380, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#380| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5010
+; yosys-smt2-anyseq picorv32a#380 1 $auto$setundef.cc:533:execute$5000
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5001"], "smtname": 380, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#380| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5001
 (define-fun |picorv32a#381| ((state |picorv32a_s|)) Bool (= (|picorv32a#181| state) (|picorv32a#207| state))) ; $eq$riscv.v:2081$771_Y
 (define-fun |picorv32a#382| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#206| state)) #b1) (ite (|picorv32a#381| state) #b1 #b0) (|picorv32a#380| state))) ; $0$formal$riscv.v:2080$22_CHECK[0:0]$757
-; yosys-smt2-anyseq picorv32a#383 1 $auto$setundef.cc:533:execute$5011
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5012"], "smtname": 383, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#383| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5012
+; yosys-smt2-anyseq picorv32a#383 1 $auto$setundef.cc:533:execute$5002
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5003"], "smtname": 383, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#383| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5003
 (define-fun |picorv32a#384| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#206| state)) #b1) (ite (|picorv32a#371| state) #b1 #b0) (|picorv32a#383| state))) ; $0$formal$riscv.v:2081$23_CHECK[0:0]$759
-; yosys-smt2-anyseq picorv32a#385 1 $auto$setundef.cc:533:execute$5013
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5014"], "smtname": 385, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#385| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5014
+; yosys-smt2-anyseq picorv32a#385 1 $auto$setundef.cc:533:execute$5004
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5005"], "smtname": 385, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#385| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5005
 (define-fun |picorv32a#386| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#204| state)) #b1) (|picorv32a#126| state) (|picorv32a#385| state))) ; $0$formal$riscv.v:2084$24_CHECK[0:0]$761
 (define-fun |picorv32a#387| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#204| state)) #b1) #b1 #b0)) ; $0$formal$riscv.v:2084$24_EN[0:0]$762
-; yosys-smt2-anyseq picorv32a#388 1 $auto$setundef.cc:533:execute$5015
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5016"], "smtname": 388, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#388| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5016
+; yosys-smt2-anyseq picorv32a#388 1 $auto$setundef.cc:533:execute$5006
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5007"], "smtname": 388, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#388| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5007
 (define-fun |picorv32a#389| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#204| state)) #b1) (ite (|picorv32a#381| state) #b1 #b0) (|picorv32a#388| state))) ; $0$formal$riscv.v:2085$25_CHECK[0:0]$763
-; yosys-smt2-anyseq picorv32a#390 1 $auto$setundef.cc:533:execute$5017
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5018"], "smtname": 390, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#390| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5018
+; yosys-smt2-anyseq picorv32a#390 1 $auto$setundef.cc:533:execute$5008
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5009"], "smtname": 390, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#390| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5009
 (define-fun |picorv32a#391| ((state |picorv32a_s|)) Bool (= (|picorv32a#131| state) (|picorv32a#205| state))) ; $eq$riscv.v:2087$774_Y
 (define-fun |picorv32a#392| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#204| state)) #b1) (ite (|picorv32a#391| state) #b1 #b0) (|picorv32a#390| state))) ; $0$formal$riscv.v:2086$26_CHECK[0:0]$765
-; yosys-smt2-anyseq picorv32a#393 1 $auto$setundef.cc:533:execute$5019
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5020"], "smtname": 393, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#393| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5020
+; yosys-smt2-anyseq picorv32a#393 1 $auto$setundef.cc:533:execute$5010
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5011"], "smtname": 393, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#393| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5011
 (define-fun |picorv32a#394| ((state |picorv32a_s|)) Bool (= (|picorv32a#129| state) (|picorv32a#203| state))) ; $eq$riscv.v:2088$775_Y
 (define-fun |picorv32a#395| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#204| state)) #b1) (ite (|picorv32a#394| state) #b1 #b0) (|picorv32a#393| state))) ; $0$formal$riscv.v:2087$27_CHECK[0:0]$767
-; yosys-smt2-anyseq picorv32a#396 1 $auto$setundef.cc:533:execute$5021
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5022"], "smtname": 396, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#396| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5022
+; yosys-smt2-anyseq picorv32a#396 1 $auto$setundef.cc:533:execute$5012
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5013"], "smtname": 396, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#396| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5013
 (define-fun |picorv32a#397| ((state |picorv32a_s|)) Bool (or  (|picorv32a#127| state) false  (|picorv32a#356| state) false)) ; $0\last_mem_nowait[3:0] [0]
 (define-fun |picorv32a#398| ((state |picorv32a_s|)) Bool (or  (|picorv32a#169| state) false  (|picorv32a#160| state) false)) ; $logic_or$riscv.v:2090$776_Y
 (define-fun |picorv32a#399| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#398| state) (ite (|picorv32a#397| state) #b1 #b0) (|picorv32a#396| state))) ; $0$formal$riscv.v:2090$28_CHECK[0:0]$769
 (define-fun |picorv32a#400| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#398| state) #b1 #b0)) ; $0$formal$riscv.v:2090$28_EN[0:0]$770
-; yosys-smt2-anyseq picorv32a#401 1 $auto$setundef.cc:533:execute$5133
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5134"], "smtname": 401, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#401| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5134
-; yosys-smt2-anyseq picorv32a#402 1 $auto$setundef.cc:533:execute$5131
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5132"], "smtname": 402, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#402| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5132
+; yosys-smt2-anyseq picorv32a#401 1 $auto$setundef.cc:533:execute$5124
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5125"], "smtname": 401, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#401| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5125
+; yosys-smt2-anyseq picorv32a#402 1 $auto$setundef.cc:533:execute$5122
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5123"], "smtname": 402, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#402| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5123
 (define-fun |picorv32a#403| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) false))) ; $logic_not$riscv.v:532$155_Y
-(define-fun |picorv32a#404| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) (ite (|picorv32a#403| state) #b1 #b0) (|picorv32a#402| state))) ; $procmux$4268_Y
+(define-fun |picorv32a#404| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) (ite (|picorv32a#403| state) #b1 #b0) (|picorv32a#402| state))) ; $procmux$4259_Y
 (define-fun |picorv32a#405| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#0| state)) #b1) false))) ; $logic_not$riscv.v:530$151_Y
 (define-fun |picorv32a#406| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#4| state) false) (or  (|picorv32a#405| state) false))) ; $logic_and$riscv.v:530$152_Y
 (define-fun |picorv32a#407| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#404| state) (|picorv32a#401| state))) ; $0$formal$riscv.v:531$5_CHECK[0:0]$141
-(define-fun |picorv32a#408| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) #b1 #b0)) ; $procmux$4264_Y
+(define-fun |picorv32a#408| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) #b1 #b0)) ; $procmux$4255_Y
 (define-fun |picorv32a#409| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#408| state) #b0)) ; $0$formal$riscv.v:531$5_EN[0:0]$142
-; yosys-smt2-anyseq picorv32a#410 1 $auto$setundef.cc:533:execute$5137
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5138"], "smtname": 410, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#410| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5138
-; yosys-smt2-anyseq picorv32a#411 1 $auto$setundef.cc:533:execute$5135
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5136"], "smtname": 411, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#411| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5136
+; yosys-smt2-anyseq picorv32a#410 1 $auto$setundef.cc:533:execute$5128
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5129"], "smtname": 410, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#410| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5129
+; yosys-smt2-anyseq picorv32a#411 1 $auto$setundef.cc:533:execute$5126
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5127"], "smtname": 411, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#411| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5127
 (define-fun |picorv32a#412| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#166| state)) #b1) false))) ; $logic_not$riscv.v:535$157_Y
-(define-fun |picorv32a#413| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#165| state) (ite (|picorv32a#412| state) #b1 #b0) (|picorv32a#411| state))) ; $procmux$4276_Y
+(define-fun |picorv32a#413| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#165| state) (ite (|picorv32a#412| state) #b1 #b0) (|picorv32a#411| state))) ; $procmux$4267_Y
 (define-fun |picorv32a#414| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#413| state) (|picorv32a#410| state))) ; $0$formal$riscv.v:534$6_CHECK[0:0]$143
-(define-fun |picorv32a#415| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#165| state) #b1 #b0)) ; $procmux$4272_Y
+(define-fun |picorv32a#415| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#165| state) #b1 #b0)) ; $procmux$4263_Y
 (define-fun |picorv32a#416| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#415| state) #b0)) ; $0$formal$riscv.v:534$6_EN[0:0]$144
-; yosys-smt2-anyseq picorv32a#417 1 $auto$setundef.cc:533:execute$5141
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5142"], "smtname": 417, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#417| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5142
-; yosys-smt2-anyseq picorv32a#418 1 $auto$setundef.cc:533:execute$5139
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5140"], "smtname": 418, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#418| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5140
+; yosys-smt2-anyseq picorv32a#417 1 $auto$setundef.cc:533:execute$5132
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5133"], "smtname": 417, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#417| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5133
+; yosys-smt2-anyseq picorv32a#418 1 $auto$setundef.cc:533:execute$5130
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5131"], "smtname": 418, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#418| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5131
 (define-fun |picorv32a#419| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#164| state)) #b1) false))) ; $logic_not$riscv.v:1835$683_Y
 (define-fun |picorv32a#420| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#163| state)) #b1) false))) ; $logic_not$riscv.v:538$159_Y
 (define-fun |picorv32a#421| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#419| state) false) (or  (|picorv32a#420| state) false))) ; $logic_and$riscv.v:538$160_Y
-(define-fun |picorv32a#422| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#166| state)) #b1) (ite (|picorv32a#421| state) #b1 #b0) (|picorv32a#418| state))) ; $procmux$4284_Y
+(define-fun |picorv32a#422| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#166| state)) #b1) (ite (|picorv32a#421| state) #b1 #b0) (|picorv32a#418| state))) ; $procmux$4275_Y
 (define-fun |picorv32a#423| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#422| state) (|picorv32a#417| state))) ; $0$formal$riscv.v:537$7_CHECK[0:0]$145
-(define-fun |picorv32a#424| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#166| state)) #b1) #b1 #b0)) ; $procmux$4280_Y
+(define-fun |picorv32a#424| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#166| state)) #b1) #b1 #b0)) ; $procmux$4271_Y
 (define-fun |picorv32a#425| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#424| state) #b0)) ; $0$formal$riscv.v:537$7_EN[0:0]$146
-; yosys-smt2-anyseq picorv32a#426 1 $auto$setundef.cc:533:execute$5145
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5146"], "smtname": 426, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#426| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5146
-; yosys-smt2-anyseq picorv32a#427 1 $auto$setundef.cc:533:execute$5143
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5144"], "smtname": 427, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#427| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5144
+; yosys-smt2-anyseq picorv32a#426 1 $auto$setundef.cc:533:execute$5136
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5137"], "smtname": 426, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#426| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5137
+; yosys-smt2-anyseq picorv32a#427 1 $auto$setundef.cc:533:execute$5134
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5135"], "smtname": 427, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#427| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5135
 (define-fun |picorv32a#428| ((state |picorv32a_s|)) Bool (not (or  (|picorv32a#167| state) false))) ; $logic_not$riscv.v:541$163_Y
-(define-fun |picorv32a#429| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) (ite (|picorv32a#428| state) #b1 #b0) (|picorv32a#427| state))) ; $procmux$4292_Y
+(define-fun |picorv32a#429| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) (ite (|picorv32a#428| state) #b1 #b0) (|picorv32a#427| state))) ; $procmux$4283_Y
 (define-fun |picorv32a#430| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#429| state) (|picorv32a#426| state))) ; $0$formal$riscv.v:540$8_CHECK[0:0]$147
-(define-fun |picorv32a#431| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b1 #b0)) ; $procmux$4288_Y
+(define-fun |picorv32a#431| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b1 #b0)) ; $procmux$4279_Y
 (define-fun |picorv32a#432| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#431| state) #b0)) ; $0$formal$riscv.v:540$8_EN[0:0]$148
-; yosys-smt2-anyseq picorv32a#433 1 $auto$setundef.cc:533:execute$5149
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5150"], "smtname": 433, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#433| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5150
-; yosys-smt2-anyseq picorv32a#434 1 $auto$setundef.cc:533:execute$5147
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5148"], "smtname": 434, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#434| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5148
+; yosys-smt2-anyseq picorv32a#433 1 $auto$setundef.cc:533:execute$5140
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5141"], "smtname": 433, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#433| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5141
+; yosys-smt2-anyseq picorv32a#434 1 $auto$setundef.cc:533:execute$5138
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5139"], "smtname": 434, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#434| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5139
 (define-fun |picorv32a#435| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#126| state)) #b1) false  (= ((_ extract 0 0) (|picorv32a#164| state)) #b1) false)) ; $logic_or$riscv.v:544$167_Y
 (define-fun |picorv32a#436| ((state |picorv32a_s|)) Bool (= (|picorv32a#132| state) #b10)) ; $eq$riscv.v:543$164_Y
 (define-fun |picorv32a#437| ((state |picorv32a_s|)) Bool (= (|picorv32a#132| state) #b11)) ; $eq$riscv.v:543$165_Y
 (define-fun |picorv32a#438| ((state |picorv32a_s|)) Bool (or  (|picorv32a#436| state) false  (|picorv32a#437| state) false)) ; $logic_or$riscv.v:543$166_Y
-(define-fun |picorv32a#439| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#438| state) (ite (|picorv32a#435| state) #b1 #b0) (|picorv32a#434| state))) ; $procmux$4300_Y
+(define-fun |picorv32a#439| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#438| state) (ite (|picorv32a#435| state) #b1 #b0) (|picorv32a#434| state))) ; $procmux$4291_Y
 (define-fun |picorv32a#440| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#439| state) (|picorv32a#433| state))) ; $0$formal$riscv.v:543$9_CHECK[0:0]$149
-(define-fun |picorv32a#441| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#438| state) #b1 #b0)) ; $procmux$4296_Y
+(define-fun |picorv32a#441| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#438| state) #b1 #b0)) ; $procmux$4287_Y
 (define-fun |picorv32a#442| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#406| state) (|picorv32a#441| state) #b0)) ; $0$formal$riscv.v:543$9_EN[0:0]$150
-; yosys-smt2-anyseq picorv32a#443 1 $auto$setundef.cc:533:execute$5099
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5100"], "smtname": 443, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#443| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5100
-(define-fun |picorv32a#444| ((state |picorv32a_s|)) Bool (= (|picorv32a#132| state) #b01)) ; $procmux$4039_CMP
-(define-fun |picorv32a#445| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (ite (|picorv32a#371| state) #b1 #b0) (|picorv32a#443| state))) ; $procmux$4045_Y
-; yosys-smt2-anyseq picorv32a#446 1 $auto$setundef.cc:533:execute$5101
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5102"], "smtname": 446, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#446| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5102
+; yosys-smt2-anyseq picorv32a#443 1 $auto$setundef.cc:533:execute$5090
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5091"], "smtname": 443, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#443| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5091
+(define-fun |picorv32a#444| ((state |picorv32a_s|)) Bool (= (|picorv32a#132| state) #b01)) ; $procmux$4030_CMP
+(define-fun |picorv32a#445| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (ite (|picorv32a#371| state) #b1 #b0) (|picorv32a#443| state))) ; $procmux$4036_Y
+; yosys-smt2-anyseq picorv32a#446 1 $auto$setundef.cc:533:execute$5092
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5093"], "smtname": 446, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#446| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5093
 (define-fun |picorv32a#447| ((state |picorv32a_s|)) Bool (not (or  (|picorv32a#4| state) false))) ; $logic_not$riscv.v:1920$726_Y
 (define-fun |picorv32a#448| ((state |picorv32a_s|)) Bool (or  (|picorv32a#447| state) false  (= ((_ extract 0 0) (|picorv32a#0| state)) #b1) false)) ; $logic_or$riscv.v:549$186_Y
 (define-fun |picorv32a#449| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#446| state) (|picorv32a#445| state))) ; $0$formal$riscv.v:578$10_CHECK[0:0]$169
-(define-fun |picorv32a#450| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) #b1 #b0)) ; $procmux$4038_Y
+(define-fun |picorv32a#450| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) #b1 #b0)) ; $procmux$4029_Y
 (define-fun |picorv32a#451| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) #b0 (|picorv32a#450| state))) ; $0$formal$riscv.v:578$10_EN[0:0]$170
-; yosys-smt2-anyseq picorv32a#452 1 $auto$setundef.cc:533:execute$5103
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5104"], "smtname": 452, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#452| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5104
-(define-fun |picorv32a#453| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (ite (|picorv32a#167| state) #b1 #b0) (|picorv32a#452| state))) ; $procmux$4059_Y
-; yosys-smt2-anyseq picorv32a#454 1 $auto$setundef.cc:533:execute$5105
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5106"], "smtname": 454, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#454| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5106
+; yosys-smt2-anyseq picorv32a#452 1 $auto$setundef.cc:533:execute$5094
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5095"], "smtname": 452, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#452| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5095
+(define-fun |picorv32a#453| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (ite (|picorv32a#167| state) #b1 #b0) (|picorv32a#452| state))) ; $procmux$4050_Y
+; yosys-smt2-anyseq picorv32a#454 1 $auto$setundef.cc:533:execute$5096
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5097"], "smtname": 454, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#454| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5097
 (define-fun |picorv32a#455| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#454| state) (|picorv32a#453| state))) ; $0$formal$riscv.v:579$11_CHECK[0:0]$171
-; yosys-smt2-anyseq picorv32a#456 1 $auto$setundef.cc:533:execute$5107
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5108"], "smtname": 456, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#456| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5108
-(define-fun |picorv32a#457| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (|picorv32a#126| state) (|picorv32a#456| state))) ; $procmux$4073_Y
-; yosys-smt2-anyseq picorv32a#458 1 $auto$setundef.cc:533:execute$5109
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5110"], "smtname": 458, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#458| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5110
+; yosys-smt2-anyseq picorv32a#456 1 $auto$setundef.cc:533:execute$5098
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5099"], "smtname": 456, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#456| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5099
+(define-fun |picorv32a#457| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (|picorv32a#126| state) (|picorv32a#456| state))) ; $procmux$4064_Y
+; yosys-smt2-anyseq picorv32a#458 1 $auto$setundef.cc:533:execute$5100
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5101"], "smtname": 458, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#458| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5101
 (define-fun |picorv32a#459| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#458| state) (|picorv32a#457| state))) ; $0$formal$riscv.v:580$12_CHECK[0:0]$173
-; yosys-smt2-anyseq picorv32a#460 1 $auto$setundef.cc:533:execute$5111
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5112"], "smtname": 460, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#460| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5112
+; yosys-smt2-anyseq picorv32a#460 1 $auto$setundef.cc:533:execute$5102
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5103"], "smtname": 460, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#460| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5103
 (define-fun |picorv32a#461| ((state |picorv32a_s|)) Bool (= (|picorv32a#171| state) (ite (|picorv32a#165| state) #b1 #b0))) ; $eq$riscv.v:582$202_Y
-(define-fun |picorv32a#462| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (ite (|picorv32a#461| state) #b1 #b0) (|picorv32a#460| state))) ; $procmux$4087_Y
-; yosys-smt2-anyseq picorv32a#463 1 $auto$setundef.cc:533:execute$5113
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5114"], "smtname": 463, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#463| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5114
+(define-fun |picorv32a#462| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#444| state) (ite (|picorv32a#461| state) #b1 #b0) (|picorv32a#460| state))) ; $procmux$4078_Y
+; yosys-smt2-anyseq picorv32a#463 1 $auto$setundef.cc:533:execute$5104
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5105"], "smtname": 463, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#463| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5105
 (define-fun |picorv32a#464| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#463| state) (|picorv32a#462| state))) ; $0$formal$riscv.v:581$13_CHECK[0:0]$175
-; yosys-smt2-anyseq picorv32a#465 1 $auto$setundef.cc:533:execute$5115
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5116"], "smtname": 465, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#465| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5116
+; yosys-smt2-anyseq picorv32a#465 1 $auto$setundef.cc:533:execute$5106
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5107"], "smtname": 465, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#465| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5107
 (define-fun |picorv32a#466| ((state |picorv32a_s|)) Bool (distinct (|picorv32a#129| state) #b0000)) ; $ne$riscv.v:605$212_Y
-(define-fun |picorv32a#467| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#436| state) (ite (|picorv32a#466| state) #b1 #b0) (|picorv32a#465| state))) ; $procmux$4099_Y
-; yosys-smt2-anyseq picorv32a#468 1 $auto$setundef.cc:533:execute$5117
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5118"], "smtname": 468, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#468| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5118
+(define-fun |picorv32a#467| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#436| state) (ite (|picorv32a#466| state) #b1 #b0) (|picorv32a#465| state))) ; $procmux$4090_Y
+; yosys-smt2-anyseq picorv32a#468 1 $auto$setundef.cc:533:execute$5108
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5109"], "smtname": 468, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#468| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5109
 (define-fun |picorv32a#469| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#468| state) (|picorv32a#467| state))) ; $0$formal$riscv.v:604$14_CHECK[0:0]$177
-(define-fun |picorv32a#470| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#436| state) #b1 #b0)) ; $procmux$4093_Y
+(define-fun |picorv32a#470| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#436| state) #b1 #b0)) ; $procmux$4084_Y
 (define-fun |picorv32a#471| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) #b0 (|picorv32a#470| state))) ; $0$formal$riscv.v:604$14_EN[0:0]$178
-; yosys-smt2-anyseq picorv32a#472 1 $auto$setundef.cc:533:execute$5119
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5120"], "smtname": 472, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#472| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5120
-(define-fun |picorv32a#473| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#436| state) (|picorv32a#159| state) (|picorv32a#472| state))) ; $procmux$4111_Y
-; yosys-smt2-anyseq picorv32a#474 1 $auto$setundef.cc:533:execute$5121
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5122"], "smtname": 474, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#474| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5122
+; yosys-smt2-anyseq picorv32a#472 1 $auto$setundef.cc:533:execute$5110
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5111"], "smtname": 472, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#472| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5111
+(define-fun |picorv32a#473| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#436| state) (|picorv32a#159| state) (|picorv32a#472| state))) ; $procmux$4102_Y
+; yosys-smt2-anyseq picorv32a#474 1 $auto$setundef.cc:533:execute$5112
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5113"], "smtname": 474, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#474| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5113
 (define-fun |picorv32a#475| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#474| state) (|picorv32a#473| state))) ; $0$formal$riscv.v:605$15_CHECK[0:0]$179
-; yosys-smt2-anyseq picorv32a#476 1 $auto$setundef.cc:533:execute$5123
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5124"], "smtname": 476, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#476| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5124
-(define-fun |picorv32a#477| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#437| state) (ite (|picorv32a#371| state) #b1 #b0) (|picorv32a#476| state))) ; $procmux$4121_Y
-; yosys-smt2-anyseq picorv32a#478 1 $auto$setundef.cc:533:execute$5125
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5126"], "smtname": 478, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#478| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5126
+; yosys-smt2-anyseq picorv32a#476 1 $auto$setundef.cc:533:execute$5114
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5115"], "smtname": 476, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#476| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5115
+(define-fun |picorv32a#477| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#437| state) (ite (|picorv32a#371| state) #b1 #b0) (|picorv32a#476| state))) ; $procmux$4112_Y
+; yosys-smt2-anyseq picorv32a#478 1 $auto$setundef.cc:533:execute$5116
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5117"], "smtname": 478, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#478| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5117
 (define-fun |picorv32a#479| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#478| state) (|picorv32a#477| state))) ; $0$formal$riscv.v:612$16_CHECK[0:0]$181
-(define-fun |picorv32a#480| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#437| state) #b1 #b0)) ; $procmux$4116_Y
+(define-fun |picorv32a#480| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#437| state) #b1 #b0)) ; $procmux$4107_Y
 (define-fun |picorv32a#481| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) #b0 (|picorv32a#480| state))) ; $0$formal$riscv.v:612$16_EN[0:0]$182
-; yosys-smt2-anyseq picorv32a#482 1 $auto$setundef.cc:533:execute$5127
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5128"], "smtname": 482, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#482| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5128
-(define-fun |picorv32a#483| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#437| state) (|picorv32a#164| state) (|picorv32a#482| state))) ; $procmux$4131_Y
-; yosys-smt2-anyseq picorv32a#484 1 $auto$setundef.cc:533:execute$5129
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5130"], "smtname": 484, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#484| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5130
+; yosys-smt2-anyseq picorv32a#482 1 $auto$setundef.cc:533:execute$5118
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5119"], "smtname": 482, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#482| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5119
+(define-fun |picorv32a#483| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#437| state) (|picorv32a#164| state) (|picorv32a#482| state))) ; $procmux$4122_Y
+; yosys-smt2-anyseq picorv32a#484 1 $auto$setundef.cc:533:execute$5120
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5121"], "smtname": 484, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#484| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5121
 (define-fun |picorv32a#485| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#484| state) (|picorv32a#483| state))) ; $0$formal$riscv.v:613$17_CHECK[0:0]$183
 (define-fun |picorv32a#486| ((state |picorv32a_s|)) (_ BitVec 32) (bvadd (|picorv32a#9| state) (|picorv32a#8| state))) ; $add$riscv.v:1209$781_Y
 (define-fun |picorv32a#487| ((state |picorv32a_s|)) (_ BitVec 32) (bvsub (|picorv32a#9| state) (|picorv32a#8| state))) ; $sub$riscv.v:1209$780_Y
@@ -2243,9 +2243,9 @@
 (define-fun |picorv32a#495| ((state |picorv32a_s|)) (_ BitVec 32) ((_ extract 31 0) (bvashr (concat (|picorv32a#494| state) (|picorv32a#9| state)) (concat #b0000000000000000000000000000 ((_ extract 4 0) (|picorv32a#8| state)))))) ; $0\alu_shr[31:0]
 (define-fun |picorv32a#496| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#295| state)) #b1) false  (= ((_ extract 0 0) (|picorv32a#294| state)) #b1) false)) ; $logic_and$riscv.v:1785$663_Y
 (define-fun |picorv32a#497| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#496| state) (|picorv32a#294| state) #b0)) ; $procmux$2355_Y
-(define-fun |picorv32a#498| ((state |picorv32a_s|)) Bool (or  (|picorv32a#224| state) (= ((_ extract 0 0) (|picorv32a#211| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4831
+(define-fun |picorv32a#498| ((state |picorv32a_s|)) Bool (or  (|picorv32a#224| state) (= ((_ extract 0 0) (|picorv32a#211| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4822
 (define-fun |picorv32a#499| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#498| state) #b0 #b1)) ; $procmux$2363_Y
-(define-fun |picorv32a#500| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#214| state)) #b1) (= ((_ extract 0 0) (|picorv32a#210| state)) #b1) (= ((_ extract 0 0) (|picorv32a#217| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4833
+(define-fun |picorv32a#500| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#214| state)) #b1) (= ((_ extract 0 0) (|picorv32a#210| state)) #b1) (= ((_ extract 0 0) (|picorv32a#217| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4824
 (define-fun |picorv32a#501| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#500| state) #b1 #b0)) ; $procmux$2369_Y
 (define-fun |picorv32a#502| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#258| state) (|picorv32a#501| state) (ite (|picorv32a#233| state) (|picorv32a#499| state) (ite (|picorv32a#261| state) (|picorv32a#497| state) #b0)))) ; $procmux$2357_Y
 (define-fun |picorv32a#503| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#502| state) #b0)) ; $0\alu_wait[0:0]
@@ -2270,14 +2270,14 @@
 (define-fun |picorv32a#522| ((state |picorv32a_s|)) (_ BitVec 64) (ite (|picorv32a#4| state) (|picorv32a#521| state) #b0000000000000000000000000000000000000000000000000000000000000000)) ; $0\count_instr[63:0]
 (define-fun |picorv32a#523| ((state |picorv32a_s|)) (_ BitVec 64) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) (|picorv32a#125| state) (|picorv32a#269| state))) ; $0\cached_ascii_instr[63:0]
 (define-fun |picorv32a#524| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) (|picorv32a#237| state) (|picorv32a#252| state))) ; $0\cached_insn_imm[31:0]
-(define-fun |picorv32a#525| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) (|picorv32a#235| state) (|picorv32a#249| state))) ; $0\cached_insn_rd[4:0]
-(define-fun |picorv32a#526| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) (|picorv32a#232| state) (|picorv32a#246| state))) ; $0\cached_insn_rs1[4:0]
-(define-fun |picorv32a#527| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) (|picorv32a#231| state) (|picorv32a#243| state))) ; $0\cached_insn_rs2[4:0]
-; yosys-smt2-anyseq picorv32a#528 32 $auto$setundef.cc:533:execute$5079
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5080"], "smtname": 528, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#528| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5080
+(define-fun |picorv32a#525| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) ((_ extract 4 0) (|picorv32a#235| state)) (|picorv32a#249| state))) ; $0\cached_insn_rd[4:0]
+(define-fun |picorv32a#526| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) ((_ extract 4 0) (|picorv32a#232| state)) (|picorv32a#246| state))) ; $0\cached_insn_rs1[4:0]
+(define-fun |picorv32a#527| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#228| state)) #b1) ((_ extract 4 0) (|picorv32a#231| state)) (|picorv32a#243| state))) ; $0\cached_insn_rs2[4:0]
+; yosys-smt2-anyseq picorv32a#528 32 $auto$setundef.cc:533:execute$5070
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5071"], "smtname": 528, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#528| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5071
 (define-fun |picorv32a#529| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#195| state) (|picorv32a#528| state) (|picorv32a#241| state))) ; $procmux$2824_Y
-(define-fun |picorv32a#530| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#106| state)) #b1) (= ((_ extract 0 0) (|picorv32a#108| state)) #b1) (= ((_ extract 0 0) (|picorv32a#110| state)) #b1) (= ((_ extract 0 0) (|picorv32a#112| state)) #b1) (= ((_ extract 0 0) (|picorv32a#214| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4845
+(define-fun |picorv32a#530| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#106| state)) #b1) (= ((_ extract 0 0) (|picorv32a#108| state)) #b1) (= ((_ extract 0 0) (|picorv32a#110| state)) #b1) (= ((_ extract 0 0) (|picorv32a#112| state)) #b1) (= ((_ extract 0 0) (|picorv32a#214| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4836
 (define-fun |picorv32a#531| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#530| state) (|picorv32a#529| state) (|picorv32a#289| state))) ; $procmux$2841_Y
 (define-fun |picorv32a#532| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#258| state) (|picorv32a#531| state) (|picorv32a#529| state))) ; $procmux$2844_Y
 (define-fun |picorv32a#533| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#532| state) (|picorv32a#529| state))) ; $0\dbg_rs1val[31:0]
@@ -2285,21 +2285,21 @@
 (define-fun |picorv32a#535| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#530| state) (|picorv32a#534| state) #b1)) ; $procmux$2804_Y
 (define-fun |picorv32a#536| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#258| state) (|picorv32a#535| state) (|picorv32a#534| state))) ; $procmux$2807_Y
 (define-fun |picorv32a#537| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#536| state) (|picorv32a#534| state))) ; $0\dbg_rs1val_valid[0:0]
-; yosys-smt2-anyseq picorv32a#538 32 $auto$setundef.cc:533:execute$5077
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5078"], "smtname": 538, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#538| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5078
+; yosys-smt2-anyseq picorv32a#538 32 $auto$setundef.cc:533:execute$5068
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5069"], "smtname": 538, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#538| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5069
 (define-fun |picorv32a#539| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#195| state) (|picorv32a#538| state) (|picorv32a#239| state))) ; $procmux$2812_Y
 (define-fun |picorv32a#540| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#233| state) (|picorv32a#289| state) (|picorv32a#539| state))) ; $procmux$2819_Y
 (define-fun |picorv32a#541| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#540| state) (|picorv32a#539| state))) ; $0\dbg_rs2val[31:0]
 (define-fun |picorv32a#542| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#195| state) #b0 (|picorv32a#238| state))) ; $procmux$2775_Y
 (define-fun |picorv32a#543| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#233| state) #b1 (|picorv32a#542| state))) ; $procmux$2782_Y
 (define-fun |picorv32a#544| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#543| state) (|picorv32a#542| state))) ; $0\dbg_rs2val_valid[0:0]
-; yosys-smt2-anyseq picorv32a#545 1 $auto$setundef.cc:533:execute$5097
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5098"], "smtname": 545, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#545| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5098
-(define-fun |picorv32a#546| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#38| state)) #b1) (= ((_ extract 0 0) (|picorv32a#216| state)) #b1) (= ((_ extract 0 0) (|picorv32a#221| state)) #b1))) ; $procmux$3546_CMP
-(define-fun |picorv32a#547| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#32| state)) #b1) (= ((_ extract 0 0) (|picorv32a#34| state)) #b1))) ; $procmux$3547_CMP
-(define-fun |picorv32a#548| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#36| state)) #b1) (|picorv32a#236| state) (ite (|picorv32a#547| state) (concat ((_ extract 31 12) (|picorv32a#151| state)) #b000000000000) (ite (|picorv32a#546| state) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) ((_ extract 31 20) (|picorv32a#151| state)))))))))))))))))))))) (ite (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 7 7) (|picorv32a#151| state)) (concat ((_ extract 30 25) (|picorv32a#151| state)) (concat ((_ extract 11 8) (|picorv32a#151| state)) #b0))))))))))))))))))))))) (ite (= ((_ extract 0 0) (|picorv32a#211| state)) #b1) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 25) (|picorv32a#151| state)) ((_ extract 11 7) (|picorv32a#151| state))))))))))))))))))))))) (concat #b0000000000000000000000000000000 (|picorv32a#545| state)))))))) ; $procmux$3543_Y
+; yosys-smt2-anyseq picorv32a#545 1 $auto$setundef.cc:533:execute$5088
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5089"], "smtname": 545, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#545| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5089
+(define-fun |picorv32a#546| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#38| state)) #b1) (= ((_ extract 0 0) (|picorv32a#216| state)) #b1) (= ((_ extract 0 0) (|picorv32a#221| state)) #b1))) ; $procmux$3537_CMP
+(define-fun |picorv32a#547| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#32| state)) #b1) (= ((_ extract 0 0) (|picorv32a#34| state)) #b1))) ; $procmux$3538_CMP
+(define-fun |picorv32a#548| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#36| state)) #b1) (|picorv32a#236| state) (ite (|picorv32a#547| state) (concat ((_ extract 31 12) (|picorv32a#151| state)) #b000000000000) (ite (|picorv32a#546| state) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) ((_ extract 31 20) (|picorv32a#151| state)))))))))))))))))))))) (ite (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 7 7) (|picorv32a#151| state)) (concat ((_ extract 30 25) (|picorv32a#151| state)) (concat ((_ extract 11 8) (|picorv32a#151| state)) #b0))))))))))))))))))))))) (ite (= ((_ extract 0 0) (|picorv32a#211| state)) #b1) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 31) (|picorv32a#151| state)) (concat ((_ extract 31 25) (|picorv32a#151| state)) ((_ extract 11 7) (|picorv32a#151| state))))))))))))))))))))))) (concat #b0000000000000000000000000000000 (|picorv32a#545| state)))))))) ; $procmux$3534_Y
 (define-fun |picorv32a#549| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#230| state)) #b1) false))) ; $logic_not$riscv.v:1018$302_Y
 (define-fun |picorv32a#550| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#184| state)) #b1) false) (or  (|picorv32a#549| state) false))) ; $logic_and$riscv.v:1018$303_Y
 (define-fun |picorv32a#551| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#550| state) (|picorv32a#548| state) (|picorv32a#237| state))) ; $0\decoded_imm[31:0]
@@ -2314,23 +2314,23 @@
 (define-fun |picorv32a#560| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#504| state) ((_ extract 20 20) (|picorv32a#152| state)) ((_ extract 11 11) (|picorv32a#236| state)))) ; $0\decoded_imm_uj[31:0] [11]
 (define-fun |picorv32a#561| ((state |picorv32a_s|)) (_ BitVec 8) (ite (|picorv32a#504| state) ((_ extract 19 12) (|picorv32a#152| state)) ((_ extract 19 12) (|picorv32a#236| state)))) ; $0\decoded_imm_uj[31:0] [19:12]
 (define-fun |picorv32a#562| ((state |picorv32a_s|)) (_ BitVec 12) (ite (|picorv32a#504| state) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) (concat ((_ extract 31 31) (|picorv32a#152| state)) ((_ extract 31 31) (|picorv32a#152| state))))))))))))) ((_ extract 31 20) (|picorv32a#236| state)))) ; $0\decoded_imm_uj[31:0] [31:20]
-(define-fun |picorv32a#563| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#504| state) ((_ extract 11 7) (|picorv32a#152| state)) (|picorv32a#235| state))) ; $0\decoded_rd[4:0]
+(define-fun |picorv32a#563| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#504| state) (concat #b0 ((_ extract 11 7) (|picorv32a#152| state))) (|picorv32a#235| state))) ; $0\decoded_rd[5:0]
 (define-fun |picorv32a#564| ((state |picorv32a_s|)) Bool (= ((_ extract 6 0) (|picorv32a#152| state)) #b0001011)) ; $eq$riscv.v:852$238_Y
 (define-fun |picorv32a#565| ((state |picorv32a_s|)) Bool (= ((_ extract 31 25) (|picorv32a#152| state)) #b0000010)) ; $eq$riscv.v:852$239_Y
 (define-fun |picorv32a#566| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#564| state) false) (or  (|picorv32a#565| state) false))) ; $logic_and$riscv.v:852$240_Y
-(define-fun |picorv32a#567| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#566| state) #b0000 ((_ extract 18 15) (|picorv32a#152| state)))) ; $procmux$3382_Y
-(define-fun |picorv32a#568| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#504| state) (|picorv32a#567| state) ((_ extract 3 0) (|picorv32a#232| state)))) ; $0\decoded_rs1[4:0] [3:0]
+(define-fun |picorv32a#567| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#566| state) #b00000 ((_ extract 19 15) (|picorv32a#152| state)))) ; $procmux$3373_Y
+(define-fun |picorv32a#568| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#504| state) (|picorv32a#567| state) ((_ extract 4 0) (|picorv32a#232| state)))) ; $0\decoded_rs1[5:0] [4:0]
 (define-fun |picorv32a#569| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 25 25) (|picorv32a#152| state)) #b1) (= ((_ extract 26 26) (|picorv32a#152| state)) #b1) (= ((_ extract 27 27) (|picorv32a#152| state)) #b1) (= ((_ extract 28 28) (|picorv32a#152| state)) #b1) (= ((_ extract 29 29) (|picorv32a#152| state)) #b1) (= ((_ extract 30 30) (|picorv32a#152| state)) #b1) (= ((_ extract 31 31) (|picorv32a#152| state)) #b1)))) ; $eq$riscv.v:867$252_Y
 (define-fun |picorv32a#570| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#564| state) false) (or  (|picorv32a#569| state) false))) ; $logic_and$riscv.v:867$253_Y
-(define-fun |picorv32a#571| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#570| state) #b1 ((_ extract 19 19) (|picorv32a#152| state)))) ; $procmux$3296_Y
+(define-fun |picorv32a#571| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#570| state) #b1 #b0)) ; $procmux$3296_Y
 (define-fun |picorv32a#572| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#566| state) #b1 (|picorv32a#571| state))) ; $procmux$3298_Y
-(define-fun |picorv32a#573| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#504| state) (|picorv32a#572| state) ((_ extract 4 4) (|picorv32a#232| state)))) ; $0\decoded_rs1[4:0] [4]
-(define-fun |picorv32a#574| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#504| state) ((_ extract 24 20) (|picorv32a#152| state)) (|picorv32a#231| state))) ; $0\decoded_rs2[4:0]
+(define-fun |picorv32a#573| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#504| state) (|picorv32a#572| state) ((_ extract 5 5) (|picorv32a#232| state)))) ; $0\decoded_rs1[5:0] [5]
+(define-fun |picorv32a#574| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#504| state) (concat #b0 ((_ extract 24 20) (|picorv32a#152| state))) (|picorv32a#231| state))) ; $0\decoded_rs2[5:0]
 (define-fun |picorv32a#575| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#419| state) false) (or  (|picorv32a#180| state) false))) ; $logic_and$riscv.v:1850$688_Y
 (define-fun |picorv32a#576| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#575| state) #b1 #b0)) ; $procmux$2290_Y
 (define-fun |picorv32a#577| ((state |picorv32a_s|)) Bool (or  (|picorv32a#419| state) false  (|picorv32a#180| state) false)) ; $logic_or$riscv.v:1835$684_Y
 (define-fun |picorv32a#578| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#577| state) (|picorv32a#576| state) #b0)) ; $procmux$2292_Y
-(define-fun |picorv32a#579| ((state |picorv32a_s|)) Bool (or  (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4853
+(define-fun |picorv32a#579| ((state |picorv32a_s|)) Bool (or  (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4844
 (define-fun |picorv32a#580| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#579| state) (|picorv32a#578| state) #b0)) ; $procmux$2294_Y
 (define-fun |picorv32a#581| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#580| state) #b0)) ; $0\decoder_pseudo_trigger[0:0]
 (define-fun |picorv32a#582| ((state |picorv32a_s|)) Bool (distinct (|picorv32a#189| state) #b00000000000000000000000000000000)) ; $procmux$2277_CMP
@@ -2361,10 +2361,10 @@
 (define-fun |picorv32a#607| ((state |picorv32a_s|)) Bool (= ((_ extract 6 0) (|picorv32a#152| state)) #b0110011)) ; $eq$riscv.v:859$250_Y
 (define-fun |picorv32a#608| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#504| state) (ite (|picorv32a#607| state) #b1 #b0) (|picorv32a#220| state))) ; $0\is_alu_reg_reg[0:0]
 (define-fun |picorv32a#609| ((state |picorv32a_s|)) Bool (= ((_ extract 6 0) (|picorv32a#152| state)) #b1100011)) ; $eq$riscv.v:855$246_Y
-(define-fun |picorv32a#610| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#504| state) (ite (|picorv32a#609| state) #b1 #b0) (|picorv32a#219| state))) ; $procmux$3497_Y
+(define-fun |picorv32a#610| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#504| state) (ite (|picorv32a#609| state) #b1 #b0) (|picorv32a#219| state))) ; $procmux$3488_Y
 (define-fun |picorv32a#611| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#610| state) #b0)) ; $0\is_beq_bne_blt_bge_bltu_bgeu[0:0]
 (define-fun |picorv32a#612| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#70| state)) #b1) (= ((_ extract 0 0) (|picorv32a#72| state)) #b1) (= ((_ extract 0 0) (|picorv32a#92| state)) #b1) (= ((_ extract 0 0) (|picorv32a#94| state)) #b1) (= ((_ extract 0 0) (|picorv32a#219| state)) #b1))) ; $reduce_or$riscv.v:845$230_Y
-(define-fun |picorv32a#613| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) #b0 (ite (|picorv32a#612| state) #b1 #b0))) ; $procmux$3538_Y
+(define-fun |picorv32a#613| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) #b0 (ite (|picorv32a#612| state) #b1 #b0))) ; $procmux$3529_Y
 (define-fun |picorv32a#614| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#613| state) #b0)) ; $0\is_compare[0:0]
 (define-fun |picorv32a#615| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 12 12) (|picorv32a#151| state)) #b1) (= ((_ extract 13 13) (|picorv32a#151| state)) #b1) (= ((_ extract 14 14) (|picorv32a#151| state)) #b1)))) ; $eq$riscv.v:1021$304_Y
 (define-fun |picorv32a#616| ((state |picorv32a_s|)) Bool (= ((_ extract 14 12) (|picorv32a#151| state)) #b100)) ; $eq$riscv.v:1023$308_Y
@@ -2411,12 +2411,12 @@
 (define-fun |picorv32a#657| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#577| state) (|picorv32a#656| state) (|picorv32a#198| state))) ; $procmux$2533_Y
 (define-fun |picorv32a#658| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) #b0 (ite (|picorv32a#267| state) (|picorv32a#657| state) (|picorv32a#198| state)))) ; $procmux$2535_Y
 (define-fun |picorv32a#659| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#658| state) #b0)) ; $0\latched_is_lu[0:0]
-(define-fun |picorv32a#660| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) #b00000 (|picorv32a#197| state))) ; $procmux$2478_Y
-(define-fun |picorv32a#661| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#496| state) (|picorv32a#197| state) (|picorv32a#660| state))) ; $procmux$2481_Y
-(define-fun |picorv32a#662| ((state |picorv32a_s|)) (_ BitVec 5) (ite (= ((_ extract 0 0) (|picorv32a#116| state)) #b1) (concat #b1 ((_ extract 3 0) (|picorv32a#197| state))) (|picorv32a#197| state))) ; $procmux$2492_Y
-(define-fun |picorv32a#663| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#519| state) (concat #b1000 ((_ extract 0 0) (|picorv32a#222| state))) (|picorv32a#235| state))) ; $procmux$2496_Y
-(define-fun |picorv32a#664| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#183| state) (|picorv32a#663| state) (ite (|picorv32a#258| state) (|picorv32a#662| state) (ite (|picorv32a#261| state) (|picorv32a#661| state) (|picorv32a#197| state))))) ; $procmux$2483_Y
-(define-fun |picorv32a#665| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#4| state) (|picorv32a#664| state) (|picorv32a#197| state))) ; $0\latched_rd[4:0]
+(define-fun |picorv32a#660| ((state |picorv32a_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) #b000000 (|picorv32a#197| state))) ; $procmux$2478_Y
+(define-fun |picorv32a#661| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#496| state) (|picorv32a#197| state) (|picorv32a#660| state))) ; $procmux$2481_Y
+(define-fun |picorv32a#662| ((state |picorv32a_s|)) (_ BitVec 6) (ite (= ((_ extract 0 0) (|picorv32a#116| state)) #b1) (concat #b1 ((_ extract 4 0) (|picorv32a#197| state))) (|picorv32a#197| state))) ; $procmux$2492_Y
+(define-fun |picorv32a#663| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#519| state) (concat #b10000 ((_ extract 0 0) (|picorv32a#222| state))) (|picorv32a#235| state))) ; $procmux$2496_Y
+(define-fun |picorv32a#664| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#183| state) (|picorv32a#663| state) (ite (|picorv32a#258| state) (|picorv32a#662| state) (ite (|picorv32a#261| state) (|picorv32a#661| state) (|picorv32a#197| state))))) ; $procmux$2483_Y
+(define-fun |picorv32a#665| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#4| state) (|picorv32a#664| state) (|picorv32a#197| state))) ; $0\latched_rd[5:0]
 (define-fun |picorv32a#666| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) (|picorv32a#196| state) #b1)) ; $procmux$2611_Y
 (define-fun |picorv32a#667| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#496| state) (|picorv32a#196| state) (|picorv32a#666| state))) ; $procmux$2614_Y
 (define-fun |picorv32a#668| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) #b0 (ite (|picorv32a#261| state) (|picorv32a#667| state) (|picorv32a#196| state)))) ; $procmux$2616_Y
@@ -2424,9 +2424,9 @@
 (define-fun |picorv32a#670| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#120| state)) #b1) (|picorv32a#289| state) (|picorv32a#190| state))) ; $procmux$2999_Y
 (define-fun |picorv32a#671| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#258| state) (|picorv32a#670| state) (|picorv32a#190| state))) ; $procmux$3001_Y
 (define-fun |picorv32a#672| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#671| state) #b11111111111111111111111111111111)) ; $0\irq_mask[31:0]
-; yosys-smt2-anyseq picorv32a#673 1 $auto$setundef.cc:533:execute$5033
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5034"], "smtname": 673, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#673| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5034
+; yosys-smt2-anyseq picorv32a#673 1 $auto$setundef.cc:533:execute$5024
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5025"], "smtname": 673, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#673| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5025
 (define-fun |picorv32a#674| ((state |picorv32a_s|)) (_ BitVec 32) (bvsub (|picorv32a#3| state) #b00000000000000000000000000000001)) ; $sub$riscv.v:1415$572_Y
 (define-fun |picorv32a#675| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#674| state)) #b1) (= ((_ extract 1 1) (|picorv32a#674| state)) #b1) (= ((_ extract 2 2) (|picorv32a#674| state)) #b1) (= ((_ extract 3 3) (|picorv32a#674| state)) #b1) (= ((_ extract 4 4) (|picorv32a#674| state)) #b1) (= ((_ extract 5 5) (|picorv32a#674| state)) #b1) (= ((_ extract 6 6) (|picorv32a#674| state)) #b1) (= ((_ extract 7 7) (|picorv32a#674| state)) #b1) (= ((_ extract 8 8) (|picorv32a#674| state)) #b1) (= ((_ extract 9 9) (|picorv32a#674| state)) #b1) (= ((_ extract 10 10) (|picorv32a#674| state)) #b1) (= ((_ extract 11 11) (|picorv32a#674| state)) #b1) (= ((_ extract 12 12) (|picorv32a#674| state)) #b1) (= ((_ extract 13 13) (|picorv32a#674| state)) #b1) (= ((_ extract 14 14) (|picorv32a#674| state)) #b1) (= ((_ extract 15 15) (|picorv32a#674| state)) #b1) (= ((_ extract 16 16) (|picorv32a#674| state)) #b1) (= ((_ extract 17 17) (|picorv32a#674| state)) #b1) (= ((_ extract 18 18) (|picorv32a#674| state)) #b1) (= ((_ extract 19 19) (|picorv32a#674| state)) #b1) (= ((_ extract 20 20) (|picorv32a#674| state)) #b1) (= ((_ extract 21 21) (|picorv32a#674| state)) #b1) (= ((_ extract 22 22) (|picorv32a#674| state)) #b1) (= ((_ extract 23 23) (|picorv32a#674| state)) #b1) (= ((_ extract 24 24) (|picorv32a#674| state)) #b1) (= ((_ extract 25 25) (|picorv32a#674| state)) #b1) (= ((_ extract 26 26) (|picorv32a#674| state)) #b1) (= ((_ extract 27 27) (|picorv32a#674| state)) #b1) (= ((_ extract 28 28) (|picorv32a#674| state)) #b1) (= ((_ extract 29 29) (|picorv32a#674| state)) #b1) (= ((_ extract 30 30) (|picorv32a#674| state)) #b1) (= ((_ extract 31 31) (|picorv32a#674| state)) #b1)))) ; $eq$riscv.v:1415$573_Y
 (define-fun |picorv32a#676| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#675| state) #b1 ((_ extract 0 0) (|picorv32a#189| state)))) ; $2\next_irq_pending[0:0]
@@ -2435,11 +2435,11 @@
 (define-fun |picorv32a#679| ((state |picorv32a_s|)) (_ BitVec 32) (bvor (concat ((_ extract 31 1) (|picorv32a#189| state)) (|picorv32a#678| state)) (|picorv32a#223| state))) ; $3\next_irq_pending[31:0]
 (define-fun |picorv32a#680| ((state |picorv32a_s|)) (_ BitVec 32) (bvand (|picorv32a#679| state) (|picorv32a#190| state))) ; $and$riscv.v:1491$590_Y
 (define-fun |picorv32a#681| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 1 1) (|picorv32a#222| state)) #b1) (|picorv32a#680| state) (|picorv32a#679| state))) ; $6\next_irq_pending[31:0]
-(define-fun |picorv32a#682| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4819
+(define-fun |picorv32a#682| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4810
 (define-fun |picorv32a#683| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) ((_ extract 0 0) (|picorv32a#681| state)) (ite (|picorv32a#682| state) ((_ extract 0 0) (|picorv32a#679| state)) (|picorv32a#673| state)))) ; $5\next_irq_pending[31:0] [0]
-; yosys-smt2-anyseq picorv32a#684 1 $auto$setundef.cc:533:execute$5031
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5032"], "smtname": 684, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#684| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5032
+; yosys-smt2-anyseq picorv32a#684 1 $auto$setundef.cc:533:execute$5022
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5023"], "smtname": 684, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#684| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5023
 (define-fun |picorv32a#685| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 1 1) (|picorv32a#190| state)) #b1) false))) ; $logic_and$riscv.v:1758$653_Y
 (define-fun |picorv32a#686| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#685| state) false) (or  (|picorv32a#513| state) false))) ; $logic_and$riscv.v:1758$655_Y
 (define-fun |picorv32a#687| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#686| state) #b1 ((_ extract 1 1) (|picorv32a#679| state)))) ; $10\next_irq_pending[1:1]
@@ -2447,11 +2447,11 @@
 (define-fun |picorv32a#689| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#688| state) (|picorv32a#687| state) ((_ extract 1 1) (|picorv32a#679| state)))) ; $9\next_irq_pending[1:1]
 (define-fun |picorv32a#690| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#25| state) ((_ extract 1 1) (|picorv32a#679| state)) (|picorv32a#689| state))) ; $8\next_irq_pending[1:1]
 (define-fun |picorv32a#691| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#224| state) (|picorv32a#690| state) ((_ extract 1 1) (|picorv32a#679| state)))) ; $7\next_irq_pending[1:1]
-(define-fun |picorv32a#692| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#258| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4821
+(define-fun |picorv32a#692| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#258| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4812
 (define-fun |picorv32a#693| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) ((_ extract 1 1) (|picorv32a#681| state)) (ite (|picorv32a#233| state) (|picorv32a#691| state) (ite (|picorv32a#692| state) ((_ extract 1 1) (|picorv32a#679| state)) (|picorv32a#684| state))))) ; $5\next_irq_pending[31:0] [1]
-; yosys-smt2-anyseq picorv32a#694 30 $auto$setundef.cc:533:execute$5029
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5030"], "smtname": 694, "smtoffset": 0, "type": "seq", "width": 30}
-(declare-fun |picorv32a#694| (|picorv32a_s|) (_ BitVec 30)) ; $auto$rtlil.cc:3201:Anyseq$5030
+; yosys-smt2-anyseq picorv32a#694 30 $auto$setundef.cc:533:execute$5020
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5021"], "smtname": 694, "smtoffset": 0, "type": "seq", "width": 30}
+(declare-fun |picorv32a#694| (|picorv32a_s|) (_ BitVec 30)) ; $auto$rtlil.cc:3201:Anyseq$5021
 (define-fun |picorv32a#695| ((state |picorv32a_s|)) (_ BitVec 30) (ite (|picorv32a#183| state) ((_ extract 31 2) (|picorv32a#681| state)) (ite (|picorv32a#682| state) ((_ extract 31 2) (|picorv32a#679| state)) (|picorv32a#694| state)))) ; $5\next_irq_pending[31:0] [31:2]
 (define-fun |picorv32a#696| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (concat (|picorv32a#695| state) (concat (|picorv32a#693| state) (|picorv32a#683| state))) #b00000000000000000000000000000000)) ; { $0\irq_pending[31:0] [31:3] $4\next_irq_pending[31:0] [2] $0\irq_pending[31:0] [1:0] }
 (define-fun |picorv32a#697| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 2 2) (|picorv32a#190| state)) #b1) false))) ; $logic_and$riscv.v:1896$704_Y
@@ -2500,8 +2500,8 @@
 (define-fun |picorv32a#740| ((state |picorv32a_s|)) (_ BitVec 8) (ite (|picorv32a#224| state) (|picorv32a#739| state) (ite (= ((_ extract 0 0) (|picorv32a#211| state)) #b1) #b00000010 #b00001000))) ; $procmux$2710_Y
 (define-fun |picorv32a#741| ((state |picorv32a_s|)) Bool (not (or  (|picorv32a#224| state) false))) ; $logic_not$riscv.v:1674$642_Y
 (define-fun |picorv32a#742| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#216| state)) #b1) false) (or  (|picorv32a#741| state) false))) ; $logic_and$riscv.v:1674$643_Y
-(define-fun |picorv32a#743| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#106| state)) #b1) (= ((_ extract 0 0) (|picorv32a#108| state)) #b1) (= ((_ extract 0 0) (|picorv32a#110| state)) #b1) (= ((_ extract 0 0) (|picorv32a#112| state)) #b1) (= ((_ extract 0 0) (|picorv32a#114| state)) #b1) (= ((_ extract 0 0) (|picorv32a#116| state)) #b1) (= ((_ extract 0 0) (|picorv32a#118| state)) #b1) (= ((_ extract 0 0) (|picorv32a#120| state)) #b1) (= ((_ extract 0 0) (|picorv32a#124| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4839
-(define-fun |picorv32a#744| ((state |picorv32a_s|)) (_ BitVec 7) (ite (|picorv32a#743| state) #b1000000 (ite (|picorv32a#742| state) #b0000001 (ite (|picorv32a#500| state) #b0001000 #b0010000)))) ; $auto$wreduce.cc:461:run$4876
+(define-fun |picorv32a#743| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#106| state)) #b1) (= ((_ extract 0 0) (|picorv32a#108| state)) #b1) (= ((_ extract 0 0) (|picorv32a#110| state)) #b1) (= ((_ extract 0 0) (|picorv32a#112| state)) #b1) (= ((_ extract 0 0) (|picorv32a#114| state)) #b1) (= ((_ extract 0 0) (|picorv32a#116| state)) #b1) (= ((_ extract 0 0) (|picorv32a#118| state)) #b1) (= ((_ extract 0 0) (|picorv32a#120| state)) #b1) (= ((_ extract 0 0) (|picorv32a#124| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4830
+(define-fun |picorv32a#744| ((state |picorv32a_s|)) (_ BitVec 7) (ite (|picorv32a#743| state) #b1000000 (ite (|picorv32a#742| state) #b0000001 (ite (|picorv32a#500| state) #b0001000 #b0010000)))) ; $auto$wreduce.cc:461:run$4867
 (define-fun |picorv32a#745| ((state |picorv32a_s|)) (_ BitVec 8) (ite (= ((_ extract 0 0) (|picorv32a#36| state)) #b1) (|picorv32a#182| state) #b00100000)) ; $procmux$2738_Y
 (define-fun |picorv32a#746| ((state |picorv32a_s|)) (_ BitVec 8) (ite (= ((_ extract 0 0) (|picorv32a#184| state)) #b1) (|picorv32a#745| state) (|picorv32a#182| state))) ; $procmux$2740_Y
 (define-fun |picorv32a#747| ((state |picorv32a_s|)) (_ BitVec 8) (ite (|picorv32a#511| state) (|picorv32a#182| state) (|picorv32a#746| state))) ; $procmux$2743_Y
@@ -2515,20 +2515,20 @@
 (define-fun |picorv32a#755| ((state |picorv32a_s|)) (_ BitVec 8) (ite (|picorv32a#707| state) (|picorv32a#754| state) (|picorv32a#750| state))) ; $procmux$2765_Y
 (define-fun |picorv32a#756| ((state |picorv32a_s|)) (_ BitVec 8) (ite (|picorv32a#698| state) (|picorv32a#755| state) #b10000000)) ; $procmux$2769_Y
 (define-fun |picorv32a#757| ((state |picorv32a_s|)) (_ BitVec 8) (ite (|picorv32a#712| state) (|picorv32a#756| state) (|picorv32a#755| state))) ; $0\cpu_state[7:0]
-(define-fun |picorv32a#758| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#398| state) (|picorv32a#170| state) (|picorv32a#181| state))) ; $procmux$4226_Y
+(define-fun |picorv32a#758| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#398| state) (|picorv32a#170| state) (|picorv32a#181| state))) ; $procmux$4217_Y
 (define-fun |picorv32a#759| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#448| state) (|picorv32a#181| state) (|picorv32a#758| state))) ; $0\mem_addr[31:0]
-(define-fun |picorv32a#760| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) (ite (|picorv32a#165| state) #b1 #b0) (|picorv32a#171| state))) ; $procmux$4234_Y
-(define-fun |picorv32a#761| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b0 (|picorv32a#760| state))) ; $procmux$4236_Y
-(define-fun |picorv32a#762| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#157| state) (|picorv32a#761| state) (|picorv32a#171| state))) ; $procmux$4238_Y
+(define-fun |picorv32a#760| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) (ite (|picorv32a#165| state) #b1 #b0) (|picorv32a#171| state))) ; $procmux$4225_Y
+(define-fun |picorv32a#761| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b0 (|picorv32a#760| state))) ; $procmux$4227_Y
+(define-fun |picorv32a#762| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#157| state) (|picorv32a#761| state) (|picorv32a#171| state))) ; $procmux$4229_Y
 (define-fun |picorv32a#763| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#171| state) (|picorv32a#762| state))) ; $0\mem_instr[0:0]
 (define-fun |picorv32a#764| ((state |picorv32a_s|)) Bool (or  (|picorv32a#447| state) false  (|picorv32a#180| state) false)) ; $logic_or$riscv.v:1920$727_Y
 (define-fun |picorv32a#765| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#764| state) #b0 (|picorv32a#166| state))) ; $procmux$2853_Y
-; yosys-smt2-anyseq picorv32a#766 1 $auto$setundef.cc:533:execute$5041
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5042"], "smtname": 766, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#766| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5042
+; yosys-smt2-anyseq picorv32a#766 1 $auto$setundef.cc:533:execute$5032
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5033"], "smtname": 766, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#766| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5033
 (define-fun |picorv32a#767| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#166| state)) #b1) #b0 #b1)) ; $4\set_mem_do_rdata[0:0]
 (define-fun |picorv32a#768| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#577| state) (|picorv32a#767| state) #b0)) ; $3\set_mem_do_rdata[0:0]
-(define-fun |picorv32a#769| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#183| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#265| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4827
+(define-fun |picorv32a#769| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#183| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#265| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4818
 (define-fun |picorv32a#770| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#769| state) #b0 (ite (|picorv32a#267| state) (|picorv32a#768| state) (|picorv32a#766| state)))) ; $2\set_mem_do_rdata[0:0]
 (define-fun |picorv32a#771| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#770| state) #b0)) ; $0\set_mem_do_rdata[0:0]
 (define-fun |picorv32a#772| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#771| state)) #b1) #b1 (|picorv32a#765| state))) ; $0\mem_do_rdata[0:0]
@@ -2561,23 +2561,23 @@
 (define-fun |picorv32a#799| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) (|picorv32a#798| state) (ite (|picorv32a#258| state) (|picorv32a#789| state) (ite (|picorv32a#233| state) (|picorv32a#788| state) (ite (|picorv32a#261| state) (|picorv32a#786| state) (ite (|picorv32a#263| state) (|picorv32a#783| state) (|picorv32a#163| state))))))) ; $procmux$2863_Y
 (define-fun |picorv32a#800| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#799| state) (|picorv32a#163| state))) ; $procmux$2907_Y
 (define-fun |picorv32a#801| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#764| state) #b0 (|picorv32a#800| state))) ; $procmux$2909_Y
-; yosys-smt2-anyseq picorv32a#802 1 $auto$setundef.cc:533:execute$5043
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5044"], "smtname": 802, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#802| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5044
+; yosys-smt2-anyseq picorv32a#802 1 $auto$setundef.cc:533:execute$5034
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5035"], "smtname": 802, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#802| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5035
 (define-fun |picorv32a#803| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#305| state)) #b1) #b1 #b0)) ; $5\set_mem_do_rinst[0:0]
 (define-fun |picorv32a#804| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) (|picorv32a#803| state) #b0)) ; $4\set_mem_do_rinst[0:0]
 (define-fun |picorv32a#805| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#496| state) #b0 (|picorv32a#804| state))) ; $3\set_mem_do_rinst[0:0]
-(define-fun |picorv32a#806| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#183| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#263| state) (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4829
+(define-fun |picorv32a#806| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#183| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#263| state) (|picorv32a#265| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4820
 (define-fun |picorv32a#807| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#261| state) (|picorv32a#805| state) (ite (|picorv32a#806| state) #b0 (|picorv32a#802| state)))) ; $2\set_mem_do_rinst[0:0]
 (define-fun |picorv32a#808| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#807| state) #b0)) ; $0\set_mem_do_rinst[0:0]
 (define-fun |picorv32a#809| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#808| state)) #b1) #b1 (|picorv32a#801| state))) ; $0\mem_do_rinst[0:0]
 (define-fun |picorv32a#810| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#764| state) #b0 (|picorv32a#159| state))) ; $procmux$2849_Y
-; yosys-smt2-anyseq picorv32a#811 1 $auto$setundef.cc:533:execute$5039
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5040"], "smtname": 811, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |picorv32a#811| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5040
+; yosys-smt2-anyseq picorv32a#811 1 $auto$setundef.cc:533:execute$5030
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5031"], "smtname": 811, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |picorv32a#811| (|picorv32a_s|) (_ BitVec 1)) ; $auto$rtlil.cc:3201:Anyseq$5031
 (define-fun |picorv32a#812| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b0 #b1)) ; $4\set_mem_do_wdata[0:0]
 (define-fun |picorv32a#813| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#577| state) (|picorv32a#812| state) #b0)) ; $3\set_mem_do_wdata[0:0]
-(define-fun |picorv32a#814| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#183| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4825
+(define-fun |picorv32a#814| ((state |picorv32a_s|)) Bool (or  (|picorv32a#255| state) (|picorv32a#183| state) (|picorv32a#258| state) (|picorv32a#233| state) (|picorv32a#261| state) (|picorv32a#263| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4816
 (define-fun |picorv32a#815| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#265| state) (|picorv32a#813| state) (ite (|picorv32a#814| state) #b0 (|picorv32a#811| state)))) ; $2\set_mem_do_wdata[0:0]
 (define-fun |picorv32a#816| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#815| state) #b0)) ; $0\set_mem_do_wdata[0:0]
 (define-fun |picorv32a#817| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#816| state)) #b1) #b1 (|picorv32a#810| state))) ; $0\mem_do_wdata[0:0]
@@ -2589,16 +2589,16 @@
 (define-fun |picorv32a#823| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#128| state) (concat ((_ extract 0 0) (|picorv32a#135| state)) ((_ extract 7 4) (|picorv32a#136| state))) ((_ extract 24 20) (|picorv32a#151| state)))) ; $0\mem_rdata_q[31:0] [24:20]
 (define-fun |picorv32a#824| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#128| state) ((_ extract 6 1) (|picorv32a#135| state)) ((_ extract 30 25) (|picorv32a#151| state)))) ; $0\mem_rdata_q[31:0] [30:25]
 (define-fun |picorv32a#825| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#128| state) ((_ extract 7 7) (|picorv32a#135| state)) ((_ extract 31 31) (|picorv32a#151| state)))) ; $0\mem_rdata_q[31:0] [31]
-(define-fun |picorv32a#826| ((state |picorv32a_s|)) (_ BitVec 2) (ite (= ((_ extract 0 0) (|picorv32a#163| state)) #b1) #b00 (|picorv32a#132| state))) ; $procmux$4186_Y
-(define-fun |picorv32a#827| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#128| state) #b00 (|picorv32a#132| state))) ; $procmux$4190_Y
-(define-fun |picorv32a#828| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#174| state) #b00 #b11)) ; $procmux$4194_Y
-(define-fun |picorv32a#829| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#128| state) (|picorv32a#828| state) (|picorv32a#132| state))) ; $procmux$4196_Y
-(define-fun |picorv32a#830| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#167| state) #b01 (|picorv32a#132| state))) ; $procmux$4199_Y
-(define-fun |picorv32a#831| ((state |picorv32a_s|)) (_ BitVec 2) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b10 (|picorv32a#830| state))) ; $procmux$4201_Y
-(define-fun |picorv32a#832| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#157| state) (|picorv32a#831| state) (ite (|picorv32a#444| state) (|picorv32a#829| state) (ite (|picorv32a#436| state) (|picorv32a#827| state) (ite (|picorv32a#437| state) (|picorv32a#826| state) (|picorv32a#132| state)))))) ; $procmux$4188_Y
-(define-fun |picorv32a#833| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#4| state) (|picorv32a#132| state) #b00)) ; $procmux$4205_Y
+(define-fun |picorv32a#826| ((state |picorv32a_s|)) (_ BitVec 2) (ite (= ((_ extract 0 0) (|picorv32a#163| state)) #b1) #b00 (|picorv32a#132| state))) ; $procmux$4177_Y
+(define-fun |picorv32a#827| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#128| state) #b00 (|picorv32a#132| state))) ; $procmux$4181_Y
+(define-fun |picorv32a#828| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#174| state) #b00 #b11)) ; $procmux$4185_Y
+(define-fun |picorv32a#829| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#128| state) (|picorv32a#828| state) (|picorv32a#132| state))) ; $procmux$4187_Y
+(define-fun |picorv32a#830| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#167| state) #b01 (|picorv32a#132| state))) ; $procmux$4190_Y
+(define-fun |picorv32a#831| ((state |picorv32a_s|)) (_ BitVec 2) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b10 (|picorv32a#830| state))) ; $procmux$4192_Y
+(define-fun |picorv32a#832| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#157| state) (|picorv32a#831| state) (ite (|picorv32a#444| state) (|picorv32a#829| state) (ite (|picorv32a#436| state) (|picorv32a#827| state) (ite (|picorv32a#437| state) (|picorv32a#826| state) (|picorv32a#132| state)))))) ; $procmux$4179_Y
+(define-fun |picorv32a#833| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#4| state) (|picorv32a#132| state) #b00)) ; $procmux$4196_Y
 (define-fun |picorv32a#834| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#448| state) (|picorv32a#833| state) (|picorv32a#832| state))) ; $0\mem_state[1:0]
-(define-fun |picorv32a#835| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#160| state) (|picorv32a#162| state) (|picorv32a#131| state))) ; $procmux$4221_Y
+(define-fun |picorv32a#835| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#160| state) (|picorv32a#162| state) (|picorv32a#131| state))) ; $procmux$4212_Y
 (define-fun |picorv32a#836| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#448| state) (|picorv32a#131| state) (|picorv32a#835| state))) ; $0\mem_wdata[31:0]
 (define-fun |picorv32a#837| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#54| state)) #b1) false  (= ((_ extract 0 0) (|picorv32a#60| state)) #b1) false)) ; $logic_or$riscv.v:1865$693_Y
 (define-fun |picorv32a#838| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#52| state)) #b1) false  (= ((_ extract 0 0) (|picorv32a#58| state)) #b1) false)) ; $logic_or$riscv.v:1864$692_Y
@@ -2611,17 +2611,17 @@
 (define-fun |picorv32a#845| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#183| state) #b00 (ite (|picorv32a#265| state) (|picorv32a#844| state) (ite (|picorv32a#267| state) (|picorv32a#841| state) (|picorv32a#130| state))))) ; $procmux$2950_Y
 (define-fun |picorv32a#846| ((state |picorv32a_s|)) (_ BitVec 2) (ite (|picorv32a#4| state) (|picorv32a#845| state) (|picorv32a#130| state))) ; $0\mem_wordsize[1:0]
 (define-fun |picorv32a#847| ((state |picorv32a_s|)) (_ BitVec 4) (bvand (|picorv32a#156| state) (concat (ite (|picorv32a#160| state) #b1 #b0) (concat (ite (|picorv32a#160| state) #b1 #b0) (concat (ite (|picorv32a#160| state) #b1 #b0) (ite (|picorv32a#160| state) #b1 #b0)))))) ; $and$riscv.v:559$191_Y
-(define-fun |picorv32a#848| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#398| state) (|picorv32a#847| state) (|picorv32a#129| state))) ; $procmux$4209_Y
-(define-fun |picorv32a#849| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#167| state) #b0000 (|picorv32a#848| state))) ; $procmux$4214_Y
-(define-fun |picorv32a#850| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#157| state) (|picorv32a#849| state) (|picorv32a#848| state))) ; $procmux$4216_Y
+(define-fun |picorv32a#848| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#398| state) (|picorv32a#847| state) (|picorv32a#129| state))) ; $procmux$4200_Y
+(define-fun |picorv32a#849| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#167| state) #b0000 (|picorv32a#848| state))) ; $procmux$4205_Y
+(define-fun |picorv32a#850| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#157| state) (|picorv32a#849| state) (|picorv32a#848| state))) ; $procmux$4207_Y
 (define-fun |picorv32a#851| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#448| state) (|picorv32a#129| state) (|picorv32a#850| state))) ; $0\mem_wstrb[3:0]
-(define-fun |picorv32a#852| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#128| state) #b0 (|picorv32a#126| state))) ; $procmux$4244_Y
-(define-fun |picorv32a#853| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) #b1 (|picorv32a#126| state))) ; $procmux$4254_Y
-(define-fun |picorv32a#854| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b1 (|picorv32a#853| state))) ; $procmux$4256_Y
-(define-fun |picorv32a#855| ((state |picorv32a_s|)) Bool (or  (|picorv32a#436| state) (|picorv32a#444| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4859
-(define-fun |picorv32a#856| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#157| state) (|picorv32a#854| state) (ite (|picorv32a#855| state) (|picorv32a#852| state) (|picorv32a#126| state)))) ; $procmux$4246_Y
+(define-fun |picorv32a#852| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#128| state) #b0 (|picorv32a#126| state))) ; $procmux$4235_Y
+(define-fun |picorv32a#853| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#167| state) #b1 (|picorv32a#126| state))) ; $procmux$4245_Y
+(define-fun |picorv32a#854| ((state |picorv32a_s|)) (_ BitVec 1) (ite (= ((_ extract 0 0) (|picorv32a#159| state)) #b1) #b1 (|picorv32a#853| state))) ; $procmux$4247_Y
+(define-fun |picorv32a#855| ((state |picorv32a_s|)) Bool (or  (|picorv32a#436| state) (|picorv32a#444| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4850
+(define-fun |picorv32a#856| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#157| state) (|picorv32a#854| state) (ite (|picorv32a#855| state) (|picorv32a#852| state) (|picorv32a#126| state)))) ; $procmux$4237_Y
 (define-fun |picorv32a#857| ((state |picorv32a_s|)) Bool (or  (|picorv32a#447| state) false  (|picorv32a#127| state) false)) ; $logic_or$riscv.v:552$189_Y
-(define-fun |picorv32a#858| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#857| state) #b0 (|picorv32a#126| state))) ; $procmux$4260_Y
+(define-fun |picorv32a#858| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#857| state) #b0 (|picorv32a#126| state))) ; $procmux$4251_Y
 (define-fun |picorv32a#859| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#448| state) (|picorv32a#858| state) (|picorv32a#856| state))) ; $0\mem_valid[0:0]
 (define-fun |picorv32a#860| ((state |picorv32a_s|)) Bool (= ((_ extract 6 0) (|picorv32a#151| state)) #b0001011)) ; $eq$riscv.v:1070$430_Y
 (define-fun |picorv32a#861| ((state |picorv32a_s|)) Bool (= ((_ extract 31 25) (|picorv32a#151| state)) #b0000101)) ; $eq$riscv.v:1073$445_Y
@@ -2659,41 +2659,41 @@
 (define-fun |picorv32a#893| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#892| state) #b1 #b0) (|picorv32a#106| state))) ; $0\instr_rdcycle[0:0]
 (define-fun |picorv32a#894| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#618| state) false))) ; $logic_and$riscv.v:1058$393_Y
 (define-fun |picorv32a#895| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#894| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1058$395_Y
-(define-fun |picorv32a#896| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#895| state) #b1 #b0) (|picorv32a#104| state))) ; $procmux$3653_Y
+(define-fun |picorv32a#896| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#895| state) #b1 #b0) (|picorv32a#104| state))) ; $procmux$3644_Y
 (define-fun |picorv32a#897| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#896| state) #b0)) ; $0\instr_and[0:0]
 (define-fun |picorv32a#898| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#617| state) false))) ; $logic_and$riscv.v:1057$389_Y
 (define-fun |picorv32a#899| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#898| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1057$391_Y
-(define-fun |picorv32a#900| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#899| state) #b1 #b0) (|picorv32a#102| state))) ; $procmux$3657_Y
+(define-fun |picorv32a#900| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#899| state) #b1 #b0) (|picorv32a#102| state))) ; $procmux$3648_Y
 (define-fun |picorv32a#901| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#900| state) #b0)) ; $0\instr_or[0:0]
 (define-fun |picorv32a#902| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#633| state) false))) ; $logic_and$riscv.v:1055$381_Y
 (define-fun |picorv32a#903| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#902| state) false) (or  (|picorv32a#634| state) false))) ; $logic_and$riscv.v:1056$387_Y
-(define-fun |picorv32a#904| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#903| state) #b1 #b0) (|picorv32a#100| state))) ; $procmux$3661_Y
+(define-fun |picorv32a#904| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#903| state) #b1 #b0) (|picorv32a#100| state))) ; $procmux$3652_Y
 (define-fun |picorv32a#905| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#904| state) #b0)) ; $0\instr_sra[0:0]
 (define-fun |picorv32a#906| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#902| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1055$383_Y
-(define-fun |picorv32a#907| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#906| state) #b1 #b0) (|picorv32a#98| state))) ; $procmux$3665_Y
+(define-fun |picorv32a#907| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#906| state) #b1 #b0) (|picorv32a#98| state))) ; $procmux$3656_Y
 (define-fun |picorv32a#908| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#907| state) #b0)) ; $0\instr_srl[0:0]
 (define-fun |picorv32a#909| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#616| state) false))) ; $logic_and$riscv.v:1054$377_Y
 (define-fun |picorv32a#910| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#909| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1054$379_Y
-(define-fun |picorv32a#911| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#910| state) #b1 #b0) (|picorv32a#96| state))) ; $procmux$3669_Y
+(define-fun |picorv32a#911| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#910| state) #b1 #b0) (|picorv32a#96| state))) ; $procmux$3660_Y
 (define-fun |picorv32a#912| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#911| state) #b0)) ; $0\instr_xor[0:0]
 (define-fun |picorv32a#913| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#620| state) false))) ; $logic_and$riscv.v:1053$373_Y
 (define-fun |picorv32a#914| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#913| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1053$375_Y
-(define-fun |picorv32a#915| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#914| state) #b1 #b0) (|picorv32a#94| state))) ; $procmux$3673_Y
+(define-fun |picorv32a#915| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#914| state) #b1 #b0) (|picorv32a#94| state))) ; $procmux$3664_Y
 (define-fun |picorv32a#916| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#915| state) #b0)) ; $0\instr_sltu[0:0]
 (define-fun |picorv32a#917| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#619| state) false))) ; $logic_and$riscv.v:1052$369_Y
 (define-fun |picorv32a#918| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#917| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1052$371_Y
-(define-fun |picorv32a#919| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#918| state) #b1 #b0) (|picorv32a#92| state))) ; $procmux$3677_Y
+(define-fun |picorv32a#919| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#918| state) #b1 #b0) (|picorv32a#92| state))) ; $procmux$3668_Y
 (define-fun |picorv32a#920| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#919| state) #b0)) ; $0\instr_slt[0:0]
 (define-fun |picorv32a#921| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#638| state) false))) ; $logic_and$riscv.v:1051$365_Y
 (define-fun |picorv32a#922| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#921| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1051$367_Y
-(define-fun |picorv32a#923| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#922| state) #b1 #b0) (|picorv32a#90| state))) ; $procmux$3681_Y
+(define-fun |picorv32a#923| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#922| state) #b1 #b0) (|picorv32a#90| state))) ; $procmux$3672_Y
 (define-fun |picorv32a#924| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#923| state) #b0)) ; $0\instr_sll[0:0]
 (define-fun |picorv32a#925| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#220| state)) #b1) false) (or  (|picorv32a#615| state) false))) ; $logic_and$riscv.v:1049$357_Y
 (define-fun |picorv32a#926| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#925| state) false) (or  (|picorv32a#634| state) false))) ; $logic_and$riscv.v:1050$363_Y
-(define-fun |picorv32a#927| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#926| state) #b1 #b0) (|picorv32a#88| state))) ; $procmux$3685_Y
+(define-fun |picorv32a#927| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#926| state) #b1 #b0) (|picorv32a#88| state))) ; $procmux$3676_Y
 (define-fun |picorv32a#928| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#927| state) #b0)) ; $0\instr_sub[0:0]
 (define-fun |picorv32a#929| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#925| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1049$359_Y
-(define-fun |picorv32a#930| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#929| state) #b1 #b0) (|picorv32a#86| state))) ; $procmux$3689_Y
+(define-fun |picorv32a#930| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#929| state) #b1 #b0) (|picorv32a#86| state))) ; $procmux$3680_Y
 (define-fun |picorv32a#931| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#930| state) #b0)) ; $0\instr_add[0:0]
 (define-fun |picorv32a#932| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#221| state)) #b1) false) (or  (|picorv32a#633| state) false))) ; $logic_and$riscv.v:1046$349_Y
 (define-fun |picorv32a#933| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#932| state) false) (or  (|picorv32a#634| state) false))) ; $logic_and$riscv.v:1047$355_Y
@@ -2704,22 +2704,22 @@
 (define-fun |picorv32a#938| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#937| state) false) (or  (|picorv32a#636| state) false))) ; $logic_and$riscv.v:1045$347_Y
 (define-fun |picorv32a#939| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#938| state) #b1 #b0) (|picorv32a#80| state))) ; $0\instr_slli[0:0]
 (define-fun |picorv32a#940| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#221| state)) #b1) false) (or  (|picorv32a#618| state) false))) ; $logic_and$riscv.v:1043$343_Y
-(define-fun |picorv32a#941| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#940| state) #b1 #b0) (|picorv32a#78| state))) ; $procmux$3699_Y
+(define-fun |picorv32a#941| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#940| state) #b1 #b0) (|picorv32a#78| state))) ; $procmux$3690_Y
 (define-fun |picorv32a#942| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#941| state) #b0)) ; $0\instr_andi[0:0]
 (define-fun |picorv32a#943| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#221| state)) #b1) false) (or  (|picorv32a#617| state) false))) ; $logic_and$riscv.v:1042$341_Y
-(define-fun |picorv32a#944| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#943| state) #b1 #b0) (|picorv32a#76| state))) ; $procmux$3703_Y
+(define-fun |picorv32a#944| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#943| state) #b1 #b0) (|picorv32a#76| state))) ; $procmux$3694_Y
 (define-fun |picorv32a#945| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#944| state) #b0)) ; $0\instr_ori[0:0]
 (define-fun |picorv32a#946| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#221| state)) #b1) false) (or  (|picorv32a#616| state) false))) ; $logic_and$riscv.v:1041$339_Y
-(define-fun |picorv32a#947| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#946| state) #b1 #b0) (|picorv32a#74| state))) ; $procmux$3707_Y
+(define-fun |picorv32a#947| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#946| state) #b1 #b0) (|picorv32a#74| state))) ; $procmux$3698_Y
 (define-fun |picorv32a#948| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#947| state) #b0)) ; $0\instr_xori[0:0]
 (define-fun |picorv32a#949| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#221| state)) #b1) false) (or  (|picorv32a#620| state) false))) ; $logic_and$riscv.v:1040$337_Y
-(define-fun |picorv32a#950| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#949| state) #b1 #b0) (|picorv32a#72| state))) ; $procmux$3711_Y
+(define-fun |picorv32a#950| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#949| state) #b1 #b0) (|picorv32a#72| state))) ; $procmux$3702_Y
 (define-fun |picorv32a#951| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#950| state) #b0)) ; $0\instr_sltiu[0:0]
 (define-fun |picorv32a#952| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#221| state)) #b1) false) (or  (|picorv32a#619| state) false))) ; $logic_and$riscv.v:1039$335_Y
-(define-fun |picorv32a#953| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#952| state) #b1 #b0) (|picorv32a#70| state))) ; $procmux$3715_Y
+(define-fun |picorv32a#953| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#952| state) #b1 #b0) (|picorv32a#70| state))) ; $procmux$3706_Y
 (define-fun |picorv32a#954| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#953| state) #b0)) ; $0\instr_slti[0:0]
 (define-fun |picorv32a#955| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#221| state)) #b1) false) (or  (|picorv32a#615| state) false))) ; $logic_and$riscv.v:1038$333_Y
-(define-fun |picorv32a#956| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#955| state) #b1 #b0) (|picorv32a#68| state))) ; $procmux$3719_Y
+(define-fun |picorv32a#956| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#955| state) #b1 #b0) (|picorv32a#68| state))) ; $procmux$3710_Y
 (define-fun |picorv32a#957| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#956| state) #b0)) ; $0\instr_addi[0:0]
 (define-fun |picorv32a#958| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#211| state)) #b1) false) (or  (|picorv32a#619| state) false))) ; $logic_and$riscv.v:1036$331_Y
 (define-fun |picorv32a#959| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#958| state) #b1 #b0) (|picorv32a#66| state))) ; $0\instr_sw[0:0]
@@ -2738,22 +2738,22 @@
 (define-fun |picorv32a#972| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#216| state)) #b1) false) (or  (|picorv32a#615| state) false))) ; $logic_and$riscv.v:1028$317_Y
 (define-fun |picorv32a#973| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#972| state) #b1 #b0) (|picorv32a#52| state))) ; $0\instr_lb[0:0]
 (define-fun |picorv32a#974| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) false) (or  (|picorv32a#618| state) false))) ; $logic_and$riscv.v:1026$315_Y
-(define-fun |picorv32a#975| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#974| state) #b1 #b0) (|picorv32a#50| state))) ; $procmux$3739_Y
+(define-fun |picorv32a#975| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#974| state) #b1 #b0) (|picorv32a#50| state))) ; $procmux$3730_Y
 (define-fun |picorv32a#976| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#975| state) #b0)) ; $0\instr_bgeu[0:0]
 (define-fun |picorv32a#977| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) false) (or  (|picorv32a#617| state) false))) ; $logic_and$riscv.v:1025$313_Y
-(define-fun |picorv32a#978| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#977| state) #b1 #b0) (|picorv32a#48| state))) ; $procmux$3743_Y
+(define-fun |picorv32a#978| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#977| state) #b1 #b0) (|picorv32a#48| state))) ; $procmux$3734_Y
 (define-fun |picorv32a#979| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#978| state) #b0)) ; $0\instr_bltu[0:0]
 (define-fun |picorv32a#980| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) false) (or  (|picorv32a#633| state) false))) ; $logic_and$riscv.v:1024$311_Y
-(define-fun |picorv32a#981| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#980| state) #b1 #b0) (|picorv32a#46| state))) ; $procmux$3747_Y
+(define-fun |picorv32a#981| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#980| state) #b1 #b0) (|picorv32a#46| state))) ; $procmux$3738_Y
 (define-fun |picorv32a#982| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#981| state) #b0)) ; $0\instr_bge[0:0]
 (define-fun |picorv32a#983| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) false) (or  (|picorv32a#616| state) false))) ; $logic_and$riscv.v:1023$309_Y
-(define-fun |picorv32a#984| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#983| state) #b1 #b0) (|picorv32a#44| state))) ; $procmux$3751_Y
+(define-fun |picorv32a#984| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#983| state) #b1 #b0) (|picorv32a#44| state))) ; $procmux$3742_Y
 (define-fun |picorv32a#985| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#984| state) #b0)) ; $0\instr_blt[0:0]
 (define-fun |picorv32a#986| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) false) (or  (|picorv32a#638| state) false))) ; $logic_and$riscv.v:1022$307_Y
-(define-fun |picorv32a#987| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#986| state) #b1 #b0) (|picorv32a#42| state))) ; $procmux$3755_Y
+(define-fun |picorv32a#987| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#986| state) #b1 #b0) (|picorv32a#42| state))) ; $procmux$3746_Y
 (define-fun |picorv32a#988| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#987| state) #b0)) ; $0\instr_bne[0:0]
 (define-fun |picorv32a#989| ((state |picorv32a_s|)) Bool (and (or  (= ((_ extract 0 0) (|picorv32a#219| state)) #b1) false) (or  (|picorv32a#615| state) false))) ; $logic_and$riscv.v:1021$305_Y
-(define-fun |picorv32a#990| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#989| state) #b1 #b0) (|picorv32a#40| state))) ; $procmux$3759_Y
+(define-fun |picorv32a#990| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#550| state) (ite (|picorv32a#989| state) #b1 #b0) (|picorv32a#40| state))) ; $procmux$3750_Y
 (define-fun |picorv32a#991| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#990| state) #b0)) ; $0\instr_beq[0:0]
 (define-fun |picorv32a#992| ((state |picorv32a_s|)) Bool (= ((_ extract 6 0) (|picorv32a#152| state)) #b1100111)) ; $eq$riscv.v:851$235_Y
 (define-fun |picorv32a#993| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 12 12) (|picorv32a#152| state)) #b1) (= ((_ extract 13 13) (|picorv32a#152| state)) #b1) (= ((_ extract 14 14) (|picorv32a#152| state)) #b1)))) ; $eq$riscv.v:851$236_Y
@@ -2781,13 +2781,13 @@
 (define-fun |picorv32a#1015| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#582| state) #b1 #b0)) ; $procmux$2656_Y
 (define-fun |picorv32a#1016| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#511| state) (|picorv32a#1015| state) #b0)) ; $procmux$2658_Y
 (define-fun |picorv32a#1017| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#519| state) #b0 (|picorv32a#1016| state))) ; $procmux$2661_Y
-(define-fun |picorv32a#1018| ((state |picorv32a_s|)) Bool (or  (|picorv32a#263| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4837
+(define-fun |picorv32a#1018| ((state |picorv32a_s|)) Bool (or  (|picorv32a#263| state) (|picorv32a#267| state))) ; $auto$opt_reduce.cc:134:opt_pmux$4828
 (define-fun |picorv32a#1019| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#183| state) (|picorv32a#1017| state) (ite (|picorv32a#258| state) (|picorv32a#1014| state) (ite (|picorv32a#233| state) (|picorv32a#1013| state) (ite (|picorv32a#261| state) (|picorv32a#1011| state) (ite (|picorv32a#1018| state) #b1 (|picorv32a#28| state))))))) ; $procmux$2623_Y
 (define-fun |picorv32a#1020| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#1019| state) #b0)) ; $0\latched_store[0:0]
 (define-fun |picorv32a#1021| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#550| state) (|picorv32a#151| state) (|picorv32a#27| state))) ; $0\pcpi_insn[31:0]
 (define-fun |picorv32a#1022| ((state |picorv32a_s|)) Bool (not (or  (= ((_ extract 0 0) (|picorv32a#19| state)) #b1) (= ((_ extract 1 1) (|picorv32a#19| state)) #b1) (= ((_ extract 2 2) (|picorv32a#19| state)) #b1) (= ((_ extract 3 3) (|picorv32a#19| state)) #b1)))) ; $logic_not$riscv.v:1401$566_Y
 (define-fun |picorv32a#1023| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (ite (|picorv32a#1022| state) #b1 #b0) #b0)) ; $0\pcpi_timeout[0:0]
-(define-fun |picorv32a#1024| ((state |picorv32a_s|)) (_ BitVec 4) (bvsub (|picorv32a#19| state) #b0001)) ; $auto$wreduce.cc:461:run$4877
+(define-fun |picorv32a#1024| ((state |picorv32a_s|)) (_ BitVec 4) (bvsub (|picorv32a#19| state) #b0001)) ; $auto$wreduce.cc:461:run$4868
 (define-fun |picorv32a#1025| ((state |picorv32a_s|)) Bool (distinct (|picorv32a#19| state) #b0000)) ; $procmux$2469_CMP
 (define-fun |picorv32a#1026| ((state |picorv32a_s|)) (_ BitVec 4) (ite (|picorv32a#1025| state) (|picorv32a#1024| state) (|picorv32a#19| state))) ; $procmux$2468_Y
 (define-fun |picorv32a#1027| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#4| state) false) (or  (= ((_ extract 0 0) (|picorv32a#18| state)) #b1) false))) ; $logic_and$riscv.v:1396$561_Y
@@ -2799,17 +2799,17 @@
 (define-fun |picorv32a#1033| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#224| state) (|picorv32a#1032| state) (|picorv32a#18| state))) ; $procmux$3209_Y
 (define-fun |picorv32a#1034| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#233| state) (|picorv32a#1033| state) (|picorv32a#18| state))) ; $procmux$3211_Y
 (define-fun |picorv32a#1035| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#1034| state) #b0)) ; $0\pcpi_valid[0:0]
-; yosys-smt2-anyseq picorv32a#1036 32 $auto$setundef.cc:533:execute$5037
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5038"], "smtname": 1036, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1036| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5038
-; yosys-smt2-anyseq picorv32a#1037 32 $auto$setundef.cc:533:execute$5035
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5036"], "smtname": 1037, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1037| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5036
+; yosys-smt2-anyseq picorv32a#1036 32 $auto$setundef.cc:533:execute$5028
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5029"], "smtname": 1036, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1036| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5029
+; yosys-smt2-anyseq picorv32a#1037 32 $auto$setundef.cc:533:execute$5026
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5027"], "smtname": 1037, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1037| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5027
 (define-fun |picorv32a#1038| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#28| state)) #b1) (concat ((_ extract 31 1) (|picorv32a#281| state)) #b0) (|picorv32a#10| state))) ; $ternary$riscv.v:1478$583_Y
 (define-fun |picorv32a#1039| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#29| state)) #b1) (|picorv32a#1038| state) (ite (= ((_ extract 0 0) (|picorv32a#222| state)) #b1) #b00000000000000000000000000010000 (|picorv32a#10| state)))) ; $procmux$2145_Y
 (define-fun |picorv32a#1040| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#183| state) (|picorv32a#1039| state) (|picorv32a#1037| state))) ; $procmux$2148_Y
 (define-fun |picorv32a#1041| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#1040| state) (|picorv32a#1036| state))) ; $3\current_pc[31:0]
-(define-fun |picorv32a#1042| ((state |picorv32a_s|)) (_ BitVec 3) (ite (= ((_ extract 0 0) (|picorv32a#292| state)) #b1) #b010 #b100)) ; $auto$wreduce.cc:461:run$4881
+(define-fun |picorv32a#1042| ((state |picorv32a_s|)) (_ BitVec 3) (ite (= ((_ extract 0 0) (|picorv32a#292| state)) #b1) #b010 #b100)) ; $auto$wreduce.cc:461:run$4872
 (define-fun |picorv32a#1043| ((state |picorv32a_s|)) (_ BitVec 32) (bvadd (|picorv32a#1041| state) (concat #b00000000000000000000000000000 (|picorv32a#1042| state)))) ; $add$riscv.v:1530$621_Y
 (define-fun |picorv32a#1044| ((state |picorv32a_s|)) (_ BitVec 32) (bvadd (|picorv32a#1041| state) (|picorv32a#236| state))) ; $add$riscv.v:1547$625_Y
 (define-fun |picorv32a#1045| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#36| state)) #b1) (|picorv32a#1044| state) (|picorv32a#1043| state))) ; $procmux$3122_Y
@@ -2829,89 +2829,89 @@
 (define-fun |picorv32a#1059| ((state |picorv32a_s|)) Bool (bvuge (|picorv32a#5| state) #b00100)) ; $ge$riscv.v:1813$667_Y
 (define-fun |picorv32a#1060| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#1059| state) (|picorv32a#1058| state) (|picorv32a#1057| state))) ; $procmux$3092_Y
 (define-fun |picorv32a#1061| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#732| state) (|picorv32a#9| state) (|picorv32a#1060| state))) ; $procmux$3095_Y
-; yosys-smt2-anyseq picorv32a#1062 32 $auto$setundef.cc:533:execute$5083
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5084"], "smtname": 1062, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1062| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5084
+; yosys-smt2-anyseq picorv32a#1062 32 $auto$setundef.cc:533:execute$5074
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5075"], "smtname": 1062, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1062| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5075
 (define-fun |picorv32a#1063| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#32| state)) #b1) #b00000000000000000000000000000000 (|picorv32a#6| state))) ; $ternary$riscv.v:1620$633_Y
 (define-fun |picorv32a#1064| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#214| state)) #b1) (|picorv32a#1063| state) (ite (|picorv32a#743| state) (|picorv32a#1062| state) (|picorv32a#289| state)))) ; $procmux$3102_Y
 (define-fun |picorv32a#1065| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#258| state) (|picorv32a#1064| state) (ite (|picorv32a#263| state) (|picorv32a#1061| state) (ite (|picorv32a#265| state) (|picorv32a#1056| state) (ite (|picorv32a#267| state) (|picorv32a#1054| state) (|picorv32a#9| state)))))) ; $procmux$3072_Y
 (define-fun |picorv32a#1066| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#1065| state) (|picorv32a#9| state))) ; $0\reg_op1[31:0]
-; yosys-smt2-anyseq picorv32a#1067 32 $auto$setundef.cc:533:execute$5081
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5082"], "smtname": 1067, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1067| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5082
-(define-fun |picorv32a#1068| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#210| state)) #b1) (concat #b000000000000000000000000000 (|picorv32a#231| state)) (|picorv32a#237| state))) ; $ternary$riscv.v:1695$648_Y
+; yosys-smt2-anyseq picorv32a#1067 32 $auto$setundef.cc:533:execute$5072
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5073"], "smtname": 1067, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1067| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5073
+(define-fun |picorv32a#1068| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#210| state)) #b1) (concat #b00000000000000000000000000 (|picorv32a#231| state)) (|picorv32a#237| state))) ; $ternary$riscv.v:1695$648_Y
 (define-fun |picorv32a#1069| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#210| state)) #b1) (= ((_ extract 0 0) (|picorv32a#217| state)) #b1))) ; $procmux$2370_CTRL
 (define-fun |picorv32a#1070| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#214| state)) #b1) (|picorv32a#237| state) (ite (|picorv32a#1069| state) (|picorv32a#1068| state) (|picorv32a#1067| state)))) ; $procmux$3058_Y
 (define-fun |picorv32a#1071| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#258| state) (|picorv32a#1070| state) (ite (|picorv32a#233| state) (|picorv32a#289| state) (|picorv32a#8| state)))) ; $procmux$3055_Y
 (define-fun |picorv32a#1072| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#1071| state) (|picorv32a#8| state))) ; $0\reg_op2[31:0]
-; yosys-smt2-anyseq picorv32a#1073 32 $auto$setundef.cc:533:execute$5069
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5070"], "smtname": 1073, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1073| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5070
-; yosys-smt2-anyseq picorv32a#1074 32 $auto$setundef.cc:533:execute$5051
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5052"], "smtname": 1074, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1074| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5052
-; yosys-smt2-anyseq picorv32a#1075 32 $auto$setundef.cc:533:execute$5049
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5050"], "smtname": 1075, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1075| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5050
-; yosys-smt2-anyseq picorv32a#1076 32 $auto$setundef.cc:533:execute$5047
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5048"], "smtname": 1076, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1076| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5048
-; yosys-smt2-anyseq picorv32a#1077 32 $auto$setundef.cc:533:execute$5045
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5046"], "smtname": 1077, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1077| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5046
+; yosys-smt2-anyseq picorv32a#1073 32 $auto$setundef.cc:533:execute$5060
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5061"], "smtname": 1073, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1073| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5061
+; yosys-smt2-anyseq picorv32a#1074 32 $auto$setundef.cc:533:execute$5042
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5043"], "smtname": 1074, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1074| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5043
+; yosys-smt2-anyseq picorv32a#1075 32 $auto$setundef.cc:533:execute$5040
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5041"], "smtname": 1075, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1075| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5041
+; yosys-smt2-anyseq picorv32a#1076 32 $auto$setundef.cc:533:execute$5038
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5039"], "smtname": 1076, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1076| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5039
+; yosys-smt2-anyseq picorv32a#1077 32 $auto$setundef.cc:533:execute$5036
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5037"], "smtname": 1077, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1077| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5037
 (define-fun |picorv32a#1078| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#198| state)) #b1) (|picorv32a#150| state) (ite (= ((_ extract 0 0) (|picorv32a#199| state)) #b1) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) (concat ((_ extract 15 15) (|picorv32a#150| state)) ((_ extract 15 0) (|picorv32a#150| state)))))))))))))))))) (ite (= ((_ extract 0 0) (|picorv32a#200| state)) #b1) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) (concat ((_ extract 7 7) (|picorv32a#150| state)) ((_ extract 7 0) (|picorv32a#150| state)))))))))))))))))))))))))) (|picorv32a#1077| state))))) ; $procmux$2379_Y
 (define-fun |picorv32a#1079| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#575| state) (|picorv32a#1078| state) (|picorv32a#1076| state))) ; $procmux$2383_Y
 (define-fun |picorv32a#1080| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#577| state) (|picorv32a#1079| state) (|picorv32a#1075| state))) ; $procmux$2385_Y
-; yosys-smt2-anyseq picorv32a#1081 32 $auto$setundef.cc:533:execute$5053
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5054"], "smtname": 1081, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1081| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5054
+; yosys-smt2-anyseq picorv32a#1081 32 $auto$setundef.cc:533:execute$5044
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5045"], "smtname": 1081, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1081| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5045
 (define-fun |picorv32a#1082| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#732| state) (|picorv32a#9| state) (|picorv32a#1081| state))) ; $procmux$2390_Y
 (define-fun |picorv32a#1083| ((state |picorv32a_s|)) (_ BitVec 32) (bvadd (|picorv32a#6| state) (|picorv32a#237| state))) ; $add$riscv.v:1784$661_Y
-; yosys-smt2-anyseq picorv32a#1084 32 $auto$setundef.cc:533:execute$5057
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5058"], "smtname": 1084, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1084| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5058
-; yosys-smt2-anyseq picorv32a#1085 32 $auto$setundef.cc:533:execute$5055
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5056"], "smtname": 1085, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1085| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5056
+; yosys-smt2-anyseq picorv32a#1084 32 $auto$setundef.cc:533:execute$5048
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5049"], "smtname": 1084, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1084| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5049
+; yosys-smt2-anyseq picorv32a#1085 32 $auto$setundef.cc:533:execute$5046
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5047"], "smtname": 1085, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1085| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5047
 (define-fun |picorv32a#1086| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#25| state) (|picorv32a#26| state) (|picorv32a#1085| state))) ; $procmux$2398_Y
 (define-fun |picorv32a#1087| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#224| state) (|picorv32a#1086| state) (|picorv32a#1084| state))) ; $procmux$2400_Y
-; yosys-smt2-anyseq picorv32a#1088 32 $auto$setundef.cc:533:execute$5059
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5060"], "smtname": 1088, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1088| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5060
-; yosys-smt2-anyseq picorv32a#1089 32 $auto$setundef.cc:533:execute$5061
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5062"], "smtname": 1089, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1089| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5062
+; yosys-smt2-anyseq picorv32a#1088 32 $auto$setundef.cc:533:execute$5050
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5051"], "smtname": 1088, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1088| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5051
+; yosys-smt2-anyseq picorv32a#1089 32 $auto$setundef.cc:533:execute$5052
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5053"], "smtname": 1089, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1089| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5053
 (define-fun |picorv32a#1090| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#106| state)) #b1) ((_ extract 31 0) (|picorv32a#291| state)) (ite (= ((_ extract 0 0) (|picorv32a#108| state)) #b1) ((_ extract 63 32) (|picorv32a#291| state)) (ite (= ((_ extract 0 0) (|picorv32a#110| state)) #b1) ((_ extract 31 0) (|picorv32a#290| state)) (ite (= ((_ extract 0 0) (|picorv32a#112| state)) #b1) ((_ extract 63 32) (|picorv32a#290| state)) (|picorv32a#1089| state)))))) ; $procmux$2414_Y
-(define-fun |picorv32a#1091| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#114| state)) #b1) (= ((_ extract 0 0) (|picorv32a#116| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4835
+(define-fun |picorv32a#1091| ((state |picorv32a_s|)) Bool (or  (= ((_ extract 0 0) (|picorv32a#114| state)) #b1) (= ((_ extract 0 0) (|picorv32a#116| state)) #b1))) ; $auto$opt_reduce.cc:134:opt_pmux$4826
 (define-fun |picorv32a#1092| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#212| state) (|picorv32a#1090| state) (ite (|picorv32a#1091| state) (|picorv32a#289| state) (ite (= ((_ extract 0 0) (|picorv32a#118| state)) #b1) (concat ((_ extract 31 1) (|picorv32a#289| state)) #b0) (ite (= ((_ extract 0 0) (|picorv32a#120| state)) #b1) (|picorv32a#190| state) (ite (= ((_ extract 0 0) (|picorv32a#124| state)) #b1) (|picorv32a#3| state) (|picorv32a#1088| state))))))) ; $procmux$2407_Y
-; yosys-smt2-anyseq picorv32a#1093 32 $auto$setundef.cc:533:execute$5065
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5066"], "smtname": 1093, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1093| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5066
-; yosys-smt2-anyseq picorv32a#1094 32 $auto$setundef.cc:533:execute$5063
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5064"], "smtname": 1094, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1094| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5064
+; yosys-smt2-anyseq picorv32a#1093 32 $auto$setundef.cc:533:execute$5056
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5057"], "smtname": 1093, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1093| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5057
+; yosys-smt2-anyseq picorv32a#1094 32 $auto$setundef.cc:533:execute$5054
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5055"], "smtname": 1094, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1094| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5055
 (define-fun |picorv32a#1095| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#582| state) (|picorv32a#189| state) (|picorv32a#1094| state))) ; $procmux$2423_Y
 (define-fun |picorv32a#1096| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#511| state) (|picorv32a#1095| state) (|picorv32a#1093| state))) ; $procmux$2425_Y
-; yosys-smt2-anyseq picorv32a#1097 32 $auto$setundef.cc:533:execute$5067
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5068"], "smtname": 1097, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1097| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5068
+; yosys-smt2-anyseq picorv32a#1097 32 $auto$setundef.cc:533:execute$5058
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5059"], "smtname": 1097, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1097| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5059
 (define-fun |picorv32a#1098| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#519| state) (|picorv32a#1097| state) (|picorv32a#1096| state))) ; $procmux$2428_Y
 (define-fun |picorv32a#1099| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#183| state) (|picorv32a#1098| state) (ite (|picorv32a#258| state) (|picorv32a#1092| state) (ite (|picorv32a#233| state) (|picorv32a#1087| state) (ite (|picorv32a#261| state) (|picorv32a#1083| state) (ite (|picorv32a#263| state) (|picorv32a#1082| state) (ite (|picorv32a#267| state) (|picorv32a#1080| state) (|picorv32a#1074| state)))))))) ; $procmux$2387_Y
 (define-fun |picorv32a#1100| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#1099| state) (|picorv32a#1073| state))) ; $0\reg_out[31:0]
 (define-fun |picorv32a#1101| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#183| state) (|picorv32a#1041| state) (|picorv32a#6| state))) ; $procmux$3147_Y
 (define-fun |picorv32a#1102| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#1101| state) #b00000000000000000000000000000000)) ; $0\reg_pc[31:0]
-; yosys-smt2-anyseq picorv32a#1103 5 $auto$setundef.cc:533:execute$5075
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5076"], "smtname": 1103, "smtoffset": 0, "type": "seq", "width": 5}
-(declare-fun |picorv32a#1103| (|picorv32a_s|) (_ BitVec 5)) ; $auto$rtlil.cc:3201:Anyseq$5076
-; yosys-smt2-anyseq picorv32a#1104 5 $auto$setundef.cc:533:execute$5073
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5074"], "smtname": 1104, "smtoffset": 0, "type": "seq", "width": 5}
-(declare-fun |picorv32a#1104| (|picorv32a_s|) (_ BitVec 5)) ; $auto$rtlil.cc:3201:Anyseq$5074
-(define-fun |picorv32a#1105| ((state |picorv32a_s|)) (_ BitVec 5) (bvsub (|picorv32a#5| state) #b00001)) ; $auto$wreduce.cc:461:run$4879
-(define-fun |picorv32a#1106| ((state |picorv32a_s|)) (_ BitVec 5) (bvsub (|picorv32a#5| state) #b00100)) ; $auto$wreduce.cc:461:run$4878
+; yosys-smt2-anyseq picorv32a#1103 5 $auto$setundef.cc:533:execute$5066
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5067"], "smtname": 1103, "smtoffset": 0, "type": "seq", "width": 5}
+(declare-fun |picorv32a#1103| (|picorv32a_s|) (_ BitVec 5)) ; $auto$rtlil.cc:3201:Anyseq$5067
+; yosys-smt2-anyseq picorv32a#1104 5 $auto$setundef.cc:533:execute$5064
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5065"], "smtname": 1104, "smtoffset": 0, "type": "seq", "width": 5}
+(declare-fun |picorv32a#1104| (|picorv32a_s|) (_ BitVec 5)) ; $auto$rtlil.cc:3201:Anyseq$5065
+(define-fun |picorv32a#1105| ((state |picorv32a_s|)) (_ BitVec 5) (bvsub (|picorv32a#5| state) #b00001)) ; $auto$wreduce.cc:461:run$4870
+(define-fun |picorv32a#1106| ((state |picorv32a_s|)) (_ BitVec 5) (bvsub (|picorv32a#5| state) #b00100)) ; $auto$wreduce.cc:461:run$4869
 (define-fun |picorv32a#1107| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#1059| state) (|picorv32a#1106| state) (|picorv32a#1105| state))) ; $procmux$2438_Y
-; yosys-smt2-anyseq picorv32a#1108 5 $auto$setundef.cc:533:execute$5071
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5072"], "smtname": 1108, "smtoffset": 0, "type": "seq", "width": 5}
-(declare-fun |picorv32a#1108| (|picorv32a_s|) (_ BitVec 5)) ; $auto$rtlil.cc:3201:Anyseq$5072
+; yosys-smt2-anyseq picorv32a#1108 5 $auto$setundef.cc:533:execute$5062
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5063"], "smtname": 1108, "smtoffset": 0, "type": "seq", "width": 5}
+(declare-fun |picorv32a#1108| (|picorv32a_s|) (_ BitVec 5)) ; $auto$rtlil.cc:3201:Anyseq$5063
 (define-fun |picorv32a#1109| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#732| state) (|picorv32a#1108| state) (|picorv32a#1107| state))) ; $procmux$2441_Y
 (define-fun |picorv32a#1110| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#233| state) ((_ extract 4 0) (|picorv32a#289| state)) (ite (|picorv32a#263| state) (|picorv32a#1109| state) (|picorv32a#1104| state)))) ; $procmux$2443_Y
 (define-fun |picorv32a#1111| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#4| state) (|picorv32a#1110| state) (|picorv32a#1103| state))) ; $0\reg_sh[4:0]
@@ -2919,25 +2919,25 @@
 (define-fun |picorv32a#1113| ((state |picorv32a_s|)) (_ BitVec 32) (ite (= ((_ extract 0 0) (|picorv32a#124| state)) #b1) (|picorv32a#289| state) (|picorv32a#1112| state))) ; $procmux$2981_Y
 (define-fun |picorv32a#1114| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#258| state) (|picorv32a#1113| state) (|picorv32a#1112| state))) ; $procmux$2983_Y
 (define-fun |picorv32a#1115| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#4| state) (|picorv32a#1114| state) #b00000000000000000000000000000000)) ; $0\timer[31:0]
-; yosys-smt2-anyseq picorv32a#1116 36 $auto$setundef.cc:533:execute$5005
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5006"], "smtname": 1116, "smtoffset": 0, "type": "seq", "width": 36}
-(declare-fun |picorv32a#1116| (|picorv32a_s|) (_ BitVec 36)) ; $auto$rtlil.cc:3201:Anyseq$5006
+; yosys-smt2-anyseq picorv32a#1116 36 $auto$setundef.cc:533:execute$4996
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$4997"], "smtname": 1116, "smtoffset": 0, "type": "seq", "width": 36}
+(declare-fun |picorv32a#1116| (|picorv32a_s|) (_ BitVec 36)) ; $auto$rtlil.cc:3201:Anyseq$4997
 (define-fun |picorv32a#1117| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#4| state) (|picorv32a#359| state) #b0)) ; $0\trap[0:0]
-; yosys-smt2-anyseq picorv32a#1118 5 $auto$setundef.cc:533:execute$5087
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5088"], "smtname": 1118, "smtoffset": 0, "type": "seq", "width": 5}
-(declare-fun |picorv32a#1118| (|picorv32a_s|) (_ BitVec 5)) ; $auto$rtlil.cc:3201:Anyseq$5088
+; yosys-smt2-anyseq picorv32a#1118 6 $auto$setundef.cc:533:execute$5078
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5079"], "smtname": 1118, "smtoffset": 0, "type": "seq", "width": 6}
+(declare-fun |picorv32a#1118| (|picorv32a_s|) (_ BitVec 6)) ; $auto$rtlil.cc:3201:Anyseq$5079
 (define-fun |picorv32a#1119| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#4| state) false) (or  (= ((_ extract 0 0) (|picorv32a#276| state)) #b1) false))) ; $logic_and$riscv.v:1316$540_Y
-(define-fun |picorv32a#1120| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#1119| state) false) (or  (= ((_ extract 0 0) (|picorv32a#197| state)) #b1) (= ((_ extract 1 1) (|picorv32a#197| state)) #b1) (= ((_ extract 2 2) (|picorv32a#197| state)) #b1) (= ((_ extract 3 3) (|picorv32a#197| state)) #b1) (= ((_ extract 4 4) (|picorv32a#197| state)) #b1)))) ; $logic_and$riscv.v:1316$541_Y
-(define-fun |picorv32a#1121| ((state |picorv32a_s|)) (_ BitVec 5) (ite (|picorv32a#1120| state) (|picorv32a#197| state) (|picorv32a#1118| state))) ; $0$memwr$\cpuregs$riscv.v:1317$18_ADDR[4:0]$537
-; yosys-smt2-anyseq picorv32a#1122 32 $auto$setundef.cc:533:execute$5085
-; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5086"], "smtname": 1122, "smtoffset": 0, "type": "seq", "width": 32}
-(declare-fun |picorv32a#1122| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5086
+(define-fun |picorv32a#1120| ((state |picorv32a_s|)) Bool (and (or  (|picorv32a#1119| state) false) (or  (= ((_ extract 0 0) (|picorv32a#197| state)) #b1) (= ((_ extract 1 1) (|picorv32a#197| state)) #b1) (= ((_ extract 2 2) (|picorv32a#197| state)) #b1) (= ((_ extract 3 3) (|picorv32a#197| state)) #b1) (= ((_ extract 4 4) (|picorv32a#197| state)) #b1) (= ((_ extract 5 5) (|picorv32a#197| state)) #b1)))) ; $logic_and$riscv.v:1316$541_Y
+(define-fun |picorv32a#1121| ((state |picorv32a_s|)) (_ BitVec 6) (ite (|picorv32a#1120| state) (|picorv32a#197| state) (|picorv32a#1118| state))) ; $0$memwr$\cpuregs$riscv.v:1317$18_ADDR[5:0]$537
+; yosys-smt2-anyseq picorv32a#1122 32 $auto$setundef.cc:533:execute$5076
+; yosys-smt2-witness {"offset": 0, "path": ["$auto$rtlil.cc:3201:Anyseq$5077"], "smtname": 1122, "smtoffset": 0, "type": "seq", "width": 32}
+(declare-fun |picorv32a#1122| (|picorv32a_s|) (_ BitVec 32)) ; $auto$rtlil.cc:3201:Anyseq$5077
 (define-fun |picorv32a#1123| ((state |picorv32a_s|)) (_ BitVec 32) (ite (|picorv32a#1120| state) (|picorv32a#285| state) (|picorv32a#1122| state))) ; $0$memwr$\cpuregs$riscv.v:1317$18_DATA[31:0]$538
 (define-fun |picorv32a#1124| ((state |picorv32a_s|)) (_ BitVec 1) (ite (|picorv32a#1120| state) #b1 #b0)) ; $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31]
-(define-fun |picorv32a_m:W0A cpuregs| ((state |picorv32a_s|)) (_ BitVec 5) (|picorv32a#1121| state)) ; $0$memwr$\cpuregs$riscv.v:1317$18_ADDR[4:0]$537
+(define-fun |picorv32a_m:W0A cpuregs| ((state |picorv32a_s|)) (_ BitVec 6) (|picorv32a#1121| state)) ; $0$memwr$\cpuregs$riscv.v:1317$18_ADDR[5:0]$537
 (define-fun |picorv32a_m:W0D cpuregs| ((state |picorv32a_s|)) (_ BitVec 32) (|picorv32a#1123| state)) ; $0$memwr$\cpuregs$riscv.v:1317$18_DATA[31:0]$538
 (define-fun |picorv32a_m:W0M cpuregs| ((state |picorv32a_s|)) (_ BitVec 32) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (concat (|picorv32a#1124| state) (|picorv32a#1124| state))))))))))))))))))))))))))))))))) ; { $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] $0$memwr$\cpuregs$riscv.v:1317$18_EN[31:0]$539 [31] }
-(define-fun |picorv32a#286#1| ((state |picorv32a_s|)) (Array (_ BitVec 5) (_ BitVec 32)) (ite (= (|picorv32a_m:W0M cpuregs| state) #b00000000000000000000000000000000) (|picorv32a#286#0| state) (store (|picorv32a#286#0| state) (|picorv32a_m:W0A cpuregs| state) (bvor (bvand (|picorv32a_m:W0D cpuregs| state) (|picorv32a_m:W0M cpuregs| state)) (bvand (select (|picorv32a#286#0| state) (|picorv32a_m:W0A cpuregs| state)) (bvnot (|picorv32a_m:W0M cpuregs| state))))))) ; cpuregs
+(define-fun |picorv32a#286#1| ((state |picorv32a_s|)) (Array (_ BitVec 6) (_ BitVec 32)) (ite (= (|picorv32a_m:W0M cpuregs| state) #b00000000000000000000000000000000) (|picorv32a#286#0| state) (store (|picorv32a#286#0| state) (|picorv32a_m:W0A cpuregs| state) (bvor (bvand (|picorv32a_m:W0D cpuregs| state) (|picorv32a_m:W0M cpuregs| state)) (bvand (select (|picorv32a#286#0| state) (|picorv32a_m:W0A cpuregs| state)) (bvnot (|picorv32a_m:W0M cpuregs| state))))))) ; cpuregs
 (define-fun |picorv32a_a| ((state |picorv32a_s|)) Bool (and
   (|picorv32a_a 0| state)
   (|picorv32a_a 1| state)
@@ -3002,183 +3002,183 @@
   (|picorv32_pcpi_fast_mul_h| (|picorv32a_h genblk1.pcpi_mul| state))
 ))
 (define-fun |picorv32a_t| ((state |picorv32a_s|) (next_state |picorv32a_s|)) Bool (and
-  (= (|picorv32a#378| state) (|picorv32a#350| next_state)) ; $procdff$4615 $formal$riscv.v:2079$21_CHECK
-  (= (|picorv32a#379| state) (|picorv32a#349| next_state)) ; $procdff$4616 $formal$riscv.v:2079$21_EN
-  (= (|picorv32a#382| state) (|picorv32a#348| next_state)) ; $procdff$4617 $formal$riscv.v:2080$22_CHECK
-  (= (|picorv32a#384| state) (|picorv32a#347| next_state)) ; $procdff$4619 $formal$riscv.v:2081$23_CHECK
-  (= (|picorv32a#386| state) (|picorv32a#346| next_state)) ; $procdff$4621 $formal$riscv.v:2084$24_CHECK
-  (= (|picorv32a#387| state) (|picorv32a#345| next_state)) ; $procdff$4622 $formal$riscv.v:2084$24_EN
-  (= (|picorv32a#389| state) (|picorv32a#344| next_state)) ; $procdff$4623 $formal$riscv.v:2085$25_CHECK
-  (= (|picorv32a#392| state) (|picorv32a#343| next_state)) ; $procdff$4625 $formal$riscv.v:2086$26_CHECK
-  (= (|picorv32a#395| state) (|picorv32a#342| next_state)) ; $procdff$4627 $formal$riscv.v:2087$27_CHECK
-  (= (|picorv32a#399| state) (|picorv32a#341| next_state)) ; $procdff$4629 $formal$riscv.v:2090$28_CHECK
-  (= (|picorv32a#400| state) (|picorv32a#340| next_state)) ; $procdff$4630 $formal$riscv.v:2090$28_EN
-  (= (|picorv32a#407| state) (|picorv32a#339| next_state)) ; $procdff$4799 $formal$riscv.v:531$5_CHECK
-  (= (|picorv32a#409| state) (|picorv32a#338| next_state)) ; $procdff$4800 $formal$riscv.v:531$5_EN
-  (= (|picorv32a#414| state) (|picorv32a#337| next_state)) ; $procdff$4801 $formal$riscv.v:534$6_CHECK
-  (= (|picorv32a#416| state) (|picorv32a#336| next_state)) ; $procdff$4802 $formal$riscv.v:534$6_EN
-  (= (|picorv32a#423| state) (|picorv32a#335| next_state)) ; $procdff$4803 $formal$riscv.v:537$7_CHECK
-  (= (|picorv32a#425| state) (|picorv32a#334| next_state)) ; $procdff$4804 $formal$riscv.v:537$7_EN
-  (= (|picorv32a#430| state) (|picorv32a#333| next_state)) ; $procdff$4805 $formal$riscv.v:540$8_CHECK
-  (= (|picorv32a#432| state) (|picorv32a#332| next_state)) ; $procdff$4806 $formal$riscv.v:540$8_EN
-  (= (|picorv32a#440| state) (|picorv32a#331| next_state)) ; $procdff$4807 $formal$riscv.v:543$9_CHECK
-  (= (|picorv32a#442| state) (|picorv32a#330| next_state)) ; $procdff$4808 $formal$riscv.v:543$9_EN
-  (= (|picorv32a#449| state) (|picorv32a#329| next_state)) ; $procdff$4783 $formal$riscv.v:578$10_CHECK
-  (= (|picorv32a#451| state) (|picorv32a#328| next_state)) ; $procdff$4784 $formal$riscv.v:578$10_EN
-  (= (|picorv32a#455| state) (|picorv32a#327| next_state)) ; $procdff$4785 $formal$riscv.v:579$11_CHECK
-  (= (|picorv32a#459| state) (|picorv32a#326| next_state)) ; $procdff$4787 $formal$riscv.v:580$12_CHECK
-  (= (|picorv32a#464| state) (|picorv32a#325| next_state)) ; $procdff$4789 $formal$riscv.v:581$13_CHECK
-  (= (|picorv32a#469| state) (|picorv32a#324| next_state)) ; $procdff$4791 $formal$riscv.v:604$14_CHECK
-  (= (|picorv32a#471| state) (|picorv32a#323| next_state)) ; $procdff$4792 $formal$riscv.v:604$14_EN
-  (= (|picorv32a#475| state) (|picorv32a#322| next_state)) ; $procdff$4793 $formal$riscv.v:605$15_CHECK
-  (= (|picorv32a#479| state) (|picorv32a#321| next_state)) ; $procdff$4795 $formal$riscv.v:612$16_CHECK
-  (= (|picorv32a#481| state) (|picorv32a#320| next_state)) ; $procdff$4796 $formal$riscv.v:612$16_EN
-  (= (|picorv32a#485| state) (|picorv32a#319| next_state)) ; $procdff$4797 $formal$riscv.v:613$17_CHECK
-  (= (|picorv32a#488| state) (|picorv32a#310| next_state)) ; $procdff$4604 \alu_add_sub
-  (= (ite (|picorv32a#489| state) #b1 #b0) (|picorv32a#303| next_state)) ; $procdff$4607 \alu_eq
-  (= (ite (|picorv32a#490| state) #b1 #b0) (|picorv32a#300| next_state)) ; $procdff$4609 \alu_lts
-  (= (ite (|picorv32a#491| state) #b1 #b0) (|picorv32a#299| next_state)) ; $procdff$4608 \alu_ltu
-  (= (|picorv32a#492| state) (|picorv32a#297| next_state)) ; $procdff$4605 \alu_shl
-  (= (|picorv32a#495| state) (|picorv32a#296| next_state)) ; $procdff$4606 \alu_shr
-  (= (|picorv32a#503| state) (|picorv32a#295| next_state)) ; $procdff$4684 \alu_wait
-  (= #b0 (|picorv32a#294| next_state)) ; $procdff$4685 \alu_wait_2
-  (= (|picorv32a#505| state) (|picorv32a#292| next_state)) ; $procdff$4744 \compressed_instr
-  (= (|picorv32a#507| state) (|picorv32a#291| next_state)) ; $procdff$4637 \count_cycle
-  (= (|picorv32a#522| state) (|picorv32a#290| next_state)) ; $procdff$4638 \count_instr
-  (= (|picorv32a#318| state) (|picorv32a#280| next_state)) ; $procdff$4682 \alu_out_q
-  (= (|picorv32a#523| state) (|picorv32a#269| next_state)) ; $procdff$4768 \cached_ascii_instr
-  (= (|picorv32a#524| state) (|picorv32a#252| next_state)) ; $procdff$4769 \cached_insn_imm
-  (= (|picorv32a#525| state) (|picorv32a#249| next_state)) ; $procdff$4773 \cached_insn_rd
-  (= (|picorv32a#526| state) (|picorv32a#246| next_state)) ; $procdff$4771 \cached_insn_rs1
-  (= (|picorv32a#527| state) (|picorv32a#243| next_state)) ; $procdff$4772 \cached_insn_rs2
-  (= (ite (|picorv32a#195| state) #b1 #b0) (|picorv32a#242| next_state)) ; $procdff$4766 \dbg_next
-  (= (|picorv32a#533| state) (|picorv32a#241| next_state)) ; $procdff$4659 \dbg_rs1val
-  (= (|picorv32a#537| state) (|picorv32a#240| next_state)) ; $procdff$4661 \dbg_rs1val_valid
-  (= (|picorv32a#541| state) (|picorv32a#239| next_state)) ; $procdff$4660 \dbg_rs2val
-  (= (|picorv32a#544| state) (|picorv32a#238| next_state)) ; $procdff$4662 \dbg_rs2val_valid
-  (= (|picorv32a#551| state) (|picorv32a#237| next_state)) ; $procdff$4742 \decoded_imm
-  (= (concat (|picorv32a#562| state) (concat (|picorv32a#561| state) (concat (|picorv32a#560| state) (concat (|picorv32a#559| state) (concat (|picorv32a#558| state) (concat (|picorv32a#557| state) (concat (|picorv32a#556| state) (concat (|picorv32a#555| state) (concat (|picorv32a#554| state) (concat (|picorv32a#553| state) (|picorv32a#552| state))))))))))) (|picorv32a#236| next_state)) ; $procdff$4743 \decoded_imm_uj
-  (= (|picorv32a#563| state) (|picorv32a#235| next_state)) ; $procdff$4739 \decoded_rd
-  (= (concat (|picorv32a#573| state) (|picorv32a#568| state)) (|picorv32a#232| next_state)) ; $procdff$4740 \decoded_rs1
-  (= (|picorv32a#574| state) (|picorv32a#231| next_state)) ; $procdff$4741 \decoded_rs2
-  (= (|picorv32a#581| state) (|picorv32a#230| next_state)) ; $procdff$4657 \decoder_pseudo_trigger
-  (= (|picorv32a#230| state) (|picorv32a#229| next_state)) ; $procdff$4658 \decoder_pseudo_trigger_q
-  (= (|picorv32a#184| state) (|picorv32a#228| next_state)) ; $procdff$4656 \decoder_trigger_q
-  (= (|picorv32a#587| state) (|picorv32a#227| next_state)) ; $procdff$4681 \do_waitirq
-  (= (|picorv32a#591| state) (|picorv32a#226| next_state)) ; $procdff$4634 \eoi
-  (= (|picorv32a#597| state) (|picorv32a#225| next_state)) ; $procdff$4732 \instr_ecall_ebreak
-  (= (|picorv32a#604| state) (|picorv32a#222| next_state)) ; $procdff$4664 \irq_state
-  (= (|picorv32a#606| state) (|picorv32a#221| next_state)) ; $procdff$4756 \is_alu_reg_imm
-  (= (|picorv32a#608| state) (|picorv32a#220| next_state)) ; $procdff$4757 \is_alu_reg_reg
-  (= (|picorv32a#611| state) (|picorv32a#219| next_state)) ; $procdff$4754 \is_beq_bne_blt_bge_bltu_bgeu
-  (= (|picorv32a#614| state) (|picorv32a#218| next_state)) ; $procdff$4758 \is_compare
-  (= (|picorv32a#624| state) (|picorv32a#217| next_state)) ; $procdff$4748 \is_jalr_addi_slti_sltiu_xori_ori_andi
-  (= (|picorv32a#626| state) (|picorv32a#216| next_state)) ; $procdff$4746 \is_lb_lh_lw_lbu_lhu
-  (= (ite (|picorv32a#627| state) #b1 #b0) (|picorv32a#215| next_state)) ; $procdff$4755 \is_lbu_lhu_lw
-  (= (ite (|picorv32a#628| state) #b1 #b0) (|picorv32a#214| next_state)) ; $procdff$4745 \is_lui_auipc_jal
-  (= (|picorv32a#630| state) (|picorv32a#213| next_state)) ; $procdff$4751 \is_lui_auipc_jal_jalr_addi_add_sub
-  (= (|picorv32a#632| state) (|picorv32a#211| next_state)) ; $procdff$4749 \is_sb_sh_sw
-  (= (|picorv32a#642| state) (|picorv32a#210| next_state)) ; $procdff$4747 \is_slli_srli_srai
-  (= (ite (|picorv32a#643| state) #b1 #b0) (|picorv32a#209| next_state)) ; $procdff$4752 \is_slti_blt_slt
-  (= (ite (|picorv32a#644| state) #b1 #b0) (|picorv32a#208| next_state)) ; $procdff$4753 \is_sltiu_bltu_sltu
-  (= (|picorv32a#170| state) (|picorv32a#207| next_state)) ; $procdff$4612 \last_mem_la_addr
-  (= (ite (|picorv32a#169| state) #b1 #b0) (|picorv32a#206| next_state)) ; $procdff$4610 \last_mem_la_read
-  (= (|picorv32a#162| state) (|picorv32a#205| next_state)) ; $procdff$4613 \last_mem_la_wdata
-  (= (ite (|picorv32a#160| state) #b1 #b0) (|picorv32a#204| next_state)) ; $procdff$4611 \last_mem_la_write
-  (= (|picorv32a#156| state) (|picorv32a#203| next_state)) ; $procdff$4614 \last_mem_la_wstrb
-  (= (concat ((_ extract 2 0) (|picorv32a#202| state)) (ite (|picorv32a#397| state) #b1 #b0)) (|picorv32a#202| next_state)) ; $procdff$4631 \last_mem_nowait
-  (= (|picorv32a#647| state) (|picorv32a#201| next_state)) ; $procdff$4671 \latched_compr
-  (= (|picorv32a#651| state) (|picorv32a#200| next_state)) ; $procdff$4675 \latched_is_lb
-  (= (|picorv32a#655| state) (|picorv32a#199| next_state)) ; $procdff$4674 \latched_is_lh
-  (= (|picorv32a#659| state) (|picorv32a#198| next_state)) ; $procdff$4673 \latched_is_lu
-  (= (|picorv32a#665| state) (|picorv32a#197| next_state)) ; $procdff$4676 \latched_rd
-  (= (|picorv32a#669| state) (|picorv32a#196| next_state)) ; $procdff$4669 \latched_stalu
-  (= (|picorv32a#672| state) (|picorv32a#190| next_state)) ; $procdff$4647 \irq_mask
-  (= (concat ((_ extract 31 3) (|picorv32a#696| state)) (concat (|picorv32a#713| state) ((_ extract 1 0) (|picorv32a#696| state)))) (|picorv32a#189| next_state)) ; $procdff$4648 \irq_pending
-  (= (|picorv32a#717| state) (|picorv32a#187| next_state)) ; $procdff$4646 \irq_active
-  (= (|picorv32a#722| state) (|picorv32a#186| next_state)) ; $procdff$4645 \irq_delay
-  (= (|picorv32a#729| state) (|picorv32a#184| next_state)) ; $procdff$4655 \decoder_trigger
-  (= (|picorv32a#757| state) (|picorv32a#182| next_state)) ; $procdff$4663 \cpu_state
-  (= (|picorv32a#759| state) (|picorv32a#181| next_state)) ; $procdff$4776 \mem_addr
-  (= (|picorv32a#763| state) (|picorv32a#171| next_state)) ; $procdff$4775 \mem_instr
-  (= (|picorv32a#772| state) (|picorv32a#166| next_state)) ; $procdff$4653 \mem_do_rdata
-  (= (|picorv32a#782| state) (|picorv32a#164| next_state)) ; $procdff$4651 \mem_do_prefetch
-  (= (|picorv32a#809| state) (|picorv32a#163| next_state)) ; $procdff$4652 \mem_do_rinst
-  (= (|picorv32a#817| state) (|picorv32a#159| next_state)) ; $procdff$4654 \mem_do_wdata
-  (= (concat (|picorv32a#825| state) (concat (|picorv32a#824| state) (concat (|picorv32a#823| state) (concat (|picorv32a#822| state) (concat (|picorv32a#821| state) (concat (|picorv32a#820| state) (concat (|picorv32a#819| state) (|picorv32a#818| state)))))))) (|picorv32a#151| next_state)) ; $procdff$4810 \mem_rdata_q
-  (= (|picorv32a#834| state) (|picorv32a#132| next_state)) ; $procdff$4779 \mem_state
-  (= (|picorv32a#836| state) (|picorv32a#131| next_state)) ; $procdff$4777 \mem_wdata
-  (= (|picorv32a#846| state) (|picorv32a#130| next_state)) ; $procdff$4650 \mem_wordsize
-  (= (|picorv32a#851| state) (|picorv32a#129| next_state)) ; $procdff$4778 \mem_wstrb
-  (= (|picorv32a#859| state) (|picorv32a#126| next_state)) ; $procdff$4774 \mem_valid
-  (= (|picorv32a#863| state) (|picorv32a#124| next_state)) ; $procdff$4738 \instr_timer
-  (= (|picorv32a#866| state) (|picorv32a#122| next_state)) ; $procdff$4737 \instr_waitirq
-  (= (|picorv32a#869| state) (|picorv32a#120| next_state)) ; $procdff$4736 \instr_maskirq
-  (= (|picorv32a#870| state) (|picorv32a#118| next_state)) ; $procdff$4735 \instr_retirq
-  (= (|picorv32a#873| state) (|picorv32a#116| next_state)) ; $procdff$4734 \instr_setq
-  (= (|picorv32a#875| state) (|picorv32a#114| next_state)) ; $procdff$4733 \instr_getq
-  (= (|picorv32a#878| state) (|picorv32a#112| next_state)) ; $procdff$4731 \instr_rdinstrh
-  (= (|picorv32a#881| state) (|picorv32a#110| next_state)) ; $procdff$4730 \instr_rdinstr
-  (= (|picorv32a#887| state) (|picorv32a#108| next_state)) ; $procdff$4729 \instr_rdcycleh
-  (= (|picorv32a#893| state) (|picorv32a#106| next_state)) ; $procdff$4728 \instr_rdcycle
-  (= (|picorv32a#897| state) (|picorv32a#104| next_state)) ; $procdff$4727 \instr_and
-  (= (|picorv32a#901| state) (|picorv32a#102| next_state)) ; $procdff$4726 \instr_or
-  (= (|picorv32a#905| state) (|picorv32a#100| next_state)) ; $procdff$4725 \instr_sra
-  (= (|picorv32a#908| state) (|picorv32a#98| next_state)) ; $procdff$4724 \instr_srl
-  (= (|picorv32a#912| state) (|picorv32a#96| next_state)) ; $procdff$4723 \instr_xor
-  (= (|picorv32a#916| state) (|picorv32a#94| next_state)) ; $procdff$4722 \instr_sltu
-  (= (|picorv32a#920| state) (|picorv32a#92| next_state)) ; $procdff$4721 \instr_slt
-  (= (|picorv32a#924| state) (|picorv32a#90| next_state)) ; $procdff$4720 \instr_sll
-  (= (|picorv32a#928| state) (|picorv32a#88| next_state)) ; $procdff$4719 \instr_sub
-  (= (|picorv32a#931| state) (|picorv32a#86| next_state)) ; $procdff$4718 \instr_add
-  (= (|picorv32a#934| state) (|picorv32a#84| next_state)) ; $procdff$4717 \instr_srai
-  (= (|picorv32a#936| state) (|picorv32a#82| next_state)) ; $procdff$4716 \instr_srli
-  (= (|picorv32a#939| state) (|picorv32a#80| next_state)) ; $procdff$4715 \instr_slli
-  (= (|picorv32a#942| state) (|picorv32a#78| next_state)) ; $procdff$4714 \instr_andi
-  (= (|picorv32a#945| state) (|picorv32a#76| next_state)) ; $procdff$4713 \instr_ori
-  (= (|picorv32a#948| state) (|picorv32a#74| next_state)) ; $procdff$4712 \instr_xori
-  (= (|picorv32a#951| state) (|picorv32a#72| next_state)) ; $procdff$4711 \instr_sltiu
-  (= (|picorv32a#954| state) (|picorv32a#70| next_state)) ; $procdff$4710 \instr_slti
-  (= (|picorv32a#957| state) (|picorv32a#68| next_state)) ; $procdff$4709 \instr_addi
-  (= (|picorv32a#959| state) (|picorv32a#66| next_state)) ; $procdff$4708 \instr_sw
-  (= (|picorv32a#961| state) (|picorv32a#64| next_state)) ; $procdff$4707 \instr_sh
-  (= (|picorv32a#963| state) (|picorv32a#62| next_state)) ; $procdff$4706 \instr_sb
-  (= (|picorv32a#965| state) (|picorv32a#60| next_state)) ; $procdff$4705 \instr_lhu
-  (= (|picorv32a#967| state) (|picorv32a#58| next_state)) ; $procdff$4704 \instr_lbu
-  (= (|picorv32a#969| state) (|picorv32a#56| next_state)) ; $procdff$4703 \instr_lw
-  (= (|picorv32a#971| state) (|picorv32a#54| next_state)) ; $procdff$4702 \instr_lh
-  (= (|picorv32a#973| state) (|picorv32a#52| next_state)) ; $procdff$4701 \instr_lb
-  (= (|picorv32a#976| state) (|picorv32a#50| next_state)) ; $procdff$4700 \instr_bgeu
-  (= (|picorv32a#979| state) (|picorv32a#48| next_state)) ; $procdff$4699 \instr_bltu
-  (= (|picorv32a#982| state) (|picorv32a#46| next_state)) ; $procdff$4698 \instr_bge
-  (= (|picorv32a#985| state) (|picorv32a#44| next_state)) ; $procdff$4697 \instr_blt
-  (= (|picorv32a#988| state) (|picorv32a#42| next_state)) ; $procdff$4696 \instr_bne
-  (= (|picorv32a#991| state) (|picorv32a#40| next_state)) ; $procdff$4695 \instr_beq
-  (= (|picorv32a#995| state) (|picorv32a#38| next_state)) ; $procdff$4694 \instr_jalr
-  (= (|picorv32a#997| state) (|picorv32a#36| next_state)) ; $procdff$4693 \instr_jal
-  (= (|picorv32a#999| state) (|picorv32a#34| next_state)) ; $procdff$4692 \instr_auipc
-  (= (|picorv32a#1001| state) (|picorv32a#32| next_state)) ; $procdff$4691 \instr_lui
-  (= (|picorv32a#1009| state) (|picorv32a#29| next_state)) ; $procdff$4670 \latched_branch
-  (= (|picorv32a#1020| state) (|picorv32a#28| next_state)) ; $procdff$4668 \latched_store
-  (= (|picorv32a#1021| state) (|picorv32a#27| next_state)) ; $procdff$4690 \pcpi_insn
-  (= (|picorv32a#1023| state) (|picorv32a#20| next_state)) ; $procdff$4679 \pcpi_timeout
-  (= (|picorv32a#1030| state) (|picorv32a#19| next_state)) ; $procdff$4678 \pcpi_timeout_counter
-  (= (|picorv32a#1035| state) (|picorv32a#18| next_state)) ; $procdff$4633 \pcpi_valid
-  (= (|picorv32a#271| state) (|picorv32a#15| next_state)) ; $procdff$4760 \q_ascii_instr
-  (= (|picorv32a#254| state) (|picorv32a#14| next_state)) ; $procdff$4761 \q_insn_imm
-  (= (|picorv32a#251| state) (|picorv32a#13| next_state)) ; $procdff$4765 \q_insn_rd
-  (= (|picorv32a#248| state) (|picorv32a#12| next_state)) ; $procdff$4763 \q_insn_rs1
-  (= (|picorv32a#245| state) (|picorv32a#11| next_state)) ; $procdff$4764 \q_insn_rs2
-  (= (|picorv32a#1051| state) (|picorv32a#10| next_state)) ; $procdff$4640 \reg_next_pc
-  (= (|picorv32a#1066| state) (|picorv32a#9| next_state)) ; $procdff$4641 \reg_op1
-  (= (|picorv32a#1072| state) (|picorv32a#8| next_state)) ; $procdff$4642 \reg_op2
-  (= (|picorv32a#1100| state) (|picorv32a#7| next_state)) ; $procdff$4643 \reg_out
-  (= (|picorv32a#1102| state) (|picorv32a#6| next_state)) ; $procdff$4639 \reg_pc
-  (= (|picorv32a#1111| state) (|picorv32a#5| next_state)) ; $procdff$4644 \reg_sh
-  (= (|picorv32a#1115| state) (|picorv32a#3| next_state)) ; $procdff$4649 \timer
-  (= (|picorv32a#1116| state) (|picorv32a#2| next_state)) ; $procdff$4636 \trace_data
-  (= #b0 (|picorv32a#1| next_state)) ; $procdff$4635 \trace_valid
-  (= (|picorv32a#1117| state) (|picorv32a#0| next_state)) ; $procdff$4632 \trap
+  (= (|picorv32a#378| state) (|picorv32a#350| next_state)) ; $procdff$4606 $formal$riscv.v:2079$21_CHECK
+  (= (|picorv32a#379| state) (|picorv32a#349| next_state)) ; $procdff$4607 $formal$riscv.v:2079$21_EN
+  (= (|picorv32a#382| state) (|picorv32a#348| next_state)) ; $procdff$4608 $formal$riscv.v:2080$22_CHECK
+  (= (|picorv32a#384| state) (|picorv32a#347| next_state)) ; $procdff$4610 $formal$riscv.v:2081$23_CHECK
+  (= (|picorv32a#386| state) (|picorv32a#346| next_state)) ; $procdff$4612 $formal$riscv.v:2084$24_CHECK
+  (= (|picorv32a#387| state) (|picorv32a#345| next_state)) ; $procdff$4613 $formal$riscv.v:2084$24_EN
+  (= (|picorv32a#389| state) (|picorv32a#344| next_state)) ; $procdff$4614 $formal$riscv.v:2085$25_CHECK
+  (= (|picorv32a#392| state) (|picorv32a#343| next_state)) ; $procdff$4616 $formal$riscv.v:2086$26_CHECK
+  (= (|picorv32a#395| state) (|picorv32a#342| next_state)) ; $procdff$4618 $formal$riscv.v:2087$27_CHECK
+  (= (|picorv32a#399| state) (|picorv32a#341| next_state)) ; $procdff$4620 $formal$riscv.v:2090$28_CHECK
+  (= (|picorv32a#400| state) (|picorv32a#340| next_state)) ; $procdff$4621 $formal$riscv.v:2090$28_EN
+  (= (|picorv32a#407| state) (|picorv32a#339| next_state)) ; $procdff$4790 $formal$riscv.v:531$5_CHECK
+  (= (|picorv32a#409| state) (|picorv32a#338| next_state)) ; $procdff$4791 $formal$riscv.v:531$5_EN
+  (= (|picorv32a#414| state) (|picorv32a#337| next_state)) ; $procdff$4792 $formal$riscv.v:534$6_CHECK
+  (= (|picorv32a#416| state) (|picorv32a#336| next_state)) ; $procdff$4793 $formal$riscv.v:534$6_EN
+  (= (|picorv32a#423| state) (|picorv32a#335| next_state)) ; $procdff$4794 $formal$riscv.v:537$7_CHECK
+  (= (|picorv32a#425| state) (|picorv32a#334| next_state)) ; $procdff$4795 $formal$riscv.v:537$7_EN
+  (= (|picorv32a#430| state) (|picorv32a#333| next_state)) ; $procdff$4796 $formal$riscv.v:540$8_CHECK
+  (= (|picorv32a#432| state) (|picorv32a#332| next_state)) ; $procdff$4797 $formal$riscv.v:540$8_EN
+  (= (|picorv32a#440| state) (|picorv32a#331| next_state)) ; $procdff$4798 $formal$riscv.v:543$9_CHECK
+  (= (|picorv32a#442| state) (|picorv32a#330| next_state)) ; $procdff$4799 $formal$riscv.v:543$9_EN
+  (= (|picorv32a#449| state) (|picorv32a#329| next_state)) ; $procdff$4774 $formal$riscv.v:578$10_CHECK
+  (= (|picorv32a#451| state) (|picorv32a#328| next_state)) ; $procdff$4775 $formal$riscv.v:578$10_EN
+  (= (|picorv32a#455| state) (|picorv32a#327| next_state)) ; $procdff$4776 $formal$riscv.v:579$11_CHECK
+  (= (|picorv32a#459| state) (|picorv32a#326| next_state)) ; $procdff$4778 $formal$riscv.v:580$12_CHECK
+  (= (|picorv32a#464| state) (|picorv32a#325| next_state)) ; $procdff$4780 $formal$riscv.v:581$13_CHECK
+  (= (|picorv32a#469| state) (|picorv32a#324| next_state)) ; $procdff$4782 $formal$riscv.v:604$14_CHECK
+  (= (|picorv32a#471| state) (|picorv32a#323| next_state)) ; $procdff$4783 $formal$riscv.v:604$14_EN
+  (= (|picorv32a#475| state) (|picorv32a#322| next_state)) ; $procdff$4784 $formal$riscv.v:605$15_CHECK
+  (= (|picorv32a#479| state) (|picorv32a#321| next_state)) ; $procdff$4786 $formal$riscv.v:612$16_CHECK
+  (= (|picorv32a#481| state) (|picorv32a#320| next_state)) ; $procdff$4787 $formal$riscv.v:612$16_EN
+  (= (|picorv32a#485| state) (|picorv32a#319| next_state)) ; $procdff$4788 $formal$riscv.v:613$17_CHECK
+  (= (|picorv32a#488| state) (|picorv32a#310| next_state)) ; $procdff$4595 \alu_add_sub
+  (= (ite (|picorv32a#489| state) #b1 #b0) (|picorv32a#303| next_state)) ; $procdff$4598 \alu_eq
+  (= (ite (|picorv32a#490| state) #b1 #b0) (|picorv32a#300| next_state)) ; $procdff$4600 \alu_lts
+  (= (ite (|picorv32a#491| state) #b1 #b0) (|picorv32a#299| next_state)) ; $procdff$4599 \alu_ltu
+  (= (|picorv32a#492| state) (|picorv32a#297| next_state)) ; $procdff$4596 \alu_shl
+  (= (|picorv32a#495| state) (|picorv32a#296| next_state)) ; $procdff$4597 \alu_shr
+  (= (|picorv32a#503| state) (|picorv32a#295| next_state)) ; $procdff$4675 \alu_wait
+  (= #b0 (|picorv32a#294| next_state)) ; $procdff$4676 \alu_wait_2
+  (= (|picorv32a#505| state) (|picorv32a#292| next_state)) ; $procdff$4735 \compressed_instr
+  (= (|picorv32a#507| state) (|picorv32a#291| next_state)) ; $procdff$4628 \count_cycle
+  (= (|picorv32a#522| state) (|picorv32a#290| next_state)) ; $procdff$4629 \count_instr
+  (= (|picorv32a#318| state) (|picorv32a#280| next_state)) ; $procdff$4673 \alu_out_q
+  (= (|picorv32a#523| state) (|picorv32a#269| next_state)) ; $procdff$4759 \cached_ascii_instr
+  (= (|picorv32a#524| state) (|picorv32a#252| next_state)) ; $procdff$4760 \cached_insn_imm
+  (= (|picorv32a#525| state) (|picorv32a#249| next_state)) ; $procdff$4764 \cached_insn_rd
+  (= (|picorv32a#526| state) (|picorv32a#246| next_state)) ; $procdff$4762 \cached_insn_rs1
+  (= (|picorv32a#527| state) (|picorv32a#243| next_state)) ; $procdff$4763 \cached_insn_rs2
+  (= (ite (|picorv32a#195| state) #b1 #b0) (|picorv32a#242| next_state)) ; $procdff$4757 \dbg_next
+  (= (|picorv32a#533| state) (|picorv32a#241| next_state)) ; $procdff$4650 \dbg_rs1val
+  (= (|picorv32a#537| state) (|picorv32a#240| next_state)) ; $procdff$4652 \dbg_rs1val_valid
+  (= (|picorv32a#541| state) (|picorv32a#239| next_state)) ; $procdff$4651 \dbg_rs2val
+  (= (|picorv32a#544| state) (|picorv32a#238| next_state)) ; $procdff$4653 \dbg_rs2val_valid
+  (= (|picorv32a#551| state) (|picorv32a#237| next_state)) ; $procdff$4733 \decoded_imm
+  (= (concat (|picorv32a#562| state) (concat (|picorv32a#561| state) (concat (|picorv32a#560| state) (concat (|picorv32a#559| state) (concat (|picorv32a#558| state) (concat (|picorv32a#557| state) (concat (|picorv32a#556| state) (concat (|picorv32a#555| state) (concat (|picorv32a#554| state) (concat (|picorv32a#553| state) (|picorv32a#552| state))))))))))) (|picorv32a#236| next_state)) ; $procdff$4734 \decoded_imm_uj
+  (= (|picorv32a#563| state) (|picorv32a#235| next_state)) ; $procdff$4730 \decoded_rd
+  (= (concat (|picorv32a#573| state) (|picorv32a#568| state)) (|picorv32a#232| next_state)) ; $procdff$4731 \decoded_rs1
+  (= (|picorv32a#574| state) (|picorv32a#231| next_state)) ; $procdff$4732 \decoded_rs2
+  (= (|picorv32a#581| state) (|picorv32a#230| next_state)) ; $procdff$4648 \decoder_pseudo_trigger
+  (= (|picorv32a#230| state) (|picorv32a#229| next_state)) ; $procdff$4649 \decoder_pseudo_trigger_q
+  (= (|picorv32a#184| state) (|picorv32a#228| next_state)) ; $procdff$4647 \decoder_trigger_q
+  (= (|picorv32a#587| state) (|picorv32a#227| next_state)) ; $procdff$4672 \do_waitirq
+  (= (|picorv32a#591| state) (|picorv32a#226| next_state)) ; $procdff$4625 \eoi
+  (= (|picorv32a#597| state) (|picorv32a#225| next_state)) ; $procdff$4723 \instr_ecall_ebreak
+  (= (|picorv32a#604| state) (|picorv32a#222| next_state)) ; $procdff$4655 \irq_state
+  (= (|picorv32a#606| state) (|picorv32a#221| next_state)) ; $procdff$4747 \is_alu_reg_imm
+  (= (|picorv32a#608| state) (|picorv32a#220| next_state)) ; $procdff$4748 \is_alu_reg_reg
+  (= (|picorv32a#611| state) (|picorv32a#219| next_state)) ; $procdff$4745 \is_beq_bne_blt_bge_bltu_bgeu
+  (= (|picorv32a#614| state) (|picorv32a#218| next_state)) ; $procdff$4749 \is_compare
+  (= (|picorv32a#624| state) (|picorv32a#217| next_state)) ; $procdff$4739 \is_jalr_addi_slti_sltiu_xori_ori_andi
+  (= (|picorv32a#626| state) (|picorv32a#216| next_state)) ; $procdff$4737 \is_lb_lh_lw_lbu_lhu
+  (= (ite (|picorv32a#627| state) #b1 #b0) (|picorv32a#215| next_state)) ; $procdff$4746 \is_lbu_lhu_lw
+  (= (ite (|picorv32a#628| state) #b1 #b0) (|picorv32a#214| next_state)) ; $procdff$4736 \is_lui_auipc_jal
+  (= (|picorv32a#630| state) (|picorv32a#213| next_state)) ; $procdff$4742 \is_lui_auipc_jal_jalr_addi_add_sub
+  (= (|picorv32a#632| state) (|picorv32a#211| next_state)) ; $procdff$4740 \is_sb_sh_sw
+  (= (|picorv32a#642| state) (|picorv32a#210| next_state)) ; $procdff$4738 \is_slli_srli_srai
+  (= (ite (|picorv32a#643| state) #b1 #b0) (|picorv32a#209| next_state)) ; $procdff$4743 \is_slti_blt_slt
+  (= (ite (|picorv32a#644| state) #b1 #b0) (|picorv32a#208| next_state)) ; $procdff$4744 \is_sltiu_bltu_sltu
+  (= (|picorv32a#170| state) (|picorv32a#207| next_state)) ; $procdff$4603 \last_mem_la_addr
+  (= (ite (|picorv32a#169| state) #b1 #b0) (|picorv32a#206| next_state)) ; $procdff$4601 \last_mem_la_read
+  (= (|picorv32a#162| state) (|picorv32a#205| next_state)) ; $procdff$4604 \last_mem_la_wdata
+  (= (ite (|picorv32a#160| state) #b1 #b0) (|picorv32a#204| next_state)) ; $procdff$4602 \last_mem_la_write
+  (= (|picorv32a#156| state) (|picorv32a#203| next_state)) ; $procdff$4605 \last_mem_la_wstrb
+  (= (concat ((_ extract 2 0) (|picorv32a#202| state)) (ite (|picorv32a#397| state) #b1 #b0)) (|picorv32a#202| next_state)) ; $procdff$4622 \last_mem_nowait
+  (= (|picorv32a#647| state) (|picorv32a#201| next_state)) ; $procdff$4662 \latched_compr
+  (= (|picorv32a#651| state) (|picorv32a#200| next_state)) ; $procdff$4666 \latched_is_lb
+  (= (|picorv32a#655| state) (|picorv32a#199| next_state)) ; $procdff$4665 \latched_is_lh
+  (= (|picorv32a#659| state) (|picorv32a#198| next_state)) ; $procdff$4664 \latched_is_lu
+  (= (|picorv32a#665| state) (|picorv32a#197| next_state)) ; $procdff$4667 \latched_rd
+  (= (|picorv32a#669| state) (|picorv32a#196| next_state)) ; $procdff$4660 \latched_stalu
+  (= (|picorv32a#672| state) (|picorv32a#190| next_state)) ; $procdff$4638 \irq_mask
+  (= (concat ((_ extract 31 3) (|picorv32a#696| state)) (concat (|picorv32a#713| state) ((_ extract 1 0) (|picorv32a#696| state)))) (|picorv32a#189| next_state)) ; $procdff$4639 \irq_pending
+  (= (|picorv32a#717| state) (|picorv32a#187| next_state)) ; $procdff$4637 \irq_active
+  (= (|picorv32a#722| state) (|picorv32a#186| next_state)) ; $procdff$4636 \irq_delay
+  (= (|picorv32a#729| state) (|picorv32a#184| next_state)) ; $procdff$4646 \decoder_trigger
+  (= (|picorv32a#757| state) (|picorv32a#182| next_state)) ; $procdff$4654 \cpu_state
+  (= (|picorv32a#759| state) (|picorv32a#181| next_state)) ; $procdff$4767 \mem_addr
+  (= (|picorv32a#763| state) (|picorv32a#171| next_state)) ; $procdff$4766 \mem_instr
+  (= (|picorv32a#772| state) (|picorv32a#166| next_state)) ; $procdff$4644 \mem_do_rdata
+  (= (|picorv32a#782| state) (|picorv32a#164| next_state)) ; $procdff$4642 \mem_do_prefetch
+  (= (|picorv32a#809| state) (|picorv32a#163| next_state)) ; $procdff$4643 \mem_do_rinst
+  (= (|picorv32a#817| state) (|picorv32a#159| next_state)) ; $procdff$4645 \mem_do_wdata
+  (= (concat (|picorv32a#825| state) (concat (|picorv32a#824| state) (concat (|picorv32a#823| state) (concat (|picorv32a#822| state) (concat (|picorv32a#821| state) (concat (|picorv32a#820| state) (concat (|picorv32a#819| state) (|picorv32a#818| state)))))))) (|picorv32a#151| next_state)) ; $procdff$4801 \mem_rdata_q
+  (= (|picorv32a#834| state) (|picorv32a#132| next_state)) ; $procdff$4770 \mem_state
+  (= (|picorv32a#836| state) (|picorv32a#131| next_state)) ; $procdff$4768 \mem_wdata
+  (= (|picorv32a#846| state) (|picorv32a#130| next_state)) ; $procdff$4641 \mem_wordsize
+  (= (|picorv32a#851| state) (|picorv32a#129| next_state)) ; $procdff$4769 \mem_wstrb
+  (= (|picorv32a#859| state) (|picorv32a#126| next_state)) ; $procdff$4765 \mem_valid
+  (= (|picorv32a#863| state) (|picorv32a#124| next_state)) ; $procdff$4729 \instr_timer
+  (= (|picorv32a#866| state) (|picorv32a#122| next_state)) ; $procdff$4728 \instr_waitirq
+  (= (|picorv32a#869| state) (|picorv32a#120| next_state)) ; $procdff$4727 \instr_maskirq
+  (= (|picorv32a#870| state) (|picorv32a#118| next_state)) ; $procdff$4726 \instr_retirq
+  (= (|picorv32a#873| state) (|picorv32a#116| next_state)) ; $procdff$4725 \instr_setq
+  (= (|picorv32a#875| state) (|picorv32a#114| next_state)) ; $procdff$4724 \instr_getq
+  (= (|picorv32a#878| state) (|picorv32a#112| next_state)) ; $procdff$4722 \instr_rdinstrh
+  (= (|picorv32a#881| state) (|picorv32a#110| next_state)) ; $procdff$4721 \instr_rdinstr
+  (= (|picorv32a#887| state) (|picorv32a#108| next_state)) ; $procdff$4720 \instr_rdcycleh
+  (= (|picorv32a#893| state) (|picorv32a#106| next_state)) ; $procdff$4719 \instr_rdcycle
+  (= (|picorv32a#897| state) (|picorv32a#104| next_state)) ; $procdff$4718 \instr_and
+  (= (|picorv32a#901| state) (|picorv32a#102| next_state)) ; $procdff$4717 \instr_or
+  (= (|picorv32a#905| state) (|picorv32a#100| next_state)) ; $procdff$4716 \instr_sra
+  (= (|picorv32a#908| state) (|picorv32a#98| next_state)) ; $procdff$4715 \instr_srl
+  (= (|picorv32a#912| state) (|picorv32a#96| next_state)) ; $procdff$4714 \instr_xor
+  (= (|picorv32a#916| state) (|picorv32a#94| next_state)) ; $procdff$4713 \instr_sltu
+  (= (|picorv32a#920| state) (|picorv32a#92| next_state)) ; $procdff$4712 \instr_slt
+  (= (|picorv32a#924| state) (|picorv32a#90| next_state)) ; $procdff$4711 \instr_sll
+  (= (|picorv32a#928| state) (|picorv32a#88| next_state)) ; $procdff$4710 \instr_sub
+  (= (|picorv32a#931| state) (|picorv32a#86| next_state)) ; $procdff$4709 \instr_add
+  (= (|picorv32a#934| state) (|picorv32a#84| next_state)) ; $procdff$4708 \instr_srai
+  (= (|picorv32a#936| state) (|picorv32a#82| next_state)) ; $procdff$4707 \instr_srli
+  (= (|picorv32a#939| state) (|picorv32a#80| next_state)) ; $procdff$4706 \instr_slli
+  (= (|picorv32a#942| state) (|picorv32a#78| next_state)) ; $procdff$4705 \instr_andi
+  (= (|picorv32a#945| state) (|picorv32a#76| next_state)) ; $procdff$4704 \instr_ori
+  (= (|picorv32a#948| state) (|picorv32a#74| next_state)) ; $procdff$4703 \instr_xori
+  (= (|picorv32a#951| state) (|picorv32a#72| next_state)) ; $procdff$4702 \instr_sltiu
+  (= (|picorv32a#954| state) (|picorv32a#70| next_state)) ; $procdff$4701 \instr_slti
+  (= (|picorv32a#957| state) (|picorv32a#68| next_state)) ; $procdff$4700 \instr_addi
+  (= (|picorv32a#959| state) (|picorv32a#66| next_state)) ; $procdff$4699 \instr_sw
+  (= (|picorv32a#961| state) (|picorv32a#64| next_state)) ; $procdff$4698 \instr_sh
+  (= (|picorv32a#963| state) (|picorv32a#62| next_state)) ; $procdff$4697 \instr_sb
+  (= (|picorv32a#965| state) (|picorv32a#60| next_state)) ; $procdff$4696 \instr_lhu
+  (= (|picorv32a#967| state) (|picorv32a#58| next_state)) ; $procdff$4695 \instr_lbu
+  (= (|picorv32a#969| state) (|picorv32a#56| next_state)) ; $procdff$4694 \instr_lw
+  (= (|picorv32a#971| state) (|picorv32a#54| next_state)) ; $procdff$4693 \instr_lh
+  (= (|picorv32a#973| state) (|picorv32a#52| next_state)) ; $procdff$4692 \instr_lb
+  (= (|picorv32a#976| state) (|picorv32a#50| next_state)) ; $procdff$4691 \instr_bgeu
+  (= (|picorv32a#979| state) (|picorv32a#48| next_state)) ; $procdff$4690 \instr_bltu
+  (= (|picorv32a#982| state) (|picorv32a#46| next_state)) ; $procdff$4689 \instr_bge
+  (= (|picorv32a#985| state) (|picorv32a#44| next_state)) ; $procdff$4688 \instr_blt
+  (= (|picorv32a#988| state) (|picorv32a#42| next_state)) ; $procdff$4687 \instr_bne
+  (= (|picorv32a#991| state) (|picorv32a#40| next_state)) ; $procdff$4686 \instr_beq
+  (= (|picorv32a#995| state) (|picorv32a#38| next_state)) ; $procdff$4685 \instr_jalr
+  (= (|picorv32a#997| state) (|picorv32a#36| next_state)) ; $procdff$4684 \instr_jal
+  (= (|picorv32a#999| state) (|picorv32a#34| next_state)) ; $procdff$4683 \instr_auipc
+  (= (|picorv32a#1001| state) (|picorv32a#32| next_state)) ; $procdff$4682 \instr_lui
+  (= (|picorv32a#1009| state) (|picorv32a#29| next_state)) ; $procdff$4661 \latched_branch
+  (= (|picorv32a#1020| state) (|picorv32a#28| next_state)) ; $procdff$4659 \latched_store
+  (= (|picorv32a#1021| state) (|picorv32a#27| next_state)) ; $procdff$4681 \pcpi_insn
+  (= (|picorv32a#1023| state) (|picorv32a#20| next_state)) ; $procdff$4670 \pcpi_timeout
+  (= (|picorv32a#1030| state) (|picorv32a#19| next_state)) ; $procdff$4669 \pcpi_timeout_counter
+  (= (|picorv32a#1035| state) (|picorv32a#18| next_state)) ; $procdff$4624 \pcpi_valid
+  (= (|picorv32a#271| state) (|picorv32a#15| next_state)) ; $procdff$4751 \q_ascii_instr
+  (= (|picorv32a#254| state) (|picorv32a#14| next_state)) ; $procdff$4752 \q_insn_imm
+  (= (|picorv32a#251| state) (|picorv32a#13| next_state)) ; $procdff$4756 \q_insn_rd
+  (= (|picorv32a#248| state) (|picorv32a#12| next_state)) ; $procdff$4754 \q_insn_rs1
+  (= (|picorv32a#245| state) (|picorv32a#11| next_state)) ; $procdff$4755 \q_insn_rs2
+  (= (|picorv32a#1051| state) (|picorv32a#10| next_state)) ; $procdff$4631 \reg_next_pc
+  (= (|picorv32a#1066| state) (|picorv32a#9| next_state)) ; $procdff$4632 \reg_op1
+  (= (|picorv32a#1072| state) (|picorv32a#8| next_state)) ; $procdff$4633 \reg_op2
+  (= (|picorv32a#1100| state) (|picorv32a#7| next_state)) ; $procdff$4634 \reg_out
+  (= (|picorv32a#1102| state) (|picorv32a#6| next_state)) ; $procdff$4630 \reg_pc
+  (= (|picorv32a#1111| state) (|picorv32a#5| next_state)) ; $procdff$4635 \reg_sh
+  (= (|picorv32a#1115| state) (|picorv32a#3| next_state)) ; $procdff$4640 \timer
+  (= (|picorv32a#1116| state) (|picorv32a#2| next_state)) ; $procdff$4627 \trace_data
+  (= #b0 (|picorv32a#1| next_state)) ; $procdff$4626 \trace_valid
+  (= (|picorv32a#1117| state) (|picorv32a#0| next_state)) ; $procdff$4623 \trap
   (= (|picorv32a#286#1| state) (|picorv32a#286#0| next_state)) ; cpuregs
   (|picorv32_pcpi_fast_mul_t| (|picorv32a_h genblk1.pcpi_mul| state) (|picorv32a_h genblk1.pcpi_mul| next_state))
 )) ; end of module picorv32a
@@ -3274,9 +3274,9 @@
 ; yosys-smt2-witness {"offset": 0, "path": ["\\clk"], "smtname": "clk", "smtoffset": 0, "type": "posedge", "width": 1}
 ; yosys-smt2-witness {"offset": 0, "path": ["\\clk"], "smtname": "clk", "smtoffset": 0, "type": "input", "width": 1}
 (define-fun |ptb_n clk| ((state |ptb_s|)) Bool (|ptb#19| state))
-(define-fun |ptb#20| ((state |ptb_s|)) (_ BitVec 1) (bvnot (ite (|ptb#19| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5164
-; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5165
-(define-fun |ptb_u 0| ((state |ptb_s|)) Bool (or (= ((_ extract 0 0) (|ptb#20| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5165
+(define-fun |ptb#20| ((state |ptb_s|)) (_ BitVec 1) (bvnot (ite (|ptb#19| state) #b1 #b0))) ; $auto$rtlil.cc:2401:Not$5155
+; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5156
+(define-fun |ptb_u 0| ((state |ptb_s|)) Bool (or (= ((_ extract 0 0) (|ptb#20| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5156
 (define-fun |ptb_a| ((state |ptb_s|)) Bool 
   (|picorv32a_a| (|ptb_h prv| state))
 )
@@ -3526,87 +3526,87 @@
 (declare-fun |cpu_ram_subsystem_formal_is| (|cpu_ram_subsystem_formal_s|) Bool)
 ; yosys-smt2-wire resetn 1
 (define-fun |cpu_ram_subsystem_formal_n resetn| ((state |cpu_ram_subsystem_formal_s|)) Bool false)
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#0 1 $auto$setundef.cc:348:execute$4991
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#0 1 $auto$setundef.cc:348:execute$4982
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.u_ram.reset"], "smtname": 0, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#0| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.u_ram.reset
 ; yosys-smt2-wire dut.u_ram.reset 1
 (define-fun |cpu_ram_subsystem_formal_n dut.u_ram.reset| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#0| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#1 1 $auto$setundef.cc:348:execute$4969
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#1 1 $auto$setundef.cc:348:execute$4960
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.ram_valid"], "smtname": 1, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#1| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.ram_valid
 ; yosys-smt2-wire dut.ram_valid 1
 (define-fun |cpu_ram_subsystem_formal_n dut.ram_valid| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#1| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#2 1 $auto$setundef.cc:348:execute$4971
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#2 1 $auto$setundef.cc:348:execute$4962
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.mem_wstrb"], "smtname": 2, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#2| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.mem_wstrb
 ; yosys-smt2-wire dut.mem_wstrb 1
 (define-fun |cpu_ram_subsystem_formal_n dut.mem_wstrb| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#2| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#3 1 $auto$setundef.cc:348:execute$4973
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#3 1 $auto$setundef.cc:348:execute$4964
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.mem_wdata"], "smtname": 3, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#3| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.mem_wdata
 ; yosys-smt2-wire dut.mem_wdata 1
 (define-fun |cpu_ram_subsystem_formal_n dut.mem_wdata| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#3| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#4 1 $auto$setundef.cc:348:execute$4975
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#4 1 $auto$setundef.cc:348:execute$4966
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.mem_valid"], "smtname": 4, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#4| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.mem_valid
 ; yosys-smt2-wire dut.mem_valid 1
 (define-fun |cpu_ram_subsystem_formal_n dut.mem_valid| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#4| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#5 1 $auto$setundef.cc:348:execute$4977
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#5 1 $auto$setundef.cc:348:execute$4968
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.mem_ready"], "smtname": 5, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#5| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.mem_ready
 ; yosys-smt2-wire dut.mem_ready 1
 (define-fun |cpu_ram_subsystem_formal_n dut.mem_ready| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#5| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#6 1 $auto$setundef.cc:348:execute$4979
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#6 1 $auto$setundef.cc:348:execute$4970
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.mem_rdata"], "smtname": 6, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#6| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.mem_rdata
 ; yosys-smt2-wire dut.mem_rdata 1
 (define-fun |cpu_ram_subsystem_formal_n dut.mem_rdata| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#6| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#7 1 $auto$setundef.cc:348:execute$4981
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#7 1 $auto$setundef.cc:348:execute$4972
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.mem_addr"], "smtname": 7, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#7| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.mem_addr
 ; yosys-smt2-wire dut.mem_addr 1
 (define-fun |cpu_ram_subsystem_formal_n dut.mem_addr| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#7| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#8 1 $auto$setundef.cc:348:execute$4987
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#8 1 $auto$setundef.cc:348:execute$4978
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.m_write"], "smtname": 8, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#8| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.m_write
 ; yosys-smt2-wire dut.m_write 1
 (define-fun |cpu_ram_subsystem_formal_n dut.m_write| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#8| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#9 1 $auto$setundef.cc:348:execute$4989
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#9 1 $auto$setundef.cc:348:execute$4980
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.m_wdata"], "smtname": 9, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#9| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.m_wdata
 ; yosys-smt2-wire dut.m_wdata 1
 (define-fun |cpu_ram_subsystem_formal_n dut.m_wdata| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#9| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#10 1 $auto$setundef.cc:348:execute$4967
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#10 1 $auto$setundef.cc:348:execute$4958
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.m_valid"], "smtname": 10, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#10| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.m_valid
 ; yosys-smt2-wire dut.m_valid 1
 (define-fun |cpu_ram_subsystem_formal_n dut.m_valid| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#10| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#11 1 $auto$setundef.cc:348:execute$4993
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#11 1 $auto$setundef.cc:348:execute$4984
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.m_strb"], "smtname": 11, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#11| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.m_strb
 ; yosys-smt2-wire dut.m_strb 1
 (define-fun |cpu_ram_subsystem_formal_n dut.m_strb| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#11| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#12 1 $auto$setundef.cc:348:execute$4995
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#12 1 $auto$setundef.cc:348:execute$4986
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.m_ready"], "smtname": 12, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#12| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.m_ready
 ; yosys-smt2-wire dut.m_ready 1
 (define-fun |cpu_ram_subsystem_formal_n dut.m_ready| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#12| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#13 1 $auto$setundef.cc:348:execute$4985
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#13 1 $auto$setundef.cc:348:execute$4976
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.m_rdata"], "smtname": 13, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#13| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.m_rdata
 ; yosys-smt2-wire dut.m_rdata 1
 (define-fun |cpu_ram_subsystem_formal_n dut.m_rdata| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#13| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#14 1 $auto$setundef.cc:348:execute$4983
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#14 1 $auto$setundef.cc:348:execute$4974
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.m_addr"], "smtname": 14, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#14| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.m_addr
 ; yosys-smt2-wire dut.m_addr 1
 (define-fun |cpu_ram_subsystem_formal_n dut.m_addr| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#14| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#15 1 $auto$setundef.cc:348:execute$4999
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#15 1 $auto$setundef.cc:348:execute$4990
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.gpio_ready"], "smtname": 15, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#15| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.gpio_ready
 ; yosys-smt2-wire dut.gpio_ready 1
 (define-fun |cpu_ram_subsystem_formal_n dut.gpio_ready| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#15| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#16 1 $auto$setundef.cc:348:execute$5001
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#16 1 $auto$setundef.cc:348:execute$4992
 ; yosys-smt2-witness {"offset": 0, "path": ["\\dut.gpio_rdata"], "smtname": 16, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#16| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \dut.gpio_rdata
 ; yosys-smt2-wire dut.gpio_rdata 1
@@ -3617,29 +3617,29 @@
 (declare-fun |cpu_ram_subsystem_formal_h dut| (|cpu_ram_subsystem_formal_s|) |$paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e/cpu_ram_subsystem_s|)
 ; yosys-smt2-wire cpu_trap 1
 (define-fun |cpu_ram_subsystem_formal_n cpu_trap| ((state |cpu_ram_subsystem_formal_s|)) Bool (|cpu_ram_subsystem_formal#17| state))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#18 1 $auto$setundef.cc:348:execute$4997
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#18 1 $auto$setundef.cc:348:execute$4988
 ; yosys-smt2-witness {"offset": 0, "path": ["\\clk"], "smtname": 18, "smtoffset": 0, "type": "seq", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#18| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \clk
 ; yosys-smt2-wire clk 1
 ; yosys-smt2-clock clk negedge
 (define-fun |cpu_ram_subsystem_formal_n clk| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#18| state)) #b1))
-; yosys-smt2-anyseq cpu_ram_subsystem_formal#19 1 $auto$setundef.cc:533:execute$5003
-; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_5003"], "smtname": 19, "smtoffset": 0, "type": "seq", "width": 1}
-(declare-fun |cpu_ram_subsystem_formal#19| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \_witness_.anyseq_auto_setundef_cc_533_execute_5003
-; yosys-smt2-wire _witness_.anyseq_auto_setundef_cc_533_execute_5003 1
-(define-fun |cpu_ram_subsystem_formal_n _witness_.anyseq_auto_setundef_cc_533_execute_5003| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#19| state)) #b1))
+; yosys-smt2-anyseq cpu_ram_subsystem_formal#19 1 $auto$setundef.cc:533:execute$4994
+; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyseq_auto_setundef_cc_533_execute_4994"], "smtname": 19, "smtoffset": 0, "type": "seq", "width": 1}
+(declare-fun |cpu_ram_subsystem_formal#19| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \_witness_.anyseq_auto_setundef_cc_533_execute_4994
+; yosys-smt2-wire _witness_.anyseq_auto_setundef_cc_533_execute_4994 1
+(define-fun |cpu_ram_subsystem_formal_n _witness_.anyseq_auto_setundef_cc_533_execute_4994| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#19| state)) #b1))
 ; yosys-smt2-anyinit cpu_ram_subsystem_formal#20 1 cpu_ram_subsystem_formal.v:34.5-39.8
-; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_4579"], "smtname": 20, "smtoffset": 0, "type": "init", "width": 1}
-(declare-fun |cpu_ram_subsystem_formal#20| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_4579
-; yosys-smt2-register _witness_.anyinit_procdff_4579 1
-; yosys-smt2-wire _witness_.anyinit_procdff_4579 1
-(define-fun |cpu_ram_subsystem_formal_n _witness_.anyinit_procdff_4579| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#20| state)) #b1))
+; yosys-smt2-witness {"offset": 0, "path": ["\\_witness_", "\\anyinit_procdff_4570"], "smtname": 20, "smtoffset": 0, "type": "init", "width": 1}
+(declare-fun |cpu_ram_subsystem_formal#20| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; \_witness_.anyinit_procdff_4570
+; yosys-smt2-register _witness_.anyinit_procdff_4570 1
+; yosys-smt2-wire _witness_.anyinit_procdff_4570 1
+(define-fun |cpu_ram_subsystem_formal_n _witness_.anyinit_procdff_4570| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#20| state)) #b1))
 ; yosys-smt2-witness {"offset": 0, "path": ["$formal$cpu_ram_subsystem_formal.v:35$1102_EN"], "smtname": 21, "smtoffset": 0, "type": "reg", "width": 1}
 (declare-fun |cpu_ram_subsystem_formal#21| (|cpu_ram_subsystem_formal_s|) (_ BitVec 1)) ; $formal$cpu_ram_subsystem_formal.v:35$1102_EN
 ; yosys-smt2-register $formal$cpu_ram_subsystem_formal.v:35$1102_EN 1
 (define-fun |cpu_ram_subsystem_formal_n $formal$cpu_ram_subsystem_formal.v:35$1102_EN| ((state |cpu_ram_subsystem_formal_s|)) Bool (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#21| state)) #b1))
-; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5172
-(define-fun |cpu_ram_subsystem_formal_u 0| ((state |cpu_ram_subsystem_formal_s|)) Bool (or (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#18| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5172
+; yosys-smt2-assume 0 $auto$formalff.cc:758:execute$5163
+(define-fun |cpu_ram_subsystem_formal_u 0| ((state |cpu_ram_subsystem_formal_s|)) Bool (or (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#18| state)) #b1) (not true))) ; $auto$formalff.cc:758:execute$5163
 (define-fun |cpu_ram_subsystem_formal#22| ((state |cpu_ram_subsystem_formal_s|)) (_ BitVec 1) (bvnot (|cpu_ram_subsystem_formal#16| state))) ; $0$formal$cpu_ram_subsystem_formal.v:83$1112_CHECK[0:0]$1151
 ; yosys-smt2-assert 0 $assert$cpu_ram_subsystem_formal.v:83$1165 cpu_ram_subsystem_formal.v:83.40-84.40
 (define-fun |cpu_ram_subsystem_formal_a 0| ((state |cpu_ram_subsystem_formal_s|)) Bool (or (= ((_ extract 0 0) (|cpu_ram_subsystem_formal#22| state)) #b1) (not true))) ; $assert$cpu_ram_subsystem_formal.v:83$1165
@@ -3705,8 +3705,8 @@
   (|$paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e/cpu_ram_subsystem_h| (|cpu_ram_subsystem_formal_h dut| state))
 ))
 (define-fun |cpu_ram_subsystem_formal_t| ((state |cpu_ram_subsystem_formal_s|) (next_state |cpu_ram_subsystem_formal_s|)) Bool (and
-  (= #b1 (|cpu_ram_subsystem_formal#21| next_state)) ; $procdff$4580 $formal$cpu_ram_subsystem_formal.v:35$1102_EN
-  (= (ite (|cpu_ram_subsystem_formal#34| state) #b1 #b0) (|cpu_ram_subsystem_formal#20| next_state)) ; $procdff$4579 \_witness_.anyinit_procdff_4579
+  (= #b1 (|cpu_ram_subsystem_formal#21| next_state)) ; $procdff$4571 $formal$cpu_ram_subsystem_formal.v:35$1102_EN
+  (= (ite (|cpu_ram_subsystem_formal#34| state) #b1 #b0) (|cpu_ram_subsystem_formal#20| next_state)) ; $procdff$4570 \_witness_.anyinit_procdff_4570
   (|$paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e/cpu_ram_subsystem_t| (|cpu_ram_subsystem_formal_h dut| state) (|cpu_ram_subsystem_formal_h dut| next_state))
 )) ; end of module cpu_ram_subsystem_formal
 ; yosys-smt2-topmod cpu_ram_subsystem_formal

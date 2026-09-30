@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T00:49:13" hostname="Envy" package="test_oomr" id="0" name="default" tests="1" errors="0" failures="2" time="1" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in tb at test_oomr.sv:9.22-9.51" time="0" type="ASSERT" location="test_oomr.sv:9.22-9.51" id="$assert$test_oomr.sv:9$7" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in tb at test_oomr.sv:9.22-9.51 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<system-out>SBY  0:49:09 [test_oomr] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/test_oomr'.
+SBY  0:49:09 [test_oomr] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/test_oomr.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/test_oomr/src/test_oomr.sv'.
+SBY  0:49:09 [test_oomr] engine_0: smtbmc z3
+SBY  0:49:10 [test_oomr] base: starting process &quot;cd test_oomr/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  0:49:11 [test_oomr] base: test_oomr.sv:9: Warning: Identifier `\d.internal_w' is implicitly declared.
+SBY  0:49:11 [test_oomr] base: Warning: Wire tb.\clk is used but has no driver.
+SBY  0:49:11 [test_oomr] base: Warning: Wire tb.\d.internal_w is used but has no driver.
+SBY  0:49:11 [test_oomr] base: finished (returncode=0)
+SBY  0:49:11 [test_oomr] prep: starting process &quot;cd test_oomr/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  0:49:11 [test_oomr] prep: Warning: Wire tb.\d.internal_w is used but has no driver.
+SBY  0:49:11 [test_oomr] prep: finished (returncode=0)
+SBY  0:49:11 [test_oomr] smt2: starting process &quot;cd test_oomr/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  0:49:11 [test_oomr] smt2: finished (returncode=0)
+SBY  0:49:11 [test_oomr] engine_0.basecase: starting process &quot;cd test_oomr; yosys-smtbmc -s z3 --presat --noprogress -t 5  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  0:49:11 [test_oomr] engine_0.induction: starting process &quot;cd test_oomr; yosys-smtbmc -s z3 --presat -i --noprogress -t 5  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  BMC failed!
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Assert failed in tb: test_oomr.sv:9.22-9.51 ($assert$test_oomr.sv:9$7)
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Trying induction in step 3..
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Trying induction in step 2..
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Trying induction in step 0..
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Temporal induction failed!
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Assert failed in tb: test_oomr.sv:9.22-9.51 ($assert$test_oomr.sv:9$7)
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Writing trace to VCD file: engine_0/trace_induct.vcd
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_induct_tb.v
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Writing trace to constraints file: engine_0/trace_induct.smtc
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace_induct.yw
+SBY  0:49:12 [test_oomr] engine_0.induction: ##   0:00:00  Status: failed
+SBY  0:49:12 [test_oomr] engine_0.induction: finished (returncode=1)
+SBY  0:49:12 [test_oomr] engine_0.induction: Status returned by engine for induction: FAIL
+SBY  0:49:12 [test_oomr] engine_0.basecase: ##   0:00:00  Status: failed
+SBY  0:49:12 [test_oomr] engine_0.basecase: finished (returncode=1)
+SBY  0:49:12 [test_oomr] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY  0:49:12 [test_oomr] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY  0:49:12 [test_oomr] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  0:49:12 [test_oomr] summary: engine_0 (smtbmc z3) returned FAIL for basecase
+SBY  0:49:12 [test_oomr] summary: engine_0 (smtbmc z3) returned FAIL for induction
+SBY  0:49:12 [test_oomr] summary: counterexample trace [basecase]: test_oomr/engine_0/trace.vcd
+SBY  0:49:12 [test_oomr] summary:   failed assertion tb.$assert$test_oomr.sv:9$7 at test_oomr.sv:9.22-9.51 step 1
+SBY  0:49:12 [test_oomr] summary: counterexample trace [induction]: test_oomr/engine_0/trace_induct.vcd
+SBY  0:49:12 [test_oomr] summary:   failed assertion tb.$assert$test_oomr.sv:9$7 at test_oomr.sv:9.22-9.51
+SBY  0:49:12 [test_oomr] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

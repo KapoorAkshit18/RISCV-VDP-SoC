@@ -1,0 +1,10 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+Elapsed process time [H:MM:SS (secs)]: 0:00:01 (1)
+engine_0 (smtbmc z3) returned FAIL for basecase
+engine_0 (smtbmc z3) returned FAIL for induction
+counterexample trace [basecase]: engine_0/trace.vcd
+counterexample trace [basecase]: engine_0/trace.yw
+  failed assertion tb.$assert$test_oomr.sv:9$7 at test_oomr.sv:9.22-9.51 step 1
+counterexample trace [induction]: engine_0/trace_induct.vcd
+counterexample trace [induction]: engine_0/trace_induct.yw
+  failed assertion tb.$assert$test_oomr.sv:9$7 at test_oomr.sv:9.22-9.51

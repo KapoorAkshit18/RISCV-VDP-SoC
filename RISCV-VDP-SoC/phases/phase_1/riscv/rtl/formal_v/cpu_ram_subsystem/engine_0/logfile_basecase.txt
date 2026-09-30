@@ -1,1 +1,2 @@
 ##   0:00:00  Solver: z3
+<SIGTERM>

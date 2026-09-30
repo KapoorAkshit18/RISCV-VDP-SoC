@@ -1,0 +1,14 @@
+# running in cpu_subsystem/src/
+read_verilog -formal riscv.v
+read_verilog -formal riscv_wrapper.v
+read_verilog -formal cpu_bus_adapter.v
+read_verilog -formal soc_mem_interconnect.v
+read_verilog -formal soc_ram.v
+read_verilog -formal cpu_ram_subsystem.v
+read_verilog -sv cpu_ram_subsystem_formal.sv
+prep -top cpu_ram_subsystem_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

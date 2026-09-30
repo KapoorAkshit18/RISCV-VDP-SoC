@@ -30,8 +30,12 @@ class sensor_monitor extends uvm_subscriber #(soc_sequence_item);
     uvm_analysis_port #(soc_sequence_item) analysis_port;
 
     // Sensor MMIO window
-    localparam bit [31:0] SENSOR_BASE = 32'h0001_2000;
-    localparam bit [31:0] SENSOR_END  = 32'h0001_2FFF;
+    localparam bit [31:0] SENSOR_BASE       = 32'h0001_2000;
+    localparam bit [31:0] SENSOR_END        = 32'h0001_2FFF;
+    localparam bit [31:0] SENSOR_TEMP_OFF   = 32'h0000_0008; // SENSOR_TEMPERATURE
+    localparam bit [31:0] SENSOR_STATUS_OFF = 32'h0000_000C; // SENSOR_STATUS
+
+    localparam int TEMP_ALARM_HIGH = 800; // tenths of degC, matches firmware
 
     // Firmware completion protocol (matches sensor firmware)
     localparam bit [31:0] DEBUG_MARKER = 32'h0000_12A8;
@@ -43,6 +47,11 @@ class sensor_monitor extends uvm_subscriber #(soc_sequence_item);
     bit          done_seen;
     bit [31:0]   last_error_code;
 
+    // Latched from the temperature/status reads, for the SENSORLOG/ALARM
+    // lines consumed by the sweep parser (parse_results.py)
+    bit signed [15:0] last_temp_read;
+    bit               last_temp_read_valid;
+
 
     function new(string name = "sensor_monitor", uvm_component parent = null);
         super.new(name, parent);
@@ -52,18 +61,30 @@ class sensor_monitor extends uvm_subscriber #(soc_sequence_item);
 
     virtual function void write(soc_sequence_item t);
 
-            // inside sensor_monitor, in write()
-        if (!t.write && t.addr == SENSOR_BASE + 32'h0008) begin
-            $display("SENSORLOG,%0t,TEMP,%0d", $time, $signed(t.rdata[15:0]));
-        end
-        if (!t.write && t.addr == SENSOR_BASE) begin
-            $display("SENSORLOG,%0t,BATT,%0d", $time, t.rdata);
-        end
-
         // Forward sensor-window traffic
         if (t.addr >= SENSOR_BASE && t.addr <= SENSOR_END) begin
             sensor_txn_count++;
             analysis_port.write(t);
+
+            // --- SENSORLOG: temperature register read -------------------
+            // Consumed by parse_results.py: "SENSORLOG,TEMP,<temp_read_tenths>"
+            if (!t.write && t.addr == SENSOR_BASE + SENSOR_TEMP_OFF) begin
+                last_temp_read       = $signed(t.rdata[15:0]);
+                last_temp_read_valid = 1'b1;
+                $display("SENSORLOG,TEMP,%0d", last_temp_read);
+            end
+
+            // --- ALARM: expected vs actual temp-alarm bit ----------------
+            // Consumed by parse_results.py: "ALARM,<expected>,<actual>"
+            // Expected is computed from the temperature reading already
+            // latched above; actual comes from the STATUS register's
+            // TEMP_ALARM bit (bit 2), same convention as the firmware.
+            if (!t.write && t.addr == SENSOR_BASE + SENSOR_STATUS_OFF) begin
+                bit actual_alarm   = t.rdata[2];
+                bit expected_alarm = last_temp_read_valid &&
+                                      (last_temp_read > TEMP_ALARM_HIGH);
+                $display("ALARM,%0d,%0d", expected_alarm, actual_alarm);
+            end
         end
 
         // Remember the error code the firmware stores before MARK_ERROR

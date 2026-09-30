@@ -47,12 +47,31 @@ TEST    ?= soc_sensor_test
 FW      ?=
 BATT    ?= 10
 TEMP_C  ?= 85.0
+SEED    ?= 1
+NOISE   ?= 0
 COV_DB  ?= $(TEST).ucdb
 
-FW_ARG  = $(if $(FW),+FW_HEX=$(FW),)
+FW_ARG    = $(if $(FW),+FW_HEX=$(FW),)
+NOISE_ARG = $(if $(filter 1,$(NOISE)),+NOISE_ON,)
 
 TEST_ARGS = +UVM_TESTNAME=$(TEST) $(FW_ARG) +BATT=$(BATT) +TEMP_C=$(TEMP_C) \
-            +UVM_VERBOSITY=UVM_MEDIUM
+            $(NOISE_ARG) +UVM_VERBOSITY=UVM_MEDIUM
+
+# Temperature sweep list for sweep_temp / results (degC)
+TEMP_LIST ?= -40 0 25 79.9 80.1 85 125
+
+# Seed list for sweep_temp - multiple seeds per temperature give real
+# variance on `seed` (and, with NOISE=1, on the noise itself) instead of
+# every row sharing one frozen seed.
+SEED_LIST ?= 1 2 3
+
+# Battery and noise lists for the full factorial sweep (sweep_full below).
+# Keep these short by default - the run count is
+#   len(TEMP_LIST) * len(SEED_LIST) * len(BATT_LIST) * len(NOISE_LIST)
+# so a couple of battery points and both noise states is usually enough to
+# get non-NaN correlations on batt/noise_on without an excessive run count.
+BATT_LIST  ?= 10 80
+NOISE_LIST ?= 0 1
 
 
 # ============================================================
@@ -104,7 +123,7 @@ optimize: compile mapxpm
 # ============================================================
 
 run: optimize
-	$(VSIM) $(VSIM_OPTS) \
+	$(VSIM) $(VSIM_OPTS) -sv_seed $(SEED) \
 		$(OPT_TOP) \
 		$(TEST_ARGS) \
 		-do "run -all; quit -f"
@@ -128,11 +147,11 @@ tpu: optimize
 # ============================================================
 
 sensor: optimize
-	$(VSIM) $(VSIM_OPTS) \
+	$(VSIM) $(VSIM_OPTS) -sv_seed $(SEED) \
 		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_sensor_test \
 		$(if $(FW),+FW_HEX=$(FW),) \
-		+BATT=$(BATT) +TEMP_C=$(TEMP_C) \
+		+BATT=$(BATT) +TEMP_C=$(TEMP_C) $(NOISE_ARG) \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
 
@@ -194,6 +213,77 @@ merge_summary: merge
 
 
 # ============================================================
+# Temperature sweep (noise-on, sensor firmware)
+#
+#   make sweep_temp FW=<sensor>.hex SEED=1
+#   make sweep_temp FW=<sensor>.hex SEED=1 TEMP_LIST="0 25 80.1"
+#
+# Runs NOISE=1 across TEMP_LIST, one run per temperature, each with its own
+# .ucdb and .log named by temperature.
+# ============================================================
+
+sweep_temp: optimize
+	@for t in $(TEMP_LIST); do \
+		for s in $(SEED_LIST); do \
+			echo "=== TEMP_C=$$t seed=$$s ==="; \
+			$(VSIM) $(VSIM_OPTS) -sv_seed $$s \
+				$(OPT_TOP) \
+				+UVM_TESTNAME=soc_sensor_test \
+				$(if $(FW),+FW_HEX=$(FW),) \
+				+BATT=$(BATT) +TEMP_C=$$t +NOISE_ON \
+				+UVM_VERBOSITY=UVM_MEDIUM \
+				-coverage \
+				-do "coverage save -onexit run_$${t}_seed$${s}.ucdb; run -all; quit -f" \
+				| tee run_$${t}_seed$${s}.log; \
+		done; \
+	done
+
+
+# ============================================================
+# Full factorial sweep: TEMP_LIST x SEED_LIST x BATT_LIST x NOISE_LIST
+#
+#   make sweep_full FW=<sensor>.hex
+#   make sweep_full FW=<sensor>.hex TEMP_LIST="25 85" SEED_LIST="1 2" \
+#                    BATT_LIST="10 80" NOISE_LIST="0 1"
+#
+# Unlike sweep_temp (which forces NOISE_ON and a fixed BATT), this varies
+# battery and noise too, so `batt` and `noise_on` get real variance in
+# results.csv / the correlation matrix instead of coming out constant/NaN.
+# Run count = len(TEMP_LIST) * len(SEED_LIST) * len(BATT_LIST) * len(NOISE_LIST) -
+# keep the lists short, this grows fast.
+# ============================================================
+
+
+
+# ============================================================
+# Extract results from a sweep_temp run into results.csv
+#
+# Assumes sensor_monitor prints SENSORLOG,<time>,TEMP,<tenths> and the
+# firmware prints/asserts a recognizable PASS/FAIL/marker line - adjust the
+# grep patterns below to match your actual log text.
+# ============================================================
+
+results:
+	python3 parse_results.py
+
+correlation: results
+	python3 rnm_correlation.py results.csv
+
+
+# ============================================================
+# Merge every per-temperature UCDB from a sweep_temp run
+# ============================================================
+
+SWEEP_DB = sweep_merged.ucdb
+
+merge_sweep:
+	vcover merge $(SWEEP_DB) run_*.ucdb
+
+merge_sweep_summary: merge_sweep
+	vcover report $(SWEEP_DB)
+
+
+# ============================================================
 # Debug (interactive, no -c)
 # ============================================================
 
@@ -208,13 +298,32 @@ debug: optimize
 # Clean
 # ============================================================
 
+# ============================================================
+# Clean
+#
+#   make clean        - full clean: work library + every generated artifact
+#   make clean_sweep   - only sweep/analysis outputs, keeps `work` so the
+#                        next sweep doesn't force a recompile
+# ============================================================
+
 clean:
 	rm -rf work
 	rm -rf transcript
 	rm -rf vsim.wlf
 	rm -rf *.log
 	rm -rf *.ucdb
+	rm -rf *.vstf
 	rm -f $(COV_RPT) merged_$(COV_RPT)
+	rm -f results.csv
+	rm -f rnm_correlation.png
+
+clean_sweep:
+	rm -f run_*.log
+	rm -f run_*.ucdb
+	rm -f $(MERGED_DB) $(SWEEP_DB)
+	rm -f results.csv
+	rm -f rnm_correlation.png
+	rm -f merged_$(COV_RPT)
 
 
 # ============================================================
@@ -226,4 +335,6 @@ rebuild: clean all
 
 .PHONY: all work compile mapxpm optimize run tpu sensor \
         coverage coverage_tpu coverage_sensor coverage_report coverage_summary \
-        merge merge_report merge_summary debug clean rebuild
+        merge merge_report merge_summary \
+        sweep_temp sweep_full results correlation merge_sweep merge_sweep_summary \
+        debug clean clean_sweep rebuild

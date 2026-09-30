@@ -65,7 +65,7 @@ module sensor_adc_rnm #(
         // ============================================================
 
         sensor_valid =
-            (temperature_degC >= -40.0) &&
+            (temperature_degC >= -40.0) &&       // means -30 -20 if came also less than 125
             (temperature_degC <= 125.0);
 
     end

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-09-30T01:13:36" hostname="Envy" package="cpu_ram_subsystem" id="0" name="default" tests="34" errors="1" failures="0" time="566" skipped="34">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="ERROR"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<error type="ERROR"/>
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:35.27-37.44" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:35.27-37.44" id="$assert$cpu_ram_subsystem_formal.v:35$1155">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:47.22-49.45" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:47.22-49.45" id="$assert$cpu_ram_subsystem_formal.v:47$1156">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:49.46-51.48" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:49.46-51.48" id="$assert$cpu_ram_subsystem_formal.v:49$1157">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:51.49-53.43" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:51.49-53.43" id="$assert$cpu_ram_subsystem_formal.v:51$1158">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:53.44-55.45" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:53.44-55.45" id="$assert$cpu_ram_subsystem_formal.v:53$1159">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:55.46-57.44" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:55.46-57.44" id="$assert$cpu_ram_subsystem_formal.v:55$1160">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:57.45-59.45" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:57.45-59.45" id="$assert$cpu_ram_subsystem_formal.v:57$1161">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:59.46-61.45" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:59.46-61.45" id="$assert$cpu_ram_subsystem_formal.v:59$1162">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:72.27-73.32" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:72.27-73.32" id="$assert$cpu_ram_subsystem_formal.v:72$1163">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:82.22-83.39" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:82.22-83.39" id="$assert$cpu_ram_subsystem_formal.v:82$1164">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal at cpu_ram_subsystem_formal.v:83.40-84.40" time="0" type="ASSERT" location="cpu_ram_subsystem_formal.v:83.40-84.40" id="$assert$cpu_ram_subsystem_formal.v:83$1165">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2049.31-2050.28" time="0" type="ASSERT" location="riscv.v:2049.31-2050.28" id="$assert$riscv.v:2049$803">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2061.46-2062.15" time="0" type="ASSERT" location="riscv.v:2061.46-2062.15" id="$assert$riscv.v:2061$804">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2079.30-2080.21" time="0" type="ASSERT" location="riscv.v:2079.30-2080.21" id="$assert$riscv.v:2079$805">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2080.22-2081.40" time="0" type="ASSERT" location="riscv.v:2080.22-2081.40" id="$assert$riscv.v:2080$806">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2081.41-2082.26" time="0" type="ASSERT" location="riscv.v:2081.41-2082.26" id="$assert$riscv.v:2081$807">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2084.31-2085.21" time="0" type="ASSERT" location="riscv.v:2084.31-2085.21" id="$assert$riscv.v:2084$808">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2085.22-2086.40" time="0" type="ASSERT" location="riscv.v:2085.22-2086.40" id="$assert$riscv.v:2085$809">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2086.41-2087.42" time="0" type="ASSERT" location="riscv.v:2086.41-2087.42" id="$assert$riscv.v:2086$810">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2087.43-2088.42" time="0" type="ASSERT" location="riscv.v:2087.43-2088.42" id="$assert$riscv.v:2087$811">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:2090.41-2091.35" time="0" type="ASSERT" location="riscv.v:2090.41-2091.35" id="$assert$riscv.v:2090$812">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:531.56-532.26" time="0" type="ASSERT" location="riscv.v:531.56-532.26" id="$assert$riscv.v:531$790">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:534.40-535.26" time="0" type="ASSERT" location="riscv.v:534.40-535.26" id="$assert$riscv.v:534$791">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:537.21-538.46" time="0" type="ASSERT" location="riscv.v:537.21-538.46" id="$assert$riscv.v:537$792">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:540.21-541.63" time="0" type="ASSERT" location="riscv.v:540.21-541.63" id="$assert$riscv.v:540$793">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:543.41-544.41" time="0" type="ASSERT" location="riscv.v:543.41-544.41" id="$assert$riscv.v:543$794">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:578.13-579.28" time="0" type="ASSERT" location="riscv.v:578.13-579.28" id="$assert$riscv.v:578$795">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:579.30-580.61" time="0" type="ASSERT" location="riscv.v:579.30-580.61" id="$assert$riscv.v:579$796">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:580.63-581.59" time="0" type="ASSERT" location="riscv.v:580.63-581.59" id="$assert$riscv.v:580$797">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:581.61-582.60" time="0" type="ASSERT" location="riscv.v:581.61-582.60" id="$assert$riscv.v:581$798">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:604.13-605.28" time="0" type="ASSERT" location="riscv.v:604.13-605.28" id="$assert$riscv.v:604$799">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:605.30-606.26" time="0" type="ASSERT" location="riscv.v:605.30-606.26" id="$assert$riscv.v:605$800">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:612.13-613.28" time="0" type="ASSERT" location="riscv.v:612.13-613.28" id="$assert$riscv.v:612$801">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in cpu_ram_subsystem_formal/dut/u_cpu/prv at riscv.v:613.30-614.29" time="0" type="ASSERT" location="riscv.v:613.30-614.29" id="$assert$riscv.v:613$802">
+<skipped />
+</testcase>
+<system-out>SBY  0:48:10 [cpu_ram_subsystem] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem'.
+SBY  0:48:11 [cpu_ram_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/riscv.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/riscv.v'.
+SBY  0:48:11 [cpu_ram_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/tb_riscv_wrapper.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/tb_riscv_wrapper.sv'.
+SBY  0:48:11 [cpu_ram_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_bus_adapter.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/cpu_bus_adapter.v'.
+SBY  0:48:11 [cpu_ram_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/soc_mem_interconnect.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/soc_mem_interconnect.v'.
+SBY  0:48:11 [cpu_ram_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/soc_ram.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/soc_ram.v'.
+SBY  0:48:11 [cpu_ram_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/cpu_ram_subsystem.v'.
+SBY  0:48:11 [cpu_ram_subsystem] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem_formal.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_1/riscv/rtl/formal_v/cpu_ram_subsystem/src/cpu_ram_subsystem_formal.v'.
+SBY  0:48:11 [cpu_ram_subsystem] engine_0: smtbmc z3
+SBY  0:48:11 [cpu_ram_subsystem] base: starting process &quot;cd cpu_ram_subsystem/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  0:48:12 [cpu_ram_subsystem] base: Warning: reg '\pcpi_wr' is assigned in a continuous assignment at tb_riscv_wrapper.sv:74.9-74.24.
+SBY  0:48:12 [cpu_ram_subsystem] base: Warning: reg '\pcpi_rd' is assigned in a continuous assignment at tb_riscv_wrapper.sv:75.9-75.24.
+SBY  0:48:12 [cpu_ram_subsystem] base: Warning: reg '\pcpi_wait' is assigned in a continuous assignment at tb_riscv_wrapper.sv:76.9-76.24.
+SBY  0:48:12 [cpu_ram_subsystem] base: Warning: reg '\pcpi_ready' is assigned in a continuous assignment at tb_riscv_wrapper.sv:77.9-77.24.
+SBY  0:48:12 [cpu_ram_subsystem] base: Warning: reg '\irq' is assigned in a continuous assignment at tb_riscv_wrapper.sv:78.9-78.24.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:36: Warning: Identifier `\dut.ram_valid' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:37: Warning: Identifier `\dut.u_ram.reset' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:49: Warning: Identifier `\dut.m_valid' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:49: Warning: Identifier `\dut.mem_valid' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:51: Warning: Identifier `\dut.m_write' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:51: Warning: Identifier `\dut.mem_wstrb' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:53: Warning: Identifier `\dut.m_addr' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:53: Warning: Identifier `\dut.mem_addr' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:55: Warning: Identifier `\dut.m_wdata' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:55: Warning: Identifier `\dut.mem_wdata' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:57: Warning: Identifier `\dut.m_strb' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:59: Warning: Identifier `\dut.mem_ready' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:59: Warning: Identifier `\dut.m_ready' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:61: Warning: Identifier `\dut.mem_rdata' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:61: Warning: Identifier `\dut.m_rdata' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:83: Warning: Identifier `\dut.gpio_ready' is implicitly declared.
+SBY  0:48:12 [cpu_ram_subsystem] base: cpu_ram_subsystem_formal.v:84: Warning: Identifier `\dut.gpio_rdata' is implicitly declared.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.u_ram.reset is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_rdata is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_ready is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_rdata is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_rdata is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_ready is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_ready is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_strb is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wdata is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_wdata is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_addr is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_addr is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wstrb is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_write is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_valid is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.m_valid is used but has no driver.
+SBY  0:48:14 [cpu_ram_subsystem] base: Warning: Wire cpu_ram_subsystem_formal.\dut.ram_valid is used but has no driver.
+SBY  0:48:20 [cpu_ram_subsystem] base: finished (returncode=0)
+SBY  0:48:20 [cpu_ram_subsystem] prep: starting process &quot;cd cpu_ram_subsystem/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\clk is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.u_ram.reset is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_rdata is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.gpio_ready is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_rdata is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_rdata is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_ready is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_ready is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_strb is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wdata is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_wdata is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_addr is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_addr is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_wstrb is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_write is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.mem_valid is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.m_valid is used but has no driver.
+SBY  0:48:21 [cpu_ram_subsystem] prep: Warning: Wire cpu_ram_subsystem_formal.\dut.ram_valid is used but has no driver.
+SBY  0:48:22 [cpu_ram_subsystem] prep: finished (returncode=0)
+SBY  0:48:22 [cpu_ram_subsystem] smt2: starting process &quot;cd cpu_ram_subsystem/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  0:48:23 [cpu_ram_subsystem] smt2: finished (returncode=0)
+SBY  0:48:23 [cpu_ram_subsystem] engine_0.basecase: starting process &quot;cd cpu_ram_subsystem; yosys-smtbmc -s z3 --presat --noprogress -t 10  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  0:48:23 [cpu_ram_subsystem] engine_0.induction: starting process &quot;cd cpu_ram_subsystem; yosys-smtbmc -s z3 --presat -i --noprogress -t 10  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2&quot;
+SBY  0:48:24 [cpu_ram_subsystem] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  0:48:24 [cpu_ram_subsystem] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  1:13:35 [cpu_ram_subsystem] engine_0.basecase: &lt;SIGTERM&gt;
+SBY  1:13:35 [cpu_ram_subsystem] engine_0.induction: &lt;SIGTERM&gt;
+SBY  1:13:36 [cpu_ram_subsystem] engine_0.induction: finished (returncode=1)
+SBY  1:13:36 [cpu_ram_subsystem] ERROR: engine_0: Engine terminated without status.
+SBY  1:13:36 [cpu_ram_subsystem] engine_0.basecase: terminating process
+SBY  1:13:36 [cpu_ram_subsystem] summary: Elapsed clock time [H:MM:SS (secs)]: 0:09:35 (575)
+SBY  1:13:36 [cpu_ram_subsystem] summary: Elapsed process time [H:MM:SS (secs)]: 0:09:26 (566)
+SBY  1:13:36 [cpu_ram_subsystem] summary: engine_0 (smtbmc z3) did not return a status
+SBY  1:13:36 [cpu_ram_subsystem] summary: engine_0 did not produce any traces
+SBY  1:13:36 [cpu_ram_subsystem] DONE (ERROR, rc=16)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

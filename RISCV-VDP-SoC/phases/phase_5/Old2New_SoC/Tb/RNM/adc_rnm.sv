@@ -14,7 +14,7 @@ module adc_rnm #(
     localparam int unsigned MAX_CODE = (1 << ADC_BITS) - 1;
 
     real scaled_code;
-    int unsigned quantized_code;
+    int unsigned quantized_code;  // nothing but analog quantized to the digital values
 
     always_comb begin
 
@@ -25,7 +25,7 @@ module adc_rnm #(
 
         // Saturation at upper limit
         else if (analog_voltage >= VREF) begin
-            quantized_code = MAX_CODE;
+            quantized_code = MAX_CODE;      // positive always
         end
 
         // ADC quantization

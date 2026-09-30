@@ -1,7 +1,13 @@
 `ifndef SOC_ACTIVE_SENSOR_RAL_TEST_SV
 `define SOC_ACTIVE_SENSOR_RAL_TEST_SV
-
+// what does active sensor ral test do?
 `timescale 1ns/1ps
+
+
+
+// to check correct mapping of this mmio 
+
+
 
 import uvm_pkg::*;
 `include "uvm_macros.svh"

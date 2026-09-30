@@ -104,19 +104,24 @@ module tb_cpu_soc_ram_top;
     // temperature (degC) -> sensor_voltage -> adc_code -> temperature_tenthsC
     // =========================================================================
 
-    real temperature;
-    real sensor_voltage;
+        real temperature;
+        real sensor_voltage;
 
-    logic [11:0]        adc_code;
-    logic signed [15:0] temperature_tenthsC;
-    logic               sensor_valid;
+        logic [11:0]        adc_code;
+        logic signed [15:0] temperature_tenthsC;
+        logic               sensor_valid;
 
-    temp_sensor_rnm #(
-        .ENABLE_NOISE(1'b0)
-    ) u_temp_sensor (
-        .temperature   (temperature),
-        .sensor_voltage(sensor_voltage)
-    );
+        // Noise is off by default; pass +NOISE_ON to enable it for statistical
+        // sweeps (see temp_sensor_rnm.sv, which now takes noise_en as a runtime
+        // input instead of a compile-time ENABLE_NOISE parameter).
+        bit noise_on;
+        initial noise_on = $test$plusargs("NOISE_ON");
+
+        temp_sensor_rnm u_temp_sensor (
+            .temperature   (temperature),
+            .noise_en      (noise_on),
+            .sensor_voltage(sensor_voltage)
+        );
 
     adc_rnm #(
         .ADC_BITS(12),
@@ -303,6 +308,20 @@ module tb_cpu_soc_ram_top;
         resetn = 1'b1;
     end
 
+    //grep below
+
+            // in the TB, right after resetn is released, or once per run at time 
+                        // --- CONFIG line for parse_results.py: "CONFIG,seed,temp_c,batt,noise_on"
+            // --- RNMLOG line for parse_results.py: "RNMLOG,adc_code,sensor_voltage"
+            initial begin
+                #1; // let the RNM chain and plusarg reads settle
+                $display("CONFIG,%0d,%0.4f,%0d,%0d",
+                    $get_initial_random_seed(), temp_c, batt_pct, noise_on);
+                $display("RNMLOG,%0d,%0.6f",
+                    adc_code, sensor_voltage);
+            end
+
+            
 
     // =========================================================================
     // FIRMWARE LOAD
@@ -369,6 +388,8 @@ module tb_cpu_soc_ram_top;
 
     end
 
+    `include "tb/soc_base_test/soc_active_tpu_corner_test.sv"
+    `include "tb/soc_base_test/soc_active_sensor_corner_test.sv"
 endmodule
 
 `endif

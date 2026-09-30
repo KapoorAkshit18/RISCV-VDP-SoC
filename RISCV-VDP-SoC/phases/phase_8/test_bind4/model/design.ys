@@ -1,0 +1,7 @@
+# running in test_bind4/src/
+read_verilog -sv test_bind4.sv
+prep -top tb
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,25 @@
+[options]
+mode bmc
+depth 10
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal riscv.v
+read_verilog -formal riscv_wrapper.v
+read_verilog -formal cpu_bus_adapter.v
+read_verilog -formal soc_mem_interconnect.v
+read_verilog -formal soc_ram.v
+read_verilog -formal cpu_ram_subsystem.v
+read_verilog -sv cpu_ram_subsystem_formal.sv
+prep -top cpu_ram_subsystem_formal
+
+[files]
+../../phase_7/fault_models/riscv.v
+../../phase_7/fault_models/riscv_wrapper.v
+../../phase_7/fault_models/cpu_bus_adapter.v
+../../phase_7/fault_models/soc_mem_interconnect.v
+../../phase_7/fault_models/soc_ram.v
+../../phase_7/fault_models/cpu_ram_subsystem.v
+cpu_ram_subsystem_formal.sv

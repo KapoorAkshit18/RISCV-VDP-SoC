@@ -77,9 +77,9 @@ Module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem direc
 === picorv32a ===
 
    Number of wires:               1123
-   Number of wire bits:          11770
+   Number of wire bits:          11787
    Number of public wires:         205
-   Number of public wire bits:    2259
+   Number of public wire bits:    2264
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -226,9 +226,9 @@ Module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem direc
            picorv32_pcpi_fast_mul      1
 
    Number of wires:               1409
-   Number of wire bits:          15599
+   Number of wire bits:          15616
    Number of public wires:         354
-   Number of public wire bits:    3974
+   Number of public wire bits:    3979
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -276,6 +276,6 @@ Creating SMT-LIBv2 representation of module ptb.
 Creating SMT-LIBv2 representation of module $paramod$c2a3448081698d2bf6d9917f598cb2fe8a9f281e\cpu_ram_subsystem.
 Creating SMT-LIBv2 representation of module cpu_ram_subsystem_formal.
 
-End of script. Logfile hash: 4cd2c10942, CPU: user 0.25s system 0.06s, MEM: 17.81 MB peak
+End of script. Logfile hash: a32020c3d4, CPU: user 0.36s system 0.08s, MEM: 17.30 MB peak
 Yosys 0.33 (git sha1 2584903a060)
-Time spent: 68% 2x write_smt2 (0 sec), 25% 2x read_rtlil (0 sec), ...
+Time spent: 69% 2x write_smt2 (0 sec), 25% 2x read_rtlil (0 sec), ...

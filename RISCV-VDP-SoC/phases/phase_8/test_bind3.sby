@@ -1,0 +1,10 @@
+[options]
+mode prove
+depth 5
+[engines]
+smtbmc z3
+[script]
+read_verilog -sv test_bind3.sv
+prep -top dut
+[files]
+test_bind3.sv

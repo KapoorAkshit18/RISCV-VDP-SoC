@@ -1,0 +1,66 @@
+graph TD
+    classDef top    fill:#34495E,stroke:#2C3E50,stroke-width:2px,color:#fff,font-weight:bold
+    classDef cpu    fill:#2C3E50,stroke:#2C3E50,stroke-width:1.5px,color:#fff
+    classDef bus    fill:#4A5568,stroke:#4A5568,stroke-width:2px,color:#fff,font-weight:bold
+    classDef slave  fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef tpu    fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
+    classDef vdp    fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef grp    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+
+    TOP["cpu_soc_ram_top"]
+
+    subgraph CPU ["Processor Subsystem"]
+        direction TB
+        CORE["picorv32a"]
+        WRAP["riscv_wrapper"]
+        ADAPT["cpu_bus_adapter"]
+        CORE --> WRAP --> ADAPT
+    end
+
+    IC["soc_mem_interconnect\nAddress Decoder & Response Mux"]
+
+    subgraph PER ["Memory-Mapped Slaves"]
+        direction LR
+        RAM["soc_ram\n0x0000_0000"]
+        GPIO["gpio\n0x0001_0000"]
+        RF["rf_telemetry\n0x0001_1000"]
+        SEN["sensor_status\n0x0001_2000"]
+
+        subgraph VDP_SUB ["VDP  0x0001_3000"]
+            direction TB
+            VDP["vdp_native_slave"]
+            VGA["vga_timing_gen"]
+            CDC["cdc_reset_sync"]
+            VDP --> CDC --> VGA
+        end
+
+        subgraph TPU_SUB ["TPU  0x0001_4000"]
+            direction TB
+            MMIO["nn_axi_wrapper\nMMIO Register Bank"]
+            MAST["nn_axis_master\nAXI4-Stream FSM"]
+            ANN["axis_nn\nAXI4-Stream Wrapper"]
+            NN["nn\n4×4 Systolic Array  Q5.10"]
+            MMIO --> MAST --> ANN --> NN
+        end
+    end
+
+    TOP -.-> CPU
+    TOP -.-> IC
+    TOP -.-> PER
+
+    ADAPT ==>|"32-bit Native Bus"| IC
+
+    IC --> RAM
+    IC --> GPIO
+    IC --> RF
+    IC --> SEN
+    IC --> VDP
+    IC --> MMIO
+
+    class TOP top
+    class CORE,WRAP,ADAPT cpu
+    class IC bus
+    class RAM,GPIO,RF,SEN slave
+    class VDP,VGA,CDC vdp
+    class MMIO,MAST,ANN,NN tpu
+    class CPU,PER,VDP_SUB,TPU_SUB grp

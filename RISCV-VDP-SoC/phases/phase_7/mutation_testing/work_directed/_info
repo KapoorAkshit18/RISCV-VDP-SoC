@@ -223,30 +223,29 @@ R10
 R11
 R12
 vnn_axi_wrapper
-R2
+2../../fault_models/nn_axi_wrapper.v
 R3
-R4
+!s110 1791174853
 !i10b 1
-!s100 ?AZRMK?_>>];elMMCVJ9J3
-IS8OA:SUM3YeiiIf@N82[U3
+!s100 :Zch8GNE^;G6HVPh2]Rn@1
+I]h<U[9YELSMz@Q3b7<CM>0
 S1
-R1
-w1789240987
-8../fault_models/nn_axi_wrapper.v
-F../fault_models/nn_axi_wrapper.v
-!i122 13
-L0 53 394
+dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/scripts
+w1790687164
+8../../fault_models/nn_axi_wrapper.v
+F../../fault_models/nn_axi_wrapper.v
+!i122 20
+L0 53 396
 R5
 R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+!s108 1791174853.000000
+!s107 ../../fault_models/nn_axi_wrapper.v|
+!s90 -sv|+acc|-work|../work_directed|../../fault_models/nn_axi_wrapper.v|
 !i113 0
-R10
-R11
+o-sv +acc -work ../work_directed -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R12
 vnn_axis_master
 R2
@@ -822,19 +821,6 @@ R12
 ntb_dir_opt_m01_fw2
 R22
 R1
-Ttb_dir_opt_mut
-!s110 1790647208
-VCA>fRFbO6maD;IDW9d=Zz2
-R16
-R17
-R0
-R18
-R19
-R20
-R21
-R12
-ntb_dir_opt_mut
-R22
 vtemp_sensor_rnm
 R2
 R3

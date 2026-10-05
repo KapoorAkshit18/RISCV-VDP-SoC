@@ -1,0 +1,60 @@
+graph TB
+    classDef block  fill:#2C3E50,stroke:#2C3E50,stroke-width:2px,color:#fff,font-weight:bold
+    classDef rw     fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef ro     fill:#4A5568,stroke:#4A5568,stroke-width:1px,color:#fff
+    classDef ctrl   fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
+    classDef map    fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
+    classDef scb    fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef grp    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+
+    RBLK["tpu_reg_block\nBase: 0x0001_4000"]
+
+    MAP["default_map\nUVM_LITTLE_ENDIAN  bus_width=4"]
+
+    subgraph CTRL_REG ["Control / Status"]
+        direction LR
+        CTRL["CTRL  0x00  RW\nbit[0] = START"]
+        STAT["STATUS  0x04  RO volatile\nbit[0]=BUSY  bit[1]=DONE"]
+    end
+
+    subgraph WEIGHT_REG ["Weights  0x10–0x34  RW  64-bit LO/HI"]
+        direction LR
+        W0["W0  wb2 row 0"]
+        W1["W1  wb2 row 1"]
+        W2["W2  wb2 row 2"]
+        W3["W3  wb3 row 0"]
+        W4["W4  wb3 row 1"]
+    end
+
+    subgraph INPUT_REG ["Inputs  0x38–0x44  RW  64-bit LO/HI"]
+        direction LR
+        I0["INPUT0  k row 0"]
+        I1["INPUT1  k row 1"]
+    end
+
+    subgraph RESULT_REG ["Results  0x50–0x5C  RO volatile"]
+        direction LR
+        R0["RESULT0  a3 row 0"]
+        R1["RESULT1  a3 row 1"]
+    end
+
+    subgraph SCB_PATH ["Scoreboard"]
+        direction LR
+        TPUMON2["TPU Monitor"]
+        CREF["C DPI Reference Model"]
+        COMP["Result Comparator"]
+        TPUMON2 --> COMP
+        CREF --> COMP
+    end
+
+    RBLK --> MAP
+    MAP  --> CTRL_REG & WEIGHT_REG & INPUT_REG & RESULT_REG
+    RESULT_REG -.-> SCB_PATH
+
+    class RBLK block
+    class MAP map
+    class CTRL ctrl
+    class STAT,R0,R1 ro
+    class W0,W1,W2,W3,W4,I0,I1 rw
+    class TPUMON2,CREF,COMP scb
+    class CTRL_REG,WEIGHT_REG,INPUT_REG,RESULT_REG,SCB_PATH grp

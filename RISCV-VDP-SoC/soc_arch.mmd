@@ -1,0 +1,84 @@
+graph TB
+    classDef uvm      fill:#2C3E50,stroke:#2C3E50,stroke-width:1.5px,color:#fff
+    classDef rtl      fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
+    classDef formal   fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef mutation fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
+    classDef iface    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,stroke-dasharray:3 2,color:#4A5568
+    classDef grp      fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+
+    subgraph DVP ["Dynamic Verification — Phase 5"]
+        direction TB
+        TEST["soc_tpu_test"]
+
+        subgraph ENV ["soc_env"]
+            RAL["soc_reg_block\nGPIO · RF · Sensor · VDP · TPU"]
+            PRED["RAL Predictor"]
+
+            subgraph AGT ["Native Bus Agent"]
+                DRV["Driver"] --- SQCR["Sequencer"] --- SEQ["Sequence"]
+            end
+
+            MON["Native Bus Monitor"]
+            TPUMON["TPU Monitor"]
+            SENMON["Sensor Monitor"]
+            TPUSCB["TPU Scoreboard"]
+            COV["Functional Coverage"]
+        end
+
+        TEST --> ENV
+        MON -.-> PRED -.-> RAL
+        MON -.-> TPUSCB & COV & SENMON
+        TPUMON -.-> TPUSCB
+    end
+
+    subgraph MVP ["Mutation Testing — Phase 7"]
+        direction LR
+        MUT_SIM["SoC Simulation\nControl-flow & state mutations"]
+        MUT_TPU["TPU MMIO\nRegister-map mutations"]
+        MUT_FORM["AXI-Stream FSM\nProtocol-level mutations"]
+    end
+
+    subgraph SVP ["Formal BMC — Phase 8"]
+        direction LR
+        SOLVER["SymbiYosys / Z3\nsmtbmc"]
+
+        subgraph PROVEN ["Proven"]
+            CPU_P["CPU/RAM Bus"]
+            SEN_P["Sensor Status"]
+            AXI_P["AXI-Stream Interface"]
+        end
+
+        subgraph TIMEOUT_T ["Intractable"]
+            IC_T["Interconnect"]
+            TPU_T["Full TPU"]
+            P05_T["MMIO START Path"]
+        end
+
+        SOLVER --> PROVEN & TIMEOUT_T
+    end
+
+    VIF{{"soc_native_if  ·  tpu_debug_if"}}
+
+    subgraph HDP ["Hardware Design — DUT"]
+        direction LR
+        CPU2["PicoRV32\n+ Bus Adapter"]
+        IC2["SoC Interconnect"]
+        PER2["RAM · GPIO · RF · Sensor · VDP · TPU"]
+        CPU2 ==> IC2 ==> PER2
+    end
+
+    DRV  ==>|"Pin Stimulus"| VIF
+    VIF  ==>|"Native Bus"| HDP
+    HDP  -.-> MON
+    HDP  -.-> TPUMON
+
+    AXI_P -.-|"SVA Bind"| PER2
+    SEN_P -.-|"SVA Bind"| PER2
+    CPU_P -.-|"SVA Bind"| CPU2
+
+    class TEST,ENV,RAL,PRED,AGT,DRV,SQCR,SEQ,MON,TPUMON,SENMON,TPUSCB,COV uvm
+    class HDP,CPU2,IC2,PER2 rtl
+    class SOLVER,PROVEN,TIMEOUT_T,CPU_P,SEN_P,AXI_P,IC_T,TPU_T,P05_T formal
+    class MUT_SIM,MUT_TPU,MUT_FORM mutation
+    class VIF iface
+    class DVP,MVP,SVP,ENV,AGT grp

@@ -1,82 +1,64 @@
-# TPU UVM RAL Mutation Experiment Evidence Matrix
+# TPU Mutation Testing — Evidence Matrix (Phase 7)
 
-## Methodology
-The experiment validates the TPU (Tensor Processing Unit) register interface and native SOC wrapper (`nn_axi_wrapper.v`) using UVM RAL APIs in an Active UVM environment. The Golden RTL behavior was first verified using `soc_active_tpu_ral_test` which programs weights and inputs, triggers `START`, polls the `STATUS` register for `DONE`, and reads the results. Five functional mutations were introduced to the wrapper logic and run against the exact same, frozen UVM sequence to verify the testbench's detection capability.
+## Verification Flows
 
-## Evidence Matrix
+| Flow | Stimulus | Bus Master | What it covers |
+|---|---|---|---|
+| **Active UVM RAL** | UVM RAL sequence (CPU in reset) | Testbench | Full register map: reset state, all RW readbacks, RO write-ignore, unmapped access, BUSY guard, end-to-end result |
+| **Firmware Directed** | firmware_test03.hex via `$readmemh` | PicoRV32 CPU | CPU pipeline → bus adapter → interconnect → MMIO write path → START → poll DONE → read results |
+| **Firmware UVM Passive** | firmware_test03.hex + UVM monitors | PicoRV32 CPU | Same as directed but scoreboard compares results against C DPI reference model |
 
-### 1. M_TPU_01
-*   **Mutation Intent**: CTRL START bit is incorrectly ignored.
-*   **RTL Modification**: 
-    ```verilog
-    // GOLDEN: if (bus_strb[0] && bus_wdata[0] &&
-    if (bus_strb[0] && 1'b0 &&
-    ```
-*   **Golden Behavior**: Writing `1` to `REG_CONTROL` pulses `axis_start`. The TPU computes and eventually sets the `DONE` bit (bit 1 of `REG_STATUS`).
-*   **Mutant Behavior**: Writing `1` to `REG_CONTROL` is ignored. `axis_start` is never pulsed, the computation never begins, and `DONE` is never set.
-*   **Classification**: **DETECTED**
-*   **Evidence**: The RAL sequence hangs while polling the `STATUS` register and is caught by the testbench timeout mechanism.
-    ```
-    [ACTIVE_TPU] Timeout polling for TPU DONE bit
-    ```
+---
 
-### 2. M_TPU_02
-*   **Mutation Intent**: TPU weight register `WEIGHT4_L` is mapped to the wrong offset.
-*   **RTL Modification**:
-    ```verilog
-    // GOLDEN: else if (bus_addr[7:0] == REG_WEIGHT4_L) begin
-    else if (bus_addr[7:0] == REG_WEIGHT3_L) begin
-    ```
-*   **Golden Behavior**: Writing to `0x30` (`WEIGHT4_L`) correctly stores the data in the `weight4` register.
-*   **Mutant Behavior**: Address `0x30` decoding is replaced by `0x28` (`WEIGHT3_L`). Writes to `0x30` fall through and are ignored.
-*   **Classification**: **DETECTED**
-*   **Evidence**: The RAL sequence explicitly reads back `WEIGHT4_L` after writing it to verify the register mapping and detects the mismatch.
-    ```
-    [ACTIVE_TPU] W4_L readback failed
-    [TPU_RESULT_MISMATCH] TPU result mismatch: ACTUAL R0=0200020002000200 R1=0000000000000000 | EXPECTED R0=0200020002000200 R1=00000000000003ff
-    ```
+## New Active UVM RAL Checks (not exercised by firmware)
 
-### 3. M_TPU_03
-*   **Mutation Intent**: `INPUT0_L` register readback incorrectly mapped to `INPUT1_L`.
-*   **RTL Modification**:
-    ```verilog
-    // GOLDEN: REG_INPUT0_L: bus_rdata = input0[31:0];
-    REG_INPUT0_L: bus_rdata = input1[31:0];
-    ```
-*   **Golden Behavior**: Reading `0x38` (`INPUT0_L`) returns the data stored in `input0`.
-*   **Mutant Behavior**: Reading `0x38` incorrectly returns the data stored in `input1`.
-*   **Classification**: **DETECTED**
-*   **Evidence**: The RAL sequence reads back `INPUT0_L` after programming it and detects the incorrect value returned on the bus.
-    ```
-    [ACTIVE_TPU] IN0_L readback failed
-    ```
+| Check | Why firmware misses it |
+|---|---|
+| Reset state — all RW regs = 0 | Firmware writes registers immediately after reset, never reads them first |
+| Full W0–W4 + INPUT0–1 readback (all 20 half-words) | Firmware only writes; never reads back weights or inputs to verify storage |
+| RO write-ignore on RESULT0/RESULT1 | Firmware only reads results, never attempts to write them |
+| Unmapped address (0x4060) returns 0 | Firmware never accesses outside the defined register map |
+| BUSY guard — second START ignored while running | Firmware never retriggers; single START per run |
 
-### 4. M_TPU_04
-*   **Mutation Intent**: `RESULT0_L` readback incorrectly routed to `RESULT1_L`.
-*   **RTL Modification**:
-    ```verilog
-    // GOLDEN: REG_RESULT0_L: bus_rdata = result0[31:0];
-    REG_RESULT0_L: bus_rdata = result1[31:0];
-    ```
-*   **Golden Behavior**: After completion, reading `0x50` (`RESULT0_L`) returns the lower 32 bits of `result0`.
-*   **Mutant Behavior**: Reading `0x50` returns the lower 32 bits of `result1`.
-*   **Classification**: **DETECTED**
-*   **Evidence**: The sequence issues the read which triggers the TPU scoreboard's passive checking mechanism against the C++ reference model, which identifies the incorrect result data.
-    ```
-    [TPU_FAIL] RESULT0_LO MISMATCH: addr=0x00014050 expected=0x02000200 actual=0x000003ff
-    ```
+---
 
-### 5. M_TPU_05
-*   **Mutation Intent**: `STATUS` bits `BUSY` and `DONE` are swapped.
-*   **RTL Modification**:
-    ```verilog
-    // GOLDEN: bus_rdata = {30'd0, done_latched, axis_busy};
-    bus_rdata = {30'd0, axis_busy, done_latched};
-    ```
-*   **Golden Behavior**: Reading `STATUS` (`0x04`) returns `BUSY` on bit 0 and `DONE` on bit 1.
-*   **Mutant Behavior**: Reading `STATUS` returns `DONE` on bit 0 and `BUSY` on bit 1. 
-*   **Classification**: **DETECTED**
-*   **Evidence**: The RAL sequence polls bit 1 expecting `DONE`. Because the bits are swapped, it reads the active `BUSY` signal as `DONE` and prematurely assumes the computation is complete. It issues a read for `RESULT0_L` before the calculation finishes, causing the scoreboard to catch a mismatch between the stale `0x00000000` data and the expected reference model data.
-    ```
-    [TPU_FAIL] RESULT0_LO MISMATCH: addr=0x00014050 expected=0x02000200 actual=0x00000000
-    ```
+## Mutation Results
+
+| Mutant | RTL Fault | Active UVM RAL | FW Directed | FW UVM Passive | Caught by |
+|---|---|---|---|---|---|
+| **M_TPU_01** | CTRL START bit forced 0 — `axis_start` never pulses | DETECTED | DETECTED | DETECTED | All flows — timeout on DONE poll |
+| **M_TPU_02** | WEIGHT4_L write decode maps to WEIGHT3_L offset | DETECTED | DETECTED | DETECTED | RAL: W4_L readback mismatch; FW: wrong weight sent → result mismatch |
+| **M_TPU_03** | INPUT0_L read mux returns `input1[31:0]` | DETECTED | ESCAPED | ESCAPED | Active UVM only — firmware writes INPUT0≠INPUT1 but never reads back |
+| **M_TPU_04** | RESULT0_L read mux returns `result1[31:0]` | DETECTED | DETECTED | DETECTED | RAL: result readback mismatch; FW UVM: scoreboard catches wrong result |
+| **M_TPU_05** | STATUS BUSY/DONE bits swapped | DETECTED | DETECTED | DETECTED | All flows — premature result read before computation completes |
+
+---
+
+## M_TPU_03 — Why firmware escapes
+
+firmware_test03 writes `INPUT0 = 0x1400140020002000` and `INPUT1 = 0x1400200014002000`. These are different values, so if INPUT0_L readback returns INPUT1_L data the values differ. However firmware **never reads INPUT0_L back** — it only writes then fires START. The mutant still delivers the correct `input1` value to the AXI-Stream beat that carries input0 data because the write path is unaffected (only the read mux is broken). The NN computation therefore uses the correct hardware register contents and produces the correct result. Only the Active UVM RAL sequence explicitly reads INPUT0_L after writing it and catches the mismatch.
+
+---
+
+## Detection Summary
+
+| Flow | Detected | Escaped |
+|---|---|---|
+| Active UVM RAL | 5 / 5 | 0 |
+| Firmware Directed | 4 / 5 | 1 (M_TPU_03) |
+| Firmware UVM Passive | 4 / 5 | 1 (M_TPU_03) |
+
+Active UVM RAL is the only flow that catches M_TPU_03 because it is the only flow that reads back the input registers after writing them.
+
+---
+
+## How to Run
+
+From `phases/phase_7/mutation_testing/`:
+
+```powershell
+# Full campaign — all 3 flows, all 5 mutants + golden
+.\scripts\tpu_batch_run.ps1
+
+# Results written to tpu_batch_results.txt (CSV: mutant,active_ral,fw_directed,fw_uvm)
+```

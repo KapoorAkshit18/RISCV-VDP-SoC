@@ -1,0 +1,36 @@
+m255
+K4
+z2
+!s11f vlog 2024.1 2024.02, Feb  1 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_7/mutation_testing/scripts
+vnn_axi_wrapper
+2../../fault_models/nn_axi_wrapper.v
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1791174083
+!i10b 1
+!s100 ?AZRMK?_>>];elMMCVJ9J3
+IZnIMC1Q@R;54ojfzT[:cU3
+S1
+R0
+w1789240987
+8../../fault_models/nn_axi_wrapper.v
+F../../fault_models/nn_axi_wrapper.v
+!i122 4
+L0 53 394
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2024.1;79
+r1
+!s85 0
+31
+!s108 1791174083.000000
+!s107 ../../fault_models/nn_axi_wrapper.v|
+!s90 -sv|+acc|-work|work_directed|../../fault_models/nn_axi_wrapper.v|
+!i113 0
+o-sv +acc -work work_directed -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+tCvgOpt 0

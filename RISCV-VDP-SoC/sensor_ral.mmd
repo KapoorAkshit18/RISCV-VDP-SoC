@@ -1,0 +1,35 @@
+graph TB
+    classDef block  fill:#2C3E50,stroke:#2C3E50,stroke-width:2px,color:#fff,font-weight:bold
+    classDef reg    fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef map    fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
+    classDef pred   fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
+    classDef grp    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+
+    RBLK["sensor_reg_block\nBase: 0x0001_2000"]
+
+    MAP["default_map\nUVM_LITTLE_ENDIAN  bus_width=4"]
+
+    subgraph REGS ["Register Definitions"]
+        direction TB
+        R0["BATTERY_PERCENT  0x00  RO"]
+        R1["BATTERY_VOLTAGE  0x04  RO"]
+        R2["TEMPERATURE      0x08  RO"]
+    end
+
+    subgraph PRED_SUB ["RAL Predictor Path"]
+        direction LR
+        MON_IN["Native Bus Monitor"]
+        PRED2["soc_reg_predictor"]
+        MIRROR["RAL Mirror"]
+        MON_IN --> PRED2 --> MIRROR
+    end
+
+    RBLK --> MAP
+    MAP  --> REGS
+    RBLK -.-> PRED_SUB
+
+    class RBLK block
+    class MAP map
+    class R0,R1,R2 reg
+    class MON_IN,PRED2,MIRROR pred
+    class REGS,PRED_SUB grp

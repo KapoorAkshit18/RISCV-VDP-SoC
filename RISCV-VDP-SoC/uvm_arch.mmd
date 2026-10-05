@@ -1,0 +1,65 @@
+graph TB
+    classDef test   fill:#2C3E50,stroke:#2C3E50,stroke-width:2px,color:#fff,font-weight:bold
+    classDef agent  fill:#2C3E50,stroke:#2C3E50,stroke-width:1.5px,color:#fff
+    classDef ral    fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
+    classDef mon    fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
+    classDef sb     fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef iface  fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,stroke-dasharray:4 3,color:#4A5568
+    classDef dut    fill:#4A5568,stroke:#4A5568,stroke-width:2px,color:#fff
+    classDef grp    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+
+    TEST["soc_tpu_test"]
+
+    subgraph ENV ["soc_env"]
+        direction TB
+
+        subgraph RAL_SUB ["RAL Subsystem"]
+            direction LR
+            RBLK["soc_reg_block"]
+            RADP["soc_reg_adapter"]
+            RPRD["soc_reg_predictor"]
+            RBLK --- RADP --- RPRD
+        end
+
+        subgraph AGT ["Native Bus Agent"]
+            direction LR
+            SEQ["soc_tpu_seq"]
+            SQCR["Sequencer"]
+            DRV["Driver"]
+            SEQ --> SQCR --> DRV
+        end
+
+        subgraph PASS ["Passive Monitors"]
+            direction LR
+            TPUMON["tpu_monitor\nAXI-Stream Snoop"]
+            SENMON["sensor_monitor\nRNM Correlation"]
+        end
+
+        MON["Native Bus Monitor"]
+        TPUSCB["TPU Scoreboard\nC DPI Reference Model"]
+        COV["Functional Coverage"]
+    end
+
+    VIF{{"soc_native_if  ·  tpu_debug_if"}}
+    DUT["cpu_soc_ram_top\nDUT"]
+
+    TEST --> ENV
+
+    RADP -.-> SQCR
+    MON  -.-> RPRD -.-> RBLK
+    MON  -.-> TPUSCB & COV & SENMON
+    TPUMON -.-> TPUSCB
+
+    DRV  ==>|"Pin Stimulus"| VIF
+    VIF  ==>|"Native Bus"| DUT
+    DUT  -.-> MON
+    DUT  -.-> TPUMON
+
+    class TEST test
+    class RBLK,RADP,RPRD ral
+    class SEQ,SQCR,DRV agent
+    class MON,TPUMON,SENMON mon
+    class TPUSCB,COV sb
+    class VIF iface
+    class DUT dut
+    class ENV,RAL_SUB,AGT,PASS grp

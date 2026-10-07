@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-10-07T15:33:12" hostname="Envy" package="test_sensor_cover" id="0" name="default" tests="0" errors="0" failures="0" time="0" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<system-out>SBY 15:33:10 [test_sensor_cover_out] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/test_sensor_cover_out'.
+SBY 15:33:10 [test_sensor_cover_out] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/../../../phase_7/fault_models/sensor_status_native.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/test_sensor_cover_out/src/sensor_status_native.v'.
+SBY 15:33:11 [test_sensor_cover_out] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_interface_formal.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/test_sensor_cover_out/src/sensor_interface_formal.sv'.
+SBY 15:33:11 [test_sensor_cover_out] engine_0: smtbmc z3
+SBY 15:33:11 [test_sensor_cover_out] base: starting process &quot;cd test_sensor_cover_out/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 15:33:11 [test_sensor_cover_out] base: finished (returncode=0)
+SBY 15:33:11 [test_sensor_cover_out] prep: starting process &quot;cd test_sensor_cover_out/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 15:33:12 [test_sensor_cover_out] prep: finished (returncode=0)
+SBY 15:33:12 [test_sensor_cover_out] smt2: starting process &quot;cd test_sensor_cover_out/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 15:33:12 [test_sensor_cover_out] smt2: finished (returncode=0)
+SBY 15:33:12 [test_sensor_cover_out] engine_0: starting process &quot;cd test_sensor_cover_out; yosys-smtbmc -s z3 --presat -c --noprogress -t 10  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
+SBY 15:33:12 [test_sensor_cover_out] engine_0: ##   0:00:00  Solver: z3
+SBY 15:33:12 [test_sensor_cover_out] engine_0: ##   0:00:00  Status: passed
+SBY 15:33:12 [test_sensor_cover_out] engine_0: finished (returncode=0)
+SBY 15:33:12 [test_sensor_cover_out] engine_0: Status returned by engine: pass
+SBY 15:33:12 [test_sensor_cover_out] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY 15:33:12 [test_sensor_cover_out] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 15:33:12 [test_sensor_cover_out] summary: engine_0 (smtbmc z3) returned pass
+SBY 15:33:12 [test_sensor_cover_out] summary: engine_0 did not produce any traces
+SBY 15:33:12 [test_sensor_cover_out] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

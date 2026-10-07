@@ -1,35 +1,49 @@
 graph TB
-    classDef block  fill:#2C3E50,stroke:#2C3E50,stroke-width:2px,color:#fff,font-weight:bold
-    classDef reg    fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
-    classDef map    fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
-    classDef pred   fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
-    classDef grp    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+    %% --- CLASS DEFINITIONS (Publication Palette) ---
+    classDef blockStyle  fill:#0F172A,stroke:#020617,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef mapStyle    fill:#334155,stroke:#1E293B,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef regStyle    fill:#F1F5F9,stroke:#64748B,stroke-width:1.5px,color:#0F172A,font-weight:bold
+    classDef monStyle    fill:#0284C7,stroke:#0369A1,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef predStyle   fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef mirrorStyle fill:#059669,stroke:#047857,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef groupStyle  fill:#F8FAFC,stroke:#CBD5E1,stroke-width:1.5px,color:#334155,font-weight:bold
 
-    RBLK["sensor_reg_block\nBase: 0x0001_2000"]
+    %% --- MAIN REG BLOCK ---
+    RBLK["sensor_reg_block<br/>(Base: 0x0001_2000)"]
 
-    MAP["default_map\nUVM_LITTLE_ENDIAN  bus_width=4"]
+    %% --- ADDRESS MAP ---
+    MAP["default_map<br/>(UVM_LITTLE_ENDIAN | bus_width=4 Bytes)"]
 
-    subgraph REGS ["Register Definitions"]
+    %% --- REGISTER DEFINITIONS ---
+    subgraph REGS ["REGISTER MODEL DEFINITIONS"]
         direction TB
-        R0["BATTERY_PERCENT  0x00  RO"]
-        R1["BATTERY_VOLTAGE  0x04  RO"]
-        R2["TEMPERATURE      0x08  RO"]
+        R0["BATTERY_PERCENT<br/>Offset: 0x00 | Access: RO"]
+        R1["BATTERY_VOLTAGE<br/>Offset: 0x04 | Access: RO"]
+        R2["TEMPERATURE<br/>Offset: 0x08 | Access: RO"]
+        R0 ~~~ R1 ~~~ R2
     end
 
-    subgraph PRED_SUB ["RAL Predictor Path"]
-        direction LR
-        MON_IN["Native Bus Monitor"]
-        PRED2["soc_reg_predictor"]
-        MIRROR["RAL Mirror"]
-        MON_IN --> PRED2 --> MIRROR
+    %% --- PREDICTOR & MIRROR PATH ---
+    subgraph PRED_SUB ["UVM RAL PREDICTION & MIRROR UPDATE"]
+        direction TB
+        MON_IN["Native Bus Monitor<br/>(Observes Bus Transactions)"]
+        PRED2["soc_reg_predictor<br/>(uvm_reg_predictor)"]
+        MIRROR["RAL Desired &amp; Mirrored Value<br/>(uvm_reg_field :: m_mirrored)"]
+        MON_IN ==>|"Bus Transaction (uvm_reg_bus_op)"| PRED2
+        PRED2 ==>|"Update Mirror State"| MIRROR
     end
 
-    RBLK --> MAP
-    MAP  --> REGS
-    RBLK -.-> PRED_SUB
+    %% --- HIERARCHICAL & PREDICTION CONNECTIONS ---
+    RBLK ==> MAP
+    MAP ==> REGS
+    RBLK -.->|"Instantiates Subsystem"| PRED_SUB
+    MIRROR -.->|"Reflects Hardware State"| REGS
 
-    class RBLK block
-    class MAP map
-    class R0,R1,R2 reg
-    class MON_IN,PRED2,MIRROR pred
-    class REGS,PRED_SUB grp
+    %% --- CLASS ASSIGNMENTS ---
+    class RBLK blockStyle
+    class MAP mapStyle
+    class R0,R1,R2 regStyle
+    class MON_IN monStyle
+    class PRED2 predStyle
+    class MIRROR mirrorStyle
+    class REGS,PRED_SUB groupStyle

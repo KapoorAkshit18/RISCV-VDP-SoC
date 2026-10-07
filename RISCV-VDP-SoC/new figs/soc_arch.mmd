@@ -1,0 +1,26 @@
+flowchart TB
+    subgraph DUT["SoC"]
+        direction TB
+
+        subgraph CORE["Core & Interconnect"]
+            direction LR
+            CPU["CPU"]:::architecture
+            BUS["Interconnect"]:::rtl
+        end
+
+        subgraph PERI["Peripheral Blocks"]
+            direction LR
+            MEM["Memory"]:::rtl
+            IO["I/O & RF"]:::rtl
+            SEN["Sensor"]:::rtl
+            ACC["Video & AI"]:::rtl
+        end
+
+        CPU <--> BUS
+        BUS <--> PERI
+    end
+
+    classDef architecture fill:#E8EEF5,stroke:#355C7D,stroke-width:1.5px,color:#1F2937,font-weight:bold
+    classDef rtl fill:#E3EDF7,stroke:#2F6690,stroke-width:1.25px,color:#1F2937
+    classDef groupStyle fill:#F8F9FA,stroke:#6B7280,stroke-width:1.25px,color:#374151,font-weight:bold
+    class DUT,CORE,PERI groupStyle

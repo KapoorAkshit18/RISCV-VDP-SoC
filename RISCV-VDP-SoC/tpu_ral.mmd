@@ -1,60 +1,88 @@
+---
+config:
+  theme: mc
+---
 graph TB
-    classDef block  fill:#2C3E50,stroke:#2C3E50,stroke-width:2px,color:#fff,font-weight:bold
-    classDef rw     fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
-    classDef ro     fill:#4A5568,stroke:#4A5568,stroke-width:1px,color:#fff
-    classDef ctrl   fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
-    classDef map    fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
-    classDef scb    fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
-    classDef grp    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+    %% --- CLASS DEFINITIONS (Original Conversation Palette) ---
+    classDef blockClass fill:#2C3E50,stroke:#2C3E50,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef mapClass   fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef ctrlClass  fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef roClass    fill:#4A5568,stroke:#4A5568,stroke-width:1px,color:#FFFFFF
+    classDef rwClass    fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef scbClass   fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
+    classDef groupClass fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.5px,color:#4A5568,font-weight:bold
 
-    RBLK["tpu_reg_block\nBase: 0x0001_4000"]
+    %% --- TOP LEVEL REGISTER BLOCK & MAP ---
+    RBLK["tpu_reg_block<br><br>(Base Address: 0x0001_4000)"]
+    MAP["default_map<br><br>(UVM_LITTLE_ENDIAN | bus_width = 4 Bytes)"]
 
-    MAP["default_map\nUVM_LITTLE_ENDIAN  bus_width=4"]
+    RBLK ==> MAP
 
-    subgraph CTRL_REG ["Control / Status"]
-        direction LR
-        CTRL["CTRL  0x00  RW\nbit[0] = START"]
-        STAT["STATUS  0x04  RO volatile\nbit[0]=BUSY  bit[1]=DONE"]
+    %% --- REGISTER MODEL MAP SUBSYSTEM ---
+    subgraph REGS ["TPU MMIO REGISTER MAP DEFINITIONS"]
+        direction TB
+
+        subgraph CTRL_REG ["Control / Status Registers — 0x00–0x04"]
+            direction LR
+            CTRL["CTRL (0x00) — RW<br><br>bit[0] = START"]
+            STAT["STATUS (0x04) — RO Volatile<br><br>bit[0] = BUSY | bit[1] = DONE"]
+        end
+
+        subgraph WEIGHT_REG ["Weight Registers — 0x10–0x34 (RW 64-bit LO/HI)"]
+            direction LR
+            W0["W0: wb2 row 0"]
+            W1["W1: wb2 row 1"]
+            W2["W2: wb2 row 2"]
+            W3["W3: wb3 row 0"]
+            W4["W4: wb3 row 1"]
+        end
+
+        subgraph INPUT_REG ["Input Registers — 0x38–0x44 (RW 64-bit LO/HI)"]
+            direction LR
+            I0["INPUT0: k row 0"]
+            I1["INPUT1: k row 1"]
+        end
+
+        subgraph RESULT_REG ["Result Registers — 0x50–0x5C (RO Volatile)"]
+            direction LR
+            R0["RESULT0: a3 row 0"]
+            R1["RESULT1: a3 row 1"]
+        end
     end
 
-    subgraph WEIGHT_REG ["Weights  0x10–0x34  RW  64-bit LO/HI"]
+    MAP ==> REGS
+
+    %% --- DYNAMIC SCOREBOARD VERIFICATION PATH ---
+    subgraph SCB_PATH ["TPU SCOREBOARD VALIDATION PATH"]
         direction LR
-        W0["W0  wb2 row 0"]
-        W1["W1  wb2 row 1"]
-        W2["W2  wb2 row 2"]
-        W3["W3  wb3 row 0"]
-        W4["W4  wb3 row 1"]
+        TPUMON2["TPU Monitor<br><br>(AXI-Stream Snoop)"]
+        CREF["C DPI-C Reference Model<br><br>(Golden Matrix Exec)"]
+        COMP["Result Comparator<br><br>(Scoreboard Matcher)"]
+
+        TPUMON2 ==> COMP
+        CREF ==> COMP
     end
 
-    subgraph INPUT_REG ["Inputs  0x38–0x44  RW  64-bit LO/HI"]
-        direction LR
-        I0["INPUT0  k row 0"]
-        I1["INPUT1  k row 1"]
+    %% --- ACTIVE UVM RAL FUNCTIONAL CHECKS ---
+    subgraph RAL_CHECKS ["ACTIVE UVM RAL — Firmware-Exclusive Verification"]
+        direction TB
+        CHK1["Register Initialisation<br><br>(Weight & Input registers reset to 0)"]
+        CHK2["Register Retention<br><br>(All W0–W4 & INPUT0–1 storage verified)"]
+        CHK3["Read-Only Enforcement<br><br>(RESULT0/1 write-ignore behaviour)"]
+        CHK4["Address Boundary<br><br>(Unmapped offset returns 0)"]
+        CHK5["Concurrency Guard<br><br>(START qualifier when BUSY asserted)"]
     end
 
-    subgraph RESULT_REG ["Results  0x50–0x5C  RO volatile"]
-        direction LR
-        R0["RESULT0  a3 row 0"]
-        R1["RESULT1  a3 row 1"]
-    end
+    %% --- DATAFLOW & FUNCTIONAL BINDINGS ---
+    RESULT_REG -.->|"Hardware Result Bus"| SCB_PATH
+    REGS -.->|"Target Register Verification"| RAL_CHECKS
 
-    subgraph SCB_PATH ["Scoreboard"]
-        direction LR
-        TPUMON2["TPU Monitor"]
-        CREF["C DPI Reference Model"]
-        COMP["Result Comparator"]
-        TPUMON2 --> COMP
-        CREF --> COMP
-    end
-
-    RBLK --> MAP
-    MAP  --> CTRL_REG & WEIGHT_REG & INPUT_REG & RESULT_REG
-    RESULT_REG -.-> SCB_PATH
-
-    class RBLK block
-    class MAP map
-    class CTRL ctrl
-    class STAT,R0,R1 ro
-    class W0,W1,W2,W3,W4,I0,I1 rw
-    class TPUMON2,CREF,COMP scb
-    class CTRL_REG,WEIGHT_REG,INPUT_REG,RESULT_REG,SCB_PATH grp
+    %% --- CLASS ASSIGNMENTS ---
+    class RBLK blockClass
+    class MAP mapClass
+    class CTRL ctrlClass
+    class STAT,R0,R1 roClass
+    class W0,W1,W2,W3,W4,I0,I1 rwClass
+    class TPUMON2,CREF,COMP scbClass
+    class CHK1,CHK2,CHK3,CHK4,CHK5 rwClass
+    class REGS,CTRL_REG,WEIGHT_REG,INPUT_REG,RESULT_REG,SCB_PATH,RAL_CHECKS groupClass

@@ -1,84 +1,94 @@
 graph TB
-    classDef uvm      fill:#2C3E50,stroke:#2C3E50,stroke-width:1.5px,color:#fff
-    classDef rtl      fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
-    classDef formal   fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
-    classDef mutation fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
-    classDef iface    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,stroke-dasharray:3 2,color:#4A5568
-    classDef grp      fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+    %% --- CLASS DEFINITIONS (Original Conversation Palette) ---
+    classDef topStyle     fill:#34495E,stroke:#2C3E50,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef uvmStyle     fill:#2C3E50,stroke:#2C3E50,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef rtlStyle     fill:#4A5568,stroke:#4A5568,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef provenStyle  fill:#E2E8F0,stroke:#94A3B8,stroke-width:1.5px,color:#2C3E50,font-weight:bold
+    classDef timeoutStyle fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef mutantStyle  fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef ifaceStyle   fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.5px,stroke-dasharray:3 2,color:#4A5568,font-weight:bold
+    classDef groupStyle   fill:#F8FAFC,stroke:#94A3B8,stroke-width:1.5px,color:#4A5568,font-weight:bold
 
-    subgraph DVP ["Dynamic Verification — Phase 5"]
+    %% --- DYNAMIC VERIFICATION PLANE ---
+    subgraph DVP ["Dynamic Verification Plane — Phase 5 (UVM + RNM)"]
         direction TB
-        TEST["soc_tpu_test"]
 
-        subgraph ENV ["soc_env"]
-            RAL["soc_reg_block\nGPIO · RF · Sensor · VDP · TPU"]
-            PRED["RAL Predictor"]
+        TEST["soc_tpu_test<br/><br/>(UVM Test Sequence)"]
 
-            subgraph AGT ["Native Bus Agent"]
-                DRV["Driver"] --- SQCR["Sequencer"] --- SEQ["Sequence"]
+        subgraph ENV ["soc_env Engine"]
+            direction TB
+
+            subgraph AGT ["Native Bus Agent (Active)"]
+                direction LR
+                SEQ["Sequence"] --> SQCR["Sequencer"] --> DRV["Driver"]
             end
 
+            RAL["RAL Model: soc_reg_block<br/><br/>(GPIO · RF · Sensor · VDP · TPU)"]
+
+            PRED["RAL Predictor<br/><br/>(Mirror on observed bus Tx)"]
+
             MON["Native Bus Monitor"]
-            TPUMON["TPU Monitor"]
-            SENMON["Sensor Monitor"]
-            TPUSCB["TPU Scoreboard"]
+
+            TPUMON["TPU Monitor<br/><br/>(AXI-Stream Snoop)"]
+
+            SENMON["Sensor Monitor<br/><br/>(RNM Correlation)"]
+
+            TPUSCB["TPU Scoreboard<br/><br/>(C DPI Ref Model)"]
+
             COV["Functional Coverage"]
         end
 
-        TEST --> ENV
+        TEST ==> ENV
         MON -.-> PRED -.-> RAL
         MON -.-> TPUSCB & COV & SENMON
         TPUMON -.-> TPUSCB
     end
 
-    subgraph MVP ["Mutation Testing — Phase 7"]
+    %% --- VIRTUAL INTERFACE BOUNDARY ---
+    VIF{{"SoC Verification Interface:<br/><br/>soc_native_if · tpu_debug_if"}}
+
+    %% --- HARDWARE DESIGN PLANE ---
+    subgraph HDP ["Hardware Design Plane — DUT (cpu_soc_ram_top)"]
         direction LR
-        MUT_SIM["SoC Simulation\nControl-flow & state mutations"]
-        MUT_TPU["TPU MMIO\nRegister-map mutations"]
-        MUT_FORM["AXI-Stream FSM\nProtocol-level mutations"]
-    end
 
-    subgraph SVP ["Formal BMC — Phase 8"]
-        direction LR
-        SOLVER["SymbiYosys / Z3\nsmtbmc"]
+        CPU2["PicoRV32<br/><br/>* Bus Adapter"]
 
-        subgraph PROVEN ["Proven"]
-            CPU_P["CPU/RAM Bus"]
-            SEN_P["Sensor Status"]
-            AXI_P["AXI-Stream Interface"]
-        end
+        IC2["SoC Interconnect<br/><br/>Address Decoder"]
 
-        subgraph TIMEOUT_T ["Intractable"]
-            IC_T["Interconnect"]
-            TPU_T["Full TPU"]
-            P05_T["MMIO START Path"]
-        end
+        PER2["Peripherals Block<br/><br/>RAM · GPIO · RF · Sensor · VDP · TPU"]
 
-        SOLVER --> PROVEN & TIMEOUT_T
-    end
-
-    VIF{{"soc_native_if  ·  tpu_debug_if"}}
-
-    subgraph HDP ["Hardware Design — DUT"]
-        direction LR
-        CPU2["PicoRV32\n+ Bus Adapter"]
-        IC2["SoC Interconnect"]
-        PER2["RAM · GPIO · RF · Sensor · VDP · TPU"]
         CPU2 ==> IC2 ==> PER2
     end
 
-    DRV  ==>|"Pin Stimulus"| VIF
-    VIF  ==>|"Native Bus"| HDP
-    HDP  -.-> MON
-    HDP  -.-> TPUMON
+    %% --- STATIC VERIFICATION PLANE ---
+    subgraph SVP ["Static Verification Plane — Phase 8 (Formal BMC)"]
+        direction TB
 
-    AXI_P -.-|"SVA Bind"| PER2
-    SEN_P -.-|"SVA Bind"| PER2
-    CPU_P -.-|"SVA Bind"| CPU2
+        SOLVER["SymbiYosys / Z3 Engine<br/><br/>(smtbmc)"]
 
-    class TEST,ENV,RAL,PRED,AGT,DRV,SQCR,SEQ,MON,TPUMON,SENMON,TPUSCB,COV uvm
-    class HDP,CPU2,IC2,PER2 rtl
-    class SOLVER,PROVEN,TIMEOUT_T,CPU_P,SEN_P,AXI_P,IC_T,TPU_T,P05_T formal
-    class MUT_SIM,MUT_TPU,MUT_FORM mutation
-    class VIF iface
-    class DVP,MVP,SVP,ENV,AGT grp
+        subgraph PASS_T ["Proven Targets [PASS]"]
+            direction LR
+
+            CPU_P["CPU/RAM Bus<br/><br/>ABS_A01"]
+
+            SEN_P["Sensor Status<br/><br/>SEN_A01–A04"]
+
+            AXI_P["AXI-Stream Interface<br/><br/>P01–P04 · P06"]
+        end
+
+        subgraph TIMEOUT_T ["Intractable Targets [TIMEOUT]"]
+            direction LR
+
+            IC_T["Interconnect<br/><br/>IC_A01–A05"]
+
+            TPU_T["Full TPU<br/><br/>TPU_A01–A04"]
+
+            P05_T["MMIO START Path<br/><br/>P05"]
+        end
+
+        SOLVER ==> PASS_T & TIMEOUT_T
+    end
+
+    %% --- MUTATION VERIFICATION PLANE ---
+    subgraph MVP ["Mutation Verification Plane — Phase 7"]
+        direction LR

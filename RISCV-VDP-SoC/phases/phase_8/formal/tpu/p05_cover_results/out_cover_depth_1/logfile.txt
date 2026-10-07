@@ -1,0 +1,28 @@
+SBY 15:35:11 [p05_cover_results/out_cover_depth_1] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_cover_results/out_cover_depth_1'.
+SBY 15:35:11 [p05_cover_results/out_cover_depth_1] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_cover_results/out_cover_depth_1/src/nn_axi_wrapper.v'.
+SBY 15:35:12 [p05_cover_results/out_cover_depth_1] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_cover_results/out_cover_depth_1/src/nn_axis_master.v'.
+SBY 15:35:12 [p05_cover_results/out_cover_depth_1] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_wrapper.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_cover_results/out_cover_depth_1/src/tpu_p05_control_wrapper.sv'.
+SBY 15:35:12 [p05_cover_results/out_cover_depth_1] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/p05_cover_results/out_cover_depth_1/src/tpu_p05_control_checker.sv'.
+SBY 15:35:12 [p05_cover_results/out_cover_depth_1] engine_0: smtbmc z3
+SBY 15:35:12 [p05_cover_results/out_cover_depth_1] base: starting process "cd p05_cover_results/out_cover_depth_1/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] base: finished (returncode=0)
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] prep: starting process "cd p05_cover_results/out_cover_depth_1/model; yosys -ql design_prep.log design_prep.ys"
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] prep: finished (returncode=0)
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] smt2: starting process "cd p05_cover_results/out_cover_depth_1/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] smt2: finished (returncode=0)
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] engine_0: starting process "cd p05_cover_results/out_cover_depth_1; yosys-smtbmc -s z3 --presat -c --noprogress -t 1  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] engine_0: ##   0:00:00  Solver: z3
+SBY 15:35:13 [p05_cover_results/out_cover_depth_1] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] engine_0: ##   0:00:01  Unreached cover statement at tpu_p05_control_checker.sv:101.31-102.33 ($cover$tpu_p05_control_checker.sv:101$97).
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] engine_0: ##   0:00:01  Unreached cover statement at tpu_p05_control_checker.sv:100.34-101.30 ($cover$tpu_p05_control_checker.sv:100$96).
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] engine_0: ##   0:00:01  Status: failed
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] engine_0: finished (returncode=1)
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] engine_0: Status returned by engine: FAIL
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] summary: engine_0 (smtbmc z3) returned FAIL
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] summary: engine_0 did not produce any traces
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] summary: unreached cover statements:
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] summary:   tpu_p05_control_checker.$cover$tpu_p05_control_checker.sv:100$96 at tpu_p05_control_checker.sv:100.34-101.30
+SBY 15:35:14 [p05_cover_results/out_cover_depth_1] summary:   tpu_p05_control_checker.$cover$tpu_p05_control_checker.sv:101$97 at tpu_p05_control_checker.sv:101.31-102.33
+SBY 15:35:15 [p05_cover_results/out_cover_depth_1] DONE (FAIL, rc=2)

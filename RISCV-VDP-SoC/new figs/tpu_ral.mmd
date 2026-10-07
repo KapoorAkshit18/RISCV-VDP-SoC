@@ -1,0 +1,47 @@
+---
+config:
+  theme: mc
+---
+flowchart TB
+    %% Compact, publication-ready view retaining the academic colour palette.
+    classDef architecture fill:#E8EEF5,stroke:#355C7D,stroke-width:1.5px,color:#1F2937,font-weight:bold
+    classDef rtl fill:#E3EDF7,stroke:#2F6690,stroke-width:1.25px,color:#1F2937
+    classDef simulation fill:#E6F1F5,stroke:#3F7C85,stroke-width:1.25px,color:#1F2937
+    classDef formal fill:#EAF3EA,stroke:#52796F,stroke-width:1.25px,color:#1F2937
+
+    RBLK["TPU Register Block<br/>Base: 0x0001_4000"]
+    MAP["Default Map<br/>Little-endian; 32-bit bus"]
+    RBLK ==> MAP
+
+    subgraph REGS["MMIO Register Map"]
+        direction LR
+        CTRL["Control and Status<br/>0x00-0x04"]
+        WEIGHT["Weights W0-W4<br/>0x10-0x34; RW 64-bit"]
+        INPUT["Inputs INPUT0-1<br/>0x38-0x44; RW 64-bit"]
+        RESULT["Results RESULT0-1<br/>0x50-0x5C; RO volatile"]
+    end
+    MAP ==> REGS
+
+    subgraph SCB["Scoreboard Validation"]
+        direction LR
+        MON["TPU Monitor<br/>AXI-Stream"]
+        REF["DPI-C Reference Model"]
+        COMP["Result Comparator"]
+        MON --> COMP
+        REF --> COMP
+    end
+
+    subgraph RAL["UVM RAL Checks"]
+        direction LR
+        DATA["Reset and Retention<br/>Weights and Inputs"]
+        ACCESS["Access Rules<br/>Read-only Results"]
+        PROTO["Protocol and Bounds<br/>START/BUSY; Unmapped = 0"]
+    end
+
+    RESULT -. "Result bus" .-> SCB
+    MAP -. "RAL checks" .-> RAL
+
+    class RBLK,MAP architecture
+    class CTRL,WEIGHT,INPUT,RESULT rtl
+    class MON,REF,COMP simulation
+    class DATA,ACCESS,PROTO formal

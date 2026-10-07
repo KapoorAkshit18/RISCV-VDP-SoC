@@ -1,0 +1,7 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+engine_0 (smtbmc z3) returned FAIL
+engine_0 did not produce any traces
+unreached cover statements:
+  tpu_p05_control_checker.$cover$tpu_p05_control_checker.sv:100$96 at tpu_p05_control_checker.sv:100.34-101.30
+  tpu_p05_control_checker.$cover$tpu_p05_control_checker.sv:101$97 at tpu_p05_control_checker.sv:101.31-102.33

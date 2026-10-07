@@ -1,0 +1,28 @@
+---
+config:
+  theme: mc
+  flowchart:
+    curve: linear
+---
+flowchart TB
+    TOOL["SymbiYosys + Z3<br/>(smtbmc engine)"]
+
+    PROVEN["Proven properties<br/>nn_axis_master · P01–P04, P06<br/>5 PASS"]
+    TIMEOUT["Intractable targets<br/>P05 · IC_A01–A05 · TPU_A01–A04<br/>3 TIMEOUT"]
+    MODULES["Other proven modules<br/>ABS_A01 · SEN_A01–A04<br/>2 PASS"]
+    MUTATION["Mutation analysis<br/>M01–M03<br/>3 KILLED"]
+
+    TOOL --> PROVEN
+    TOOL --> TIMEOUT
+    TOOL --> MODULES
+    TOOL --> MUTATION
+
+    classDef toolStyle fill:#E8EEF5,stroke:#355C7D,stroke-width:1.5px,color:#1F2937,font-weight:bold
+    classDef provenStyle fill:#EAF3EA,stroke:#52796F,stroke-width:1.25px,color:#1F2937,font-weight:bold
+    classDef timeoutStyle fill:#F8F9FA,stroke:#6B7280,stroke-width:1.25px,color:#374151,font-weight:bold
+    classDef mutantStyle fill:#F7EFE2,stroke:#A46A35,stroke-width:1.25px,color:#1F2937,font-weight:bold
+
+    class TOOL toolStyle
+    class PROVEN,MODULES provenStyle
+    class TIMEOUT timeoutStyle
+    class MUTATION mutantStyle

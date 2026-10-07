@@ -1,63 +1,58 @@
-graph TB
-    %% --- CLASS DEFINITIONS (Publication Palette) ---
-    classDef toolStyle     fill:#1E293B,stroke:#0F172A,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    classDef provenStyle   fill:#059669,stroke:#047857,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
-    classDef timeoutStyle  fill:#DC2626,stroke:#B91C1C,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
-    classDef mutantStyle   fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
-    classDef noteStyle     fill:#FEF3C7,stroke:#D97706,stroke-width:1px,stroke-dasharray:4 3,color:#78350F
-    classDef groupStyle    fill:#F8FAFC,stroke:#CBD5E1,stroke-width:1.5px,color:#334155,font-weight:bold
+---
+config:
+  theme: mc
+  flowchart:
+    curve: linear
+  layout: fixed
+---
+flowchart TB
+ subgraph PROVEN["Proven properties — nn_axis_master"]
+    direction LR
+        P01["P01 · TVALID stability<br>PASS"]
+        P02["P02 · Payload stability<br>PASS"]
+        P03["P03 · Transfer qualification<br>PASS"]
+        P04["P04 · TLAST on final beat<br>PASS"]
+        P06["P06 · BUSY/DONE sequence<br>PASS"]
+  end
+ subgraph LIMITED["Intractable targets — Z3 timeout"]
+    direction LR
+        P05["P05 · MMIO START path<br>TIMEOUT"]
+        IC["IC_A01–A05 TIMEOUT"]
+        TPU["TPU_A01–A04 TIMEOUT"]
+  end
+ subgraph MODULES["Other proven modules"]
+    direction LR
+        CPU["ABS_A01 PASS"]
+        SENSOR["SEN_A01–A04<br>"]
+  end
+ subgraph MUTATION["Formal mutation analysis"]
+    direction LR
+        M01["M01 · Payload during stall<br>KILLED"]
+        M02["M02 · Premature TLAST<br>KILLED"]
+        M03["M03 · Unqualified transfer<br>KILLED"]
+  end
+    MUTATION --> TOOL["SymbiYosys + Z3<br>(smtbmc engine)"]
+    LIMITED --> TOOL
+    PROVEN --> TOOL
+    MODULES --> TOOL
 
-    %% --- MAIN ENGINE ---
-    TOOL["SymbiYosys + Z3<br>(smtbmc Engine)"]
-
-    %% --- SUBGRAPHS ---
-    subgraph TRACTABLE ["PROVEN PROPERTIES — nn_axis_master"]
-        direction TB
-        P01["P01: TVALID Stability<br>[PASS]"]
-        P02["P02: Payload Stability<br>[PASS]"]
-        P03["P03: Transfer Qual.<br>[PASS]"]
-        P04["P04: TLAST Final Beat<br>[PASS]"]
-        P06["P06: BUSY/DONE Seq.<br>[PASS]"]
-    end
-
-    subgraph INTRACTABLE ["INTRACTABLE TARGETS — Z3 Timeout"]
-        direction TB
-        P05["P05: MMIO START Path<br>[TIMEOUT]"]
-        IC_F["Interconnect: IC_A01–A05<br>[TIMEOUT]"]
-        TPU_F["Full TPU: TPU_A01–A04<br>[TIMEOUT]"]
-    end
-
-    subgraph OTHER ["OTHER PROVEN MODULES"]
-        direction TB
-        CPU_F["CPU/RAM: ABS_A01<br>[PASS]"]
-        SEN_F["Sensor Status: SEN_A01–A04<br>[PASS]"]
-    end
-
-    subgraph MUTATION ["FORMAL MUTATION ANALYSIS"]
-        direction TB
-        M01["M01: Payload During Stall<br>[KILLED]"]
-        M02["M02: Premature TLAST<br>[KILLED]"]
-        M03["M03: Unqualified Transfer<br>[KILLED]"]
-    end
-
-    NOTE>MMIO Data-Path (P05)<br>Escalated to UVM RAL Framework]
-
-    %% --- CONNECTIONS ---
-    TOOL ==> TRACTABLE
-    TOOL ==> INTRACTABLE
-    TOOL ==> OTHER
-    TOOL ==> MUTATION
-
-    %% --- MUTATION CORRELATIONS & ESCALATION ---
-    P02 -.-> M01
-    P04 -.-> M02
-    P03 -.-> M03
-    P05 -.-> NOTE
-
-    %% --- CLASS ASSIGNMENTS ---
-    class TOOL toolStyle
-    class P01,P02,P03,P04,P06,CPU_F,SEN_F provenStyle
-    class P05,IC_F,TPU_F timeoutStyle
-    class M01,M02,M03 mutantStyle
-    class NOTE noteStyle
-    class TRACTABLE,INTRACTABLE,OTHER,MUTATION groupStyle
+     P01:::provenStyle
+     P02:::provenStyle
+     P03:::provenStyle
+     P04:::provenStyle
+     P06:::provenStyle
+     P05:::timeoutStyle
+     IC:::timeoutStyle
+     TPU:::timeoutStyle
+     CPU:::provenStyle
+     SENSOR:::provenStyle
+     M01:::mutantStyle
+     M02:::mutantStyle
+     M03:::mutantStyle
+     TOOL:::toolStyle
+    classDef toolStyle fill:#1E293B,stroke:#0F172A,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef provenStyle fill:#059669,stroke:#047857,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef timeoutStyle fill:#DC2626,stroke:#B91C1C,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef mutantStyle fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef noteStyle fill:#FEF3C7,stroke:#D97706,stroke-width:1px,stroke-dasharray:4 3,color:#78350F
+    classDef groupStyle fill:#F8FAFC,stroke:#CBD5E1,stroke-width:1.5px,color:#334155,font-weight:bold

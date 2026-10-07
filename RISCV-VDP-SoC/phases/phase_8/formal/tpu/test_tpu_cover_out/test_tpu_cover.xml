@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-10-07T15:33:41" hostname="Envy" package="test_tpu_cover" id="0" name="default" tests="3" errors="0" failures="0" time="3" skipped="3">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property COVER in tpu_p05_control_checker at tpu_p05_control_checker.sv:100.34-101.30" time="0" type="COVER" location="tpu_p05_control_checker.sv:100.34-101.30" id="$cover$tpu_p05_control_checker.sv:100$96">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in tpu_p05_control_checker at tpu_p05_control_checker.sv:101.31-102.33" time="0" type="COVER" location="tpu_p05_control_checker.sv:101.31-102.33" id="$cover$tpu_p05_control_checker.sv:101$97">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in tpu_p05_control_checker at tpu_p05_control_checker.sv:62.99-63.47" time="0" type="ASSERT" location="tpu_p05_control_checker.sv:62.99-63.47" id="$assert$tpu_p05_control_checker.sv:62$95">
+<skipped />
+</testcase>
+<system-out>SBY 15:33:36 [test_tpu_cover_out] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_tpu_cover_out'.
+SBY 15:33:36 [test_tpu_cover_out] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axi_wrapper.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_tpu_cover_out/src/nn_axi_wrapper.v'.
+SBY 15:33:36 [test_tpu_cover_out] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/../../../phase_7/fault_models/nn_axis_master.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_tpu_cover_out/src/nn_axis_master.v'.
+SBY 15:33:36 [test_tpu_cover_out] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_wrapper.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_tpu_cover_out/src/tpu_p05_control_wrapper.sv'.
+SBY 15:33:36 [test_tpu_cover_out] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/tpu_p05_control_checker.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/tpu/test_tpu_cover_out/src/tpu_p05_control_checker.sv'.
+SBY 15:33:36 [test_tpu_cover_out] engine_0: smtbmc z3
+SBY 15:33:36 [test_tpu_cover_out] base: starting process &quot;cd test_tpu_cover_out/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 15:33:38 [test_tpu_cover_out] base: finished (returncode=0)
+SBY 15:33:38 [test_tpu_cover_out] prep: starting process &quot;cd test_tpu_cover_out/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 15:33:38 [test_tpu_cover_out] prep: finished (returncode=0)
+SBY 15:33:38 [test_tpu_cover_out] smt2: starting process &quot;cd test_tpu_cover_out/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 15:33:38 [test_tpu_cover_out] smt2: finished (returncode=0)
+SBY 15:33:38 [test_tpu_cover_out] engine_0: starting process &quot;cd test_tpu_cover_out; yosys-smtbmc -s z3 --presat -c --noprogress -t 10  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
+SBY 15:33:39 [test_tpu_cover_out] engine_0: ##   0:00:00  Solver: z3
+SBY 15:33:39 [test_tpu_cover_out] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 15:33:40 [test_tpu_cover_out] engine_0: ##   0:00:01  Checking cover reachability in step 1..
+SBY 15:33:40 [test_tpu_cover_out] engine_0: ##   0:00:01  Checking cover reachability in step 2..
+SBY 15:33:40 [test_tpu_cover_out] engine_0: ##   0:00:01  Checking cover reachability in step 3..
+SBY 15:33:40 [test_tpu_cover_out] engine_0: ##   0:00:01  Reached cover statement at tpu_p05_control_checker.sv:100.34-101.30 ($cover$tpu_p05_control_checker.sv:100$96) in step 3.
+SBY 15:33:40 [test_tpu_cover_out] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 15:33:40 [test_tpu_cover_out] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Checking cover reachability in step 3..
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Checking cover reachability in step 4..
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Reached cover statement at tpu_p05_control_checker.sv:101.31-102.33 ($cover$tpu_p05_control_checker.sv:101$97) in step 4.
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 15:33:41 [test_tpu_cover_out] engine_0: ##   0:00:02  Status: passed
+SBY 15:33:41 [test_tpu_cover_out] engine_0: finished (returncode=0)
+SBY 15:33:41 [test_tpu_cover_out] engine_0: Status returned by engine: pass
+SBY 15:33:41 [test_tpu_cover_out] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:05 (5)
+SBY 15:33:41 [test_tpu_cover_out] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 15:33:41 [test_tpu_cover_out] summary: engine_0 (smtbmc z3) returned pass
+SBY 15:33:41 [test_tpu_cover_out] summary: trace: test_tpu_cover_out/engine_0/trace0.vcd
+SBY 15:33:41 [test_tpu_cover_out] summary: trace: test_tpu_cover_out/engine_0/trace1.vcd
+SBY 15:33:41 [test_tpu_cover_out] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

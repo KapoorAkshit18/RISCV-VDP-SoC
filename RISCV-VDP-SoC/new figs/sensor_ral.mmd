@@ -1,0 +1,29 @@
+---
+config:
+  theme: mc
+---
+graph TB
+    %% --- JEM-COMPLIANT PALETTE ---
+    classDef analogStyle  fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#0f172a
+    classDef digitalStyle fill:#ffffff,stroke:#94a3b8,stroke-width:1.5px,color:#0f172a
+    classDef busStyle     fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#0f172a,font-weight:bold
+
+    BUS["SoC Interconnect"]
+
+    subgraph SENSOR_DUT["Sensor Subsystem"]
+        direction LR
+
+        AFE["Analog Front-End<br><br>(SystemVerilog-Real)"]
+        ADC["ADC / Data Converter"]
+        CTRL["Digital Control & Registers"]
+    end
+
+    %% Routing
+    AFE -.->|"Continuous SV-Real"| ADC
+    ADC -->|"Discrete Digital Samples"| CTRL
+    CTRL <==>|"Native Bus"| BUS
+
+    %% Assignments
+    class AFE analogStyle
+    class ADC,CTRL digitalStyle
+    class BUS busStyle

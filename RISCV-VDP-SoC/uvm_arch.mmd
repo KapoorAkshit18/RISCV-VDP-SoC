@@ -1,65 +1,77 @@
 graph TB
-    classDef test   fill:#2C3E50,stroke:#2C3E50,stroke-width:2px,color:#fff,font-weight:bold
-    classDef agent  fill:#2C3E50,stroke:#2C3E50,stroke-width:1.5px,color:#fff
-    classDef ral    fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#fff
-    classDef mon    fill:#4A5568,stroke:#4A5568,stroke-width:1.5px,color:#fff
-    classDef sb     fill:#E2E8F0,stroke:#94A3B8,stroke-width:1px,color:#2C3E50
-    classDef iface  fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,stroke-dasharray:4 3,color:#4A5568
-    classDef dut    fill:#4A5568,stroke:#4A5568,stroke-width:2px,color:#fff
-    classDef grp    fill:#F8FAFC,stroke:#94A3B8,stroke-width:1px,color:#4A5568
+    %% --- CLASS DEFINITIONS (Publication Palette) ---
+    classDef testStyle   fill:#0F172A,stroke:#020617,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef agentStyle  fill:#1E3A8A,stroke:#1E40AF,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef ralStyle    fill:#D97706,stroke:#B45309,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef monStyle    fill:#0284C7,stroke:#0369A1,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef scbStyle    fill:#059669,stroke:#047857,stroke-width:1.5px,color:#FFFFFF,font-weight:bold
+    classDef ifaceStyle  fill:#FEF3C7,stroke:#D97706,stroke-width:1.5px,color:#78350F,font-weight:bold
+    classDef dutStyle    fill:#334155,stroke:#1E293B,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    classDef groupStyle  fill:#F8FAFC,stroke:#CBD5E1,stroke-width:1.5px,color:#334155,font-weight:bold
 
-    TEST["soc_tpu_test"]
+    %% --- TOP UVM TEST ---
+    TEST["soc_tpu_test<br/>(UVM Test Instance)"]
 
-    subgraph ENV ["soc_env"]
+    %% --- UVM ENVIRONMENT CONTAINER ---
+    subgraph ENV ["UVM ENVIRONMENT — soc_env"]
         direction TB
 
-        subgraph RAL_SUB ["RAL Subsystem"]
+        %% ACTIVE NATIVE BUS AGENT
+        subgraph AGT ["ACTIVE NATIVE BUS AGENT"]
             direction LR
-            RBLK["soc_reg_block"]
-            RADP["soc_reg_adapter"]
-            RPRD["soc_reg_predictor"]
-            RBLK --- RADP --- RPRD
+            SEQ["soc_tpu_seq<br/>(Virtual Sequence)"] --> SQCR["soc_sequencer<br/>(uvm_sequencer)"] --> DRV["soc_driver<br/>(uvm_driver)"]
         end
 
-        subgraph AGT ["Native Bus Agent"]
+        %% RAL SUBSYSTEM
+        subgraph RAL_SUB ["RAL SUBSYSTEM (Register Model)"]
             direction LR
-            SEQ["soc_tpu_seq"]
-            SQCR["Sequencer"]
-            DRV["Driver"]
-            SEQ --> SQCR --> DRV
+            RBLK["soc_reg_block<br/>(Mirror &amp; Desired Regs)"]
+            RADP["soc_reg_adapter<br/>(Bus ↔ Reg Translator)"]
+            RPRD["soc_reg_predictor<br/>(Implicit Predictor)"]
+            RBLK -.->|"Reg Frontdoor Write"| RADP
         end
 
-        subgraph PASS ["Passive Monitors"]
+        %% PASSIVE MONITORS
+        subgraph PASS ["PASSIVE SNOOP MONITORS"]
             direction LR
-            TPUMON["tpu_monitor\nAXI-Stream Snoop"]
-            SENMON["sensor_monitor\nRNM Correlation"]
+            TPUMON["tpu_monitor<br/>(AXI-Stream Snoop)"]
+            SENMON["sensor_monitor<br/>(RNM Correlation)"]
         end
 
-        MON["Native Bus Monitor"]
-        TPUSCB["TPU Scoreboard\nC DPI Reference Model"]
-        COV["Functional Coverage"]
+        MON["soc_bus_monitor<br/>(Native Bus Monitor)"]
+
+        %% CHECKERS & COVERAGE
+        TPUSCB["TPU Scoreboard<br/>(C DPI-C Reference Model)"]
+        COV["Functional Coverage<br/>(Covergroups &amp; Crosses)"]
     end
 
-    VIF{{"soc_native_if  ·  tpu_debug_if"}}
-    DUT["cpu_soc_ram_top\nDUT"]
+    %% INTERFACE & DUT BOUNDARY
+    VIF{{"Virtual Interfaces:<br/>soc_native_if  ·  tpu_debug_if"}}
+    DUT["cpu_soc_ram_top<br/>(Design Under Test — RTL DUT)"]
 
-    TEST --> ENV
+    %% --- CONNECTIONS & DATAFLOW ---
+    TEST ==>|"Instantiates &amp; Configures"| ENV
 
-    RADP -.-> SQCR
-    MON  -.-> RPRD -.-> RBLK
-    MON  -.-> TPUSCB & COV & SENMON
+    %% RAL & Sequencer Interplay
+    RADP ==>|"uvm_sequence_item"| SQCR
+    MON ==>|"uvm_reg_bus_op"| RPRD
+    RPRD ==>|"Update Mirror State"| RBLK
+
+    %% Monitor to Checker Routing
+    MON -.-> TPUSCB & COV & SENMON
     TPUMON -.-> TPUSCB
 
-    DRV  ==>|"Pin Stimulus"| VIF
-    VIF  ==>|"Native Bus"| DUT
-    DUT  -.-> MON
-    DUT  -.-> TPUMON
+    %% Physical Interface Signal Flow
+    DRV ==>|"Pin Stimulus"| VIF
+    VIF ==>|"Native Bus Pins"| DUT
+    DUT -.->|"Monitored Tap"| MON & TPUMON
 
-    class TEST test
-    class RBLK,RADP,RPRD ral
-    class SEQ,SQCR,DRV agent
-    class MON,TPUMON,SENMON mon
-    class TPUSCB,COV sb
-    class VIF iface
-    class DUT dut
-    class ENV,RAL_SUB,AGT,PASS grp
+    %% --- CLASS ASSIGNMENTS ---
+    class TEST testStyle
+    class RBLK,RADP,RPRD ralStyle
+    class SEQ,SQCR,DRV agentStyle
+    class MON,TPUMON,SENMON monStyle
+    class TPUSCB,COV scbStyle
+    class VIF ifaceStyle
+    class DUT dutStyle
+    class ENV,RAL_SUB,AGT,PASS groupStyle

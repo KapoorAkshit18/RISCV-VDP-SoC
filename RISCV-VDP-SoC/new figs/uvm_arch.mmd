@@ -1,0 +1,48 @@
+---
+config:
+  theme: mc
+  flowchart:
+    curve: stepAfter
+---
+flowchart TB
+    %% Publication layout: flat rows avoid container-title clipping in exports
+    TEST["UVM Test"]
+
+    subgraph STIM["Stimulus and register access"]
+        direction LR
+        SEQ["Sequence"] --> SQCR["Sequencer"] --> DRV["Driver"]
+        RADP["Register adapter"] --> SQCR
+        RBLK["Register block"] -.-> RADP
+        RPRD["Register predictor"] --> RBLK
+    end
+
+    subgraph ANALYSIS["Monitoring and analysis"]
+        direction LR
+        MON["Bus monitor"] -.-> RPRD
+        MON -.-> SCB["TPU scoreboard"]
+        MON -.-> COV["Coverage"]
+        MON -.-> SEN["Sensor monitor"]
+        TPUMON["TPU monitor"] -.-> SCB
+    end
+
+    VIF{{"Virtual interfaces"}} ==> DUT["CPU–SoC–RAM DUT"]
+
+    TEST -.-> SEQ
+    DRV ==> VIF
+    DUT -.-> MON
+    DUT -.-> TPUMON
+
+    %% Constrains two compact, stable rows without a visible connector
+    STIM ~~~ ANALYSIS
+
+    class TEST,RPRD,RBLK,RADP arch
+    class SEQ,SQCR,DRV,MON,TPUMON,SEN sim
+    class SCB,COV validation
+    class VIF neutral
+    class DUT rtl
+
+    classDef arch fill:#E8EEF5,stroke:#355C7D,stroke-width:1.5px,color:#1F2937,font-weight:bold
+    classDef rtl fill:#E3EDF7,stroke:#2F6690,stroke-width:1.5px,color:#1F2937,font-weight:bold
+    classDef sim fill:#E6F1F5,stroke:#3F7C85,stroke-width:1.25px,color:#1F2937,font-weight:bold
+    classDef validation fill:#E9EDF1,stroke:#52616B,stroke-width:1.25px,color:#1F2937,font-weight:bold
+    classDef neutral fill:#F8F9FA,stroke:#6B7280,stroke-width:1.25px,color:#374151,font-weight:bold

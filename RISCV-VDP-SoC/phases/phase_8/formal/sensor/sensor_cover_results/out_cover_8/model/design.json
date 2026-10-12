@@ -1,0 +1,983 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/master/misc/jny.schema.json",
+  "generator": "Yosys 0.33 (git sha1 2584903a060)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "sensor_formal_cover_top",
+        "cell_sorts": [
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$sensor_cover_top.sv:100$61",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:100.38-100.82"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_cover_top.sv:100$63",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:100.38-100.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_cover_top.sv:100$64",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:100.38-100.127"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_cover_top.sv:77$60",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:77.13-77.38"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$sensor_cover_top.sv:77$59",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:77.24-77.37"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$sensor_cover_top.sv:69$44",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:69.31-69.43"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$lt$sensor_cover_top.sv:72$51",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:72.13-72.25"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\dut.$procdff$186",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$187",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$188",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$189",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$190",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$191",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$192",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$193",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$194",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$195",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$196",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procdff$197",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$180",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:69.5-69.70"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procdff$181",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:76.5-102.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$182",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:76.5-102.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$183",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:76.5-102.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$184",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:76.5-102.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$185",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:76.5-102.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\dut.$procmux$115",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:156.9-234.12|sensor_status_native.v:156.13-156.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$124",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:183.17-232.20|sensor_status_native.v:183.21-183.41"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$126",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:176.18-233.16|sensor_status_native.v:176.22-176.31"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$129",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:168.13-233.16|sensor_status_native.v:168.17-168.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$132",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:156.9-234.12|sensor_status_native.v:156.13-156.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$134",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:176.18-233.16|sensor_status_native.v:176.22-176.31"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$137",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:168.13-233.16|sensor_status_native.v:168.17-168.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$140",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:156.9-234.12|sensor_status_native.v:156.13-156.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$143",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:168.13-233.16|sensor_status_native.v:168.17-168.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$146",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:156.9-234.12|sensor_status_native.v:156.13-156.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$149",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$152",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$155",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$158",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$161",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$164",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$167",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$170",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:92.9-117.12|sensor_status_native.v:92.13-92.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$102",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:72.9-73.29"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$105",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:72.9-73.29"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$108",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:72.9-73.29"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$110",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:77.9-101.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$112",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:77.9-101.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$96",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:69.27-69.70"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$99",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:72.9-73.29"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$le",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\dut.$le$sensor_status_native.v:127$3",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:127.27-127.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$gt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [11, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\dut.$gt$sensor_status_native.v:130$4",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:130.10-130.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000001011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$sensor_cover_top.sv:100$65",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:100.64-100.81"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$123_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:185.21-220.28|sensor_status_native.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$sensor_cover_top.sv:72$52",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:72.34-72.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$cover",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$cover$sensor_cover_top.sv:100$68",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:100.31-100.128"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [12, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [5, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$sensor_cover_top.sv:100$62",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:100.87-100.113"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000101",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$120_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:185.21-220.28|sensor_status_native.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$121_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:185.21-220.28|sensor_status_native.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$flatten\\dut.$procmux$122_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:185.21-220.28|sensor_status_native.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assume",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assume$sensor_cover_top.sv:72$66",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:72.26-72.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$sensor_cover_top.sv:73$67",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:73.13-73.28"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [64, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$flatten\\dut.$procmux$119",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_cover_top.sv:52.32-66.6|sensor_status_native.v:185.21-220.28|sensor_status_native.v:0.0-0.0"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000100",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$sensor_cover_top.sv:69$45",
+                  "attributes": {
+                    "src": "sensor_cover_top.sv:69.57-69.69"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "sensor_cover_top.sv:2.1-104.10",
+            "top": "00000000000000000000000000000001",
+            "hdlname": "\\sensor_formal_cover_top"
+        }
+      }
+  ]
+}

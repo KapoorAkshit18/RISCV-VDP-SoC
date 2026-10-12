@@ -1,0 +1,16 @@
+[options]
+mode cover
+depth 6
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal sensor_status_native.v
+read_verilog -sv sensor_cover_top.sv
+chparam -set COVER_ID 6 sensor_formal_cover_top
+prep -top sensor_formal_cover_top -flatten
+
+[files]
+../../../phase_7/fault_models/sensor_status_native.v
+sensor_cover_top.sv

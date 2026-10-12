@@ -45,6 +45,8 @@ VSIM_OPTS = -c -sv_lib tpu_ref
 
 TEST    ?= soc_sensor_test
 FW      ?=
+MODE    ?= FIRMWARE
+VCD     ?=
 BATT    ?= 10
 TEMP_C  ?= 85.0
 SEED    ?= 1
@@ -52,9 +54,11 @@ NOISE   ?= 0
 COV_DB  ?= $(TEST).ucdb
 
 FW_ARG    = $(if $(FW),+FW_HEX=$(FW),)
+MODE_ARG  = $(if $(MODE),+UVM_MODE=$(MODE),)
+VCD_ARG   = $(if $(VCD),+VCD_FILE=$(VCD),)
 NOISE_ARG = $(if $(filter 1,$(NOISE)),+NOISE_ON,)
 
-TEST_ARGS = +UVM_TESTNAME=$(TEST) $(FW_ARG) +BATT=$(BATT) +TEMP_C=$(TEMP_C) \
+TEST_ARGS = +UVM_TESTNAME=$(TEST) $(FW_ARG) $(MODE_ARG) $(VCD_ARG) +BATT=$(BATT) +TEMP_C=$(TEMP_C) \
             $(NOISE_ARG) +UVM_VERBOSITY=UVM_MEDIUM
 
 # Temperature sweep list for sweep_temp / results (degC)
@@ -138,6 +142,7 @@ tpu: optimize
 		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_tpu_test \
 		$(if $(FW),+FW_HEX=$(FW),) \
+		$(MODE_ARG) $(VCD_ARG) \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"
 
@@ -151,6 +156,7 @@ sensor: optimize
 		$(OPT_TOP) \
 		+UVM_TESTNAME=soc_sensor_test \
 		$(if $(FW),+FW_HEX=$(FW),) \
+		$(MODE_ARG) $(VCD_ARG) \
 		+BATT=$(BATT) +TEMP_C=$(TEMP_C) $(NOISE_ARG) \
 		+UVM_VERBOSITY=UVM_MEDIUM \
 		-do "run -all; quit -f"

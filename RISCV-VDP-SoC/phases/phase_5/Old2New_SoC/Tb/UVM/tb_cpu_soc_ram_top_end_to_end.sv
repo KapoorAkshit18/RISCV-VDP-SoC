@@ -353,8 +353,14 @@ module tb_cpu_soc_ram_top;
     // WAVEFORM DUMP
     // =========================================================================
 
+    string vcd_filename;
+
     initial begin
-        $dumpfile("waveform_phase_5_uvm.vcd");
+        if (!$value$plusargs("VCD_FILE=%s", vcd_filename))
+            vcd_filename = "waveform_phase_5_uvm.vcd";
+
+        $display("[TB] Dumping waveforms to: %s", vcd_filename);
+        $dumpfile(vcd_filename);
         $dumpvars(0, tb_cpu_soc_ram_top);
     end
 

@@ -1,0 +1,9 @@
+property_id,description,target,depth,result,runtime_sec,trace_step,traces,notes
+SEN_C01,Battery low threshold - 1 (14%),sensor_status_native_slave,6,PASS,2,5,1,Covered at step 5
+SEN_C02,Battery low threshold (15%),sensor_status_native_slave,6,PASS,2,5,1,Covered at step 5
+SEN_C03,Battery low threshold + 1 (16%),sensor_status_native_slave,6,PASS,2,5,1,Covered at step 5
+SEN_C04,Temperature alarm - 0.1C (79.9C),sensor_status_native_slave,6,PASS,2,5,1,Covered at step 5
+SEN_C05,Temperature alarm threshold (80.0C),sensor_status_native_slave,6,PASS,2,5,1,Covered at step 5
+SEN_C06,Temperature alarm + 0.1C (80.1C),sensor_status_native_slave,6,PASS,2,5,1,Covered at step 5
+SEN_C07,Signed negative temperature (0xFFFF),sensor_status_native_slave,6,PASS,2,5,1,Covered at step 5
+SEN_C08,Unmapped address 0x010 read completion,sensor_status_native_slave,6,PASS,3,5,1,Covered at step 5

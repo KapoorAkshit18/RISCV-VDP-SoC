@@ -217,6 +217,28 @@ Formal mutation testing was run on the P05 properties against two mutants:
 
 This confirmed the formal properties have discriminating power against real defects.
 
+### 4.5 Formal Cover Reachability Analysis (`mode cover`)
+
+To prove that formal properties evaluate on non-vacuous environments and that all boundary and functional scenarios are realistically reachable, SymbiYosys `mode cover` sweeps with the Z3 SMT backend were executed across the design:
+
+#### 1. TPU Control Boundary Reachability (`tpu_p05_control_checker.sv`)
+- **Properties**: `cover(axis_start)` (P05_C01) and `cover(m_axis_tvalid)` (P05_C02)
+- **Depths 1–4**: `UNREACHABLE` (minimum 3 cycles required out of reset to initiate start and assert valid).
+- **Depths 6–10**: **PASS** (100% reachable; witness waveforms synthesized at step 3 and step 4, stored in `p05_cover_results/`).
+
+#### 2. Sensor Slave Boundary & Alarm Reachability (`sensor_formal_cover_top.sv`)
+All 8 cover points (**SEN_C01 – SEN_C08**) were evaluated at bounded depth 6 and **PASSED with 100% reachability** (witness traces synthesized at step 5):
+- **SEN_C01**: Battery low threshold − 1 ($14\%$) — **PASS** (Witness trace synthesized)
+- **SEN_C02**: Battery low exact threshold ($15\%$) — **PASS**
+- **SEN_C03**: Battery low threshold + 1 ($16\%$) — **PASS**
+- **SEN_C04**: Temperature alarm boundary ($79.9^\circ\text{C}$) — **PASS**
+- **SEN_C05**: Temperature alarm exact threshold ($80.0^\circ\text{C}$) — **PASS**
+- **SEN_C06**: Temperature alarm boundary ($80.1^\circ\text{C}$) — **PASS**
+- **SEN_C07**: Signed negative temperature representation ($0\text{xFFFF}$) — **PASS**
+- **SEN_C08**: Unmapped address $0\text{x010}$ read completion with `mem_ready` — **PASS**
+
+Results are cataloged in [`phases/phase_8/formal/sensor/sensor_formal_cover_results.csv`](phases/phase_8/formal/sensor/sensor_formal_cover_results.csv).
+
 ---
 
 ## 5. Problems Encountered and Solutions
@@ -293,6 +315,35 @@ assert property (@(posedge clk)
 **Root cause**: Over-reliance on script exit code and log fragments instead of reading the actual results file.
 
 **Lesson**: **Always read the actual output file** (CSV, log, VCD) before reporting results. Never infer results from partial output. This is especially critical for formal verification where exit codes alone are insufficient — a script can "succeed" (exit 0) while individual properties within it fail.
+
+### 5.7 Yosys `bind` Pruning and Sensor BMC Latency Calibration
+
+**Problem**: The sensor formal verification originally declared `bind sensor_status_native_slave sensor_bind_formal u_checker (...)`. However, Yosys's open-source frontend does not support `bind` statements. During elaboration, Yosys pruned `sensor_bind_formal` as an unused module (`$assert = 0`), causing BMC to pass vacuously in 0 seconds.
+
+**Root cause**: Unsupported SystemVerilog `bind` construct in Yosys. Furthermore, `sensor_bind_formal` originally assumed a 1-cycle response (`$past(mem_valid)`), whereas the RTL (`sensor_status_native_slave.v`) uses a 2-cycle registered pipeline (`pending_request <= mem_valid;` then `mem_ready <= pending_request;`).
+
+**Fix**:
+1. Explicitly instantiated `sensor_bind_formal u_checker` directly inside the top-level `sensor_interface_formal` module.
+2. Calibrated the formal properties to match the RTL's 2-cycle pipeline latency (`$past(..., 2)`).
+3. Added `rst_cnt` history guards and bus idle assumptions (`assume(!mem_valid)` when not idle) to prevent spurious uninitialized `$past` failures.
+4. Confirmed in `design.log` that 7 assertion cells (`$assert 7`) and 4 assumption cells (`$assume 4`) are synthesized into the elaborated model.
+5. Re-ran BMC with SymbiYosys + Z3 for `SEN_AS01`, `SEN_A01`, and `SEN_A04` (all PASS).
+
+### 5.8 Sensor Threshold Assertions (SEN_A02, SEN_A03) Tautological Checker Trap
+
+**Problem**: Assertions `SEN_A02` (battery low threshold) and `SEN_A03` (temperature alarm threshold) were originally evaluated as `assert(battery_low == (batt_pct_sync <= 8'd15))` where `battery_low` was passed directly from the formal testbench wrapper rather than sampled from the DUT. This compared a testbench-defined expression with itself, rendering the assertion ineffective for verifying actual DUT hardware.
+
+**Root cause**: `sensor_status_native_slave` only exposes the threshold alarm flags via bit 1 (battery low) and bit 2 (temperature alarm) of `mem_rdata` when reading status register `0x00C`.
+
+**Resolution & Proof**: The checker was updated to directly read the DUT's status register at local offset `0x00C` and assert:
+```systemverilog
+if ($past(pending_request) && $past(mem_valid, 2) && ($past(mem_wstrb, 2) == 4'b0) && ($past(mem_addr, 2) == 12'h00C)) begin
+    assert(mem_ready == 1'b1);
+    assert(mem_rdata[1] == $past(batt_pct_sync <= 8'd15, 2));
+    assert(mem_rdata[2] == $past($signed(temp_sync) > 16'sd800, 2));
+end
+```
+By accurately matching the 2-cycle registered pipeline latency (`$past(..., 2)`), BMC was re-run with SymbiYosys + Z3 SMT backend and **PASSED 100% across all 10 steps with 0 counterexamples**. Both properties are promoted to **PASS**.
 
 ---
 
@@ -462,6 +513,9 @@ soc_env
 |---|---|
 | Mutation testing M01–M10 (directed + UVM) | Done, 8/10 killed, 2 equivalent |
 | P05 formal properties (P05.1–P05.5) | All PASS depth 1–10 |
+| P05 formal reachability covers (`P05_C01`, `P05_C02`) | Proven reachable at depths 6, 8, 10 (witness traces at steps 3 & 4) |
+| Sensor formal properties (`SEN_AS01`, `SEN_A01`–`SEN_A04`) | All PASS at depth 10 with 2-cycle readback of register 0x00C |
+| Sensor formal reachability covers (`SEN_C01`–`SEN_C08`) | All 8 cover points proven reachable (100% PASS at depth 6) |
 | P05 formal mutation testing (M05, M06) | Both killed |
 | P01, P02, P04, P06 decomposition | PASS (as of last run before revert) |
 | Architecture diagrams (3 PDFs) | Generated |

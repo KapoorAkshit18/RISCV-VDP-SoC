@@ -1,0 +1,31 @@
+SBY  9:20:36 [sensor_cover_results/out_cover_2] Removing directory '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_cover_results/out_cover_2'.
+SBY  9:20:36 [sensor_cover_results/out_cover_2] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/../../../phase_7/fault_models/sensor_status_native.v' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_cover_results/out_cover_2/src/sensor_status_native.v'.
+SBY  9:20:36 [sensor_cover_results/out_cover_2] Copy '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_cover_top.sv' to '/mnt/c/RISCV-VDP-SoC/RISCV-VDP-SoC/phases/phase_8/formal/sensor/sensor_cover_results/out_cover_2/src/sensor_cover_top.sv'.
+SBY  9:20:36 [sensor_cover_results/out_cover_2] engine_0: smtbmc z3
+SBY  9:20:37 [sensor_cover_results/out_cover_2] base: starting process "cd sensor_cover_results/out_cover_2/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  9:20:37 [sensor_cover_results/out_cover_2] base: finished (returncode=0)
+SBY  9:20:37 [sensor_cover_results/out_cover_2] prep: starting process "cd sensor_cover_results/out_cover_2/model; yosys -ql design_prep.log design_prep.ys"
+SBY  9:20:37 [sensor_cover_results/out_cover_2] prep: finished (returncode=0)
+SBY  9:20:37 [sensor_cover_results/out_cover_2] smt2: starting process "cd sensor_cover_results/out_cover_2/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  9:20:37 [sensor_cover_results/out_cover_2] smt2: finished (returncode=0)
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: starting process "cd sensor_cover_results/out_cover_2; yosys-smtbmc -s z3 --presat -c --noprogress -t 6  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Solver: z3
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Reached cover statement at sensor_cover_top.sv:82.31-82.61 ($cover$sensor_cover_top.sv:82$58) in step 5.
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  9:20:37 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  9:20:38 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  9:20:38 [sensor_cover_results/out_cover_2] engine_0: ##   0:00:00  Status: passed
+SBY  9:20:38 [sensor_cover_results/out_cover_2] engine_0: finished (returncode=0)
+SBY  9:20:38 [sensor_cover_results/out_cover_2] engine_0: Status returned by engine: pass
+SBY  9:20:38 [sensor_cover_results/out_cover_2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  9:20:38 [sensor_cover_results/out_cover_2] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  9:20:38 [sensor_cover_results/out_cover_2] summary: engine_0 (smtbmc z3) returned pass
+SBY  9:20:38 [sensor_cover_results/out_cover_2] summary: trace: sensor_cover_results/out_cover_2/engine_0/trace0.vcd
+SBY  9:20:38 [sensor_cover_results/out_cover_2] DONE (PASS, rc=0)

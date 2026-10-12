@@ -1,0 +1,10 @@
+# running in sensor_cover_results/out_cover_1/src/
+read_verilog -formal sensor_status_native.v
+read_verilog -sv sensor_cover_top.sv
+chparam -set COVER_ID 1 sensor_formal_cover_top
+prep -top sensor_formal_cover_top -flatten
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

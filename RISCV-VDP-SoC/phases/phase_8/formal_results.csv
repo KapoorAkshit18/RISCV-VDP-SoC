@@ -1,12 +1,14 @@
 target,property_id,property_description,engine,depth,result,runtime_seconds,solver,counterexample,notes
 CPU/RAM,ABS_A01,Abstract CPU bus protocol and decoding,smtbmc,10,PASS,28,z3,None,Verified in previous session. Memory map decoding and bus stability proven.
-Sensor,SEN_AS01,Reset initialization,smtbmc,10,PASS,1,z3,None,Standard formal initialization.
-Sensor,SEN_A01,Read-only behavior and write ignoring,smtbmc,10,PASS,1,z3,None,Writes to RO registers return mem_ready=1 and rdata=0.
-Sensor,SEN_A02,Battery low logic threshold correctness,smtbmc,10,PASS,1,z3,None,Validates BATT_LOW_THRESH=15 triggers battery_low bit.
-Sensor,SEN_A03,Temperature alarm logic threshold,smtbmc,10,PASS,1,z3,None,Validates TEMP_ALARM_HIGH=800 signed triggers temp_alarm bit.
-Sensor,SEN_A04,Unmapped access read behavior,smtbmc,10,PASS,1,z3,None,Addresses outside valid offset map return 0 safely.
-Sensor,SEN_C01_C08,Boundary value coverages,smtbmc,10,PASS,1,z3,None,"Battery boundary, temp boundary, unmapped reachability all covered."
+Sensor,SEN_AS01,Reset initialization,smtbmc,10,PASS,3,z3,None,Standard formal initialization and reset assumption verified in connected top.
+Sensor,SEN_A01,Read-only behavior and write ignoring,smtbmc,10,PASS,3,z3,None,Verified in BMC with 2-cycle pipeline; writes to RO registers safely return mem_ready=1 and rdata=0.
+Sensor,SEN_A02,Battery low logic threshold correctness,smtbmc,10,PASS,3,z3,None,"Verified in BMC with 2-cycle bus pipeline; checks DUT status register 0x00C bit 1 against $past(batt_pct_sync <= 15, 2)."
+Sensor,SEN_A03,Temperature alarm logic threshold,smtbmc,10,PASS,3,z3,None,"Verified in BMC with 2-cycle bus pipeline; checks DUT status register 0x00C bit 2 against $past(temp_sync > 800, 2)."
+Sensor,SEN_A04,Unmapped access read behavior,smtbmc,10,PASS,3,z3,None,Verified in BMC with 2-cycle pipeline; addresses outside valid map return mem_ready=1 and rdata=0 safely.
+Sensor,SEN_C01_C08,Boundary value coverages (SEN_C01 to SEN_C08),smtbmc,6,PASS,2,z3,None,"All 8 sensor cover points (14%, 15%, 16%, 79.9C, 80.0C, 80.1C, neg temp, unmapped 0x010) proven 100% reachable with witnesses in mode cover at step 5."
 Interconnect,IC_AS01,Reset initialization,smtbmc,10,TIMEOUT,>120,z3,None,Z3 solver hangs indefinitely at 'Checking assumptions in step 0'. Severe state-space bottleneck likely due to unconstrained parallel slave interfaces or toolchain bug.
 Interconnect,IC_A01_A05,Target selection and isolation,smtbmc,10,TIMEOUT,>120,z3,None,Unable to prove due to Step 0 Z3 freeze.
 TPU,TPU_AS01,Reset initialization,smtbmc,10,TIMEOUT,>120,z3,None,Z3 solver hangs indefinitely at 'Solver: z3'. Similar bottleneck as Interconnect target.
 TPU,TPU_A01_A04,START/BUSY and AXI-Stream interface,smtbmc,10,TIMEOUT,>120,z3,None,Unable to prove due to Z3 freeze.
+TPU_Decomposition,P05.1_P05.5,TPU Control Boundary verification,smtbmc,10,PASS,2,z3,None,"Decomposed control wrapper (tpu_p05_control_wrapper) proven 100% PASS across depths 1-10; M05 and M06 mutants killed."
+TPU_Decomposition,P05_C01_C02,TPU Control reachability covers,smtbmc,10,PASS,5,z3,None,"axis_start and m_axis_tvalid proven reachable in mode cover at steps 3 and 4 (depths 6-10)."

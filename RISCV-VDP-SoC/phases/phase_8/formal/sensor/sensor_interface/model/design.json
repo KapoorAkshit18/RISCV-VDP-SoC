@@ -6,8 +6,1663 @@
   "features": ["attributes", "properties"],
   "modules": [
       {
+        "name": "sensor_bind_formal",
+        "cell_sorts": [
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$356",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$357",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$358",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$359",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$360",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$361",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$362",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$363",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$364",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$365",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$366",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$367",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$368",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$369",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$370",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$371",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$372",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$373",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$374",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$375",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$376",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$377",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$378",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$379",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$380",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$381",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$382",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$383",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$384",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$385",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001100"
+                  }
+                },
+                {
+                  "name": "$procdff$386",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$387",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$388",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$389",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$390",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$392",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$393",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$394",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$396",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$398",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$399",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$400",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:35.5-66.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$402",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:31.5-33.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$403",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:31.5-33.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$404",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:24.5-27.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procdff$405",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:15.5-15.40"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$sensor_interface_formal.sv:26$54",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:26.45-26.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assert",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assert$sensor_interface_formal.sv:38$142",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:38.46-39.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$sensor_interface_formal.sv:43$143",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:43.102-44.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$sensor_interface_formal.sv:44$144",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:44.43-45.43"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$sensor_interface_formal.sv:50$145",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.137-51.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$sensor_interface_formal.sv:51$146",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:51.43-53.73"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$sensor_interface_formal.sv:53$147",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:53.74-55.80"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$sensor_interface_formal.sv:61$148",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:61.90-62.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assert$sensor_interface_formal.sv:62$149",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:62.43-63.43"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$assume",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$assume$sensor_interface_formal.sv:18$138",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:18.26-18.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$sensor_interface_formal.sv:19$139",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:19.27-19.42"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$sensor_interface_formal.sv:20$140",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:20.29-20.48"
+                  },
+                  "parameters": {
+
+                  }
+                },
+                {
+                  "name": "$assume$sensor_interface_formal.sv:32$141",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:32.42-32.61"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [12, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$sensor_interface_formal.sv:50$118",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.100-50.129"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$sensor_interface_formal.sv:53$121",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:53.24-53.72"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$sensor_interface_formal.sv:55$122",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:55.24-55.79"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$sensor_interface_formal.sv:28$55",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:28.25-28.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$gt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [11, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$gt$sensor_interface_formal.sv:55$137",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:55.46-55.75"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000001",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000001",
+                    "B_WIDTH": "00000000000000000000000000001011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$204",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:38.17-38.39|sensor_interface_formal.sv:38.13-40.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$206",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$208",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:38.17-38.39|sensor_interface_formal.sv:38.13-40.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$210",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$212",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:43.17-43.95|sensor_interface_formal.sv:43.13-46.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$214",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$216",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:43.17-43.95|sensor_interface_formal.sv:43.13-46.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$218",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$224",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:43.17-43.95|sensor_interface_formal.sv:43.13-46.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$226",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$228",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.17-50.130|sensor_interface_formal.sv:50.13-56.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$230",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$232",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.17-50.130|sensor_interface_formal.sv:50.13-56.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$234",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$240",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.17-50.130|sensor_interface_formal.sv:50.13-56.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$242",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$248",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.17-50.130|sensor_interface_formal.sv:50.13-56.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$250",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$252",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-61.83|sensor_interface_formal.sv:59.13-64.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$254",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$256",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-61.83|sensor_interface_formal.sv:59.13-64.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$258",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$264",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-61.83|sensor_interface_formal.sv:59.13-64.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$266",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34|sensor_interface_formal.sv:36.9-65.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$268",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:32.13-32.41|sensor_interface_formal.sv:32.9-32.62"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$270",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:32.13-32.41|sensor_interface_formal.sv:32.9-32.62"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$272",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:26.18-26.32|sensor_interface_formal.sv:26.14-26.60"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$275",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:25.13-25.20|sensor_interface_formal.sv:25.9-26.60"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$277",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:20.21-20.28|sensor_interface_formal.sv:20.17-20.49"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$279",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:20.21-20.28|sensor_interface_formal.sv:20.17-20.49"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$281",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:19.21-19.26|sensor_interface_formal.sv:19.17-19.43"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$283",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:19.21-19.26|sensor_interface_formal.sv:19.17-19.43"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$285",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:18.21-18.25|sensor_interface_formal.sv:18.17-18.43"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$287",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:18.21-18.25|sensor_interface_formal.sv:18.17-18.43"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ne",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [12, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$sensor_interface_formal.sv:60$128",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:60.53-60.82"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$sensor_interface_formal.sv:61$130",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:61.18-61.47"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$sensor_interface_formal.sv:61$132",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:61.53-61.82"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_bool",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$sensor_interface_formal.sv:43$111",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:43.67-43.94"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$sensor_interface_formal.sv:60$126",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:60.18-60.47"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$le",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$le$sensor_interface_formal.sv:53$136",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:53.46-53.68"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:36$108",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:36.13-36.34"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:43$110",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:43.17-43.62"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:43$112",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:43.17-43.95"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:50$115",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.17-50.62"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:50$117",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.17-50.95"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:50$119",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.17-50.130"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:59$123",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-59.62"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:59$125",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-59.95"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:59$127",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-60.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:59$129",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-60.83"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:59$131",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-61.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$sensor_interface_formal.sv:59$133",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.17-61.83"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$sensor_interface_formal.sv:32$59",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:32.13-32.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$sensor_interface_formal.sv:45$114",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:45.24-45.42"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$sensor_interface_formal.sv:50$116",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:50.67-50.94"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$sensor_interface_formal.sv:59$124",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:59.67-59.94"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$sensor_interface_formal.sv:18$41",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:18.34-18.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$sensor_interface_formal.sv:20$50",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:20.37-20.47"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$sensor_interface_formal.sv:26$53",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:26.18-26.32"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "src": "sensor_interface_formal.sv:1.1-67.10"
+        }
+      },
+      {
         "name": "sensor_interface_formal",
         "cell_sorts": [
+          {
+            "type": "sensor_bind_formal",
+            "ports": [
+                {
+                  "name": "batt_pct_sync",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_addr",
+                  "direction": "io",
+                  "range": [12, 0]
+                },
+                {
+                  "name": "mem_rdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "mem_ready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_valid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "mem_wstrb",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "pending_request",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "resetn",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "temp_sync",
+                  "direction": "io",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "u_checker",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:142.24-153.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
           {
             "type": "sensor_status_native_slave",
             "ports": [
@@ -82,18 +1737,187 @@
                   "name": "dut",
                   "attributes": {
                     "module_not_derived": "00000000000000000000000000000001",
-                    "src": "sensor_interface_formal.sv:101.32-115.6"
+                    "src": "sensor_interface_formal.sv:87.32-101.6"
                   },
                   "parameters": {
 
                   }
                 }
             ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$179",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:113.13-113.20|sensor_interface_formal.sv:113.9-136.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$182",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:113.13-113.20|sensor_interface_formal.sv:113.9-136.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procmux$191",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:113.13-113.20|sensor_interface_formal.sv:113.9-136.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$194",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:113.13-113.20|sensor_interface_formal.sv:113.9-136.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$196",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:134.22-134.31|sensor_interface_formal.sv:134.18-135.41"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$199",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:132.17-132.32|sensor_interface_formal.sv:132.13-135.41"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$202",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "sensor_interface_formal.sv:113.13-113.20|sensor_interface_formal.sv:113.9-136.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$347",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:112.5-137.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$348",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:112.5-137.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$351",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:112.5-137.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$352",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:112.5-137.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$355",
+                  "attributes": {
+                    "src": "sensor_interface_formal.sv:112.5-137.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
           }
         ],
         "attributes": {
+            "keep": "00000000000000000000000000000001",
             "top": "00000000000000000000000000000001",
-            "src": "sensor_interface_formal.sv:86.1-116.10"
+            "src": "sensor_interface_formal.sv:69.1-155.10"
         }
       },
       {
@@ -120,7 +1944,7 @@
             ],
             "cells": [
                 {
-                  "name": "$procmux$174_CMP0",
+                  "name": "$procmux$295_CMP0",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
@@ -134,7 +1958,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$175_CMP0",
+                  "name": "$procmux$296_CMP0",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
@@ -148,7 +1972,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$176_CMP0",
+                  "name": "$procmux$297_CMP0",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
@@ -189,7 +2013,7 @@
             ],
             "cells": [
                 {
-                  "name": "$procmux$173",
+                  "name": "$procmux$294",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
@@ -197,148 +2021,6 @@
                   "parameters": {
                     "S_WIDTH": "00000000000000000000000000000100",
                     "WIDTH": "00000000000000000000000000010000"
-                  }
-                }
-            ]
-          },
-          {
-            "type": "$dff",
-            "ports": [
-                {
-                  "name": "CLK",
-                  "direction": "io",
-                  "range": [0, 0]
-                },
-                {
-                  "name": "D",
-                  "direction": "io",
-                  "range": [0, 0]
-                },
-                {
-                  "name": "Q",
-                  "direction": "",
-                  "range": [0, 0]
-                }
-            ],
-            "cells": [
-                {
-                  "name": "$procdff$226",
-                  "attributes": {
-                    "src": "sensor_status_native.v:155.5-235.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000000001"
-                  }
-                },
-                {
-                  "name": "$procdff$227",
-                  "attributes": {
-                    "src": "sensor_status_native.v:155.5-235.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000100000"
-                  }
-                },
-                {
-                  "name": "$procdff$228",
-                  "attributes": {
-                    "src": "sensor_status_native.v:155.5-235.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000000001"
-                  }
-                },
-                {
-                  "name": "$procdff$229",
-                  "attributes": {
-                    "src": "sensor_status_native.v:155.5-235.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000100000"
-                  }
-                },
-                {
-                  "name": "$procdff$230",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000001000"
-                  }
-                },
-                {
-                  "name": "$procdff$231",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000001000"
-                  }
-                },
-                {
-                  "name": "$procdff$232",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000010000"
-                  }
-                },
-                {
-                  "name": "$procdff$233",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000010000"
-                  }
-                },
-                {
-                  "name": "$procdff$234",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000010000"
-                  }
-                },
-                {
-                  "name": "$procdff$235",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000010000"
-                  }
-                },
-                {
-                  "name": "$procdff$236",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000000001"
-                  }
-                },
-                {
-                  "name": "$procdff$237",
-                  "attributes": {
-                    "src": "sensor_status_native.v:91.5-118.8"
-                  },
-                  "parameters": {
-                    "CLK_POLARITY": "1",
-                    "WIDTH": "00000000000000000000000000000001"
                   }
                 }
             ]
@@ -369,7 +2051,7 @@
             ],
             "cells": [
                 {
-                  "name": "$procmux$169",
+                  "name": "$procmux$290",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
@@ -379,17 +2061,17 @@
                   }
                 },
                 {
-                  "name": "$procmux$178",
+                  "name": "$procmux$299",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:183.21-183.41|sensor_status_native.v:183.17-232.20"
                   },
                   "parameters": {
-                    "WIDTH": "00000000000000000000000000100000"
+                    "WIDTH": "00000000000000000000000000010000"
                   }
                 },
                 {
-                  "name": "$procmux$180",
+                  "name": "$procmux$301",
                   "attributes": {
                     "src": "sensor_status_native.v:176.22-176.31|sensor_status_native.v:176.18-233.16"
                   },
@@ -398,7 +2080,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$183",
+                  "name": "$procmux$304",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:168.17-168.32|sensor_status_native.v:168.13-233.16"
@@ -408,7 +2090,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$186",
+                  "name": "$procmux$307",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
@@ -418,7 +2100,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$188",
+                  "name": "$procmux$309",
                   "attributes": {
                     "src": "sensor_status_native.v:176.22-176.31|sensor_status_native.v:176.18-233.16"
                   },
@@ -427,7 +2109,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$191",
+                  "name": "$procmux$312",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:168.17-168.32|sensor_status_native.v:168.13-233.16"
@@ -437,7 +2119,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$194",
+                  "name": "$procmux$315",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
@@ -447,7 +2129,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$197",
+                  "name": "$procmux$318",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:168.17-168.32|sensor_status_native.v:168.13-233.16"
@@ -457,7 +2139,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$200",
+                  "name": "$procmux$321",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:156.13-156.20|sensor_status_native.v:156.9-234.12"
@@ -467,7 +2149,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$203",
+                  "name": "$procmux$324",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
@@ -477,7 +2159,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$206",
+                  "name": "$procmux$327",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
@@ -487,7 +2169,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$209",
+                  "name": "$procmux$330",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
@@ -497,7 +2179,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$212",
+                  "name": "$procmux$333",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
@@ -507,7 +2189,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$215",
+                  "name": "$procmux$336",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
@@ -517,7 +2199,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$218",
+                  "name": "$procmux$339",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
@@ -527,7 +2209,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$221",
+                  "name": "$procmux$342",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
@@ -537,13 +2219,155 @@
                   }
                 },
                 {
-                  "name": "$procmux$224",
+                  "name": "$procmux$345",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:92.13-92.20|sensor_status_native.v:92.9-117.12"
                   },
                   "parameters": {
                     "WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$406",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$407",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$408",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$409",
+                  "attributes": {
+                    "src": "sensor_status_native.v:155.5-235.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$410",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$411",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$412",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$413",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$414",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$415",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$procdff$416",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$417",
+                  "attributes": {
+                    "src": "sensor_status_native.v:91.5-118.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
                   }
                 }
             ]
@@ -645,7 +2469,7 @@
                   }
                 },
                 {
-                  "name": "$procmux$177_CMP0",
+                  "name": "$procmux$298_CMP0",
                   "attributes": {
                     "full_case": "00000000000000000000000000000001",
                     "src": "sensor_status_native.v:0.0-0.0|sensor_status_native.v:185.21-220.28"
